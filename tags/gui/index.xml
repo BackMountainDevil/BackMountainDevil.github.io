@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GUI on 筱氚~物语</title>
+    <link>https://backmountaindevil.github.io/tags/gui/</link>
+    <description>Recent content in GUI on 筱氚~物语</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>筱氚</copyright>
+    <lastBuildDate>Tue, 24 Nov 2020 11:54:39 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/gui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>QtOnLinux</title>
+      <link>https://backmountaindevil.github.io/post/qtonlinux/</link>
+      <pubDate>Tue, 24 Nov 2020 11:54:39 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/qtonlinux/</guid>
+      <description>Intro 所使用的OS是基于Debian的Deepin 20 commiunity amd64，自带gcc/g++ 8.3.0。记录安装Qt失败后成功的过程。 Install requirements gcc和g++</description>
+    </item>
+    
+  </channel>
+</rss>

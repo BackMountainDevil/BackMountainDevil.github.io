@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MCU on 筱氚~物语</title>
+    <link>https://backmountaindevil.github.io/tags/mcu/</link>
+    <description>Recent content in MCU on 筱氚~物语</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>筱氚</copyright>
+    <lastBuildDate>Thu, 27 Aug 2020 16:33:31 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/mcu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TFT LCD ILI9341 Display_1</title>
+      <link>https://backmountaindevil.github.io/post/tft-lcd-ili9341-display-1/</link>
+      <pubDate>Thu, 27 Aug 2020 16:33:31 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/tft-lcd-ili9341-display-1/</guid>
+      <description>[TOC] 简介 由于项目需求，需要做个屏幕控制，支持按钮控制和触摸控制 一番选择思考之后选择了比较容易的Arduino Uno和2.4‘’ TFT LCD with Touch</description>
+    </item>
+    
+  </channel>
+</rss>

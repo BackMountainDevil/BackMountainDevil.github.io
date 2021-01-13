@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on 筱氚~物语</title>
+    <link>https://backmountaindevil.github.io/categories/python/</link>
+    <description>Recent content in python on 筱氚~物语</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>筱氚</copyright>
+    <lastBuildDate>Thu, 03 Dec 2020 15:57:37 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pyqt5</title>
+      <link>https://backmountaindevil.github.io/post/pyqt5/</link>
+      <pubDate>Thu, 03 Dec 2020 15:57:37 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/pyqt5/</guid>
+      <description>intro Python3（一下简称python）能用的跨平台GUI库无非tkinter、pyqt5。但是tkinter执行慢颜值不高呀 我的环境 deepin 20 amd64</description>
+    </item>
+    
+    <item>
+      <title>TextEditorPython</title>
+      <link>https://backmountaindevil.github.io/post/texteditorpython/</link>
+      <pubDate>Fri, 20 Nov 2020 19:31:05 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/texteditorpython/</guid>
+      <description>Intro 用python3写一个简单的文本编辑器吧，参考Create a Simple Python Text Editor!By PumpkinSmasher，原文太久远，不适合py3，下面对py3进</description>
+    </item>
+    
+  </channel>
+</rss>

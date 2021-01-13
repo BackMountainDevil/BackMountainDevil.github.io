@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on 筱氚~物语</title>
+    <link>https://backmountaindevil.github.io/tags/github/</link>
+    <description>Recent content in Github on 筱氚~物语</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>筱氚</copyright>
+    <lastBuildDate>Fri, 06 Nov 2020 11:49:57 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MakeGithubPageSafeViaHttps</title>
+      <link>https://backmountaindevil.github.io/post/makegithubpagesafeviahttps/</link>
+      <pubDate>Fri, 06 Nov 2020 11:49:57 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/makegithubpagesafeviahttps/</guid>
+      <description>Introduction Situation Github Page几乎和轻量级云服务器同时成为了我的博客网站备选，后来由于一系列原因最后还是选择了Github Page作为静态博客网站的部署之地</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VSCodium on 筱氚~物语</title>
+    <link>https://backmountaindevil.github.io/categories/vscodium/</link>
+    <description>Recent content in VSCodium on 筱氚~物语</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>筱氚</copyright>
+    <lastBuildDate>Mon, 16 Nov 2020 10:55:37 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/categories/vscodium/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VSCodiumExtension</title>
+      <link>https://backmountaindevil.github.io/post/vscodiumextension/</link>
+      <pubDate>Mon, 16 Nov 2020 10:55:37 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/vscodiumextension/</guid>
+      <description>Intro 尝试为VS Codium开发一个完全Free的c/c++插件，或者催促microsoft发布一个free版本的。 OS: Deepin 20 如果使用VS Code的</description>
+    </item>
+    
+    <item>
+      <title>VSCodiumConfigure</title>
+      <link>https://backmountaindevil.github.io/post/vscodiumconfigure/</link>
+      <pubDate>Sun, 15 Nov 2020 21:10:21 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/vscodiumconfigure/</guid>
+      <description>Intro VS Codium 是VS Code的开源版本，没有微软的图标和用户Track功能。但是谁想被Tracked呢？？下面记录Deepin 20系统下VS Codi</description>
+    </item>
+    
+  </channel>
+</rss>

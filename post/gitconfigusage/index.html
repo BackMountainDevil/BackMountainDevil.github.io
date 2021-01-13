@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>GitConfigUseage - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="Intro 记录Git的配置过程 Down 1 sudo apt install git configSSH basic 设置用户名和邮箱，这样就可以在本地记录变化了 1 2 3 4 $ git config --global user.email &amp;#34;you@example.com&amp;#34; $ git config --global user.name &amp;#34;Your Name&amp;#34; # 查看git用户配置，看" /><meta name="keywords" content="git" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.0 with theme even" />
+
+
+<link rel="canonical" href="https://backmountaindevil.github.io/post/gitconfigusage/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="GitConfigUseage" />
+<meta property="og:description" content="Intro 记录Git的配置过程 Down 1 sudo apt install git configSSH basic 设置用户名和邮箱，这样就可以在本地记录变化了 1 2 3 4 $ git config --global user.email &#34;you@example.com&#34; $ git config --global user.name &#34;Your Name&#34; # 查看git用户配置，看" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/gitconfigusage/" />
+<meta property="article:published_time" content="2020-11-16T18:58:02+08:00" />
+<meta property="article:modified_time" content="2020-11-16T18:58:02+08:00" />
+<meta itemprop="name" content="GitConfigUseage">
+<meta itemprop="description" content="Intro 记录Git的配置过程 Down 1 sudo apt install git configSSH basic 设置用户名和邮箱，这样就可以在本地记录变化了 1 2 3 4 $ git config --global user.email &#34;you@example.com&#34; $ git config --global user.name &#34;Your Name&#34; # 查看git用户配置，看">
+<meta itemprop="datePublished" content="2020-11-16T18:58:02+08:00" />
+<meta itemprop="dateModified" content="2020-11-16T18:58:02+08:00" />
+<meta itemprop="wordCount" content="516">
+
+
+
+<meta itemprop="keywords" content="git," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GitConfigUseage"/>
+<meta name="twitter:description" content="Intro 记录Git的配置过程 Down 1 sudo apt install git configSSH basic 设置用户名和邮箱，这样就可以在本地记录变化了 1 2 3 4 $ git config --global user.email &#34;you@example.com&#34; $ git config --global user.name &#34;Your Name&#34; # 查看git用户配置，看"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">GitConfigUseage</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-16 </span>
+        <div class="post-category">
+            <a href="/categories/vcs/"> VCS </a>
+            </div>
+          <span class="more-meta"> 约 516 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#down">Down</a></li>
+    <li><a href="#configssh">configSSH</a>
+      <ul>
+        <li><a href="#basic">basic</a></li>
+        <li><a href="#ssh">SSH</a>
+          <ul>
+            <li><a href="#test">Test</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="intro">Intro</h1>
+<p>记录Git的配置过程</p>
+<h1 id="down">Down</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install git
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="configssh">configSSH</h1>
+<h2 id="basic">basic</h2>
+<p>设置用户名和邮箱，这样就可以在本地记录变化了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git config --global user.email <span class="s2">&#34;you@example.com&#34;</span>
+$ git config --global user.name <span class="s2">&#34;Your Name&#34;</span>
+<span class="c1"># 查看git用户配置，看下有没有打错</span>
+$ git config --global  --list
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="ssh">SSH</h2>
+<p>现在Github、Gitee都支持SSH，GPG这里就不说了，反正把本地代码push到远程仓库需要靠SSH来确认身份。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> ~/.ssh
+<span class="c1"># 没有那个文件说明还没有配置过</span>
+$ ssh-keygen -t rsa -C <span class="s2">&#34;you@example.com&#34;</span>
+<span class="c1"># 三次回车</span>
+    <span class="c1"># 确认秘钥的保存路径（如果不需要改路径则直接回车）；如果已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；</span>
+    <span class="c1"># 创建密码（如果不需要密码则直接回车）； </span>
+    <span class="c1"># 确认密码；</span>
+$ cat ~/.ssh/id_rsa.pub 
+</code></pre></td></tr></table>
+</div>
+</div><p>然后将显示出的公钥（ssh-rsa开头的）复制后添加到Gituhub的SSH and GPG keys里面即可。</p>
+<h3 id="test">Test</h3>
+<p>测试下能否正常通过ssh协议握手，回车后会看到yes/no，输入yes继续回车即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ssh -T git@github.com
+// 国内码云则用下面的进行测试
+$ ssh -T gitee@gitee.com
+</code></pre></td></tr></table>
+</div>
+</div><p>成功的样子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">The authenticity of host gitee.com  can not  be established.
+Are you sure you want to <span class="k">continue</span> connecting <span class="o">(</span>yes/no<span class="o">)</span>? yes
+Warning: Permanently added gitee.com <span class="o">(</span>ECDSA<span class="o">)</span> to the list of known hosts.      
+Hi Kearney! You have successfully authenticated, but GITEE.COM does not provide shell access.
+<span class="c1"># 或者是这样子</span>
+Hi BackMountainDevil! You have successfully authenticated, but GitHub does not provide shell access.
+</code></pre></td></tr></table>
+</div>
+</div><p>失败的模样，还没有添加ssh公钥</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git@github.com: Permission denied <span class="o">(</span>publickey<span class="o">)</span>.
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="usage">Usage</h1>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://git-scm.com/">git</a></li>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/">清华大学开源软件镜像站</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-16
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/git/">git</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/pygame/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Pygame</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/deepingrub/">
+            <span class="next-text nav-default">DeepinGrub</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">筱氚</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

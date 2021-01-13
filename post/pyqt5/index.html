@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Pyqt5 - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="intro Python3（一下简称python）能用的跨平台GUI库无非tkinter、pyqt5。但是tkinter执行慢颜值不高呀 我的环境 deepin 20 amd64" /><meta name="keywords" content="Kearney, Blog, Hugo" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.0 with theme even" />
+
+
+<link rel="canonical" href="https://backmountaindevil.github.io/post/pyqt5/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Pyqt5" />
+<meta property="og:description" content="intro Python3（一下简称python）能用的跨平台GUI库无非tkinter、pyqt5。但是tkinter执行慢颜值不高呀 我的环境 deepin 20 amd64" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/pyqt5/" />
+<meta property="article:published_time" content="2020-12-03T15:57:37+08:00" />
+<meta property="article:modified_time" content="2020-12-03T15:57:37+08:00" />
+<meta itemprop="name" content="Pyqt5">
+<meta itemprop="description" content="intro Python3（一下简称python）能用的跨平台GUI库无非tkinter、pyqt5。但是tkinter执行慢颜值不高呀 我的环境 deepin 20 amd64">
+<meta itemprop="datePublished" content="2020-12-03T15:57:37+08:00" />
+<meta itemprop="dateModified" content="2020-12-03T15:57:37+08:00" />
+<meta itemprop="wordCount" content="690">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pyqt5"/>
+<meta name="twitter:description" content="intro Python3（一下简称python）能用的跨平台GUI库无非tkinter、pyqt5。但是tkinter执行慢颜值不高呀 我的环境 deepin 20 amd64"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Pyqt5</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-12-03 </span>
+        <div class="post-category">
+            <a href="/categories/python/"> python </a>
+            </div>
+          <span class="more-meta"> 约 690 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">intro</a>
+      <ul>
+        <li><a href="#我的环境">我的环境</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装">安装</a>
+      <ul>
+        <li><a href="#pyqt5">pyqt5</a></li>
+        <li><a href="#测试第一个窗体">测试第一个窗体</a></li>
+        <li><a href="#安装图形化编程连接工具-pyqt5-tools">安装图形化编程连接工具-pyqt5-tools</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="intro">intro</h1>
+<p>Python3（一下简称python）能用的跨平台GUI库无非tkinter、pyqt5。但是tkinter执行慢颜值不高呀</p>
+<h2 id="我的环境">我的环境</h2>
+<p>deepin 20 amd64<br>
+python 2.7.16<br>
+python 3.7.3</p>
+<h1 id="安装">安装</h1>
+<h2 id="pyqt5">pyqt5</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip3 install PyQt5
+.....
+FileNotFoundError: <span class="o">[</span>Errno 2<span class="o">]</span> No such file or directory: <span class="s1">&#39;/tmp/pip-install-to4q7kth/PyQt5/setup.py&#39;</span>
+    
+    ----------------------------------------
+Command <span class="s2">&#34;python setup.py egg_info&#34;</span> failed with error code <span class="m">1</span> in /tmp/pip-install-to4q7kth/PyQt5/
+</code></pre></td></tr></table>
+</div>
+</div><p>我去啥情况！！！查了一下pip3根本没有upgrade这个指令。。。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt install python3-setuptools
+$ sudo apt install python3-pyqt5
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="测试第一个窗体">测试第一个窗体</h2>
+<p>cv下面的代码，出现一个窗体说明没毛病哈哈哈哈</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+
+
+<span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 simple window - pythonspot.com&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">640</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="mi">480</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">ex</span> <span class="o">=</span> <span class="n">App</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="安装图形化编程连接工具-pyqt5-tools">安装图形化编程连接工具-pyqt5-tools</h2>
+<p>安装pyqt5之后可以在代码里直接使用qt库，但是没有傻瓜拖动布局啊，下面安装能把Qt Designer的ui文件转化为py文件的工具pyqt5-tools</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pip3 install pyqt5-tools
+Command <span class="s2">&#34;python setup.py egg_info&#34;</span> failed with error code <span class="m">1</span> in /tmp/pip-install-i0ut44da/pyqt5/
+
+$ sudo apt install pyqt5-dev-tools
+</code></pre></td></tr></table>
+</div>
+</div><p>测试一下就是终端敲一下<code>pyuic5</code>看有没有这个命令。你说用说明傻瓜编辑UI？当然是Qt Designer了啊，咋安装？？看<a href="https://www.bilibili.com/video/BV117411o7e1">Qt-2-安装教程 4分钟教会正确你下载Qt！！非脑残安装全部组件 怎么安装 Qt community？？</a>
+之后的编辑ui见面就是傻瓜式了，编辑好ui文件用pyuic5将ui文件转成一个python类的py文件，然后编辑一个入口文件（main.py）就可以调用这个ui类啦</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://pypi.org/project/PyQt5/">PyQt5 5.15.2</a></li>
+<li><a href="https://www.riverbankcomputing.com/static/Docs/PyQt5/building_with_configure.html#installing-prerequisites">Building PyQt5 with configure.py</a></li>
+<li><a href="https://blog.csdn.net/AzureMouse/article/details/90338961">PyQt5（designer）入门教程</a></li>
+<li><a href="https://pythonspot.com/pyqt5-window/">PyQt5 window</a></li>
+<li><a href="https://stackoverflow.com/questions/61515201/command-python-setup-py-egg-info-failed-with-error-code-1-in-tmp-pip-install/65122006#65122006">Command “python setup.py egg_info” failed with error code 1 in /tmp/pip-install-xtrlkujj/pyaudio/</a></li>
+<li><a href="https://build-system.fman.io/pyqt5-tutorial">Learn how you can create a Python GUI in 2020. </a></li>
+<li><a href="https://www.bilibili.com/video/BV117411o7e1">Qt-2-安装教程 4分钟教会正确你下载Qt！！非脑残安装全部组件 怎么安装 Qt community？？</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-12-03
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/hugogitee/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">HugoGitee</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/blood/">
+            <span class="next-text nav-default">Blood</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">筱氚</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
