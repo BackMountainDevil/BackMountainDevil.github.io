@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="筱氚" /><meta name="description" content="Intro VS Codium 是VS Code的开源版本，没有微软的图标和用户Track功能。但是谁想被Tracked呢？？下面记录Deepin 20系统下VS Codi" /><meta name="keywords" content="Kearney, Blog, Hugo" />
+<meta name="author" content="筱氚" /><meta name="description" content="Visual Studio Codium的常用语言配置" /><meta name="keywords" content="VS Code, VS Codium" />
 
 
 
@@ -40,23 +40,23 @@
 
 
 <meta property="og:title" content="VSCodiumConfigure" />
-<meta property="og:description" content="Intro VS Codium 是VS Code的开源版本，没有微软的图标和用户Track功能。但是谁想被Tracked呢？？下面记录Deepin 20系统下VS Codi" />
+<meta property="og:description" content="Visual Studio Codium的常用语言配置" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://backmountaindevil.github.io/post/vscodiumconfigure/" />
 <meta property="article:published_time" content="2020-11-15T21:10:21+08:00" />
 <meta property="article:modified_time" content="2020-11-15T21:10:21+08:00" />
 <meta itemprop="name" content="VSCodiumConfigure">
-<meta itemprop="description" content="Intro VS Codium 是VS Code的开源版本，没有微软的图标和用户Track功能。但是谁想被Tracked呢？？下面记录Deepin 20系统下VS Codi">
+<meta itemprop="description" content="Visual Studio Codium的常用语言配置">
 <meta itemprop="datePublished" content="2020-11-15T21:10:21+08:00" />
 <meta itemprop="dateModified" content="2020-11-15T21:10:21+08:00" />
-<meta itemprop="wordCount" content="1336">
+<meta itemprop="wordCount" content="1489">
 
 
 
-<meta itemprop="keywords" content="‘python’,c,c&#43;&#43;," />
+<meta itemprop="keywords" content="python,c,c&#43;&#43;," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VSCodiumConfigure"/>
-<meta name="twitter:description" content="Intro VS Codium 是VS Code的开源版本，没有微软的图标和用户Track功能。但是谁想被Tracked呢？？下面记录Deepin 20系统下VS Codi"/>
+<meta name="twitter:description" content="Visual Studio Codium的常用语言配置"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -126,7 +126,7 @@
         <div class="post-category">
             <a href="/categories/vscodium/"> VSCodium </a>
             </div>
-          <span class="more-meta"> 约 1336 字 </span>
+          <span class="more-meta"> 约 1489 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         
       </div>
@@ -140,8 +140,8 @@
     <li><a href="#intro">Intro</a></li>
     <li><a href="#python">python</a>
       <ul>
-        <li><a href="#py">py</a></li>
-        <li><a href="#py-extend">py-extend</a></li>
+        <li><a href="#基本操作">基本操作</a></li>
+        <li><a href="#自动运行">自动运行</a></li>
         <li><a href="#snippet">snippet</a></li>
       </ul>
     </li>
@@ -163,7 +163,7 @@
 <p>VS Codium 是VS Code的开源版本，没有微软的图标和用户Track功能。但是谁想被Tracked呢？？下面记录Deepin 20系统下VS Codium配置不同编程语言的的过程。由于采用的是VSCodium，插件市场会滤掉那些不是free的插件，配置起来会有点找不到资料。</p>
 <p>VS Code在终端中敲code即可启动，VS Codium则是敲codium</p>
 <h1 id="python">python</h1>
-<h2 id="py">py</h2>
+<h2 id="基本操作">基本操作</h2>
 <p>在Deepin中python默认是py2.7.16，还有自带的py3是py3.7.3.我这里以配置py3为例，刚开始还想配置py2和py3,run的时候二选一，然后想了想我又不用py2,除非是搞系统。但是很奇怪的是没有pip或者pip3.。
 如果不用插件我们其实可以记事本就可以编辑文件了，比如tmp.py，然后在终端中进入该目录下输入下面的命令就可以允许这个程序</p>
 <div class="highlight"><div class="chroma">
@@ -174,8 +174,7 @@
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">python</span> <span class="n">tmp</span><span class="o">.</span><span class="n">py</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="py-extend">py-extend</h2>
-<p>这里用Coidum配置插件的方式按下F5即可允许程序而不用在终端里面自己敲了。</p>
+</div><p>设置镜像源和安装格式化辅助包</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -191,8 +190,6 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 补上pip，pip命令调用python2的pip，pip3命令调用python3的</span>
@@ -205,14 +202,15 @@ pip config <span class="nb">set</span> install.trusted-host https://pypi.tuna.ts
 pip3 config <span class="nb">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip3 config <span class="nb">set</span> install.trusted-host https://pypi.tuna.tsinghua.edu.cn
 
-<span class="c1"># 安装yapf</span>
-pip3 install yapf
-<span class="c1"># 安装插件Python from ms-python</span>
-<span class="c1"># 提示pylint未安装，选择flake8安装即可</span>
+<span class="c1"># 安装yapf flake8</span>
+pip3 install yapf flake8
 
 </code></pre></td></tr></table>
 </div>
-</div><p>此时建立一个python工作区文件夹，新建一个py文件即可，这个工作区就可以愉快的玩耍py了，但是此时并未设置全局python环境。而且VS Codium并没有选择使用哪一个python解释器的选项，然后找到的解决办法是在lanch.json里面加入pythonPath设置(用<code>whereis python</code>查找位置)</p>
+</div><h2 id="自动运行">自动运行</h2>
+<p>这里用Coidum配置插件的方式按下F5即可允许程序而不用在终端里面自己敲了。
+需要安装插件Python from ms-python或者是CodeRunner，前者是F5运行，后者是右键菜单运行，我更喜欢前者一键运行些。</p>
+<p>此时建立一个python工作区文件夹，新建一个py文件即可，这个工作区就可以愉快的玩耍py了，但是此时并未设置全局python环境。而且VS Codium并没有选择使用哪一个python解释器的选项，然后找到的解决办法是在.vscode/lanch.json里面加入pythonPath设置(用<code>whereis python</code>查找位置)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -236,20 +234,26 @@ pip3 install yapf
     <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;0.2.0&#34;</span>,
     <span class="s2">&#34;configurations&#34;</span>: <span class="o">[</span>
         <span class="o">{</span>
-            
             <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;Python: 当前文件&#34;</span>,
             <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;python&#34;</span>,
             <span class="s2">&#34;request&#34;</span>: <span class="s2">&#34;launch&#34;</span>,
             <span class="s2">&#34;program&#34;</span>: <span class="s2">&#34;</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">&#34;</span>,
             <span class="s2">&#34;console&#34;</span>: <span class="s2">&#34;integratedTerminal&#34;</span>,
-            <span class="s2">&#34;stopOnEntry&#34;</span>: false,                   //设置一次F5即可允许py
-            <span class="s2">&#34;pythonPath&#34;</span>: <span class="s2">&#34;/usr/bin/python3.7&#34;</span>      //设置py解释器路径
+            <span class="s2">&#34;stopOnEntry&#34;</span>: false,
+            <span class="s2">&#34;pythonPath&#34;</span>: <span class="s2">&#34;/usr/bin/python3.7&#34;</span>,
+            <span class="s2">&#34;cwd&#34;</span>: <span class="s2">&#34;</span><span class="si">${</span><span class="nv">fileDirname</span><span class="si">}</span><span class="s2">&#34;</span>
         <span class="o">}</span>
     <span class="o">]</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>然后在setting.json配置yapf，设置好之后对选中的代码按下快捷键Alt+Shift+F即可自动格式化代码，我设置了却无效？？在快捷键里面查看了“格式”的相关快捷键，发现是Ctrl+K、Ctrl+F</p>
+</div><p>其中</p>
+<ul>
+<li>&ldquo;stopOnEntry&rdquo;: false	： 设置一次F5即可运行py，而不是两次</li>
+<li>&ldquo;pythonPath&rdquo;: &ldquo;/usr/bin/python3.7&rdquo;	： 设置py解释器路径</li>
+<li>&ldquo;cwd&rdquo;: &ldquo;${fileDirname}&rdquo;	： 设置在运行文件时进入对应的路径下，不然在使用相对路径的代码中就会出现路径问题，相同的问题也会出现在coderunner插件，需要设置<br>
+然后在.vscode/setting.json配置yapf，设置好之后对选中的代码按下快捷键Alt+Shift+F即可自动格式化代码，我设置了却无效？？在快捷键里面查看了“格式”的相关快捷键，发现是Ctrl+K、Ctrl+F</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -258,9 +262,13 @@ pip3 install yapf
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
+    <span class="s2">&#34;files.insertFinalNewline&#34;</span>: true,
+    <span class="s2">&#34;editor.formatOnSave&#34;</span>: true,
     <span class="s2">&#34;python.linting.pylintEnabled&#34;</span>: false,
     <span class="s2">&#34;python.linting.flake8Enabled&#34;</span>: true,
     <span class="s2">&#34;python.linting.enabled&#34;</span>: true,
@@ -270,7 +278,7 @@ pip3 install yapf
 </div>
 </div><p>flake8的注释#前要有两空格，#后有一个空格。</p>
 <h2 id="snippet">snippet</h2>
-<p>开头第一行是告诉OS这是一个python文件，第二行是表示文件编码为utf8
+<p>开头第一行是告诉OS这是一个python3文件，第二行是表示文件编码为utf8
 文件-首选项-用户片段，为python新建全局代码片段文件，将内容替换为</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -293,26 +301,28 @@ pip3 install yapf
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
-	<span class="s2">&#34;HEADER&#34;</span>:<span class="o">{</span>
+	<span class="s2">&#34;HEADER&#34;</span>: <span class="o">{</span>
 		<span class="s2">&#34;prefix&#34;</span>: <span class="s2">&#34;header&#34;</span>,
 		<span class="s2">&#34;body&#34;</span>: <span class="o">[</span>
-		<span class="s2">&#34;#!/usr/bin/env python&#34;</span>,
-		<span class="s2">&#34;# -*- encoding: utf-8 -*-&#34;</span>,
-		<span class="s2">&#34;&#39;&#39;&#39;&#34;</span>,
-		<span class="s2">&#34;@File    :   </span><span class="nv">$TM_FILENAME</span><span class="s2">&#34;</span>,
-		<span class="s2">&#34;@Time    :   </span><span class="nv">$CURRENT_YEAR</span><span class="s2">/</span><span class="nv">$CURRENT_MONTH</span><span class="s2">/</span><span class="nv">$CURRENT_DATE</span><span class="s2"> </span><span class="nv">$CURRENT_HOUR</span><span class="s2">:</span><span class="nv">$CURRENT_MINUTE</span><span class="s2">:</span><span class="nv">$CURRENT_SECOND</span><span class="s2">&#34;</span>,
-		<span class="s2">&#34;@Author  :   Kearney&#34;</span>,
-		<span class="s2">&#34;@Version :   0.0.0&#34;</span>,
-		<span class="s2">&#34;@Contact :   191615342@qq.com&#34;</span>,
-		<span class="s2">&#34;@License :   GPL 3.0&#34;</span>,
-		<span class="s2">&#34;@Desc    :   &#34;</span>,
-		<span class="s2">&#34;&#39;&#39;&#39;&#34;</span>,
-		<span class="s2">&#34;&#34;</span>
+		  <span class="s2">&#34;#!/usr/bin/env python3&#34;</span>,
+		  <span class="s2">&#34;# -*- encoding: utf-8 -*-&#34;</span>,
+		  <span class="s2">&#34;&#39;&#39;&#39;&#34;</span>,
+		  <span class="s2">&#34;@File    :  </span><span class="nv">$TM_FILENAME</span><span class="s2">&#34;</span>,
+		  <span class="s2">&#34;@Desc    :&#34;</span>,
+		  <span class="s2">&#34;@Author  :  Kearney&#34;</span>,
+		  <span class="s2">&#34;@Contact :  191615342@qq.com&#34;</span>,
+		  <span class="s2">&#34;@Version :  0.0.0&#34;</span>,
+          <span class="s2">&#34;@License :  GPL-3.0&#34;</span>,
+		  <span class="s2">&#34;@Time    :  </span><span class="nv">$CURRENT_YEAR</span><span class="s2">/</span><span class="nv">$CURRENT_MONTH</span><span class="s2">/</span><span class="nv">$CURRENT_DATE</span><span class="s2"> </span><span class="nv">$CURRENT_HOUR</span><span class="s2">:</span><span class="nv">$CURRENT_MINUTE</span><span class="s2">:</span><span class="nv">$CURRENT_SECOND</span><span class="s2">&#34;</span>,
+		  <span class="s2">&#34;&#39;&#39;&#39;&#34;</span>,
+		  <span class="s2">&#34;&#34;</span>,
+		  <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span>
 		<span class="o">]</span>,
-	<span class="o">}</span>
+	  <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -382,7 +392,7 @@ g++ -W  tmp.cpp -o tmp.out
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/python/">‘python’</a>
+          <a href="/tags/python/">python</a>
           <a href="/tags/c/">c</a>
           <a href="/tags/c&#43;&#43;/">c&#43;&#43;</a>
           </div>
