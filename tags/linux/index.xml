@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on 筱氚~物语</title>
-    <link>https://backmountaindevil.github.io/tags/linux/</link>
+    <link>http://anidea.gitee.io/tags/linux/</link>
     <description>Recent content in Linux on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Wed, 11 Nov 2020 16:48:33 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Nov 2020 16:48:33 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xiaoxin13ProWinUbuOS</title>
-      <link>https://backmountaindevil.github.io/post/xiaoxin13prowinubuos/</link>
+      <link>http://anidea.gitee.io/post/xiaoxin13prowinubuos/</link>
       <pubDate>Wed, 11 Nov 2020 16:48:33 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/xiaoxin13prowinubuos/</guid>
+      <guid>http://anidea.gitee.io/post/xiaoxin13prowinubuos/</guid>
       <description>Introduction 小新13pro锐龙版默认安装的是Windows10，作为资深搞机佬的弟弟，一直在谋划着装一个Linux系统在小新上面，常见的Linux有C</description>
     </item>
     
     <item>
       <title>GNULinux</title>
-      <link>https://backmountaindevil.github.io/post/gnulinux/</link>
+      <link>http://anidea.gitee.io/post/gnulinux/</link>
       <pubDate>Tue, 10 Nov 2020 22:00:08 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/gnulinux/</guid>
+      <guid>http://anidea.gitee.io/post/gnulinux/</guid>
       <description>Introduction 一直在谋划着装一个Linux系统在小新上面，常见的Linux有Centos、Ubuntu、Debian等，在GNU官网还看到了完全自由的l</description>
     </item>
     

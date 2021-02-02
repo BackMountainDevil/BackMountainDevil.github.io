@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>FSF on 筱氚~物语</title>
-    <link>https://backmountaindevil.github.io/tags/fsf/</link>
+    <link>http://anidea.gitee.io/tags/fsf/</link>
     <description>Recent content in FSF on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sun, 15 Nov 2020 12:57:03 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/fsf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Nov 2020 12:57:03 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/fsf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FsfOss</title>
-      <link>https://backmountaindevil.github.io/post/fsfoss/</link>
+      <link>http://anidea.gitee.io/post/fsfoss/</link>
       <pubDate>Sun, 15 Nov 2020 12:57:03 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/fsfoss/</guid>
+      <guid>http://anidea.gitee.io/post/fsfoss/</guid>
       <description>intro FSF Free software is software that gives you the user the freedom to share, study and modify it. We call this free software because the user is free. Free Software Foundation(自由软件基金会)立志于赋予用户分享、学习、修改软件的自由</description>
     </item>
     
     <item>
       <title>我是如何看待死亡的</title>
-      <link>https://backmountaindevil.github.io/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%AD%BB%E4%BA%A1%E7%9A%84/</link>
+      <link>http://anidea.gitee.io/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%AD%BB%E4%BA%A1%E7%9A%84/</link>
       <pubDate>Thu, 28 May 2020 12:57:03 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%AD%BB%E4%BA%A1%E7%9A%84/</guid>
+      <guid>http://anidea.gitee.io/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%AD%BB%E4%BA%A1%E7%9A%84/</guid>
       <description>人固有一死，或寿终正寝，或飞来横祸，或疾病缠身。目前的技术还无法让人类实现永生。死亡也是我们每个人都无法避免的坎。 大卫伊格曼在它的作品《生命</description>
     </item>
     

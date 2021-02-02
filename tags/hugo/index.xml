@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on 筱氚~物语</title>
-    <link>https://backmountaindevil.github.io/tags/hugo/</link>
+    <link>http://anidea.gitee.io/tags/hugo/</link>
     <description>Recent content in Hugo on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 10 Nov 2020 21:11:21 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Nov 2020 21:11:21 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HugoRSS</title>
-      <link>https://backmountaindevil.github.io/post/hugorss/</link>
+      <link>http://anidea.gitee.io/post/hugorss/</link>
       <pubDate>Tue, 10 Nov 2020 21:11:21 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/hugorss/</guid>
+      <guid>http://anidea.gitee.io/post/hugorss/</guid>
       <description>Introduction How to do References RSS是什么，RSS怎么玩，RSS原理是什么</description>
     </item>
     
     <item>
       <title>从Hexo到Hugo</title>
-      <link>https://backmountaindevil.github.io/post/%E4%BB%8Ehexo%E5%88%B0hugo/</link>
+      <link>http://anidea.gitee.io/post/%E4%BB%8Ehexo%E5%88%B0hugo/</link>
       <pubDate>Tue, 03 Nov 2020 22:01:31 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/%E4%BB%8Ehexo%E5%88%B0hugo/</guid>
+      <guid>http://anidea.gitee.io/post/%E4%BB%8Ehexo%E5%88%B0hugo/</guid>
       <description>博客网站 刚开始只是在知乎、CSDN上写帖子，后面试过微信公众号、Wordpress、云服务器等等。略懂一些写网页的知识，但是身为程序员深知重</description>
     </item>
     

@@ -2,126 +2,126 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 筱氚~物语</title>
-    <link>https://backmountaindevil.github.io/categories/</link>
+    <link>http://anidea.gitee.io/categories/</link>
     <description>Recent content in Categories on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sun, 24 Jan 2021 20:00:38 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Jan 2021 20:00:38 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Video notes</title>
-      <link>https://backmountaindevil.github.io/categories/video-notes/</link>
+      <link>http://anidea.gitee.io/categories/video-notes/</link>
       <pubDate>Sun, 24 Jan 2021 20:00:38 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/video-notes/</guid>
+      <guid>http://anidea.gitee.io/categories/video-notes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Reading Notes</title>
-      <link>https://backmountaindevil.github.io/categories/reading-notes/</link>
+      <link>http://anidea.gitee.io/categories/reading-notes/</link>
       <pubDate>Sun, 24 Jan 2021 18:53:28 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/reading-notes/</guid>
+      <guid>http://anidea.gitee.io/categories/reading-notes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Blog</title>
-      <link>https://backmountaindevil.github.io/categories/blog/</link>
+      <link>http://anidea.gitee.io/categories/blog/</link>
       <pubDate>Tue, 08 Dec 2020 10:17:02 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/blog/</guid>
+      <guid>http://anidea.gitee.io/categories/blog/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>https://backmountaindevil.github.io/categories/python/</link>
+      <link>http://anidea.gitee.io/categories/python/</link>
       <pubDate>Thu, 03 Dec 2020 15:57:37 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/python/</guid>
+      <guid>http://anidea.gitee.io/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Qt</title>
-      <link>https://backmountaindevil.github.io/categories/qt/</link>
+      <link>http://anidea.gitee.io/categories/qt/</link>
       <pubDate>Tue, 24 Nov 2020 11:54:39 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/qt/</guid>
+      <guid>http://anidea.gitee.io/categories/qt/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C</title>
-      <link>https://backmountaindevil.github.io/categories/c/</link>
+      <link>http://anidea.gitee.io/categories/c/</link>
       <pubDate>Sat, 21 Nov 2020 16:15:36 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/c/</guid>
+      <guid>http://anidea.gitee.io/categories/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>OS</title>
-      <link>https://backmountaindevil.github.io/categories/os/</link>
+      <link>http://anidea.gitee.io/categories/os/</link>
       <pubDate>Fri, 20 Nov 2020 08:31:57 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/os/</guid>
+      <guid>http://anidea.gitee.io/categories/os/</guid>
       <description></description>
     </item>
     
     <item>
       <title>VCS</title>
-      <link>https://backmountaindevil.github.io/categories/vcs/</link>
+      <link>http://anidea.gitee.io/categories/vcs/</link>
       <pubDate>Mon, 16 Nov 2020 18:58:02 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/vcs/</guid>
+      <guid>http://anidea.gitee.io/categories/vcs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>VSCodium</title>
-      <link>https://backmountaindevil.github.io/categories/vscodium/</link>
+      <link>http://anidea.gitee.io/categories/vscodium/</link>
       <pubDate>Mon, 16 Nov 2020 10:55:37 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/vscodium/</guid>
+      <guid>http://anidea.gitee.io/categories/vscodium/</guid>
       <description></description>
     </item>
     
     <item>
       <title>FOSS</title>
-      <link>https://backmountaindevil.github.io/categories/foss/</link>
+      <link>http://anidea.gitee.io/categories/foss/</link>
       <pubDate>Sun, 15 Nov 2020 12:57:03 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/foss/</guid>
+      <guid>http://anidea.gitee.io/categories/foss/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Writing</title>
-      <link>https://backmountaindevil.github.io/categories/writing/</link>
+      <link>http://anidea.gitee.io/categories/writing/</link>
       <pubDate>Sat, 07 Nov 2020 15:17:58 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/writing/</guid>
+      <guid>http://anidea.gitee.io/categories/writing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MIPS</title>
-      <link>https://backmountaindevil.github.io/categories/mips/</link>
+      <link>http://anidea.gitee.io/categories/mips/</link>
       <pubDate>Fri, 06 Nov 2020 14:21:37 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/mips/</guid>
+      <guid>http://anidea.gitee.io/categories/mips/</guid>
       <description></description>
     </item>
     
     <item>
       <title>筱说</title>
-      <link>https://backmountaindevil.github.io/categories/%E7%AD%B1%E8%AF%B4/</link>
+      <link>http://anidea.gitee.io/categories/%E7%AD%B1%E8%AF%B4/</link>
       <pubDate>Thu, 28 May 2020 12:57:03 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/categories/%E7%AD%B1%E8%AF%B4/</guid>
+      <guid>http://anidea.gitee.io/categories/%E7%AD%B1%E8%AF%B4/</guid>
       <description></description>
     </item>
     

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>icecat on 筱氚~物语</title>
-    <link>https://backmountaindevil.github.io/tags/icecat/</link>
+    <link>http://anidea.gitee.io/tags/icecat/</link>
     <description>Recent content in icecat on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sat, 14 Nov 2020 22:45:16 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/icecat/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Nov 2020 22:45:16 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/icecat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IceCat</title>
-      <link>https://backmountaindevil.github.io/post/icecat/</link>
+      <link>http://anidea.gitee.io/post/icecat/</link>
       <pubDate>Sat, 14 Nov 2020 22:45:16 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/icecat/</guid>
+      <guid>http://anidea.gitee.io/post/icecat/</guid>
       <description>Intro python 安装Ubuntu 20.04LTS之后，终端输入python没有进入py环境，然后用apt安装py3之后键入python还是失败，键入py</description>
     </item>
     

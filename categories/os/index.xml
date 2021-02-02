@@ -2,81 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OS on 筱氚~物语</title>
-    <link>https://backmountaindevil.github.io/categories/os/</link>
+    <link>http://anidea.gitee.io/categories/os/</link>
     <description>Recent content in OS on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Fri, 20 Nov 2020 08:31:57 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/categories/os/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Nov 2020 08:31:57 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/categories/os/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Osprocessthreads</title>
-      <link>https://backmountaindevil.github.io/post/osprocessthreads/</link>
+      <link>http://anidea.gitee.io/post/osprocessthreads/</link>
       <pubDate>Fri, 20 Nov 2020 08:31:57 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/osprocessthreads/</guid>
+      <guid>http://anidea.gitee.io/post/osprocessthreads/</guid>
       <description>进程的定义 进程控制块(Process Control Block, PCB) 三个基本状态 P37 阻塞、就绪、执行 单核CPU中n个并发进程，每个基本状态最多有几个进程。 PCB的组织方</description>
     </item>
     
     <item>
       <title>Osintro</title>
-      <link>https://backmountaindevil.github.io/post/osintro/</link>
+      <link>http://anidea.gitee.io/post/osintro/</link>
       <pubDate>Fri, 20 Nov 2020 08:27:40 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/osintro/</guid>
+      <guid>http://anidea.gitee.io/post/osintro/</guid>
       <description>四个基本特征 并发、共享、虚拟、异步 单批道处理系统 多批道处理系统 PIC2LCEDA 立创EDA_PCB照片生成器，作者：矛盾聚合体 使用文档请看PCB照片_附带生</description>
     </item>
     
     <item>
       <title>DeepinGrub</title>
-      <link>https://backmountaindevil.github.io/post/deepingrub/</link>
+      <link>http://anidea.gitee.io/post/deepingrub/</link>
       <pubDate>Mon, 16 Nov 2020 14:13:22 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/deepingrub/</guid>
+      <guid>http://anidea.gitee.io/post/deepingrub/</guid>
       <description>Intro 此前我打算从Win世界再次回到Linux，于是从win的磁盘管理压缩出了130G 给Ubuntu，尝试了Ubuntu的脑壳疼问题之后抛弃了U</description>
     </item>
     
     <item>
       <title>UninstallUbuntuOnWin</title>
-      <link>https://backmountaindevil.github.io/post/uninstallubuntuonwin/</link>
+      <link>http://anidea.gitee.io/post/uninstallubuntuonwin/</link>
       <pubDate>Sun, 15 Nov 2020 02:57:35 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/uninstallubuntuonwin/</guid>
+      <guid>http://anidea.gitee.io/post/uninstallubuntuonwin/</guid>
       <description>Intro 记录用在windows 10 OS下完全卸载Ubuntu OS的过程，win+ubuntu双系统。 How disk 打开磁盘管理，找到ubuntu所安装的磁盘，</description>
     </item>
     
     <item>
       <title>IceCat</title>
-      <link>https://backmountaindevil.github.io/post/icecat/</link>
+      <link>http://anidea.gitee.io/post/icecat/</link>
       <pubDate>Sat, 14 Nov 2020 22:45:16 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/icecat/</guid>
+      <guid>http://anidea.gitee.io/post/icecat/</guid>
       <description>Intro python 安装Ubuntu 20.04LTS之后，终端输入python没有进入py环境，然后用apt安装py3之后键入python还是失败，键入py</description>
     </item>
     
     <item>
       <title>Xiaoxin13ProWinUbuOS</title>
-      <link>https://backmountaindevil.github.io/post/xiaoxin13prowinubuos/</link>
+      <link>http://anidea.gitee.io/post/xiaoxin13prowinubuos/</link>
       <pubDate>Wed, 11 Nov 2020 16:48:33 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/xiaoxin13prowinubuos/</guid>
+      <guid>http://anidea.gitee.io/post/xiaoxin13prowinubuos/</guid>
       <description>Introduction 小新13pro锐龙版默认安装的是Windows10，作为资深搞机佬的弟弟，一直在谋划着装一个Linux系统在小新上面，常见的Linux有C</description>
     </item>
     
     <item>
       <title>UefiMake</title>
-      <link>https://backmountaindevil.github.io/post/uefimake/</link>
+      <link>http://anidea.gitee.io/post/uefimake/</link>
       <pubDate>Tue, 10 Nov 2020 22:59:36 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/uefimake/</guid>
+      <guid>http://anidea.gitee.io/post/uefimake/</guid>
       <description>Introduction 作为世界最大头秃大军中的一员，操作系统的安装是一项必备技能，自己亲自操刀的OS就有不少：win7、win10、Centos、Ubuntu、</description>
     </item>
     
     <item>
       <title>GNULinux</title>
-      <link>https://backmountaindevil.github.io/post/gnulinux/</link>
+      <link>http://anidea.gitee.io/post/gnulinux/</link>
       <pubDate>Tue, 10 Nov 2020 22:00:08 +0800</pubDate>
       
-      <guid>https://backmountaindevil.github.io/post/gnulinux/</guid>
+      <guid>http://anidea.gitee.io/post/gnulinux/</guid>
       <description>Introduction 一直在谋划着装一个Linux系统在小新上面，常见的Linux有Centos、Ubuntu、Debian等，在GNU官网还看到了完全自由的l</description>
     </item>
     
