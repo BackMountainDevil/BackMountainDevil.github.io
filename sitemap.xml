@@ -3,21 +3,49 @@
   
   <url>
     <loc>http://anidea.gitee.io/categories/</loc>
-    <lastmod>2021-02-02T23:41:12+08:00</lastmod>
+    <lastmod>2021-02-04T14:14:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://anidea.gitee.io/post/</loc>
-    <lastmod>2021-02-02T23:41:12+08:00</lastmod>
+    <lastmod>2021-02-04T14:14:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/tags/reading/</loc>
+    <lastmod>2021-02-04T14:14:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/categories/reading-notes/</loc>
+    <lastmod>2021-02-04T14:14:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://anidea.gitee.io/tags/</loc>
-    <lastmod>2021-02-02T23:41:12+08:00</lastmod>
+    <lastmod>2021-02-04T14:14:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/</loc>
+    <lastmod>2021-02-04T14:14:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/post/rn1/</loc>
+    <lastmod>2021-02-04T14:14:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -44,29 +72,8 @@
   </url>
   
   <url>
-    <loc>http://anidea.gitee.io/</loc>
-    <lastmod>2021-02-02T23:41:12+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://anidea.gitee.io/post/vn-youngsheldons1/</loc>
     <lastmod>2021-01-24T20:00:38+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://anidea.gitee.io/tags/reading/</loc>
-    <lastmod>2021-01-24T18:53:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://anidea.gitee.io/categories/reading-notes/</loc>
-    <lastmod>2021-01-24T18:53:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
