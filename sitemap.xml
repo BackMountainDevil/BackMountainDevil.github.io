@@ -51,6 +51,27 @@
   </url>
   
   <url>
+    <loc>http://anidea.gitee.io/categories/blog/</loc>
+    <lastmod>2021-02-04T10:33:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/tags/conclusion/</loc>
+    <lastmod>2021-02-04T10:33:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/post/cls-2020/</loc>
+    <lastmod>2021-02-04T10:33:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://anidea.gitee.io/tags/video/</loc>
     <lastmod>2021-02-02T23:41:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -81,13 +102,6 @@
   <url>
     <loc>http://anidea.gitee.io/post/rn0/</loc>
     <lastmod>2021-01-24T18:53:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://anidea.gitee.io/categories/blog/</loc>
-    <lastmod>2020-12-08T10:17:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
