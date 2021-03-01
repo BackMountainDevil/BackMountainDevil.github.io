@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.78.1 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="http://anidea.gitee.io/post/vscodiumconfigure/" />
@@ -35,26 +35,22 @@
 
 
 
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
+<link href="/sass/main.min.37e908e3163658fbe786d099f495198c36fb66130cb87b481c7ca580a8088b18.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="VSCodiumConfigure" />
 <meta property="og:description" content="Visual Studio Codium的常用语言配置" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/vscodiumconfigure/" />
-<meta property="article:published_time" content="2020-11-15T21:10:21+08:00" />
-<meta property="article:modified_time" content="2020-11-15T21:10:21+08:00" />
+<meta property="og:url" content="http://anidea.gitee.io/post/vscodiumconfigure/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-11-15T21:10:21&#43;08:00" />
+<meta property="article:modified_time" content="2020-11-15T21:10:21&#43;08:00" />
+
 <meta itemprop="name" content="VSCodiumConfigure">
-<meta itemprop="description" content="Visual Studio Codium的常用语言配置">
-<meta itemprop="datePublished" content="2020-11-15T21:10:21+08:00" />
-<meta itemprop="dateModified" content="2020-11-15T21:10:21+08:00" />
-<meta itemprop="wordCount" content="1489">
-
-
-
-<meta itemprop="keywords" content="python,c,c&#43;&#43;," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="Visual Studio Codium的常用语言配置"><meta itemprop="datePublished" content="2020-11-15T21:10:21&#43;08:00" />
+<meta itemprop="dateModified" content="2020-11-15T21:10:21&#43;08:00" />
+<meta itemprop="wordCount" content="2081">
+<meta itemprop="keywords" content="python,c,c&#43;&#43;," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VSCodiumConfigure"/>
 <meta name="twitter:description" content="Visual Studio Codium的常用语言配置"/>
 
@@ -126,8 +122,8 @@
         <div class="post-category">
             <a href="/categories/vscodium/"> VSCodium </a>
             </div>
-          <span class="more-meta"> 约 1489 字 </span>
-          <span class="more-meta"> 预计阅读 3 分钟 </span>
+          <span class="more-meta"> 约 2081 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
         
       </div>
     </header>
@@ -141,7 +137,12 @@
     <li><a href="#python">python</a>
       <ul>
         <li><a href="#基本操作">基本操作</a></li>
-        <li><a href="#自动运行">自动运行</a></li>
+        <li><a href="#自动运行">自动运行</a>
+          <ul>
+            <li><a href="#代码规范检查工具---linter">代码规范检查工具 - linter</a></li>
+            <li><a href="#代码自动规范化工具---formatter">代码自动规范化工具 - formatter</a></li>
+          </ul>
+        </li>
         <li><a href="#snippet">snippet</a></li>
       </ul>
     </li>
@@ -227,20 +228,18 @@ pip3 install yapf flake8
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
     <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;0.2.0&#34;</span>,
     <span class="s2">&#34;configurations&#34;</span>: <span class="o">[</span>
         <span class="o">{</span>
-            <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;Python: 当前文件&#34;</span>,
+            <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;Python: Current File&#34;</span>,
             <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;python&#34;</span>,
             <span class="s2">&#34;request&#34;</span>: <span class="s2">&#34;launch&#34;</span>,
             <span class="s2">&#34;program&#34;</span>: <span class="s2">&#34;</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">&#34;</span>,
             <span class="s2">&#34;console&#34;</span>: <span class="s2">&#34;integratedTerminal&#34;</span>,
             <span class="s2">&#34;stopOnEntry&#34;</span>: false,
-            <span class="s2">&#34;pythonPath&#34;</span>: <span class="s2">&#34;/usr/bin/python3.7&#34;</span>,
             <span class="s2">&#34;cwd&#34;</span>: <span class="s2">&#34;</span><span class="si">${</span><span class="nv">fileDirname</span><span class="si">}</span><span class="s2">&#34;</span>
         <span class="o">}</span>
     <span class="o">]</span>
@@ -250,10 +249,9 @@ pip3 install yapf flake8
 </div><p>其中</p>
 <ul>
 <li>&ldquo;stopOnEntry&rdquo;: false	： 设置一次F5即可运行py，而不是两次</li>
-<li>&ldquo;pythonPath&rdquo;: &ldquo;/usr/bin/python3.7&rdquo;	： 设置py解释器路径</li>
-<li>&ldquo;cwd&rdquo;: &ldquo;${fileDirname}&rdquo;	： 设置在运行文件时进入对应的路径下，不然在使用相对路径的代码中就会出现路径问题，相同的问题也会出现在coderunner插件，需要设置<br>
-然后在.vscode/setting.json配置yapf，设置好之后对选中的代码按下快捷键Alt+Shift+F即可自动格式化代码，我设置了却无效？？在快捷键里面查看了“格式”的相关快捷键，发现是Ctrl+K、Ctrl+F</li>
+<li>&ldquo;cwd&rdquo;: &ldquo;${fileDirname}&rdquo;	： 设置在运行文件时进入对应的路径下，不然在使用相对路径的代码中就会出现路径问题，相同的问题也会出现在coderunner插件。</li>
 </ul>
+<p>然后在.vscode/setting.json配置yapf，设置好之后对选中的代码按下快捷键Alt+Shift+F即可自动格式化代码，我设置了却无效？？在快捷键里面查看了“格式”的相关快捷键，发现是Ctrl+K、Ctrl+F</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -264,21 +262,46 @@ pip3 install yapf flake8
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
-    <span class="s2">&#34;files.insertFinalNewline&#34;</span>: true,
-    <span class="s2">&#34;editor.formatOnSave&#34;</span>: true,
+    <span class="s2">&#34;python.linting.enabled&#34;</span>: true,
     <span class="s2">&#34;python.linting.pylintEnabled&#34;</span>: false,
     <span class="s2">&#34;python.linting.flake8Enabled&#34;</span>: true,
-    <span class="s2">&#34;python.linting.enabled&#34;</span>: true,
-    <span class="s2">&#34;python.formatting.provider&#34;</span>: <span class="s2">&#34;yapf&#34;</span>
+    <span class="s2">&#34;python.formatting.provider&#34;</span>: <span class="s2">&#34;yapf&#34;</span>,
+    <span class="s2">&#34;files.insertFinalNewline&#34;</span>: true,
+    <span class="s2">&#34;editor.formatOnSave&#34;</span>: true,
+    <span class="s2">&#34;python.pythonPath&#34;</span>: <span class="s2">&#34;/home/kearney/.local/share/virtualenvs/spider-ABTVxjfC/bin/python&#34;</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>flake8的注释#前要有两空格，#后有一个空格。</p>
+</div><ul>
+<li>&ldquo;python.linting.enabled&rdquo;：        开启代码分析功能，不开启的话下面两行相当寂寞</li>
+<li>&ldquo;python.linting.pylintEnabled&rdquo;:   禁用默认的pylint分析</li>
+<li>&ldquo;python.linting.flake8Enabled&rdquo;:   开启flake8分析代码</li>
+<li>&ldquo;python.formatting.provider&rdquo;:     设置代码格式化工具为 - yapf</li>
+<li>&ldquo;files.insertFinalNewline&rdquo;:       在文件末尾插入一行空行</li>
+<li>&ldquo;editor.formatOnSave&rdquo;:            保存文件时进行自动格式化</li>
+<li>&ldquo;python.pythonPath&rdquo;:              设置py解释器路径。也不一定要设置，在VSC左下角可以直接选择使用哪一个python,但是我在Arch下的VSC少了这个功能。。就很难受要设置。网上说设置&quot;python.pipenvPath&quot;即可。。我设置了发现不靠普。。还是设置到具体的好一点</li>
+</ul>
+<h3 id="代码规范检查工具---linter">代码规范检查工具 - linter</h3>
+<p>PEP 8 是 Python 社区推广的代码风格规范，它规定了类似行长度、缩进、多行表达式、变量命名约定等内容。而像我这样的懒人也懒得看人家写了啥，只想着用轮子就行，我写好代码，轮子帮我检查一下那里不符合规范。。<br>
+比如注释#前要有两空格，#后有一个空格;逗号、冒号后面要整个空格;四个空格作为缩进等等</p>
+<ul>
+<li>pep8(pycodestyle)</li>
+<li>pylint</li>
+<li><a href="https://gitlab.com/pycqa/flake8">flake8</a></li>
+</ul>
+<h3 id="代码自动规范化工具---formatter">代码自动规范化工具 - formatter</h3>
+<p>这个就更让我省心了，帮我检查顺带帮我更正一下好吧，black超越了yapf！！！因为black比yapf更简洁 - Less is more.（没有太多的自定义选项），不过在广大网友的要求下终于给出了不要规范化字符串双引号的配置选项，默认不开启，需要手动设置</p>
+<ul>
+<li><a href="https://github.com/hhatto/autopep8">autopep8</a>： Star相比其它两个还是很少的。。</li>
+<li><a href="https://github.com/google/yapf">yapf</a>: google出品</li>
+<li><a href="https://github.com/psf/black">black</a>: 2021 Star领先</li>
+</ul>
 <h2 id="snippet">snippet</h2>
-<p>开头第一行是告诉OS这是一个python3文件，第二行是表示文件编码为utf8
+<p>开头第一行是表示文件编码为UTF-8<br>
 文件-首选项-用户片段，为python新建全局代码片段文件，将内容替换为</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -298,29 +321,21 @@ pip3 install yapf flake8
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
 	<span class="s2">&#34;HEADER&#34;</span>: <span class="o">{</span>
 		<span class="s2">&#34;prefix&#34;</span>: <span class="s2">&#34;header&#34;</span>,
 		<span class="s2">&#34;body&#34;</span>: <span class="o">[</span>
-		  <span class="s2">&#34;#!/usr/bin/env python3&#34;</span>,
-		  <span class="s2">&#34;# -*- encoding: utf-8 -*-&#34;</span>,
-		  <span class="s2">&#34;&#39;&#39;&#39;&#34;</span>,
-		  <span class="s2">&#34;@File    :  </span><span class="nv">$TM_FILENAME</span><span class="s2">&#34;</span>,
-		  <span class="s2">&#34;@Desc    :&#34;</span>,
-		  <span class="s2">&#34;@Author  :  Kearney&#34;</span>,
-		  <span class="s2">&#34;@Contact :  191615342@qq.com&#34;</span>,
-		  <span class="s2">&#34;@Version :  0.0.0&#34;</span>,
-          <span class="s2">&#34;@License :  GPL-3.0&#34;</span>,
-		  <span class="s2">&#34;@Time    :  </span><span class="nv">$CURRENT_YEAR</span><span class="s2">/</span><span class="nv">$CURRENT_MONTH</span><span class="s2">/</span><span class="nv">$CURRENT_DATE</span><span class="s2"> </span><span class="nv">$CURRENT_HOUR</span><span class="s2">:</span><span class="nv">$CURRENT_MINUTE</span><span class="s2">:</span><span class="nv">$CURRENT_SECOND</span><span class="s2">&#34;</span>,
-		  <span class="s2">&#34;&#39;&#39;&#39;&#34;</span>,
-		  <span class="s2">&#34;&#34;</span>,
-		  <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span>
+			<span class="s2">&#34;# -*- encoding: UTF-8 -*-&#34;</span>,
+			<span class="s2">&#34;&#39;&#39;&#39;&#34;</span>,
+			<span class="s2">&#34;@File    :  </span><span class="nv">$TM_FILENAME</span><span class="s2">&#34;</span>,
+			<span class="s2">&#34;@Time    :  </span><span class="nv">$CURRENT_YEAR</span><span class="s2">/</span><span class="nv">$CURRENT_MONTH</span><span class="s2">/</span><span class="nv">$CURRENT_DATE</span><span class="s2"> </span><span class="nv">$CURRENT_HOUR</span><span class="s2">:</span><span class="nv">$CURRENT_MINUTE</span><span class="s2">:</span><span class="nv">$CURRENT_SECOND</span><span class="s2">&#34;</span>,
+			<span class="s2">&#34;@Author  :  Kearney&#34;</span>,
+			<span class="s2">&#34;@Contact :  191615342@qq.com&#34;</span>,
+			<span class="s2">&#34;@Desc    :  &#34;</span>,
+			<span class="s2">&#34;&#39;&#39;&#39;&#34;</span>,
+			<span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span>
 		<span class="o">]</span>,
 	  <span class="o">}</span>
 <span class="o">}</span>
@@ -371,6 +386,7 @@ g++ -W  tmp.cpp -o tmp.out
 <li><a href="https://blog.csdn.net/weixin_43031092/article/details/108690238?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160548571119724838556584%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=160548571119724838556584&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_blog_default-1-108690238.pc_v2_rank_blog_default&amp;utm_term=pip&amp;spm=1018.2118.3001.4450">Windows 10下Python pip快速设置国内镜像源</a></li>
 <li><a href="https://www.cnblogs.com/xiaojwang/p/11331202.html">用VScode配置Python开发环境</a></li>
 <li><a href="https://blog.csdn.net/weixin_43031092/article/details/105482255?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160549311519725222419396%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=160549311519725222419396&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_blog_default-2-105482255.pc_v2_rank_blog_default&amp;utm_term=gcc&amp;spm=1018.2118.3001.4450">gcc预处理、编译、汇编、链接案例</a></li>
+<li><a href="https://www.cnblogs.com/bonelee/p/11045196.html">让 Python 代码更易维护的七种武器——代码风格（pylint、Flake8、Isort、Autopep8、Yapf、Black）测试覆盖率（Coverage）CI（JK）2018/09/29 </a></li>
 </ul>
 
     </div>
@@ -465,7 +481,7 @@ g++ -W  tmp.cpp -o tmp.out
 
 
 
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
 
 
 
