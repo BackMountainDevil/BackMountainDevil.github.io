@@ -3,14 +3,49 @@
   
   <url>
     <loc>http://anidea.gitee.io/categories/</loc>
-    <lastmod>2021-02-04T14:14:47+08:00</lastmod>
+    <lastmod>2021-03-01T21:13:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/tags/demo/</loc>
+    <lastmod>2021-03-01T21:13:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/categories/js/</loc>
+    <lastmod>2021-03-01T21:13:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/post/jsdemoppi/</loc>
+    <lastmod>2021-03-01T21:13:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://anidea.gitee.io/post/</loc>
-    <lastmod>2021-02-04T14:14:47+08:00</lastmod>
+    <lastmod>2021-03-01T21:13:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/tags/</loc>
+    <lastmod>2021-03-01T21:13:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/</loc>
+    <lastmod>2021-03-01T21:13:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,20 +59,6 @@
   
   <url>
     <loc>http://anidea.gitee.io/categories/reading-notes/</loc>
-    <lastmod>2021-02-04T14:14:47+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://anidea.gitee.io/tags/</loc>
-    <lastmod>2021-02-04T14:14:47+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://anidea.gitee.io/</loc>
     <lastmod>2021-02-04T14:14:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
