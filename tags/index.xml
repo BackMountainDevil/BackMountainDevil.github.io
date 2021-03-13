@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Mon, 01 Mar 2021 21:13:24 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Mar 2021 15:39:32 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>c</title>
+      <link>http://anidea.gitee.io/tags/c/</link>
+      <pubDate>Sat, 13 Mar 2021 15:39:32 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>math</title>
+      <link>http://anidea.gitee.io/tags/math/</link>
+      <pubDate>Sat, 13 Mar 2021 15:39:32 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/tags/math/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>demo</title>
       <link>http://anidea.gitee.io/tags/demo/</link>
@@ -86,15 +104,6 @@
       <pubDate>Mon, 16 Nov 2020 14:13:22 +0800</pubDate>
       
       <guid>http://anidea.gitee.io/tags/deepin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>c</title>
-      <link>http://anidea.gitee.io/tags/c/</link>
-      <pubDate>Sun, 15 Nov 2020 21:10:21 +0800</pubDate>
-      
-      <guid>http://anidea.gitee.io/tags/c/</guid>
       <description></description>
     </item>
     

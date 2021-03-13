@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Algorithmsrank - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="用编程循环解决等值演算问题-竞赛排名预测对半问题" /><meta name="keywords" content="等值演算, 排名预测" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
+
+
+<link rel="canonical" href="http://anidea.gitee.io/post/algorithmsrank/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.37e908e3163658fbe786d099f495198c36fb66130cb87b481c7ca580a8088b18.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Algorithmsrank" />
+<meta property="og:description" content="用编程循环解决等值演算问题-竞赛排名预测对半问题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://anidea.gitee.io/post/algorithmsrank/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-03-13T15:39:32&#43;08:00" />
+<meta property="article:modified_time" content="2021-03-13T15:39:32&#43;08:00" />
+
+<meta itemprop="name" content="Algorithmsrank">
+<meta itemprop="description" content="用编程循环解决等值演算问题-竞赛排名预测对半问题"><meta itemprop="datePublished" content="2021-03-13T15:39:32&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-13T15:39:32&#43;08:00" />
+<meta itemprop="wordCount" content="941">
+<meta itemprop="keywords" content="c,math," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Algorithmsrank"/>
+<meta name="twitter:description" content="用编程循环解决等值演算问题-竞赛排名预测对半问题"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Algorithmsrank</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-03-13 </span>
+        <div class="post-category">
+            <a href="/categories/algorithms/"> Algorithms </a>
+            </div>
+          <span class="more-meta"> 约 941 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#大一期末循环必考">大一期末循环必考</a>
+      <ul>
+        <li><a href="#题目">题目</a></li>
+        <li><a href="#解答">解答</a></li>
+      </ul>
+    </li>
+    <li><a href="#等值演算">等值演算</a>
+      <ul>
+        <li><a href="#等值演算解法">等值演算解法</a></li>
+        <li><a href="#编程解法">编程解法</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="大一期末循环必考">大一期末循环必考</h1>
+<p>反正当时我很蒙蔽</p>
+<h2 id="题目">题目</h2>
+<p>5名跳水高手参加10m高台跳水决赛，有好事者让5人依据实力预测比赛结果。
+A选手说：B第二，我第三。
+B选手说：我第二，E第四。
+C选手说：我第一，D第二。
+D选手说：C最后，我第三。
+E选手说：我第四，A第一。
+决赛成绩公布后，每位选手的预测都只说对了一半，即一对一错。请编程解出比赛的实际名次。</p>
+<h2 id="解答">解答</h2>
+<p>用continue跳过一些循环和错误解，相乘的时间会长一丢丢（计组原理）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#include &lt;stdio.h&gt;</span>
+
+int main<span class="o">()</span>
+<span class="o">{</span>
+	int a,b,c,d,e<span class="p">;</span>
+	<span class="k">for</span> <span class="o">(</span><span class="nv">a</span><span class="o">=</span>1<span class="p">;</span>a&lt;6<span class="p">;</span>a++<span class="o">){</span>
+		<span class="k">for</span> <span class="o">(</span><span class="nv">b</span><span class="o">=</span>1<span class="p">;</span>b&lt;6<span class="p">;</span>b++<span class="o">){</span>
+            <span class="k">if</span><span class="o">(</span><span class="nv">a</span><span class="o">==</span>b<span class="o">)</span> <span class="k">continue</span><span class="p">;</span>
+			<span class="k">for</span> <span class="o">(</span><span class="nv">c</span><span class="o">=</span>1<span class="p">;</span>c&lt;6<span class="p">;</span>c++<span class="o">){</span>
+                <span class="k">if</span><span class="o">(</span><span class="nv">a</span><span class="o">==</span>c<span class="o">||</span><span class="nv">b</span><span class="o">==</span>c<span class="o">)</span> <span class="k">continue</span><span class="p">;</span>
+				<span class="k">for</span> <span class="o">(</span><span class="nv">d</span><span class="o">=</span>1<span class="p">;</span>d&lt;6<span class="p">;</span>d++<span class="o">){</span>
+                    <span class="k">if</span><span class="o">(</span><span class="nv">a</span><span class="o">==</span>d<span class="o">||</span><span class="nv">b</span><span class="o">==</span>d<span class="o">||</span><span class="nv">c</span><span class="o">==</span>d<span class="o">)</span> <span class="k">continue</span><span class="p">;</span>
+                    <span class="nv">e</span><span class="o">=</span>15-a-b-c-d<span class="p">;</span>
+                    <span class="k">if</span><span class="o">((</span><span class="nv">b</span><span class="o">==</span>2<span class="o">&amp;&amp;</span>a!<span class="o">=</span>3<span class="o">||</span>b!<span class="o">=</span>2<span class="o">&amp;&amp;</span><span class="nv">a</span><span class="o">==</span>3<span class="o">)&amp;&amp;</span> 
+                    <span class="o">(</span><span class="nv">b</span><span class="o">==</span>2<span class="o">&amp;&amp;</span>e!<span class="o">=</span>4<span class="o">||</span>b!<span class="o">=</span>2<span class="o">&amp;&amp;</span><span class="nv">e</span><span class="o">==</span>4<span class="o">)&amp;&amp;</span> 
+                    <span class="o">(</span><span class="nv">c</span><span class="o">==</span>1<span class="o">&amp;&amp;</span>d!<span class="o">=</span>2<span class="o">||</span>c!<span class="o">=</span>1<span class="o">&amp;&amp;</span><span class="nv">d</span><span class="o">==</span>2<span class="o">)&amp;&amp;</span> 
+                    <span class="o">(</span><span class="nv">c</span><span class="o">==</span>5<span class="o">&amp;&amp;</span>d!<span class="o">=</span>3<span class="o">||</span>c!<span class="o">=</span>5<span class="o">&amp;&amp;</span><span class="nv">d</span><span class="o">==</span>3<span class="o">)&amp;&amp;</span> 
+                    <span class="o">(</span><span class="nv">e</span><span class="o">==</span>4<span class="o">&amp;&amp;</span>a!<span class="o">=</span>1<span class="o">||</span>e!<span class="o">=</span>4<span class="o">&amp;&amp;</span><span class="nv">a</span><span class="o">==</span>1<span class="o">)){</span>
+                        printf<span class="o">(</span><span class="s2">&#34;a=%d b=%d c=%d d=%d e=%d\n&#34;</span> ,a,b,c,d,e<span class="o">)</span><span class="p">;</span>
+                    <span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+    <span class="k">return</span> 0<span class="p">;</span>
+<span class="o">}</span> 
+
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="等值演算">等值演算</h1>
+<p>离散数学的坑，第五版耿同志的例题1.11 - p11<br>
+ABCD四人进行百米竞赛，观众甲乙丙对成绩进行预测：<br>
+甲说 C 第一名， B 第二名<br>
+乙说 C 第二名，D 第三名<br>
+丙说 A 第二名，D 第四名。<br>
+结果大家都说对了一半，那么正确的名次（无并列名次）是怎样？</p>
+<h2 id="等值演算解法">等值演算解法</h2>
+<p>尊重版权，看书qu吧（太长不想打字了。。。），结果是CADB</p>
+<h2 id="编程解法">编程解法</h2>
+<p>老师要求用编程解决等值演算问题的时候。emm观众蒙蔽了。。。然后老师说这多简单啊。。大一就说过类似的了，换个皮肤就不认识了吗。。。。。类似上面的跳水排名预测问题。。。。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#include &lt;stdio.h&gt;</span>
+
+int main<span class="o">()</span>
+<span class="o">{</span>
+	int a,b,c,d<span class="p">;</span>
+	<span class="k">for</span> <span class="o">(</span><span class="nv">a</span><span class="o">=</span>1<span class="p">;</span>a&lt;5<span class="p">;</span>a++<span class="o">){</span>
+		<span class="k">for</span> <span class="o">(</span><span class="nv">b</span><span class="o">=</span>1<span class="p">;</span>b&lt;5<span class="p">;</span>b++<span class="o">){</span>
+            <span class="k">if</span><span class="o">(</span><span class="nv">a</span><span class="o">==</span>b<span class="o">)</span> <span class="k">continue</span><span class="p">;</span>
+			<span class="k">for</span> <span class="o">(</span><span class="nv">c</span><span class="o">=</span>1<span class="p">;</span>c&lt;5<span class="p">;</span>c++<span class="o">){</span>
+                <span class="k">if</span><span class="o">(</span><span class="nv">a</span><span class="o">==</span>c<span class="o">||</span><span class="nv">b</span><span class="o">==</span>c<span class="o">)</span> <span class="k">continue</span><span class="p">;</span>
+                <span class="nv">d</span> <span class="o">=</span> 10-a-b-c<span class="p">;</span>
+                <span class="k">if</span><span class="o">((</span><span class="nv">c</span><span class="o">==</span>1<span class="o">&amp;&amp;</span>b!<span class="o">=</span><span class="m">2</span> <span class="o">||</span> c!<span class="o">=</span>1<span class="o">&amp;&amp;</span><span class="nv">b</span><span class="o">==</span>2<span class="o">)&amp;&amp;</span> 
+                <span class="o">(</span> <span class="nv">c</span><span class="o">==</span>2<span class="o">&amp;&amp;</span>d!<span class="o">=</span><span class="m">3</span> <span class="o">||</span> c!<span class="o">=</span>2<span class="o">&amp;&amp;</span><span class="nv">d</span><span class="o">==</span>3<span class="o">)&amp;&amp;</span> 
+                <span class="o">(</span> <span class="nv">a</span><span class="o">==</span>2<span class="o">&amp;&amp;</span>d!<span class="o">=</span><span class="m">4</span> <span class="o">||</span> a!<span class="o">=</span>2<span class="o">&amp;&amp;</span><span class="nv">d</span><span class="o">==</span>4<span class="o">)){</span>
+                    printf<span class="o">(</span><span class="s2">&#34;a=%d b=%d c=%d d=%d \n&#34;</span> ,a,b,c,d<span class="o">)</span><span class="p">;</span>
+                <span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+    <span class="k">return</span> 0<span class="p">;</span>
+<span class="o">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="参考">参考</h1>
+<p>前两个五重循环遍历全部结果 5^5,第三个四种循环！</p>
+<p><a href="https://blog.csdn.net/shangfeiyu199539/article/details/44202099">5名跳水高手参加跳水决赛排名 默宇宇 2015-03-11</a>: 0.422 s true隐式转换为1。不如直接<code> if((rankA&amp;&amp;rankB&amp;&amp;rankC&amp;&amp;rankD&amp;&amp;rankE )&amp;&amp;。。。</code></p>
+<blockquote>
+<p>rankA=(((B==2)&amp;&amp;(A!=3)) || ((B!=2)&amp;&amp;(A==3)));
+rankB=(((B==2)&amp;&amp;(E!=4)) || ((B!=2)&amp;&amp;(E==4)));
+rankC=(((C==1)&amp;&amp;(D!=2)) || ((C!=1)&amp;&amp;(D==2)));
+rankD=(((C==5)&amp;&amp;(D!=3)) || ((C!=5)&amp;&amp;(D==3)));
+rankE=(((E==4)&amp;&amp;(A!=1)) || ((E!=4)&amp;&amp;(A==1)));
+if((rankA+rankB+rankC+rankD+rankE==5)&amp;&amp;A!=B&amp;&amp;A!=C&amp;&amp;A!=D&amp;&amp;A!=E&amp;&amp;
+B!=C&amp;&amp;B!=D&amp;&amp;B!=E&amp;&amp;C!=D&amp;&amp;C!=E&amp;&amp;D!=E)</p>
+</blockquote>
+<p><a href="https://blog.csdn.net/aviciiiii/article/details/84781182">5位运动员参加了10米台跳水比赛，有人让他们预测比赛结果 A选手说：B第二，我第三； B选手说：我第二，E第四； C选手说：我第一，D第二； D选手说：C最后，我第三； E选手说：我第四，A aviciiiii 2018-12-03</a>:0.043s,判断妙啊</p>
+<blockquote>
+<p>if((b==2&amp;&amp;a!=3||b!=2&amp;&amp;a==3)&amp;&amp;
+(b==2&amp;&amp;e!=4||b!=2&amp;&amp;e==4)&amp;&amp;
+(c==1&amp;&amp;d!=2||c!=1&amp;&amp;d==2)&amp;&amp;
+(c==5&amp;&amp;d!=3||c!=5&amp;&amp;d==3)&amp;&amp;
+(e==4&amp;&amp;a!=1||e!=4&amp;&amp;a==1)&amp;&amp;
+(a<em>b</em>c<em>d</em>e==120))</p>
+</blockquote>
+<p><a href="https://blog.csdn.net/sunnyboy9/article/details/9007345">5名跳水高手参加10米高台跳水决赛，有人让5人根据实力预测比赛结果编程解出比赛结果的实际名次 Walden_tinghou 2013-06-02</a>:0.359s,编译提示少个<code>#include &lt;cstring&gt;</code>.逻辑还没看懂。。
+continue用来减少循环次数</p>
+<blockquote>
+<p>if(a==d||b==d||c==d) continue;
+e=15-a-b-c-d;
+as=(b==2)+(a==3);
+bs=(b==2)+(e==4);
+cs=(c==1)+(d==2);
+ds=(c==5)+(d==3);
+es=(e==4)+(a==1);
+if(as==1&amp;&amp;bs==1&amp;&amp;cs==1&amp;&amp;ds==1&amp;&amp;es==1)</p>
+</blockquote>
+<p><a href="https://juejin.cn/post/6844903540838645767">使用逻辑等值演算简化代码   umisky lv-1 2017年12月25日</a>：没看懂</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-03-13
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/c/">c</a>
+          <a href="/tags/math/">math</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/jsdemoppi/">
+            <span class="next-text nav-default">JsDemoPpi</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">筱氚</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
