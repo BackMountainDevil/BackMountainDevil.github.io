@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sat, 17 Apr 2021 08:29:53 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Apr 2021 15:18:22 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reading</title>
+      <link>http://anidea.gitee.io/tags/reading/</link>
+      <pubDate>Sun, 18 Apr 2021 15:18:22 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/tags/reading/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>demo</title>
       <link>http://anidea.gitee.io/tags/demo/</link>
@@ -18,20 +27,20 @@
     </item>
     
     <item>
+      <title>Linux</title>
+      <link>http://anidea.gitee.io/tags/linux/</link>
+      <pubDate>Thu, 15 Apr 2021 21:36:44 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>camera</title>
       <link>http://anidea.gitee.io/tags/camera/</link>
       <pubDate>Wed, 07 Apr 2021 19:56:39 +0800</pubDate>
       
       <guid>http://anidea.gitee.io/tags/camera/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Reading</title>
-      <link>http://anidea.gitee.io/tags/reading/</link>
-      <pubDate>Wed, 24 Mar 2021 19:49:08 +0800</pubDate>
-      
-      <guid>http://anidea.gitee.io/tags/reading/</guid>
       <description></description>
     </item>
     
@@ -167,15 +176,6 @@
       <pubDate>Sat, 14 Nov 2020 22:45:16 +0800</pubDate>
       
       <guid>http://anidea.gitee.io/tags/icecat/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>http://anidea.gitee.io/tags/linux/</link>
-      <pubDate>Wed, 11 Nov 2020 16:48:33 +0800</pubDate>
-      
-      <guid>http://anidea.gitee.io/tags/linux/</guid>
       <description></description>
     </item>
     

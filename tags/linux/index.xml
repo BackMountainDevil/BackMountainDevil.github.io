@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Wed, 11 Nov 2020 16:48:33 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Apr 2021 21:36:44 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 Linux 上使用人脸识别来认证</title>
+      <link>http://anidea.gitee.io/post/linuxhello/</link>
+      <pubDate>Thu, 15 Apr 2021 21:36:44 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/linuxhello/</guid>
+      <description>干啥 是这样子的，我的笔记本使用的键盘是蓝牙的，然后无论是 win 还是 arch,蓝牙功能都是在登陆进系统之后才开启，这样每次输入密码我就得把身子往前</description>
+    </item>
+    
     <item>
       <title>Xiaoxin13ProWinUbuOS</title>
       <link>http://anidea.gitee.io/post/xiaoxin13prowinubuos/</link>

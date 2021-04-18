@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sat, 17 Apr 2021 08:29:53 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Apr 2021 15:18:22 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>读记 -《最好的告别》</title>
+      <link>http://anidea.gitee.io/post/rn3/</link>
+      <pubDate>Sun, 18 Apr 2021 15:18:22 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/rn3/</guid>
+      <description>最好的告别 作者： [美] Atul Gawande 译者: 彭小华 这几天脑子有点乱，在图书馆随机选了一些书，第一本算法书、自卑与超越、自我关怀，最后看的下去的除了算法就</description>
+    </item>
+    
     <item>
       <title>JsDemoBmi</title>
       <link>http://anidea.gitee.io/post/jsdemobmi/</link>
@@ -15,6 +24,15 @@
       
       <guid>http://anidea.gitee.io/post/jsdemobmi/</guid>
       <description>BMI BMI 指数（Body Mass Index），是国际上常用的衡量人体胖瘦程度以及是否健康的一个标准。 源代码 基于MIT协议开放的源代码位于gitee仓库K</description>
+    </item>
+    
+    <item>
+      <title>在 Linux 上使用人脸识别来认证</title>
+      <link>http://anidea.gitee.io/post/linuxhello/</link>
+      <pubDate>Thu, 15 Apr 2021 21:36:44 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/linuxhello/</guid>
+      <description>干啥 是这样子的，我的笔记本使用的键盘是蓝牙的，然后无论是 win 还是 arch,蓝牙功能都是在登陆进系统之后才开启，这样每次输入密码我就得把身子往前</description>
     </item>
     
     <item>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>在 Linux 上使用人脸识别来认证 - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="在 Arch Linux 上使用人脸识别来解锁，如锁屏、sudo等" /><meta name="keywords" content="howdy, linux" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
+
+
+<link rel="canonical" href="http://anidea.gitee.io/post/linuxhello/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.37e908e3163658fbe786d099f495198c36fb66130cb87b481c7ca580a8088b18.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="在 Linux 上使用人脸识别来认证" />
+<meta property="og:description" content="在 Arch Linux 上使用人脸识别来解锁，如锁屏、sudo等" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://anidea.gitee.io/post/linuxhello/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-04-15T21:36:44&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-15T21:36:44&#43;08:00" />
+
+<meta itemprop="name" content="在 Linux 上使用人脸识别来认证">
+<meta itemprop="description" content="在 Arch Linux 上使用人脸识别来解锁，如锁屏、sudo等"><meta itemprop="datePublished" content="2021-04-15T21:36:44&#43;08:00" />
+<meta itemprop="dateModified" content="2021-04-15T21:36:44&#43;08:00" />
+<meta itemprop="wordCount" content="1255">
+<meta itemprop="keywords" content="linux," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="在 Linux 上使用人脸识别来认证"/>
+<meta name="twitter:description" content="在 Arch Linux 上使用人脸识别来解锁，如锁屏、sudo等"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">在 Linux 上使用人脸识别来认证</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-04-15 </span>
+        <div class="post-category">
+            <a href="/categories/os/"> os </a>
+            </div>
+          <span class="more-meta"> 约 1255 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#干啥">干啥</a>
+      <ul>
+        <li><a href="#相关信息">相关信息</a></li>
+      </ul>
+    </li>
+    <li><a href="#动手">动手</a>
+      <ul>
+        <li><a href="#安装">安装</a>
+          <ul>
+            <li><a href="#aur">AUR</a></li>
+            <li><a href="#howdy">howdy</a></li>
+          </ul>
+        </li>
+        <li><a href="#配置">配置</a>
+          <ul>
+            <li><a href="#配置-pam">配置 PAM</a></li>
+            <li><a href="#配置-howdy">配置 howdy</a></li>
+          </ul>
+        </li>
+        <li><a href="#测试">测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="干啥">干啥</h1>
+<p>是这样子的，我的笔记本使用的键盘是蓝牙的，然后无论是 win 还是 arch,蓝牙功能都是在登陆进系统之后才开启，这样每次输入密码我就得把身子往前靠、双手伸向笔记本输入密码。。。而 win 提供了一种优雅的方式登陆进入系统：Windows Hello - 人脸识别</p>
+<p>这么便捷的方式 Linux 大法没有的话，咋说的过去呢？于是在一番搜索之下发现了 <a href="https://github.com/boltgolt/howdy">howdy</a>，而且也支持我当前使用的 Arch Linux,废话不多说，开始捣鼓。</p>
+<h2 id="相关信息">相关信息</h2>
+<ul>
+<li>OS: Linux arch 5.11.6</li>
+<li>Laptop: Lenovo XiaoXin Pro 13 AMD 2020</li>
+</ul>
+<h1 id="动手">动手</h1>
+<h2 id="安装">安装</h2>
+<h3 id="aur">AUR</h3>
+<p>由于 howdy 的官方发行安装包只有 deb，懒人大法已经准备好在 AUR 中了，需要一个 AUR 下载助手，我这里用的是 yay,以下以 yay 为例，还没有安装 yay 的可以参考<a href="https://blog.csdn.net/weixin_43031092/article/details/113944349">Arch Linux yay -  Kearney 2021-03-17</a>进行安装</p>
+<h3 id="howdy">howdy</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yay -S howdy
+</code></pre></td></tr></table>
+</div>
+</div><p>21：53 -
+第一次下载了二十多分钟下载出错。。
+22：16 -
+23：04在下face_recognition_models-0.3.0.tar.gz剩下4.5h。。
+11:56 -
+shape_predictor_5_face_landmarks下载出错
+12：19 - 12：30
+安装完成</p>
+<h2 id="配置">配置</h2>
+<h3 id="配置-pam">配置 PAM</h3>
+<p>在<a href="https://wiki.archlinux.org/index.php/Howdy">Howdy - ArchWiki</a>中是这么说的：你想用 howdy 通过 pam 来认证啥就在哪一个配置文件里的首行加入这行配置。</p>
+<p><code>auth sufficient pam_python.so /lib/security/howdy/pam.py</code></p>
+<p>看了一下 <code>/etc/pam.d</code> 下有39个配置文件，想认证 <code>sudo</code> 就改 <code>/etc/pam.d/sudo</code>，想做人脸图像识别登陆(KDE, GNOME)就改 <code>/etc/pam.d/system-local-login</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo nano /etc/pam.d/sudo
+<span class="c1"># 在首行加入上面那行配置， Ctrl + S 保存， Ctrl + X 退出。</span>
+
+sudo nano /etc/pam.d/system-local-login
+<span class="c1"># 同上</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置-howdy">配置 howdy</h3>
+<p>主要是配置摄像头和录入人脸，我用 VLC 中的 媒体 - 打开捕获设备 - 高级选项（advance options）， 里面的视频捕获设备是 <code>/dev/video0</code>， 确定 - 播放 之后确实显示的摄像头的画面，因此确定了摄像头标识就是  <code>/dev/video0</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># kearney 是我的用户名，请注意修改</span>
+<span class="c1"># 补上摄像头标识</span>
+sudo howdy -U kearney config
+<span class="c1"># 找到并补全 device_path = /dev/video0</span>
+
+<span class="c1"># 添加人脸模型</span>
+sudo howdy -U kearney add
+
+<span class="c1"># 这里发生了一个错误。。。</span>
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&#34;/usr/bin/howdy&#34;</span>, line 95, in &lt;module&gt;
+    import cli.add
+  File <span class="s2">&#34;/usr/lib/security/howdy/cli/add.py&#34;</span>, line 11, in &lt;module&gt;
+    from recorders.video_capture import VideoCapture
+  File <span class="s2">&#34;/usr/lib/security/howdy/recorders/video_capture.py&#34;</span>, line 6, in &lt;module&gt;
+    import cv2
+ModuleNotFoundError: No module named <span class="s1">&#39;cv2&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这个错误是缺少opencv.。。但是用<code>pacman -Qi howdy</code>和<code>pacman -Qi opencv</code>发现两者已经安装上了。。到<a href="https://aur.archlinux.org/packages/howdy/">AUR - howdy</a>下的 Comments 发现缺少的不是一个依赖。。。</p>
+<p>补上依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">pacman -S python-opencv
+<span class="c1"># 继续添加我的面子</span>
+sudo howdy -U kearney add
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="测试">测试</h2>
+<p>重启一下先</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo howdy <span class="nb">test</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果出现 3 个 <code>WARN</code> 是正常的，是 GStreamer 的 warning 597、1034、2056,至于为什么可以看<a href="https://wiki.archlinux.org/index.php/Howdy">Howdy - ArchWiki</a>中的 Troubleshooting，暂时的解决办法看 wiki，添加一个环境变量 <code>OPENCV_LOG_LEVEL=ERROR</code></p>
+<h1 id="总结">总结</h1>
+<p>看了好几个不同的软件，大体上都是用的 PAM，只是实现方式上有所不同。目前我这里可以用人脸替代密码的情况只有sudo,人脸识别登陆系统还不能正常使用，目前猜测为 SDDM 本身的<a href="https://wiki.archlinux.org/index.php/Howdy#Howdy_does_not_seem_to_work">问题</a>。</p>
+<h1 id="参考">参考</h1>
+<p><a href="https://winaero.com/wsl-hello-sudo-brings-windows-hello-authentication-to-linux-sudo/#:~:text=Windows%20Hello%20makes%20a%20signature%20of%20the%20given,user%20who%20corresponds%20to%20the%20given%20Linux%20user.">WSL Hello sudo brings Windows Hello authentication to Linux on WSL</a>：可惜的是这个插件是用在 WSL 里的</p>
+<p><a href="https://github.com/boltgolt/howdy">boltgolt/howdy - Windows Hello™ style facial authentication for Linux </a>：已支持 Debian/Ubuntu, Arch Linux, Fedora and openSUSE</p>
+<p><a href="https://wiki.archlinux.org/index.php/Howdy">Howdy - ArchWiki</a></p>
+<p><a href="https://www.bilibili.com/read/cv7824113">Howdy - Linux 的人脸识别</a></p>
+<p><a href="https://www.linuxjournal.com/content/face-authentication-03-linux">face authentication for linux</a>：2009 年谷歌出品，网络卡我还没看到</p>
+<p><a href="https://github.com/rushabh-v/linux_face_unlock">rushabh-v/linux_face_unlock</a>: Ubuntu 人脸认证</p>
+<p><a href="https://github.com/saanuregh/hola">saanuregh/hola</a>：Windows Hello™ style facial authentication for Linux written in Rust</p>
+<p><a href="https://aur.archlinux.org/packages/howdy/">AUR - howdy</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-04-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/jsdemobmi/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">JsDemoBmi</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/nikonf60/">
+            <span class="next-text nav-default">尼康胶片机Nikon F60：胶卷无法上片和引片器</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">筱氚</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
