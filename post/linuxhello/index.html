@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>在 Linux 上使用人脸识别来认证 - 筱氚~物语</title>
+  <title>在 Linux 上使用人脸识别来登陆和认证 - 筱氚~物语</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,19 +39,19 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="在 Linux 上使用人脸识别来认证" />
+<meta property="og:title" content="在 Linux 上使用人脸识别来登陆和认证" />
 <meta property="og:description" content="在 Arch Linux 上使用人脸识别来解锁，如锁屏、sudo等" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://anidea.gitee.io/post/linuxhello/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-04-15T21:36:44&#43;08:00" />
 <meta property="article:modified_time" content="2021-04-15T21:36:44&#43;08:00" />
 
-<meta itemprop="name" content="在 Linux 上使用人脸识别来认证">
+<meta itemprop="name" content="在 Linux 上使用人脸识别来登陆和认证">
 <meta itemprop="description" content="在 Arch Linux 上使用人脸识别来解锁，如锁屏、sudo等"><meta itemprop="datePublished" content="2021-04-15T21:36:44&#43;08:00" />
 <meta itemprop="dateModified" content="2021-04-15T21:36:44&#43;08:00" />
-<meta itemprop="wordCount" content="1255">
+<meta itemprop="wordCount" content="1361">
 <meta itemprop="keywords" content="linux," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="在 Linux 上使用人脸识别来认证"/>
+<meta name="twitter:title" content="在 Linux 上使用人脸识别来登陆和认证"/>
 <meta name="twitter:description" content="在 Arch Linux 上使用人脸识别来解锁，如锁屏、sudo等"/>
 
 <!--[if lte IE 9]>
@@ -115,14 +115,14 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">在 Linux 上使用人脸识别来认证</h1>
+      <h1 class="post-title">在 Linux 上使用人脸识别来登陆和认证</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2021-04-15 </span>
         <div class="post-category">
             <a href="/categories/os/"> os </a>
             </div>
-          <span class="more-meta"> 约 1255 字 </span>
+          <span class="more-meta"> 约 1361 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         
       </div>
@@ -203,12 +203,16 @@ shape_predictor_5_face_landmarks下载出错
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">sudo nano /etc/pam.d/sudo
 <span class="c1"># 在首行加入上面那行配置， Ctrl + S 保存， Ctrl + X 退出。</span>
 
 sudo nano /etc/pam.d/system-local-login
+<span class="c1"># 同上</span>
+sudo nano /etc/pam.d/sddm
 <span class="c1"># 同上</span>
 </code></pre></td></tr></table>
 </div>
@@ -278,9 +282,10 @@ sudo howdy -U kearney add
 <pre class="chroma"><code class="language-bash" data-lang="bash">sudo howdy <span class="nb">test</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>如果出现 3 个 <code>WARN</code> 是正常的，是 GStreamer 的 warning 597、1034、2056,至于为什么可以看<a href="https://wiki.archlinux.org/index.php/Howdy">Howdy - ArchWiki</a>中的 Troubleshooting，暂时的解决办法看 wiki，添加一个环境变量 <code>OPENCV_LOG_LEVEL=ERROR</code></p>
+</div><p>如果出现 3 个 <code>WARN</code> 是正常的，是 GStreamer 的 warning 597、1034、2056,至于为什么可以看<a href="https://wiki.archlinux.org/index.php/Howdy">Howdy - ArchWiki</a>中的 Troubleshooting，暂时的解决办法看 wiki，添加一个环境变量 <code>OPENCV_LOG_LEVEL=ERROR</code> （会的盆友教一下我）。</p>
+<p>根据 <a href="https://linuxreviews.org/Howdy#ssdm_.28The_KDE_login_manager.29">Howdy - LinuxReviews</a> 中的描述，KDE 在登陆时并不会自动调用人脸识别登陆，需要点击一下登陆按钮才会启动 howdy（不需要输入密码哈）</p>
 <h1 id="总结">总结</h1>
-<p>看了好几个不同的软件，大体上都是用的 PAM，只是实现方式上有所不同。目前我这里可以用人脸替代密码的情况只有sudo,人脸识别登陆系统还不能正常使用，目前猜测为 SDDM 本身的<a href="https://wiki.archlinux.org/index.php/Howdy#Howdy_does_not_seem_to_work">问题</a>。</p>
+<p>看了好几个不同的软件，大体上都是用的 PAM，只是实现方式上有所不同。目前我这里可以用人脸替代密码的情况有sudo、人脸识别登陆，其ta用途暂未想到。</p>
 <h1 id="参考">参考</h1>
 <p><a href="https://winaero.com/wsl-hello-sudo-brings-windows-hello-authentication-to-linux-sudo/#:~:text=Windows%20Hello%20makes%20a%20signature%20of%20the%20given,user%20who%20corresponds%20to%20the%20given%20Linux%20user.">WSL Hello sudo brings Windows Hello authentication to Linux on WSL</a>：可惜的是这个插件是用在 WSL 里的</p>
 <p><a href="https://github.com/boltgolt/howdy">boltgolt/howdy - Windows Hello™ style facial authentication for Linux </a>：已支持 Debian/Ubuntu, Arch Linux, Fedora and openSUSE</p>
@@ -290,6 +295,10 @@ sudo howdy -U kearney add
 <p><a href="https://github.com/rushabh-v/linux_face_unlock">rushabh-v/linux_face_unlock</a>: Ubuntu 人脸认证</p>
 <p><a href="https://github.com/saanuregh/hola">saanuregh/hola</a>：Windows Hello™ style facial authentication for Linux written in Rust</p>
 <p><a href="https://aur.archlinux.org/packages/howdy/">AUR - howdy</a></p>
+<p><a href="https://linuxreviews.org/Howdy#ssdm_.28The_KDE_login_manager.29">Howdy - LinuxReviews</a>:sudo nano /etc/pam.d/sddm</p>
+<blockquote>
+<p>Note that ssdm will not not activate the web camera and try to identify the user in front of it before a user account is selected and the &gt; button to login is pressed.</p>
+</blockquote>
 
     </div>
 
