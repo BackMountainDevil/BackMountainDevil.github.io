@@ -49,7 +49,7 @@
 <meta itemprop="name" content="树莓派入门第一步 - 装系统并配置镜像、SSH">
 <meta itemprop="description" content="树莓派入门第一步 - 装系统并配置镜像、SSH，第二版"><meta itemprop="datePublished" content="2021-04-27T11:21:15&#43;08:00" />
 <meta itemprop="dateModified" content="2021-04-27T11:21:15&#43;08:00" />
-<meta itemprop="wordCount" content="1187">
+<meta itemprop="wordCount" content="1267">
 <meta itemprop="keywords" content="linux,raspberry," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="树莓派入门第一步 - 装系统并配置镜像、SSH"/>
 <meta name="twitter:description" content="树莓派入门第一步 - 装系统并配置镜像、SSH，第二版"/>
@@ -122,7 +122,7 @@
         <div class="post-category">
             <a href="/categories/os/"> OS </a>
             </div>
-          <span class="more-meta"> 约 1187 字 </span>
+          <span class="more-meta"> 约 1267 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         
       </div>
@@ -200,6 +200,7 @@
 <h2 id="root">root</h2>
 <p>下面这个命令的作用是重置 root 密码，默认 root 账户无密码被禁用，需要重置它并启用</p>
 <p><code>sudo passwd root</code></p>
+<p>没有初始化 root 密码是无法通过偶 root 鉴定的，即使输入空密码也会鉴定失败。因此需要重置其密码，重置之后会自动解禁 root 账户。</p>
 <table>
 <thead>
 <tr>
@@ -261,7 +262,7 @@ deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-f
 
 sudo nano /etc/apt/sources.list.d/raspi.list
 <span class="c1"># 用 # 注释原文本的内容，把下面一行粘贴进去，保存退出</span>
-deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main u
+deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui
 
 <span class="c1"># 更新软件源列表</span>
 sudo apt update
@@ -287,11 +288,13 @@ pip config <span class="nb">set</span> install.trusted-host https://pypi.tuna.ts
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 开启树莓派的 ssh 服务</span>
 sudo /etc/init.d/ssh start
 <span class="c1"># 查看树莓派 ip</span>
+<span class="c1"># 大概在 wlan0 的第二行，类似 192.168.xxx.xxx</span>
 ifconfig
 </code></pre></td></tr></table>
 </div>
@@ -318,6 +321,8 @@ ssh pi@ip
 <p><a href="https://www.raspberrypi.org/software/">Raspberry Pi Imager </a></p>
 <p><a href="https://backmountaindevil.github.io/post/debtap/">用 debtap 将 deb 转换成 arch 的软件包格式，以 Raspberry Pi Imager 为例</a></p>
 <p><a href="https://blog.csdn.net/weixin_43031092/article/details/108690238?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161949784416780265479627%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=161949784416780265479627&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-1-108690238.pc_v2_rank_blog_default&amp;utm_term=python+pip">Python 永修修改pip设置国内默认镜像源，提高下载速度</a></p>
+<p><a href="http://www.raspbian.org/RaspbianMirrors">Raspbian Repository Mirrors</a></p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/help/raspbian/">Raspbian 镜像使用帮助</a></p>
 
     </div>
 
@@ -342,7 +347,11 @@ ssh pi@ip
           <a href="/tags/raspberry/">raspberry</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/rbpnoscreen/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">树莓派无显示屏入门的方法总结</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/debtap/">
             <span class="next-text nav-default">用 debtap 将 deb 转换成 arch 的软件包格式，以 Raspberry Pi Imager 为例</span>
             <span class="next-text nav-mobile">下一篇</span>

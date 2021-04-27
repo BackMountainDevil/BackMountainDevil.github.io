@@ -3,55 +3,83 @@
   
   <url>
     <loc>http://anidea.gitee.io/categories/</loc>
-    <lastmod>2021-04-27T11:21:15+08:00</lastmod>
+    <lastmod>2021-04-27T22:26:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://anidea.gitee.io/tags/linux/</loc>
-    <lastmod>2021-04-27T11:21:15+08:00</lastmod>
+    <loc>http://anidea.gitee.io/tags/compile/</loc>
+    <lastmod>2021-04-27T22:26:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://anidea.gitee.io/categories/os/</loc>
-    <lastmod>2021-04-27T11:21:15+08:00</lastmod>
+    <lastmod>2021-04-27T22:26:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://anidea.gitee.io/post/</loc>
-    <lastmod>2021-04-27T11:21:15+08:00</lastmod>
+    <lastmod>2021-04-27T22:26:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/tags/python/</loc>
+    <lastmod>2021-04-27T22:26:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://anidea.gitee.io/tags/raspberry/</loc>
-    <lastmod>2021-04-27T11:21:15+08:00</lastmod>
+    <lastmod>2021-04-27T22:26:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://anidea.gitee.io/tags/</loc>
-    <lastmod>2021-04-27T11:21:15+08:00</lastmod>
+    <lastmod>2021-04-27T22:26:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://anidea.gitee.io/post/raspberrypi/</loc>
-    <lastmod>2021-04-27T11:21:15+08:00</lastmod>
+    <loc>http://anidea.gitee.io/post/compilepy39/</loc>
+    <lastmod>2021-04-27T22:26:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://anidea.gitee.io/</loc>
+    <lastmod>2021-04-27T22:26:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/tags/linux/</loc>
+    <lastmod>2021-04-27T18:43:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/post/rbpnoscreen/</loc>
+    <lastmod>2021-04-27T18:43:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/post/raspberrypi/</loc>
     <lastmod>2021-04-27T11:21:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -389,13 +417,6 @@
   <url>
     <loc>http://anidea.gitee.io/post/vscodiumextension/</loc>
     <lastmod>2020-11-16T10:55:37+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://anidea.gitee.io/tags/python/</loc>
-    <lastmod>2020-11-15T21:10:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -7,22 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 27 Apr 2021 11:21:15 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Apr 2021 22:26:58 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>linux</title>
-      <link>http://anidea.gitee.io/tags/linux/</link>
-      <pubDate>Tue, 27 Apr 2021 11:21:15 +0800</pubDate>
+      <title>compile</title>
+      <link>http://anidea.gitee.io/tags/compile/</link>
+      <pubDate>Tue, 27 Apr 2021 22:26:58 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/tags/linux/</guid>
+      <guid>http://anidea.gitee.io/tags/compile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://anidea.gitee.io/tags/python/</link>
+      <pubDate>Tue, 27 Apr 2021 22:26:58 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>raspberry</title>
       <link>http://anidea.gitee.io/tags/raspberry/</link>
-      <pubDate>Tue, 27 Apr 2021 11:21:15 +0800</pubDate>
+      <pubDate>Tue, 27 Apr 2021 22:26:58 +0800</pubDate>
       
       <guid>http://anidea.gitee.io/tags/raspberry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://anidea.gitee.io/tags/linux/</link>
+      <pubDate>Tue, 27 Apr 2021 18:43:27 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -140,15 +158,6 @@
       <pubDate>Mon, 16 Nov 2020 14:13:22 +0800</pubDate>
       
       <guid>http://anidea.gitee.io/tags/deepin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>http://anidea.gitee.io/tags/python/</link>
-      <pubDate>Sun, 15 Nov 2020 21:10:21 +0800</pubDate>
-      
-      <guid>http://anidea.gitee.io/tags/python/</guid>
       <description></description>
     </item>
     

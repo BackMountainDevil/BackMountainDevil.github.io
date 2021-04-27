@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 27 Apr 2021 11:21:15 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Apr 2021 22:26:58 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在树莓派2上非全局编译安装 python39</title>
+      <link>http://anidea.gitee.io/post/compilepy39/</link>
+      <pubDate>Tue, 27 Apr 2021 22:26:58 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/compilepy39/</guid>
+      <description>简介 目地： 自定义编译安装 python39 到当前用户目录下 硬件： 树莓派2 软件： 2021-03-04-raspios-buster-armhf 时长： 将近一个半小时，一个多小时在编译 安装依赖 看了不少帖子，每个帖子说的依赖</description>
+    </item>
+    
+    <item>
+      <title>树莓派无显示屏入门的方法总结</title>
+      <link>http://anidea.gitee.io/post/rbpnoscreen/</link>
+      <pubDate>Tue, 27 Apr 2021 18:43:27 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/rbpnoscreen/</guid>
+      <description>无显示屏 树莓派的小屏幕买来着实鸡肋，看着眼瞎系列。显示器多好，字大亮度够，HDMI 直插。但是有一些人只有一台笔记本屏幕，HDMI接口不支持视</description>
+    </item>
+    
     <item>
       <title>树莓派入门第一步 - 装系统并配置镜像、SSH</title>
       <link>http://anidea.gitee.io/post/raspberrypi/</link>
