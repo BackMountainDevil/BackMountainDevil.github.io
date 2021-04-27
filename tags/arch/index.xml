@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>arch on 筱氚~物语</title>
+    <link>http://anidea.gitee.io/tags/arch/</link>
+    <description>Recent content in arch on 筱氚~物语</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>筱氚</copyright>
+    <lastBuildDate>Tue, 27 Apr 2021 10:59:23 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用 debtap 将 deb 转换成 arch 的软件包格式，以 Raspberry Pi Imager 为例</title>
+      <link>http://anidea.gitee.io/post/debtap/</link>
+      <pubDate>Tue, 27 Apr 2021 10:59:23 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/debtap/</guid>
+      <description>简介 用 debtap 将 deb 软件包转换成 arch 下的软件包格式 Raspberry Pi Imager 只提供了 Ubuntu、Windows、MacOS 版本，使用 yay 下载 rpi-imager 下载多次也失败了。。。(但是</description>
+    </item>
+    
+  </channel>
+</rss>

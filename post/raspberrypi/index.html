@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>树莓派入门第一步 - 装系统并配置镜像、SSH - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="树莓派入门第一步 - 装系统并配置镜像、SSH，第二版" /><meta name="keywords" content="linux, raspberry" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
+
+
+<link rel="canonical" href="http://anidea.gitee.io/post/raspberrypi/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.37e908e3163658fbe786d099f495198c36fb66130cb87b481c7ca580a8088b18.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="树莓派入门第一步 - 装系统并配置镜像、SSH" />
+<meta property="og:description" content="树莓派入门第一步 - 装系统并配置镜像、SSH，第二版" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://anidea.gitee.io/post/raspberrypi/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-04-27T11:21:15&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-27T11:21:15&#43;08:00" />
+
+<meta itemprop="name" content="树莓派入门第一步 - 装系统并配置镜像、SSH">
+<meta itemprop="description" content="树莓派入门第一步 - 装系统并配置镜像、SSH，第二版"><meta itemprop="datePublished" content="2021-04-27T11:21:15&#43;08:00" />
+<meta itemprop="dateModified" content="2021-04-27T11:21:15&#43;08:00" />
+<meta itemprop="wordCount" content="1187">
+<meta itemprop="keywords" content="linux,raspberry," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="树莓派入门第一步 - 装系统并配置镜像、SSH"/>
+<meta name="twitter:description" content="树莓派入门第一步 - 装系统并配置镜像、SSH，第二版"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">树莓派入门第一步 - 装系统并配置镜像、SSH</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-04-27 </span>
+        <div class="post-category">
+            <a href="/categories/os/"> OS </a>
+            </div>
+          <span class="more-meta"> 约 1187 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#装系统">装系统</a>
+      <ul>
+        <li><a href="#下系统镜像">下系统镜像</a>
+          <ul>
+            <li><a href="#文件校验">文件校验</a></li>
+          </ul>
+        </li>
+        <li><a href="#写入-sd-卡">写入 SD 卡</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置--镜像">配置 &amp; 镜像</a>
+      <ul>
+        <li><a href="#关于-configtxt">关于 config.txt</a></li>
+        <li><a href="#开机">开机</a></li>
+        <li><a href="#root">root</a></li>
+        <li><a href="#apt镜像">apt镜像</a></li>
+        <li><a href="#pip-镜像">pip 镜像</a></li>
+        <li><a href="#ssh">ssh</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="简介">简介</h1>
+<p>树莓派入门第一步 - 装系统并配置镜像、SSH</p>
+<h1 id="装系统">装系统</h1>
+<h2 id="下系统镜像">下系统镜像</h2>
+<p>官方镜像地址：<a href="https://www.raspberrypi.org/software/operating-systems/">Raspberry Pi OS Images</a></p>
+<p>推荐下一个 32 位桌面版（大概 1.1 G），以后无聊了在入手 Lite 控制台版本吧，当然这里给出<a href="https://mirrors.tuna.tsinghua.edu.cn/raspberry-pi-os-images/raspios_armhf/images/">清华镜像的树梅派镜像地址</a>，挑一个日期最新的点进去，下载那个 1.1 G 左右的 *.zip 文件和 *.zip.sha1 校验文件。</p>
+<p>我下载之后的文件是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">2021-03-04-raspios-buster-armhf.zip
+2021-03-04-raspios-buster-armhf.zip.sha1
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="文件校验">文件校验</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sha1sum 2021-03-04-raspios-buster-armhf.zip
+</code></pre></td></tr></table>
+</div>
+</div><p>将校验出来的结果和 <code>*.zip.sha1</code> 文件的内容进行对比，如果一样说明镜像文件没有被修改，不一样说明改镜像文件可能被人做了手脚（参考互联网上的各种win）。不一样的话换个地方下载，官方下的总不能校验不通过吧</p>
+<h2 id="写入-sd-卡">写入 SD 卡</h2>
+<p>下一个 <a href="https://www.raspberrypi.org/software/">Raspberry Pi Imager </a> 并安装，windows、ubuntu、macOS版本的都有，arch 安装 rpi-imager 参考 <a href="https://backmountaindevil.github.io/post/debtap/">用 debtap 将 deb 转换成 arch 的软件包格式，以 Raspberry Pi Imager 为例</a></p>
+<p>启动该软件，选择自定义镜像，选择刚才下载并通过校验的镜像，之后选择 SD 卡，然后写入镜像，写入完成之后软件会自动检测（Verify）是否正确烧录，此步骤共耗时大概 20 mins。</p>
+<h1 id="配置--镜像">配置 &amp; 镜像</h1>
+<h2 id="关于-configtxt">关于 config.txt</h2>
+<p>在<a href="https://blog.csdn.net/weixin_43031092/article/details/109136614?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161943859216780264042429%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=161943859216780264042429&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-1-109136614.pc_v2_rank_blog_default&amp;utm_term=%E6%A0%91%E6%A2%85%E6%B4%BE#t6">零基础学树莓派Raspberry Pi - 基于Pi 2 Imager -从清华镜走起到设置镜像源后远程连接桌面</a>一文中，我当时时尝试了不少办法无法启动，请教学姐改了 config.txt 才能正常启动，然而最近几次反复装系统的结论告诉我 - 不需要自行配置  config.txt，你已经是一个成熟的系统了。</p>
+<h2 id="开机">开机</h2>
+<p>插卡，通电之后会自动开机，默认帐号 pi ,密码为 raspberry。</p>
+<p>进入桌面之后会提示选择地区、语言、新密码、wifi、是否屏幕有黑边等，设置完重启</p>
+<h2 id="root">root</h2>
+<p>下面这个命令的作用是重置 root 密码，默认 root 账户无密码被禁用，需要重置它并启用</p>
+<p><code>sudo passwd root</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">sudo passwd root</td>
+<td style="text-align:left">重置 root 密码</td>
+</tr>
+<tr>
+<td style="text-align:left">sudo passwd pi</td>
+<td style="text-align:left">重置 pi 密码</td>
+</tr>
+<tr>
+<td style="text-align:left">sudo passwd &ndash;unlock root</td>
+<td style="text-align:left">解禁 root 账户</td>
+</tr>
+<tr>
+<td style="text-align:left">sudo passwd &ndash;lock root</td>
+<td style="text-align:left">锁定 root 账户</td>
+</tr>
+<tr>
+<td style="text-align:left">su root</td>
+<td style="text-align:left">切换到 root 账户，推荐使用 sudo</td>
+</tr>
+<tr>
+<td style="text-align:left">su pi</td>
+<td style="text-align:left">切回pi用户</td>
+</tr>
+<tr>
+<td style="text-align:left">sudo command</td>
+<td style="text-align:left">以管理员权限执行 command 命令</td>
+</tr>
+</tbody>
+</table>
+<h2 id="apt镜像">apt镜像</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo nano /etc/apt/sources.list
+<span class="c1"># 用 # 注释原文本的内容，把下面两行粘贴进去，保存退出</span>
+deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib rpi
+deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib rpi
+
+sudo nano /etc/apt/sources.list.d/raspi.list
+<span class="c1"># 用 # 注释原文本的内容，把下面一行粘贴进去，保存退出</span>
+deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main u
+
+<span class="c1"># 更新软件源列表</span>
+sudo apt update
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="pip-镜像">pip 镜像</h2>
+<p>pip 与 pip3 都有的，将下面的 pip 换为 pip3 在 cv 一遍即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">pip config <span class="nb">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+pip config <span class="nb">set</span> install.trusted-host https://pypi.tuna.tsinghua.edu.cn
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="ssh">ssh</h2>
+<p>ssh 是为了远程登陆 raspberry pi 使的，再也不需要屏幕了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 开启树莓派的 ssh 服务</span>
+sudo /etc/init.d/ssh start
+<span class="c1"># 查看树莓派 ip</span>
+ifconfig
+</code></pre></td></tr></table>
+</div>
+</div><p>例如我的电脑和树莓派都连接了同一个局域网（WiFi、手机热点等），然后就可以在电脑上远程连接树莓派啦</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># pi 为用户名，类似的可以用 root 用户登陆，不推荐</span>
+<span class="c1"># ip 就是上面看出来 xxx.xxx.xxx.xxx</span>
+ssh pi@ip
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="总结">总结</h1>
+<p>多整几次，前几次会耗时以小时为单位，后面就是半小时了。</p>
+<p>装了 <code>2020-08-20-raspios-buster-armhf.zip</code> 和 <code>2021-03-04-raspios-buster-armhf.zip</code> 之后发现这两装的都是 python 2.7 和 3.7。装别的版本要编译安装（时间感人）</p>
+<h1 id="参考">参考</h1>
+<p><a href="https://blog.csdn.net/weixin_43031092/article/details/109136614?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161943859216780264042429%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=161943859216780264042429&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-1-109136614.pc_v2_rank_blog_default&amp;utm_term=%E6%A0%91%E6%A2%85%E6%B4%BE#t6">零基础学树莓派Raspberry Pi - 基于Pi 2 Imager -从清华镜走起到设置镜像源后远程连接桌面</a>：好些日子前写的第一版</p>
+<p><a href="https://www.raspberrypi.org/software/operating-systems/">Raspberry Pi OS Images</a></p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/raspberry-pi-os-images/raspios_armhf/images/">清华镜像的树梅派镜像地址</a></p>
+<p><a href="https://www.raspberrypi.org/software/">Raspberry Pi Imager </a></p>
+<p><a href="https://backmountaindevil.github.io/post/debtap/">用 debtap 将 deb 转换成 arch 的软件包格式，以 Raspberry Pi Imager 为例</a></p>
+<p><a href="https://blog.csdn.net/weixin_43031092/article/details/108690238?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161949784416780265479627%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=161949784416780265479627&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-1-108690238.pc_v2_rank_blog_default&amp;utm_term=python+pip">Python 永修修改pip设置国内默认镜像源，提高下载速度</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-04-27
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/raspberry/">raspberry</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/debtap/">
+            <span class="next-text nav-default">用 debtap 将 deb 转换成 arch 的软件包格式，以 Raspberry Pi Imager 为例</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">筱氚</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

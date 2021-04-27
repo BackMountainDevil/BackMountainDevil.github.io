@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sun, 18 Apr 2021 15:18:22 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Apr 2021 11:21:15 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派入门第一步 - 装系统并配置镜像、SSH</title>
+      <link>http://anidea.gitee.io/post/raspberrypi/</link>
+      <pubDate>Tue, 27 Apr 2021 11:21:15 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/raspberrypi/</guid>
+      <description>简介 树莓派入门第一步 - 装系统并配置镜像、SSH 装系统 下系统镜像 官方镜像地址：Raspberry Pi OS Images 推荐下一个 32 位桌面版（大概 1.1 G），以后无</description>
+    </item>
+    
+    <item>
+      <title>用 debtap 将 deb 转换成 arch 的软件包格式，以 Raspberry Pi Imager 为例</title>
+      <link>http://anidea.gitee.io/post/debtap/</link>
+      <pubDate>Tue, 27 Apr 2021 10:59:23 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/debtap/</guid>
+      <description>简介 用 debtap 将 deb 软件包转换成 arch 下的软件包格式 Raspberry Pi Imager 只提供了 Ubuntu、Windows、MacOS 版本，使用 yay 下载 rpi-imager 下载多次也失败了。。。(但是</description>
+    </item>
+    
     <item>
       <title>读记 -《最好的告别》</title>
       <link>http://anidea.gitee.io/post/rn3/</link>
