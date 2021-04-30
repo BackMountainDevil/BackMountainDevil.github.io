@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
 
 
 <link rel="canonical" href="http://anidea.gitee.io/post/linuxhello/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.37e908e3163658fbe786d099f495198c36fb66130cb87b481c7ca580a8088b18.css" rel="stylesheet">
+<link href="/sass/main.min.8db322bc4527976d0eeb784e846adaed9aa12ad2113220a213e3951756bd56c4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="在 Linux 上使用人脸识别来登陆和认证">
 <meta itemprop="description" content="在 Arch Linux 上使用人脸识别来解锁，如锁屏、sudo等"><meta itemprop="datePublished" content="2021-04-15T21:36:44&#43;08:00" />
 <meta itemprop="dateModified" content="2021-04-15T21:36:44&#43;08:00" />
-<meta itemprop="wordCount" content="1361">
+<meta itemprop="wordCount" content="1669">
 <meta itemprop="keywords" content="linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在 Linux 上使用人脸识别来登陆和认证"/>
 <meta name="twitter:description" content="在 Arch Linux 上使用人脸识别来解锁，如锁屏、sudo等"/>
@@ -122,8 +122,8 @@
         <div class="post-category">
             <a href="/categories/os/"> os </a>
             </div>
-          <span class="more-meta"> 约 1361 字 </span>
-          <span class="more-meta"> 预计阅读 3 分钟 </span>
+          <span class="more-meta"> 约 1669 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
         
       </div>
     </header>
@@ -155,7 +155,11 @@
         <li><a href="#测试">测试</a></li>
       </ul>
     </li>
-    <li><a href="#总结">总结</a></li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#命令">命令</a></li>
+      </ul>
+    </li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
@@ -216,7 +220,8 @@ sudo nano /etc/pam.d/sddm
 <span class="c1"># 同上</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="配置-howdy">配置 howdy</h3>
+</div><p>测试过 system-login、login、kde、sddm-greeter、sddm-autologin 无效。。。</p>
+<h3 id="配置-howdy">配置 howdy</h3>
 <p>主要是配置摄像头和录入人脸，我用 VLC 中的 媒体 - 打开捕获设备 - 高级选项（advance options）， 里面的视频捕获设备是 <code>/dev/video0</code>， 确定 - 播放 之后确实显示的摄像头的画面，因此确定了摄像头标识就是  <code>/dev/video0</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -286,7 +291,85 @@ sudo howdy -U kearney add
 <p>根据 <a href="https://linuxreviews.org/Howdy#ssdm_.28The_KDE_login_manager.29">Howdy - LinuxReviews</a> 中的描述，KDE 在登陆时并不会自动调用人脸识别登陆，需要点击一下登陆按钮才会启动 howdy（不需要输入密码哈）</p>
 <h1 id="总结">总结</h1>
 <p>看了好几个不同的软件，大体上都是用的 PAM，只是实现方式上有所不同。目前我这里可以用人脸替代密码的情况有sudo、人脸识别登陆，其ta用途暂未想到。</p>
-<h1 id="参考">参考</h1>
+<p>在 howdy 的 <a href="https://github.com/boltgolt/howdy/issues/448">issue</a> 中，提到了和自己一样的情况，也是无法在锁屏、休眠、睡眠的情况下使用 howdy 解锁，但是在测试中我发现可以曲线使用 howdy 进行解锁，点击 “切换用户（ Switch User ）” 就可以切换到使用 howdy 的初始登陆页面。</p>
+<h2 id="命令">命令</h2>
+<blockquote>
+<p>howdy [-U user] [-y] command [argument]</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Command</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">add</td>
+<td style="text-align:left">为用户添加新的人脸模型</td>
+</tr>
+<tr>
+<td style="text-align:left">clear</td>
+<td style="text-align:left">删除某用户的全部人脸模型</td>
+</tr>
+<tr>
+<td style="text-align:left">config</td>
+<td style="text-align:left">在默认编辑器中打开配置文件</td>
+</tr>
+<tr>
+<td style="text-align:left">disable</td>
+<td style="text-align:left">禁用或者开启 howdy</td>
+</tr>
+<tr>
+<td style="text-align:left">list</td>
+<td style="text-align:left">列出该用户的全部人脸模型</td>
+</tr>
+<tr>
+<td style="text-align:left">remove</td>
+<td style="text-align:left">删除该用户的某一特定人脸模型</td>
+</tr>
+<tr>
+<td style="text-align:left">snapshot</td>
+<td style="text-align:left">拍摄摄像头的快照</td>
+</tr>
+<tr>
+<td style="text-align:left">test</td>
+<td style="text-align:left">测试摄像头和识别方法</td>
+</tr>
+<tr>
+<td style="text-align:left">version</td>
+<td style="text-align:left">输出当前版本号</td>
+</tr>
+</tbody>
+</table>
+<p>举个例子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo howdy version
+Howdy 2.6.1
+
+$ sudo howdy -U kearney list
+Known face models <span class="k">for</span> kearney:
+
+        ID  Date                 Label
+        <span class="m">0</span>   2021-04-17 10:45:15  kearney
+        <span class="m">1</span>   2021-04-17 10:46:34  kearney-glasses
+        <span class="m">2</span>   2021-04-28 14:26:21  glassedinfooice
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="参考">参考</h1>
 <p><a href="https://winaero.com/wsl-hello-sudo-brings-windows-hello-authentication-to-linux-sudo/#:~:text=Windows%20Hello%20makes%20a%20signature%20of%20the%20given,user%20who%20corresponds%20to%20the%20given%20Linux%20user.">WSL Hello sudo brings Windows Hello authentication to Linux on WSL</a>：可惜的是这个插件是用在 WSL 里的</p>
 <p><a href="https://github.com/boltgolt/howdy">boltgolt/howdy - Windows Hello™ style facial authentication for Linux </a>：已支持 Debian/Ubuntu, Arch Linux, Fedora and openSUSE</p>
 <p><a href="https://wiki.archlinux.org/index.php/Howdy">Howdy - ArchWiki</a></p>

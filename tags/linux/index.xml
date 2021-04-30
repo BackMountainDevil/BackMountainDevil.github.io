@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 27 Apr 2021 18:43:27 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Apr 2021 08:36:59 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch Pacman &amp; Yay &amp; 更新中无法满足依赖关系的解决办法</title>
+      <link>http://anidea.gitee.io/post/pacman/</link>
+      <pubDate>Fri, 30 Apr 2021 08:36:59 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/pacman/</guid>
+      <description>pacman 虽然 arch 衍生自 debian, 但是在包管理上采取了一种不太一样的工具，不是常见的 apt 而是 pacman 常用命令 指令 说明 pacman -S 软件包名 安装软件及其依赖 pacman -Rs 软件包名 卸载软件及</description>
+    </item>
+    
     <item>
       <title>树莓派无显示屏入门的方法总结</title>
       <link>http://anidea.gitee.io/post/rbpnoscreen/</link>

@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 27 Apr 2021 22:26:58 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Apr 2021 08:36:59 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch Pacman &amp; Yay &amp; 更新中无法满足依赖关系的解决办法</title>
+      <link>http://anidea.gitee.io/post/pacman/</link>
+      <pubDate>Fri, 30 Apr 2021 08:36:59 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/pacman/</guid>
+      <description>pacman 虽然 arch 衍生自 debian, 但是在包管理上采取了一种不太一样的工具，不是常见的 apt 而是 pacman 常用命令 指令 说明 pacman -S 软件包名 安装软件及其依赖 pacman -Rs 软件包名 卸载软件及</description>
+    </item>
+    
+    <item>
+      <title>Arch 下 VS Code, Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法</title>
+      <link>http://anidea.gitee.io/post/codeupdateerror/</link>
+      <pubDate>Thu, 29 Apr 2021 09:13:42 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/codeupdateerror/</guid>
+      <description>问题描述 背景 将近一个多月没有更新软件了，打开 Discover 发现六百多个没更新的，就选了几个常用的软件进行更新（fcitix5、VS Code、Ciano）</description>
+    </item>
+    
     <item>
       <title>在树莓派2上非全局编译安装 python39</title>
       <link>http://anidea.gitee.io/post/compilepy39/</link>

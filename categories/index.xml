@@ -7,13 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 27 Apr 2021 22:26:58 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Apr 2021 08:36:59 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OS</title>
       <link>http://anidea.gitee.io/categories/os/</link>
-      <pubDate>Tue, 27 Apr 2021 22:26:58 +0800</pubDate>
+      <pubDate>Fri, 30 Apr 2021 08:36:59 +0800</pubDate>
       
       <guid>http://anidea.gitee.io/categories/os/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vscodium</title>
+      <link>http://anidea.gitee.io/categories/vscodium/</link>
+      <pubDate>Thu, 29 Apr 2021 09:13:42 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/categories/vscodium/</guid>
       <description></description>
     </item>
     
@@ -95,15 +104,6 @@
       <pubDate>Mon, 16 Nov 2020 18:58:02 +0800</pubDate>
       
       <guid>http://anidea.gitee.io/categories/vcs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>VSCodium</title>
-      <link>http://anidea.gitee.io/categories/vscodium/</link>
-      <pubDate>Mon, 16 Nov 2020 10:55:37 +0800</pubDate>
-      
-      <guid>http://anidea.gitee.io/categories/vscodium/</guid>
       <description></description>
     </item>
     
