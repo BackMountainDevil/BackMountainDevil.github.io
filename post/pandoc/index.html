@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="用 Pandoc 将 Markdown 文档导出为 PDF，介绍了 arch 平台下 pandoc 的安装、使用、卸载" /><meta name="keywords" content="pandoc, markdown, pdf" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="http://anidea.gitee.io/post/pandoc/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8db322bc4527976d0eeb784e846adaed9aa12ad2113220a213e3951756bd56c4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF" />
+<meta property="og:description" content="用 Pandoc 将 Markdown 文档导出为 PDF，介绍了 arch 平台下 pandoc 的安装、使用、卸载" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://anidea.gitee.io/post/pandoc/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-01T15:12:16&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-01T15:12:16&#43;08:00" />
+
+<meta itemprop="name" content="在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF">
+<meta itemprop="description" content="用 Pandoc 将 Markdown 文档导出为 PDF，介绍了 arch 平台下 pandoc 的安装、使用、卸载"><meta itemprop="datePublished" content="2021-05-01T15:12:16&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-01T15:12:16&#43;08:00" />
+<meta itemprop="wordCount" content="1418">
+<meta itemprop="keywords" content="pandoc,arch," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF"/>
+<meta name="twitter:description" content="用 Pandoc 将 Markdown 文档导出为 PDF，介绍了 arch 平台下 pandoc 的安装、使用、卸载"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-05-01 </span>
+        <div class="post-category">
+            <a href="/categories/app/"> app </a>
+            </div>
+          <span class="more-meta"> 约 1418 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#pandoc">pandoc</a>
+      <ul>
+        <li><a href="#安装">安装</a>
+          <ul>
+            <li></li>
+            <li><a href="#demo">demo</a></li>
+          </ul>
+        </li>
+        <li><a href="#demo-markdown">Demo: markdown</a></li>
+      </ul>
+    </li>
+    <li><a href="#卸载">卸载</a></li>
+    <li><a href="#参考">参考</a></li>
+    <li><a href="#end">End</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="简介">简介</h1>
+<p>自己平时写文档主要是用 md 写，但是甲方和乙方有时候说喜欢 pdf 或者 word. docsify 没 的自带的 pdf 转换（实际上插件可以导出），最基本的王者就是这个 pandoc 了。</p>
+<h1 id="pandoc">pandoc</h1>
+<p>一个文档格式转换大神级工具，支持HTML、CSL YAML、Ebooks、Interactive notebook formats、Word processor formats</p>
+<p><a href="https://pandoc.org/installing.html#linux">Pandoc installing</a></p>
+<blockquote>
+<p>For PDF output, you’ll need LaTeX. We recommend installing TeX Live via your package manager. (On Debian/Ubuntu, apt-get install texlive.)</p>
+</blockquote>
+<p>如果想输出为pdf,需要安装 LaTeX 引擎</p>
+<h2 id="安装">安装</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装pandoc</span>
+sudo pacman -S pandoc
+
+<span class="c1"># 安装 texlive 和中文支持</span>
+sudo pacman -S texlive-core texlive-langchinese
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="测试">测试</h4>
+<p>运行下面的指令能输出对于的版本号说明起码这个软件是装上了的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ pandoc --version
+pandoc 2.11.4
+Compiled with pandoc-types 1.22, texmath 0.12.1.1, skylighting 0.10.3,
+citeproc 0.3.0.9, ipynb 0.1.0.1
+User data directory: /home/kearney/.local/share/pandoc or /home/kearney/.pandoc
+Copyright <span class="o">(</span>C<span class="o">)</span> 2006-2021 John MacFarlane. Web:  https://pandoc.org
+This is free software<span class="p">;</span> see the <span class="nb">source</span> <span class="k">for</span> copying conditions. There is no
+warranty, not even <span class="k">for</span> merchantability or fitness <span class="k">for</span> a particular purpose.
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="demo">demo</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ tex <span class="s1">&#39;\empty Hello world!\bye&#39;</span>
+This is TeX, Version 3.14159265 <span class="o">(</span>TeX Live 2020/Arch Linux<span class="o">)</span> <span class="o">(</span>preloaded <span class="nv">format</span><span class="o">=</span>tex<span class="o">)</span>
+<span class="o">[</span>1<span class="o">]</span>
+Output written on texput.dvi <span class="o">(</span><span class="m">1</span> page, <span class="m">224</span> bytes<span class="o">)</span>.
+Transcript written on texput.log.
+
+$ pdftex <span class="s1">&#39;\empty Hello world!\bye&#39;</span>
+pdftex: error <span class="k">while</span> loading shared libraries: libpoppler.so.108: cannot open shared object file: No such file or directory
+<span class="c1"># emm版本问题后面升级解决了这个问题，网上搜的基本是ls软连接，不能治本</span>
+<span class="c1"># Arch 不支持部分升级（含软件），具体可参考 [Arch Pacman &amp; Yay &amp; 更新中无法满足依赖关系的解决办法](./pacman.md)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>中文问题继续往下说，如果在 demo 里直接加中文会报错<code>Missing character: There is no � in font cmr10!</code></p>
+<p><img src="https://img-blog.csdnimg.cn/20210317105611405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzAzMTA5Mg==,size_16,color_FFFFFF,t_70" alt="Hello Woild! 的 PDF 文件内容预览"></p>
+<h2 id="demo-markdown">Demo: markdown</h2>
+<p>quickstart.md 的内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 快速入门</span>
+
+<span class="c1">## 环境准备</span>
+
+软件使用需要满足的前置条件
+
+<span class="c1">## 安装</span>
+
+软件的安装方法
+
+<span class="c1">## 设置</span>
+
+软件的设置
+
+</code></pre></td></tr></table>
+</div>
+</div><p>除了输入输出的文件名，还有latex引擎，当然最主要的是中文字体，如何查看本机上的中文字体呢？</p>
+<blockquote>
+<p><a href="https://www.dianbanjiu.com/post/pandoc-%E4%BD%BF%E7%94%A8%E5%8F%8A%E8%B8%A9%E5%9D%91/">Pandoc 使用及踩坑 点半久 Edited on 2019-08-31</a><br>
+使用 <code>fc-list :lang=zh</code> 命令查看一下你自己系统上都安装了哪些中文字体：<br>
+每一行第一个冒号到其后第一个逗号之间的内容</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">pandoc quickstart.md -o quickstart.md.pdf --pdf-engine<span class="o">=</span>xelatex -V <span class="nv">CJKmainfont</span><span class="o">=</span><span class="s1">&#39;Sarasa UI SC&#39;</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://img-blog.csdnimg.cn/20210317111714686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzAzMTA5Mg==,size_16,color_FFFFFF,t_70" alt="quickstart.md 的 PDF 输出预览"></p>
+<h1 id="卸载">卸载</h1>
+<p>万一呢，目前两个月就体验了一把 PDF 输出。。。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -Rs pandoc
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="参考">参考</h1>
+<p><a href="https://pandoc.org/">Pandoc</a></p>
+<p><a href="https://wiki.archlinux.org/index.php/TeX_Live_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85TeXLive">TeX Live (简体中文) - Arch WiKi</a></p>
+<p><a href="https://blog.csdn.net/carolynlmk/article/details/86650840">libpoppler.so.76: cannot open shared object file: No such file or directory carolynlmk 2019-01-25</a>:已经有了libpoppler.so.19库，这个更新。所以通过建立19到18链接来暂时避免</p>
+<p><a href="https://blog.csdn.net/Tender_Li/article/details/104201764">Mangaro下安装TextLive遇到的问题 Tender_Li 2020-02-06</a>:建立19到18链接，没有证明自己有没有存在这个库。。</p>
+<p><a href="https://emacs.stackexchange.com/questions/60490/error-while-loading-shared-libraries-libpoppler-so-101-cannot-open-shared-obje">error while loading shared libraries: libpoppler.so.101: cannot open shared object file: No such file or directory  2020</a></p>
+<blockquote>
+<p>After check the directory /usr/lib/ I found there is no libpoppler.so.101, instead, we get libpoppler.so.102. Then I checked the pamac history and found the poppler related packages were updated from 0.90.1-1 to 20.08.1-1. I think this is why libpoppler.so updated from 101 to 102.
+The problem here is, after the update, pdf-tools tries to rebuild itself. However, it does not really do the rebuild, which I don&rsquo;t know why. (maybe make does not find the change of source code so it just skips all the rebuild. sorry, I only know little about compile.)
+So, what I did is go to pdf-tools' directory which is path/to/.emacs.d/elpa/pdf-tools-xxx/build and run make clean to remove these object files manually. I also did make clean in the server subdirectory under build, but I am not sure if it is necessary. Then reopen emacs and let it rebuild the pdf-tools (or run pdf-tools-install, to rebuild it manually).</p>
+</blockquote>
+<p>所以问题无法确定是不是升级导致的</p>
+<p><a href="https://github.com/phodal/ebook-boilerplate">phodal/ebook-boilerplate</a>:A Markdown convert to Ebook arrow_right html、mobi、epub、pdf、rtf Template</p>
+<p><a href="https://gitee.com/QMHTMY/Text2docx2pdf?_from=gitee_search"> Shieber / Text2docx2pdf </a>：linux下三个工具软件，可在命令行实现txt转docx，txt转pdf，docx转pdf。依赖python-docx</p>
+<p><a href="https://github.com/mstamy2/PyPDF2">mstamy2/PyPDF2</a>：PyPDF2 是一个纯 Python PDF 库，能够分割、合并、裁剪和转换 PDF 文件页面</p>
+<p><a href="https://gitee.com/liuzhijun1/crawler_html2pdf/tree/master/pdf">Python 爬虫：把廖雪峰的教程转换成 PDF 电子书</a>：pdfkit、wkhtmltopdf</p>
+<p><a href="https://gitee.com/cevin15/MD2File?_from=gitee_search">英强 / MD2File</a>：Java - 文档导出工具类，能将markdown格式的内容，转为office word，PDF，HTML等等格式的文档。不使用markdown格式的内容，直接调用MD2File的api，生成word，pdf等文档也是可以的。 另外，还可以将MD2File作为markdown转HTML的工具类。</p>
+<p><a href="https://www.dianbanjiu.com/post/pandoc-%E4%BD%BF%E7%94%A8%E5%8F%8A%E8%B8%A9%E5%9D%91/">Pandoc 使用及踩坑 点半久 Edited on 2019-08-31</a>:Nice note, 不过同样是pacman安装的，我的没有sty文件问题。。或许是因为我安装了中文加持包的缘故吧</p>
+<h1 id="end">End</h1>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-05-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/pandoc/">pandoc</a>
+          <a href="/tags/arch/">arch</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/htglocker/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">HTG Locker &amp;&amp; locker.bat 分析 与 80 G的数据恢复记录</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/pacman/">
+            <span class="next-text nav-default">Arch Pacman &amp; Yay &amp; 更新中无法满足依赖关系的解决办法</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">筱氚</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

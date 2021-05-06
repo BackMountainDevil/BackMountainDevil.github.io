@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Fri, 30 Apr 2021 08:36:59 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 May 2021 15:31:48 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTG Locker &amp;&amp; locker.bat 分析 与 80 G的数据恢复记录</title>
+      <link>http://anidea.gitee.io/post/htglocker/</link>
+      <pubDate>Sat, 01 May 2021 15:31:48 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/htglocker/</guid>
+      <description>简介 好些年前不晓得在哪里看到一个简单粗暴的‘加密’批处理程序，然后如法炮制使用了三年多。。然后某天数据都不见了（不一定是该程序的问题，有可能</description>
+    </item>
+    
+    <item>
+      <title>在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF</title>
+      <link>http://anidea.gitee.io/post/pandoc/</link>
+      <pubDate>Sat, 01 May 2021 15:12:16 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/pandoc/</guid>
+      <description>简介 自己平时写文档主要是用 md 写，但是甲方和乙方有时候说喜欢 pdf 或者 word. docsify 没 的自带的 pdf 转换（实际上插件可以导出），最基本的王者就是这个 pandoc 了。 pandoc 一个</description>
+    </item>
+    
     <item>
       <title>Arch Pacman &amp; Yay &amp; 更新中无法满足依赖关系的解决办法</title>
       <link>http://anidea.gitee.io/post/pacman/</link>

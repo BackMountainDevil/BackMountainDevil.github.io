@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Fri, 30 Apr 2021 08:36:59 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 May 2021 15:31:48 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>http://anidea.gitee.io/categories/blog/</link>
+      <pubDate>Sat, 01 May 2021 15:31:48 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>app</title>
+      <link>http://anidea.gitee.io/categories/app/</link>
+      <pubDate>Sat, 01 May 2021 15:12:16 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/categories/app/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>OS</title>
       <link>http://anidea.gitee.io/categories/os/</link>
@@ -41,15 +59,6 @@
       <pubDate>Sat, 17 Apr 2021 08:29:53 +0800</pubDate>
       
       <guid>http://anidea.gitee.io/categories/js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>http://anidea.gitee.io/categories/blog/</link>
-      <pubDate>Wed, 07 Apr 2021 19:56:39 +0800</pubDate>
-      
-      <guid>http://anidea.gitee.io/categories/blog/</guid>
       <description></description>
     </item>
     
