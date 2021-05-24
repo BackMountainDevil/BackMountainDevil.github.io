@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Eclipse - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="正文 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomc" /><meta name="keywords" content="Kearney, Blog, Hugo" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
+
+
+<link rel="canonical" href="http://anidea.gitee.io/post/eclipse/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Eclipse" />
+<meta property="og:description" content="正文 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomc" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://anidea.gitee.io/post/eclipse/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-24T08:27:43&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-24T08:27:43&#43;08:00" />
+
+<meta itemprop="name" content="Eclipse">
+<meta itemprop="description" content="正文 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomc"><meta itemprop="datePublished" content="2021-05-24T08:27:43&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-24T08:27:43&#43;08:00" />
+<meta itemprop="wordCount" content="4264">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Eclipse"/>
+<meta name="twitter:description" content="正文 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomc"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Eclipse</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-05-24 </span>
+        <div class="post-category">
+            <a href="/categories/blog/"> Blog </a>
+            </div>
+          <span class="more-meta"> 约 4264 字 </span>
+          <span class="more-meta"> 预计阅读 9 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#正文">正文</a>
+      <ul>
+        <li><a href="#我的环境">我的环境</a></li>
+      </ul>
+    </li>
+    <li><a href="#tomcat">Tomcat</a>
+      <ul>
+        <li><a href="#文件系统机构层次">文件系统机构层次</a></li>
+      </ul>
+    </li>
+    <li><a href="#yay-安装-eclipse-jsp">yay 安装 eclipse-jsp</a>
+      <ul>
+        <li><a href="#卸载">卸载</a>
+          <ul>
+            <li><a href="#补救">补救</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#tar-安装">tar 安装</a>
+      <ul>
+        <li><a href="#下载安装包">下载安装包</a></li>
+        <li><a href="#文件完整性校验">文件完整性校验</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#桌面快捷方式">桌面快捷方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+    <li><a href="#end">End</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="正文">正文</h1>
+<p>软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomcat 据说可以用 Nginx 替代，后面再尝试; MyEclipse 破解版网上好多，但是想用个 Eclipse,于是查一下 Arch Linux 上安装开发 jsp 的 Eclipse，整了老半天终于装上了，装上了还发现新建工程里面没有我要的 动态网站工程(Dynamic Web Project)，整了不少镜像和插件还是没得。最后又查了查才知道动态网站工程开发应该装 eclipse-jee，而不是 eclipse-jsp。</p>
+<h2 id="我的环境">我的环境</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ screenfetch
+                   -<span class="sb">`</span>                 
+                  .o+<span class="sb">`</span>                 kearney@arch
+                 <span class="sb">`</span>ooo/                 OS: Arch Linux 
+                <span class="sb">`</span>+oooo:                Kernel: x86_64 Linux 5.12.5-arch1-1
+               <span class="sb">`</span>+oooooo:               Uptime: 7m
+               -+oooooo+:              Packages: <span class="m">1412</span>
+             <span class="sb">`</span>/:-:++oooo+:             Shell: bash
+            <span class="sb">`</span>/++++/+++++++:            Resolution: 2560x1440
+           <span class="sb">`</span>/++++++++++++++:           DE: KDE 5.82.0 / Plasma 5.21.5
+          <span class="sb">`</span>/+++ooooooooooooo/<span class="sb">`</span>         WM: KWin
+         ./ooosssso++osssssso+<span class="sb">`</span>        GTK Theme: Breeze <span class="o">[</span>GTK2/3<span class="o">]</span>
+        .oossssso-<span class="sb">````</span>/ossssss+<span class="sb">`</span>       Icon Theme: bloom-classic
+       -osssssso.      :ssssssso.      Disk: 42G / 116G <span class="o">(</span>38%<span class="o">)</span>
+      :osssssss/        osssso+++.     CPU: AMD Ryzen <span class="m">5</span> 4600U with Radeon Graphics @ 12x 2.1GHz
+     /ossssssss/        +ssssooo/-     GPU: AMD/ATI
+   <span class="sb">`</span>/ossssso+/:-        -:/+osssso+-   RAM: 3387215872-
+  <span class="sb">`</span>+sso+:-<span class="sb">`</span>                 <span class="sb">`</span>.-/+oso: 
+ <span class="sb">`</span>++:.                           <span class="sb">`</span>-/+/
+ .<span class="sb">`</span>                                 <span class="sb">`</span>/
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="tomcat">Tomcat</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S tomcat7
+<span class="c1"># 启动tomcat服务，网址为 http://localhost:8080/，能正常浏览表面安装成功</span>
+sudo systemctl start tomcat7
+
+<span class="c1"># 删除注释，设置密码和角色</span>
+sudo nano /usr/share/tomcat7/conf/tomcat-users.xml
+
+sudo systemctl restart tomcat7
+</code></pre></td></tr></table>
+</div>
+</div><p>修改之后的用户配置文件（tomcat-users.xml）大概涨下面这个样子，密码请自便，主要是角色上加上 manager-gui 才可以在网友管理，当然 admin-gui 是最高级的管理角色。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+  <span class="nt">&lt;role</span> <span class="na">rolename=</span><span class="s">&#34;tomcat&#34;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;role</span> <span class="na">rolename=</span><span class="s">&#34;role1&#34;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;user</span> <span class="na">username=</span><span class="s">&#34;tomcat&#34;</span> <span class="na">password=</span><span class="s">&#34;121A=-1:*56&#34;</span> <span class="na">roles=</span><span class="s">&#34;tomcat&#34;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;user</span> <span class="na">username=</span><span class="s">&#34;both&#34;</span> <span class="na">password=</span><span class="s">&#34;^SX3U456&#34;</span> <span class="na">roles=</span><span class="s">&#34;tomcat,role1,manager-gui,admin-gui&#34;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;user</span> <span class="na">username=</span><span class="s">&#34;kearney&#34;</span> <span class="na">password=</span><span class="s">&#34;1a$2v^5*(6&#34;</span> <span class="na">roles=</span><span class="s">&#34;role1&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/tomcat-users&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="文件系统机构层次">文件系统机构层次</h2>
+<ul>
+<li>/var/lib/tomcat7/webapps/ROOT/ 默认网址跟目录</li>
+</ul>
+<h1 id="yay-安装-eclipse-jsp">yay 安装 eclipse-jsp</h1>
+<p>看到不少帖子写的是用 pacman 下载，尝试了一下找不到目标，看了 Arch Wiki 发现 eclipse 的包已经转移到 AUR 中了。而且细分为 6 中不同语言对于的包，下面也标注了不支持同时安装好几个不同的 eclipse，存在冲突&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yay -S eclipse-javascript
+</code></pre></td></tr></table>
+</div>
+</div><p>但是这一下咋就把所有的都下载了呢？？？下个 java 我可以理解，但是把 cpp, php,rust 都下载了这整啥玩意哦？？？</p>
+<p>这种方式自己验证后发现太浪费时间（将近 40 mins）和流量了，把所有版本的 eclipse 都下载一遍，然后再清理，二愣子操作还是我修行不够看不懂。。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看 yay 版本</span>
+$ yay -V
+yay v10.1.2 - libalpm v12.0.2
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装过程记录示意</span>
+$ yay -S eclipse-javascript
+:: 正在检查冲突...
+:: 正在检查内部冲突...
+<span class="o">[</span>Aur:1<span class="o">]</span>  eclipse-2:4.18-2 <span class="o">(</span>eclipse-javascript<span class="o">)</span>
+
+  <span class="m">1</span> eclipse <span class="o">(</span>eclipse-javascript<span class="o">)</span>             <span class="o">(</span>构建文件已存在<span class="o">)</span>
+<span class="o">==</span>&gt; 清理哪些软件包的构建？
+<span class="o">==</span>&gt; <span class="o">[</span>N<span class="o">]</span>没有 <span class="o">[</span>A<span class="o">]</span>全部 <span class="o">[</span>Ab<span class="o">]</span>中止 <span class="o">[</span>I<span class="o">]</span>已安装 <span class="o">[</span>No<span class="o">]</span>未安装 或 <span class="o">(</span><span class="m">1</span> <span class="m">2</span> 3, 1-3, ^4<span class="o">)</span>
+<span class="o">==</span>&gt; N
+:: PKGBUILD 是最新的，跳过 <span class="o">(</span>1/1<span class="o">)</span>: eclipse <span class="o">(</span>eclipse-javascript<span class="o">)</span>
+  <span class="m">1</span> eclipse <span class="o">(</span>eclipse-javascript<span class="o">)</span>             <span class="o">(</span>构建文件已存在<span class="o">)</span>
+<span class="o">==</span>&gt; 显示哪些差异？
+<span class="o">==</span>&gt; <span class="o">[</span>N<span class="o">]</span>没有 <span class="o">[</span>A<span class="o">]</span>全部 <span class="o">[</span>Ab<span class="o">]</span>中止 <span class="o">[</span>I<span class="o">]</span>已安装 <span class="o">[</span>No<span class="o">]</span>未安装 或 <span class="o">(</span><span class="m">1</span> <span class="m">2</span> 3, 1-3, ^4<span class="o">)</span>
+<span class="o">==</span>&gt; N
+:: <span class="o">(</span>1/1<span class="o">)</span> 正在解析 SRCINFO: eclipse <span class="o">(</span>eclipse-javascript<span class="o">)</span>
+<span class="o">==</span>&gt; 正在创建软件包：eclipse 2:4.18-2 <span class="o">(</span>2021年05月24日 星期一 08时24分21秒<span class="o">)</span>
+<span class="o">==</span>&gt; 获取源代码...
+  -&gt; 找到 commonify
+  -&gt; 找到 eclipse-java-2020-12-R-linux-gtk-x86_64.tar.gz
+  -&gt; 正在下载 eclipse-jee-2020-12-R-linux-gtk-x86_64.tar.gz...
+** Resuming transfer from byte position <span class="m">5976064</span>
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+<span class="m">100</span>  494M  <span class="m">100</span>  494M    <span class="m">0</span>     <span class="m">0</span>   739k      <span class="m">0</span>  0:11:25  0:11:25 --:--:--  727k
+  -&gt; 正在下载 eclipse-cpp-2020-12-R-linux-gtk-x86_64.tar.gz...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+<span class="m">100</span>  358M  <span class="m">100</span>  358M    <span class="m">0</span>     <span class="m">0</span>   616k      <span class="m">0</span>  0:09:55  0:09:55 --:--:--  806k
+  -&gt; 正在下载 eclipse-php-2020-12-R-linux-gtk-x86_64.tar.gz...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+<span class="m">100</span>  246M  <span class="m">100</span>  246M    <span class="m">0</span>     <span class="m">0</span>   668k      <span class="m">0</span>  0:06:16  0:06:16 --:--:--  806k
+  -&gt; 正在下载 eclipse-javascript-2020-12-R-linux-gtk-x86_64.tar.gz...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+<span class="m">100</span>  304M  <span class="m">100</span>  304M    <span class="m">0</span>     <span class="m">0</span>   577k      <span class="m">0</span>  0:09:00  0:09:00 --:--:-- 1459k
+  -&gt; 正在下载 eclipse-rust-2020-12-R-linux-gtk-x86_64.tar.gz...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+<span class="m">100</span>  266M  <span class="m">100</span>  266M    <span class="m">0</span>     <span class="m">0</span>   635k      <span class="m">0</span>  0:07:09  0:07:09 --:--:--  <span class="nv">639k</span>
+<span class="o">==</span>&gt; 正在验证 <span class="nb">source</span> 文件，使用sha256sums...
+    commonify ... <span class="nv">通过</span>
+<span class="o">==</span>&gt; 正在验证 source_x86_64 文件，使用sha256sums...
+    eclipse-java-2020-12-R-linux-gtk-x86_64.tar.gz ... 通过
+    eclipse-jee-2020-12-R-linux-gtk-x86_64.tar.gz ... 通过
+    eclipse-cpp-2020-12-R-linux-gtk-x86_64.tar.gz ... 通过
+    eclipse-php-2020-12-R-linux-gtk-x86_64.tar.gz ... 通过
+    eclipse-javascript-2020-12-R-linux-gtk-x86_64.tar.gz ... 通过
+    eclipse-rust-2020-12-R-linux-gtk-x86_64.tar.gz ... <span class="nv">通过</span>
+<span class="o">==</span>&gt; 正在创建软件包：eclipse 2:4.18-2 <span class="o">(</span>2021年05月24日 星期一 09时08分17秒<span class="o">)</span>
+<span class="o">==</span>&gt; 正在检查运行时依赖关系...
+<span class="o">==</span>&gt; <span class="nv">正在检查编译时依赖关系</span>
+<span class="o">==</span>&gt; 获取源代码...
+  -&gt; 找到 commonify
+  -&gt; 找到 eclipse-java-2020-12-R-linux-gtk-x86_64.tar.gz
+  -&gt; 找到 eclipse-jee-2020-12-R-linux-gtk-x86_64.tar.gz
+  -&gt; 找到 eclipse-cpp-2020-12-R-linux-gtk-x86_64.tar.gz
+  -&gt; 找到 eclipse-php-2020-12-R-linux-gtk-x86_64.tar.gz
+  -&gt; 找到 eclipse-javascript-2020-12-R-linux-gtk-x86_64.tar.gz
+  -&gt; 找到 eclipse-rust-2020-12-R-linux-gtk-x86_64.tar.gz
+<span class="o">==</span>&gt; 正在验证 <span class="nb">source</span> 文件，使用sha256sums...
+    commonify ... <span class="nv">通过</span>
+<span class="o">==</span>&gt; 正在验证 source_x86_64 文件，使用sha256sums...
+    eclipse-java-2020-12-R-linux-gtk-x86_64.tar.gz ... 通过
+    eclipse-jee-2020-12-R-linux-gtk-x86_64.tar.gz ... 通过
+    eclipse-cpp-2020-12-R-linux-gtk-x86_64.tar.gz ... 通过
+    eclipse-php-2020-12-R-linux-gtk-x86_64.tar.gz ... 通过
+    eclipse-javascript-2020-12-R-linux-gtk-x86_64.tar.gz ... 通过
+    eclipse-rust-2020-12-R-linux-gtk-x86_64.tar.gz ... <span class="nv">通过</span>
+<span class="o">==</span>&gt; 正在删除现存的 <span class="nv">$srcdir</span>/ 目录...
+<span class="o">==</span>&gt; 正在释放源码...
+<span class="o">==</span>&gt; 正在开始 prepare<span class="o">()</span>...
+<span class="o">==</span>&gt; 源代码已就绪。
+<span class="o">==</span>&gt; 正在创建软件包：eclipse 2:4.18-2 <span class="o">(</span>2021年05月24日 星期一 09时08分41秒<span class="o">)</span>
+<span class="o">==</span>&gt; 正在检查运行时依赖关系...
+<span class="o">==</span>&gt; <span class="nv">正在检查编译时依赖关系</span>
+<span class="o">==</span>&gt; 警告： 使用现存的 <span class="nv">$srcdir</span>/ <span class="nv">树</span>
+<span class="o">==</span>&gt; 正在开始 build<span class="o">()</span>...
+<span class="o">==</span>&gt; 正在进入 fakeroot 环境...
+<span class="o">==</span>&gt; 正在开始 package_eclipse-java<span class="o">()</span>...
+<span class="o">==</span>&gt; 正在清理安装...
+  -&gt; 正在删除 libtool 文件...
+  -&gt; 正在清除不打算要的文件...
+  -&gt; 正在移除静态库文件...
+  -&gt; 正在从二进制文件和库中清除不需要的系统符号...
+  -&gt; 正在压缩 man 及 info 文档...
+<span class="o">==</span>&gt; 正在检查打包问题...
+<span class="o">==</span>&gt; 正在构建软件包<span class="s2">&#34;eclipse-java&#34;</span>...
+  -&gt; 正在生成 .PKGINFO 文件...
+  -&gt; 正在生成 .BUILDINFO 文件...
+  -&gt; 正在生成 .MTREE 文件...
+  -&gt; 正在压缩软件包...
+<span class="o">==</span>&gt; 正在开始 package_eclipse-jee<span class="o">()</span>...
+<span class="o">==</span>&gt; 正在清理安装...
+  -&gt; 正在删除 libtool 文件...
+  -&gt; 正在清除不打算要的文件...
+  -&gt; 正在移除静态库文件...
+  -&gt; 正在从二进制文件和库中清除不需要的系统符号...
+  -&gt; 正在压缩 man 及 info 文档...
+<span class="o">==</span>&gt; 正在检查打包问题...
+<span class="o">==</span>&gt; 正在构建软件包<span class="s2">&#34;eclipse-jee&#34;</span>...
+  -&gt; 正在生成 .PKGINFO 文件...
+  -&gt; 正在生成 .BUILDINFO 文件...
+  -&gt; 正在生成 .MTREE 文件...
+  -&gt; 正在压缩软件包...
+<span class="o">==</span>&gt; 正在开始 package_eclipse-cpp<span class="o">()</span>...
+<span class="o">==</span>&gt; 正在清理安装...
+  -&gt; 正在删除 libtool 文件...
+  -&gt; 正在清除不打算要的文件...
+  -&gt; 正在移除静态库文件...
+  -&gt; 正在从二进制文件和库中清除不需要的系统符号...
+  -&gt; 正在压缩 man 及 info 文档...
+<span class="o">==</span>&gt; 正在检查打包问题...
+<span class="o">==</span>&gt; 正在构建软件包<span class="s2">&#34;eclipse-cpp&#34;</span>...
+  -&gt; 正在生成 .PKGINFO 文件...
+  -&gt; 正在生成 .BUILDINFO 文件...
+  -&gt; 正在生成 .MTREE 文件...
+  -&gt; 正在压缩软件包...
+<span class="o">==</span>&gt; 正在开始 package_eclipse-php<span class="o">()</span>...
+<span class="o">==</span>&gt; 正在清理安装...
+  -&gt; 正在删除 libtool 文件...
+  -&gt; 正在清除不打算要的文件...
+  -&gt; 正在移除静态库文件...
+  -&gt; 正在从二进制文件和库中清除不需要的系统符号...
+  -&gt; 正在压缩 man 及 info 文档...
+<span class="o">==</span>&gt; 正在检查打包问题...
+<span class="o">==</span>&gt; 正在构建软件包<span class="s2">&#34;eclipse-php&#34;</span>...
+  -&gt; 正在生成 .PKGINFO 文件...
+  -&gt; 正在生成 .BUILDINFO 文件...
+  -&gt; 正在生成 .MTREE 文件...
+  -&gt; 正在压缩软件包...
+<span class="o">==</span>&gt; 正在开始 package_eclipse-javascript<span class="o">()</span>...
+<span class="o">==</span>&gt; 正在清理安装...
+  -&gt; 正在删除 libtool 文件...
+  -&gt; 正在清除不打算要的文件...
+  -&gt; 正在移除静态库文件...
+  -&gt; 正在从二进制文件和库中清除不需要的系统符号...
+  -&gt; 正在压缩 man 及 info 文档...
+<span class="o">==</span>&gt; 正在检查打包问题...
+<span class="o">==</span>&gt; 正在构建软件包<span class="s2">&#34;eclipse-javascript&#34;</span>...
+  -&gt; 正在生成 .PKGINFO 文件...
+  -&gt; 正在生成 .BUILDINFO 文件...
+  -&gt; 正在生成 .MTREE 文件...
+  -&gt; 正在压缩软件包...
+<span class="o">==</span>&gt; 正在开始 package_eclipse-rust<span class="o">()</span>...
+<span class="o">==</span>&gt; 正在清理安装...
+  -&gt; 正在删除 libtool 文件...
+  -&gt; 正在清除不打算要的文件...
+  -&gt; 正在移除静态库文件...
+  -&gt; 正在从二进制文件和库中清除不需要的系统符号...
+  -&gt; 正在压缩 man 及 info 文档...
+<span class="o">==</span>&gt; 正在检查打包问题...
+<span class="o">==</span>&gt; 正在构建软件包<span class="s2">&#34;eclipse-rust&#34;</span>...
+  -&gt; 正在生成 .PKGINFO 文件...
+  -&gt; 正在生成 .BUILDINFO 文件...
+  -&gt; 正在生成 .MTREE 文件...
+  -&gt; 正在压缩软件包...
+<span class="o">==</span>&gt; 正在离开 fakeroot 环境。
+<span class="o">==</span>&gt; 完成创建：eclipse 2:4.18-2 <span class="o">(</span>2021年05月24日 星期一 09时19分15秒<span class="o">)</span>
+<span class="o">==</span>&gt; 清理中...
+
+正在加载软件包...
+正在解析依赖关系...
+正在查找软件包冲突...
+
+软件包 <span class="o">(</span>1<span class="o">)</span> eclipse-javascript-2:4.18-2
+
+全部安装大小：  443.90 MiB
+
+:: 进行安装吗？ <span class="o">[</span>Y/n<span class="o">]</span> 
+<span class="o">(</span>1/1<span class="o">)</span> 正在检查密钥环里的密钥                                       <span class="o">[</span><span class="c1">####################################] 100%</span>
+<span class="o">(</span>1/1<span class="o">)</span> 正在检查软件包完整性                                         <span class="o">[</span><span class="c1">####################################] 100%</span>
+<span class="o">(</span>1/1<span class="o">)</span> 正在加载软件包文件                                           <span class="o">[</span><span class="c1">####################################] 100%</span>
+<span class="o">(</span>1/1<span class="o">)</span> 正在检查文件冲突                                             <span class="o">[</span><span class="c1">####################################] 100%</span>
+<span class="o">(</span>1/1<span class="o">)</span> 正在检查可用存储空间                                         <span class="o">[</span><span class="c1">####################################] 100%</span>
+:: 正在处理软件包的变化...
+<span class="o">(</span>1/1<span class="o">)</span> 正在安装 eclipse-javascript                                  <span class="o">[</span><span class="c1">####################################] 100%</span>
+:: 正在运行事务后钩子函数...
+<span class="o">(</span>1/3<span class="o">)</span> Arming ConditionNeedsUpdate...
+<span class="o">(</span>2/3<span class="o">)</span> Updating icon theme caches...
+<span class="o">(</span>3/3<span class="o">)</span> Updating the desktop file MIME <span class="nb">type</span> cache...
+
+</code></pre></td></tr></table>
+</div>
+</div><p>安装之后确实能启动编辑 jsp 文件，也后续改镜像装 jsp 的插件，但还是没有课程需要的动态网页工程(Dynamic Web Project)和设置里的 Tomcat（已安装）。</p>
+<h2 id="卸载">卸载</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ yay -Rs eclipse-javascript
+正在检查依赖关系...
+:: wxgtk3可选依赖于webkit2gtk: <span class="k">for</span> webview support
+
+软件包 <span class="o">(</span>9<span class="o">)</span> java-environment-common-3-3  jdk-openjdk-15.0.2.u7-1  libmanette-0.2.6-2
+           libwpe-1.10.0-1  unzip-6.0-14  webkit2gtk-2.32.1-1  wpebackend-fdo-1.9.92-1
+           xdg-dbus-proxy-0.1.2-3  eclipse-javascript-2:4.18-2
+
+全部移去体积：  632.35 MiB
+</code></pre></td></tr></table>
+</div>
+</div><p>然后删除用户目录下的 <code>.eclipse</code>，过了一阵子我才发现上面这一步不小心把其它包给删除了，本来应该只删除 eclipse-javascript-2:4.18-2 的，<strong>正确</strong>的卸载方式是 <code>yay -R eclipse-javascript</code></p>
+<h3 id="补救">补救</h3>
+<p>后面发现 java 没有了。。。回头看是上面那不小心卸载了，虽然不知道其它的是啥，但还是补上为好（我的arch前几天滚动到最新版的了，所以补救安装没有带版本号，如果你的不是最新，最好还是带上版本号）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S java-environment-common jdk-openjdk libmanette libwpe unzip webkit2gtk wpebackend-fdo xdg-dbus-proxy
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="tar-安装">tar 安装</h1>
+<h2 id="下载安装包">下载安装包</h2>
+<p><a href="https://www.eclipse.org/downloads/packages/release/2021-03/r">Eclipse  IDE 2021-03 R Packages</a>：选择对于的版本之后可以选择比较近的镜像，下载速度飞起。我下载的是 Eclipse IDE for Enterprise Java and Web Developers（519 M），选择隔壁的 TUNA 镜像下载好 <code>eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz</code>。</p>
+<h2 id="文件完整性校验">文件完整性校验</h2>
+<p>从刚才的地方下载那个文件对于的校验码，如我下的是 <code>eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz.md5</code>，当然也可以下载其他的校验码（sha1、sha512）</p>
+<p>KDE 自带的文件管理器 Dolphin 有个比较好的功能，右键文件属性有个校验和校验功能。即可计算又可粘贴校验。</p>
+<p>下面是命令行校验方法示意</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># md5 校验</span>
+$ md5sum eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
+8428cf7b84b2c2988678f93250fc85a6  eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
+<span class="c1"># sha1 校验</span>
+$ shasum eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
+a757f27a65587a8e61335d49725a672cf3e703ea  eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="安装">安装</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/Downloads
+sudo mv eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz /opt/
+<span class="nb">cd</span> /opt
+sudo tar -zxvf eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
+<span class="c1"># 删除压缩包</span>
+sudo rm eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
+</code></pre></td></tr></table>
+</div>
+</div><p>然而使用 ls 命令一看压根没生成 eclipse-installer 包，直接一个 eclipse 文件夹。进去发现有一个叫 eclipse 的可执行文件，双击就打开了 eclipse-jee 版的 IDE，那问题就是缺少一个快捷启动方式了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> eclipse
+./eclipse
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="桌面快捷方式">桌面快捷方式</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /usr/share/applications/
+sudo nano org.eclipse.desktop
+</code></pre></td></tr></table>
+</div>
+</div><p>往里面粘贴这些内容后保存退出 nano，这样打开菜单里的‘工具’或者‘开发’一栏就能找到它了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">[Desktop Entry]
+Name=Eclipse
+Comment=Eclipse IDE For JEE
+Exec=/opt/eclipse/eclipse
+Icon=/opt/eclipse/icon.xpm
+Type=Application
+StartupNotify=true
+Categories=Utility;Development;IDE;
+Keywords=eclipse;
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="参考">参考</h1>
+<p><a href="https://wiki.archlinux.org/title/Tomcat#Initial_configuration">Tomcat  Arch Wiki</a></p>
+<p><a href="https://wiki.archlinux.org/title/Eclipse#Installation">Eclipse Arch Wiki</a></p>
+<p><a href="https://www.eclipse.org/downloads/packages/release/2021-03/r">Eclipse  IDE 2021-03 R Packages</a>：（2021-03在2021-05是最新的稳定版，以后不一定是了）</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/eclipse/technology/epp/downloads/release/">Eclipse 各版本下载地址 TUNA 镜像</a>:M1, M2 都是不稳定版（测试开发ing）。目录结构不是很好看懂。</p>
+<p><a href="https://www.eclipse.org/downloads/packages/release/2021-03/r/eclipse-ide-enterprise-java-and-web-developers">Eclipse IDE for Enterprise Java and Web Developers </a>：249M.不可以自由选择镜像！右侧的橙色下载按钮极具误导性（点击下载的是Eclipse IDE 而不是正在展示的 eclipse-jee），真正的下载链接在中间不起眼的位置 Download Links</p>
+<p><a href="https://blog.csdn.net/xunxue1523/article/details/104545260">Eclipse jee下载，提供国内清华大学镜像点下载 废人一枚 2020-02-27</a></p>
+<p><a href="https://blog.csdn.net/qq_43713904/article/details/115303620">[ubuntu-linux]安装eclipse全流程 小梅冲冲冲 2021-03-29</a>：我没出现 eclipse-installer</p>
+<p><a href="https://www.cnblogs.com/Cherrison-Time/p/11559784.html">Linux下安装Eclipse以及Java  Cherrison_Time  2019-9</a>：我没出现 eclipse-installer;快捷方式教程好评</p>
+<h1 id="end">End</h1>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-05-24
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/htglocker/">
+            <span class="next-text nav-default">HTG Locker &amp;&amp; locker.bat 分析 与 80 G的数据恢复记录</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">筱氚</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
