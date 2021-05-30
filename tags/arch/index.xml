@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sat, 01 May 2021 15:12:16 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 May 2021 11:58:39 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch 新手的基本知识</title>
+      <link>http://anidea.gitee.io/post/arch-begin/</link>
+      <pubDate>Fri, 28 May 2021 11:58:39 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/arch-begin/</guid>
+      <description>安装系统 镜像+网络安装 详细请看Arch Linux多系统安装安装记录和蓝牙、fcitx5输入法-win\deepin\arch Kearney form An idea 2021-02-21 基础配</description>
+    </item>
+    
     <item>
       <title>在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF</title>
       <link>http://anidea.gitee.io/post/pandoc/</link>
@@ -18,7 +27,7 @@
     </item>
     
     <item>
-      <title>Arch Pacman &amp; Yay &amp; 更新中无法满足依赖关系的解决办法</title>
+      <title>Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法</title>
       <link>http://anidea.gitee.io/post/pacman/</link>
       <pubDate>Fri, 30 Apr 2021 08:36:59 +0800</pubDate>
       

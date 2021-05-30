@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Arch Pacman &amp; Yay &amp; 更新中无法满足依赖关系的解决办法 - 筱氚~物语</title>
+  <title>Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法 - 筱氚~物语</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,19 +39,19 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Arch Pacman &amp; Yay &amp; 更新中无法满足依赖关系的解决办法" />
+<meta property="og:title" content="Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法" />
 <meta property="og:description" content="简要介绍 Arch 中 Pacman &amp; Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency &#39;libcap=2.48&#39; required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 &#39;libjpeg-turbo=2.0.6&#39; （lib32-libjpeg-turbo 需要）" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://anidea.gitee.io/post/pacman/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-04-30T08:36:59&#43;08:00" />
 <meta property="article:modified_time" content="2021-04-30T08:36:59&#43;08:00" />
 
-<meta itemprop="name" content="Arch Pacman &amp; Yay &amp; 更新中无法满足依赖关系的解决办法">
+<meta itemprop="name" content="Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法">
 <meta itemprop="description" content="简要介绍 Arch 中 Pacman &amp; Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency &#39;libcap=2.48&#39; required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 &#39;libjpeg-turbo=2.0.6&#39; （lib32-libjpeg-turbo 需要）"><meta itemprop="datePublished" content="2021-04-30T08:36:59&#43;08:00" />
 <meta itemprop="dateModified" content="2021-04-30T08:36:59&#43;08:00" />
-<meta itemprop="wordCount" content="1293">
+<meta itemprop="wordCount" content="1382">
 <meta itemprop="keywords" content="arch,linux," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Arch Pacman &amp; Yay &amp; 更新中无法满足依赖关系的解决办法"/>
+<meta name="twitter:title" content="Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法"/>
 <meta name="twitter:description" content="简要介绍 Arch 中 Pacman &amp; Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency &#39;libcap=2.48&#39; required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 &#39;libjpeg-turbo=2.0.6&#39; （lib32-libjpeg-turbo 需要）"/>
 
 <!--[if lte IE 9]>
@@ -115,14 +115,14 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Arch Pacman &amp; Yay &amp; 更新中无法满足依赖关系的解决办法</h1>
+      <h1 class="post-title">Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2021-04-30 </span>
         <div class="post-category">
             <a href="/categories/os/"> os </a>
             </div>
-          <span class="more-meta"> 约 1293 字 </span>
+          <span class="more-meta"> 约 1382 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         
       </div>
@@ -150,6 +150,7 @@
         </li>
       </ul>
     </li>
+    <li><a href="#deb">deb</a></li>
     <li><a href="#部分升级的问题">部分升级的问题</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
@@ -258,6 +259,7 @@ makepkg -si
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装 UOS 版微信</span>
@@ -266,13 +268,16 @@ yay -S wechat-uos
 yay -S google-chrome
 <span class="c1"># 安装 WPS 中文简体版</span>
 yay -S wps-office-cn wps-office-mui-zh-cn ttf-wps-fonts 
-
+<span class="c1"># 安装 科学上网 的工具</span>
+yay -S lantern
 <span class="c1"># 哪天不开心就卸载</span>
 yay -Rs wechat-uos
 yay -Rs google-chrome
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="部分升级的问题">部分升级的问题</h1>
+</div><h1 id="deb">deb</h1>
+<p>有的软件可能只找到 deb 安装包，但是 arch 的软件包格式并不是 deb,关于用 debtap 将 deb 软件包转换成 arch 下的软件包格式请参考<a href="../debtap">用 debtap 将 deb 转换成 arch 的软件包格式，以 Raspberry Pi Imager 为例</a></p>
+<h1 id="部分升级的问题">部分升级的问题</h1>
 <p><a href="./codeupdateerror.md">只升级某些软件导致的问题</a>，</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

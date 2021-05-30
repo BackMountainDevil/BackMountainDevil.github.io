@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sat, 01 May 2021 15:31:48 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 May 2021 11:58:39 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>arch</title>
+      <link>http://anidea.gitee.io/tags/arch/</link>
+      <pubDate>Fri, 28 May 2021 11:58:39 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/tags/arch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://anidea.gitee.io/tags/linux/</link>
+      <pubDate>Fri, 28 May 2021 11:58:39 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>eclipse</title>
+      <link>http://anidea.gitee.io/tags/eclipse/</link>
+      <pubDate>Mon, 24 May 2021 08:27:43 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/tags/eclipse/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>app</title>
       <link>http://anidea.gitee.io/tags/app/</link>
@@ -18,29 +45,11 @@
     </item>
     
     <item>
-      <title>arch</title>
-      <link>http://anidea.gitee.io/tags/arch/</link>
-      <pubDate>Sat, 01 May 2021 15:12:16 +0800</pubDate>
-      
-      <guid>http://anidea.gitee.io/tags/arch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>pandoc</title>
       <link>http://anidea.gitee.io/tags/pandoc/</link>
       <pubDate>Sat, 01 May 2021 15:12:16 +0800</pubDate>
       
       <guid>http://anidea.gitee.io/tags/pandoc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>http://anidea.gitee.io/tags/linux/</link>
-      <pubDate>Fri, 30 Apr 2021 08:36:59 +0800</pubDate>
-      
-      <guid>http://anidea.gitee.io/tags/linux/</guid>
       <description></description>
     </item>
     

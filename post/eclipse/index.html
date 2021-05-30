@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Eclipse - 筱氚~物语</title>
+  <title>在 Arch 上安装 eclipse-jee 并配置 tomcat7 - 筱氚~物语</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="筱氚" /><meta name="description" content="正文 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomc" /><meta name="keywords" content="Kearney, Blog, Hugo" />
+<meta name="author" content="筱氚" /><meta name="description" content="在 Arch 上安装 eclipse-jee 并配置 tomcat7，以及配置 tomcat7 服务器遇到的问题" /><meta name="keywords" content="eclipse, tomcat" />
 
 
 
@@ -39,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Eclipse" />
-<meta property="og:description" content="正文 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomc" />
+<meta property="og:title" content="在 Arch 上安装 eclipse-jee 并配置 tomcat7" />
+<meta property="og:description" content="在 Arch 上安装 eclipse-jee 并配置 tomcat7，以及配置 tomcat7 服务器遇到的问题" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://anidea.gitee.io/post/eclipse/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-05-24T08:27:43&#43;08:00" />
 <meta property="article:modified_time" content="2021-05-24T08:27:43&#43;08:00" />
 
-<meta itemprop="name" content="Eclipse">
-<meta itemprop="description" content="正文 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomc"><meta itemprop="datePublished" content="2021-05-24T08:27:43&#43;08:00" />
+<meta itemprop="name" content="在 Arch 上安装 eclipse-jee 并配置 tomcat7">
+<meta itemprop="description" content="在 Arch 上安装 eclipse-jee 并配置 tomcat7，以及配置 tomcat7 服务器遇到的问题"><meta itemprop="datePublished" content="2021-05-24T08:27:43&#43;08:00" />
 <meta itemprop="dateModified" content="2021-05-24T08:27:43&#43;08:00" />
-<meta itemprop="wordCount" content="4264">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Eclipse"/>
-<meta name="twitter:description" content="正文 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomc"/>
+<meta itemprop="wordCount" content="4802">
+<meta itemprop="keywords" content="eclipse," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="在 Arch 上安装 eclipse-jee 并配置 tomcat7"/>
+<meta name="twitter:description" content="在 Arch 上安装 eclipse-jee 并配置 tomcat7，以及配置 tomcat7 服务器遇到的问题"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -115,15 +115,15 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Eclipse</h1>
+      <h1 class="post-title">在 Arch 上安装 eclipse-jee 并配置 tomcat7</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2021-05-24 </span>
         <div class="post-category">
-            <a href="/categories/blog/"> Blog </a>
+            <a href="/categories/dev-init/"> dev-init </a>
             </div>
-          <span class="more-meta"> 约 4264 字 </span>
-          <span class="more-meta"> 预计阅读 9 分钟 </span>
+          <span class="more-meta"> 约 4802 字 </span>
+          <span class="more-meta"> 预计阅读 10 分钟 </span>
         
       </div>
     </header>
@@ -158,6 +158,7 @@
         <li><a href="#文件完整性校验">文件完整性校验</a></li>
         <li><a href="#安装">安装</a></li>
         <li><a href="#桌面快捷方式">桌面快捷方式</a></li>
+        <li><a href="#配置-tomcat7">配置 tomcat7</a></li>
       </ul>
     </li>
     <li><a href="#参考">参考</a></li>
@@ -788,6 +789,21 @@ Categories=Utility;Development;IDE;
 Keywords=eclipse;
 </code></pre></td></tr></table>
 </div>
+</div><h2 id="配置-tomcat7">配置 tomcat7</h2>
+<p>pacman 安装的 tomcat 可以正常运行，在默认网站根目录下写的文件也可以正常访问。但是在 eclipse 中添加该 tomcat7 却报错无法正常加载其配置文件，按照网上的办法试了不少，均已失败告终：添加动态链接文件、删除 eclipse workspace 中某两文件（我这里本来就没有）、service.xml中的拼写错误、重装 tomcat7、配置 jre、删除重新添加。。。</p>
+<p>查了 tomcat7、java 的版本，也都是兼容没问题的，愣是没想明白问题出在哪里了。然后我又尝试用 eclipse 安装 tomcat7,打算安装在 /opt 下失败了，用 root 权限安装到那也失败了，最后是换了个自己目录（/home/kearney/app/tomcat7/）龟速安装成功了。</p>
+<p>查看通过 eclipse 安装的 tomcat7 发现它的目录结构是就是全部在一个路径下，不像通过 pacman 安装的 tomcat7, 各种文件分布在不同的地方，所以网上最高赞的回答是用动态链接，尝试了几次动态链接也没成功（本身就有一个 conf 动态链接），不知道这样子失败的原因，但还好找到了一直解决办法。</p>
+<p>虽然无法在 eclipse 里安装到 /opt/ 下，用 sudo 运行 eclipse 也不行，于是先安装在自己目录下，可以正常配置运行环境，然后尝试复制一份到 /opt/ 下，测试之后也是可以的。自己目录下的先留着做一个备份，过一阵子再删除也不迟。当然一直用自己目录下的也没啥问题，不一定非得移动到 /opt/ 下，个人习惯而已。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /home/kearney/app/tomcat7/
+sudo cp -r apache-tomcat-7.0.47/ /opt/apache-tomcat-7.0.47/
+</code></pre></td></tr></table>
+</div>
 </div><h1 id="参考">参考</h1>
 <p><a href="https://wiki.archlinux.org/title/Tomcat#Initial_configuration">Tomcat  Arch Wiki</a></p>
 <p><a href="https://wiki.archlinux.org/title/Eclipse#Installation">Eclipse Arch Wiki</a></p>
@@ -817,9 +833,15 @@ Keywords=eclipse;
   
 </div>
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/eclipse/">eclipse</a>
+          </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/arch-begin/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Arch 新手的基本知识</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/htglocker/">
             <span class="next-text nav-default">HTG Locker &amp;&amp; locker.bat 分析 与 80 G的数据恢复记录</span>
             <span class="next-text nav-mobile">下一篇</span>
