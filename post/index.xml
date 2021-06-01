@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Fri, 28 May 2021 11:58:39 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Jun 2021 20:21:28 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH</title>
+      <link>http://anidea.gitee.io/post/environment_variable/</link>
+      <pubDate>Tue, 01 Jun 2021 20:21:28 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/environment_variable/</guid>
+      <description>环境变量 环境变量是什么？通俗的说就是变量，这些变量设置的内容可能是当前的语言、地区、shell、程序的位置、日志等级等。而比较常见的 $PATH 变量就</description>
+    </item>
+    
     <item>
       <title>Arch 新手的基本知识</title>
       <link>http://anidea.gitee.io/post/arch-begin/</link>

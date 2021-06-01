@@ -49,7 +49,7 @@
 <meta itemprop="name" content="GitConfigUseage">
 <meta itemprop="description" content="Intro 记录Git的配置过程 Down 1 sudo apt install git configSSH basic 设置用户名和邮箱，这样就可以在本地记录变化了 1 2 3 4 $ git config --global user.email &#34;you@example.com&#34; $ git config --global user.name &#34;Your Name&#34; # 查看git用户配置，看"><meta itemprop="datePublished" content="2020-11-16T18:58:02&#43;08:00" />
 <meta itemprop="dateModified" content="2020-11-16T18:58:02&#43;08:00" />
-<meta itemprop="wordCount" content="516">
+<meta itemprop="wordCount" content="779">
 <meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GitConfigUseage"/>
 <meta name="twitter:description" content="Intro 记录Git的配置过程 Down 1 sudo apt install git configSSH basic 设置用户名和邮箱，这样就可以在本地记录变化了 1 2 3 4 $ git config --global user.email &#34;you@example.com&#34; $ git config --global user.name &#34;Your Name&#34; # 查看git用户配置，看"/>
@@ -122,7 +122,7 @@
         <div class="post-category">
             <a href="/categories/vcs/"> VCS </a>
             </div>
-          <span class="more-meta"> 约 516 字 </span>
+          <span class="more-meta"> 约 779 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
@@ -145,7 +145,12 @@
         </li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#指令">指令</a>
+      <ul>
+        <li><a href="#基本指令">基本指令</a></li>
+        <li><a href="#进阶指令">进阶指令</a></li>
+      </ul>
+    </li>
     <li><a href="#references">References</a></li>
   </ul>
 </nav>
@@ -247,8 +252,74 @@ Hi BackMountainDevil! You have successfully authenticated, but GitHub does not p
 <pre class="chroma"><code class="language-bash" data-lang="bash">git@github.com: Permission denied <span class="o">(</span>publickey<span class="o">)</span>.
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="usage">Usage</h1>
-<h1 id="references">References</h1>
+</div><h1 id="指令">指令</h1>
+<h2 id="基本指令">基本指令</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 新建仓库</span>
+git init
+<span class="c1"># 查看仓库状态</span>
+git status
+<span class="c1"># 添加全部更新的文件（通常是添加某个具体的文件）</span>
+git add .
+<span class="c1"># 提交更新</span>
+git commit -m <span class="s2">&#34;更新了xx更能，修复了xx问题&#34;</span>
+
+<span class="c1"># 添加远程仓库，命名为origin</span>
+git remote add origin Rpo_Url
+
+<span class="c1"># 将main分支推送到远程仓库origin</span>
+git push -u origin main
+
+<span class="c1"># 查看远程仓库</span>
+git remote -v
+
+<span class="c1"># 从远程仓库拷贝代码到本地</span>
+git clone Rpo_Url
+<span class="c1"># 从远程仓库拷贝代码到本地的dir文件夹中</span>
+git clone Rpo_Url dir
+<span class="c1"># 从远程仓库拷贝最新的代码到本地（不包含历史记录）</span>
+git clone Rpo_Url --depth<span class="o">=</span><span class="m">1</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="进阶指令">进阶指令</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 将本地的 tag 同步到远程仓库，单 push 不会同步 tag</span>
+git push --tags
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="references">References</h1>
 <ul>
 <li><a href="https://git-scm.com/">git</a></li>
 <li><a href="https://mirrors.tuna.tsinghua.edu.cn/">清华大学开源软件镜像站</a></li>
