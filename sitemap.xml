@@ -2,21 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://anidea.gitee.io/tags/arch/</loc>
-    <lastmod>2021-06-01T20:21:28+08:00</lastmod>
+    <loc>http://anidea.gitee.io/categories/</loc>
+    <lastmod>2021-06-04T12:01:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://anidea.gitee.io/categories/</loc>
-    <lastmod>2021-06-01T20:21:28+08:00</lastmod>
+    <loc>http://anidea.gitee.io/categories/dev-init/</loc>
+    <lastmod>2021-06-04T12:01:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/tags/esp/</loc>
+    <lastmod>2021-06-04T12:01:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/post/espidf/</loc>
+    <lastmod>2021-06-04T12:01:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/post/</loc>
+    <lastmod>2021-06-04T12:01:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/tags/</loc>
+    <lastmod>2021-06-04T12:01:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/</loc>
+    <lastmod>2021-06-04T12:01:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/categories/app/</loc>
+    <lastmod>2021-06-03T12:04:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://anidea.gitee.io/tags/linux/</loc>
+    <lastmod>2021-06-03T12:04:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/post/refind/</loc>
+    <lastmod>2021-06-03T12:04:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/tags/arch/</loc>
     <lastmod>2021-06-01T20:21:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -30,27 +86,6 @@
   </url>
   
   <url>
-    <loc>http://anidea.gitee.io/post/</loc>
-    <lastmod>2021-06-01T20:21:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://anidea.gitee.io/tags/</loc>
-    <lastmod>2021-06-01T20:21:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://anidea.gitee.io/</loc>
-    <lastmod>2021-06-01T20:21:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://anidea.gitee.io/post/environment_variable/</loc>
     <lastmod>2021-06-01T20:21:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -58,15 +93,15 @@
   </url>
   
   <url>
-    <loc>http://anidea.gitee.io/post/arch-begin/</loc>
-    <lastmod>2021-05-28T11:58:39+08:00</lastmod>
+    <loc>http://anidea.gitee.io/post/arch-downgrade/</loc>
+    <lastmod>2021-05-28T22:55:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://anidea.gitee.io/categories/dev-init/</loc>
-    <lastmod>2021-05-24T08:27:43+08:00</lastmod>
+    <loc>http://anidea.gitee.io/post/arch-begin/</loc>
+    <lastmod>2021-05-28T11:58:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -102,13 +137,6 @@
   <url>
     <loc>http://anidea.gitee.io/post/htglocker/</loc>
     <lastmod>2021-05-01T15:31:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://anidea.gitee.io/categories/app/</loc>
-    <lastmod>2021-05-01T15:12:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

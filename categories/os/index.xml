@@ -18,6 +18,15 @@
     </item>
     
     <item>
+      <title>Arch 安装旧版软件的办法（软件降级）</title>
+      <link>http://anidea.gitee.io/post/arch-downgrade/</link>
+      <pubDate>Fri, 28 May 2021 22:55:11 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/arch-downgrade/</guid>
+      <description>简介 介绍在 Arch Linux 安装旧版软件或者软件降级的办法 为什么 Arch 默认是滚动发行的，更新速度那就是一周更新好多次，软件版本都是最新版。但这样也会存在其弊端</description>
+    </item>
+    
+    <item>
       <title>Arch 新手的基本知识</title>
       <link>http://anidea.gitee.io/post/arch-begin/</link>
       <pubDate>Fri, 28 May 2021 11:58:39 +0800</pubDate>

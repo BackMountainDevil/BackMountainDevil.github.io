@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Arch 安装旧版软件的办法（软件降级） - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="因为要使用旧版的qemu,于是就有了这个记录" /><meta name="keywords" content="linux, arch, downgrade" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
+
+
+<link rel="canonical" href="http://anidea.gitee.io/post/arch-downgrade/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Arch 安装旧版软件的办法（软件降级）" />
+<meta property="og:description" content="因为要使用旧版的qemu,于是就有了这个记录" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://anidea.gitee.io/post/arch-downgrade/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-28T22:55:11&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-28T22:55:11&#43;08:00" />
+
+<meta itemprop="name" content="Arch 安装旧版软件的办法（软件降级）">
+<meta itemprop="description" content="因为要使用旧版的qemu,于是就有了这个记录"><meta itemprop="datePublished" content="2021-05-28T22:55:11&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-28T22:55:11&#43;08:00" />
+<meta itemprop="wordCount" content="3956">
+<meta itemprop="keywords" content="linux,arch," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Arch 安装旧版软件的办法（软件降级）"/>
+<meta name="twitter:description" content="因为要使用旧版的qemu,于是就有了这个记录"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Arch 安装旧版软件的办法（软件降级）</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-05-28 </span>
+        <div class="post-category">
+            <a href="/categories/os/"> os </a>
+            </div>
+          <span class="more-meta"> 约 3956 字 </span>
+          <span class="more-meta"> 预计阅读 8 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a>
+      <ul>
+        <li><a href="#为什么">为什么</a></li>
+      </ul>
+    </li>
+    <li><a href="#怎么降级">怎么降级</a>
+      <ul>
+        <li><a href="#pacman-cache">pacman cache</a></li>
+        <li><a href="#arch-linux-archive">Arch Linux Archive</a></li>
+        <li><a href="#downgrade">downgrade</a></li>
+      </ul>
+    </li>
+    <li><a href="#demo">Demo</a>
+      <ul>
+        <li><a href="#三种常规办法---failed">三种常规办法 - failed</a></li>
+        <li><a href="#编译安装---failed">编译安装 - failed</a>
+          <ul>
+            <li><a href="#kubuntu-编译尝试---fail">Kubuntu 编译尝试 - fail</a></li>
+          </ul>
+        </li>
+        <li><a href="#手动安装-lib----failed">手动安装 lib  - failed</a></li>
+        <li><a href="#lubuntu">lubuntu</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="简介">简介</h1>
+<p>介绍在 Arch Linux 安装旧版软件或者软件降级的办法</p>
+<h2 id="为什么">为什么</h2>
+<p>Arch 默认是滚动发行的，更新速度那就是一周更新好多次，软件版本都是最新版。但这样也会存在其弊端，如版本太高不兼容会崩溃、开发版本远高于市场上的普及版本。</p>
+<p>我这次遇到的是前者，由于 rustsbi 支持的 qemu 版本问题，我需要安装旧版的 qemu。后者也遇到过，如果用 py39 开发，实际部署的设备默认 py37,需要自行编译安装 py39 或者修改代码兼容性。</p>
+<h1 id="怎么降级">怎么降级</h1>
+<p>在<a href="https://linux.cn/article-9730-1.html">如何在 Arch Linux 中降级软件包</a>中如此说到</p>
+<blockquote>
+<p>此实用程序将检查你的本地缓存和远程服务器（Arch Linux 仓库）以查找所需软件包的旧版本。
+也就是说旧版本还是存在的。</p>
+</blockquote>
+<p>于是在几乎无所不能的 Arch Wiki 中搜索了一下，发现了<a href="https://wiki.archlinux.org/title/Downgrading_packages">Downgrading packages Arch Wiki</a>中有利用本地的 pacman 缓存（/var/cache/pacman/pkg） 或者官方管理的包档案 <a href="https://archive.archlinux.org/">Arch Linux Archive</a>等 5 种办法。</p>
+<p>总结一下简单的办法：</p>
+<ol>
+<li>本地 pacman 缓存，通常会有最近的两个版本</li>
+<li>Arch Linux Archive，存有全部的版本</li>
+<li>借助自动化软件  downgrade</li>
+</ol>
+<p>以上几种办法可以安装旧版的软件包，问题在于安装之后能否正常运行那就是另一回事了。比如我下面的 demo 降级这三种办法都因为某些依赖库版本比较高而无法正常使用；当然也有使用上面方法可以正常使用的时候。</p>
+<h2 id="pacman-cache">pacman cache</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 切换到缓存目录文件下</span>
+<span class="nb">cd</span> /var/cache/pacman/pkg/
+<span class="c1"># 查找有哪些版本</span>
+find ./*PACKAGE_NAME*
+<span class="c1"># 从本地的 pkg.tar.zst 进行安装</span>
+sudo pacman -U /var/cache/pacman/pkg/package-old_version.pkg.tar.zst
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="arch-linux-archive">Arch Linux Archive</h2>
+<p>到 <a href="https://archive.archlinux.org/">Arch Linux Archive</a> 找到 package 对于的版本的路径，然后使用 pacman 进行安装。当然下载到本地再安装也是可以的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo  pacman -U https://archive.archlinux.org/packages/path/packagename.pkg.tar.xz
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="downgrade">downgrade</h2>
+<p>这个软件软件把上面两个办法结合起来，省去其中麻烦的过程，实现几行代码自动化。<a href="https://linux.cn/article-9730-1.html">如何在 Arch Linux 中降级软件包</a>中描述的办法由于 downgrade 已经转移到 AUR 中，因此原文中的办法有关于 downgrade 的安装办法已经失效了。以下是通过 yay 安装的办法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装 downgrade</span>
+yay -S downgrade
+<span class="c1"># 对包 PACKAGE_NAME 查询可降级的版本，选择对于的版本即可</span>
+sudo downgrade PACKAGE_NAME
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="demo">Demo</h1>
+<p>我需要对 qemu, qemu-arch-extra 两个包进行降级到 5.0.0</p>
+<h2 id="三种常规办法---failed">三种常规办法 - failed</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -Q qemu qemu-arch-extra
+qemu 6.0.0-3
+qemu-arch-extra 6.0.0-3
+
+$ <span class="nb">cd</span> /var/cache/pacman/pkg/
+$ find ./qemu-*
+./qemu-5.2.0-3-x86_64.pkg.tar.zst
+./qemu-5.2.0-4-x86_64.pkg.tar.zst
+./qemu-6.0.0-2-x86_64.pkg.tar.zst
+./qemu-6.0.0-3-x86_64.pkg.tar.zst
+./qemu-arch-extra-6.0.0-3-x86_64.pkg.tar.zst
+</code></pre></td></tr></table>
+</div>
+</div><p>本地缓存没有 5.0.0 的版本，到 <a href="https://archive.archlinux.org/packages/q/">https://archive.archlinux.org/packages/q/</a>中找到了对于的安装包，下载下来</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 卸载当前的版本</span>
+$ sudo pacman -R qemu qemu-arch-extra
+<span class="c1"># 从本地安装包安装旧版的包</span>
+$ sudo pacman -U qemu-5.0.0-2-x86_64.pkg.tar.zst
+$ sudo pacman -U qemu-arch-extra-5.0.0-2-x86_64.pkg.tar.zst
+
+<span class="c1"># 测试一下版本</span>
+$ qemu-riscv64 -version
+qemu-riscv64 version 5.0.0
+
+$ qemu-system-riscv64 -version
+qemu-system-riscv64: error <span class="k">while</span> loading shared libraries: libbrlapi.so.0.7: cannot open shared object file: No such file or directory
+
+<span class="c1"># 老问题了，临时动态链接解决方案</span>
+$ <span class="nb">cd</span> /usr/lib64
+$ find ./libbrlapi.*
+./libbrlapi.so
+./libbrlapi.so.0.8
+./libbrlapi.so.0.8.2
+
+<span class="c1"># 逐个查找三个中哪一个才是真正的文件，结果显示前两个都是动态链接文件</span>
+$ file libbrlapi.so
+libbrlapi.so: symbolic link to libbrlapi.so.0.8.2
+$ file libbrlapi.so.0.8
+libbrlapi.so.0.8: symbolic link to libbrlapi.so.0.8.2
+$ file libbrlapi.so.0.8.2
+libbrlapi.so.0.8.2: ELF 64-bit LSB shared object, x86-64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, BuildID<span class="o">[</span>sha1<span class="o">]=</span>eb362e7092dbdb98df5c80a1746d0d6fdf249b06, stripped
+
+<span class="c1"># 创建软链接文件 libbrlapi.so.0.7</span>
+$ sudo ln -s libbrlapi.so.0.8.2 libbrlapi.so.0.7
+<span class="c1"># 对出现的同类 error 如法炮制</span>
+$ sudo ln -s liburing.so.2.0.0 liburing.so.1
+$ sudo ln -s libnettle.so.8.3 libnettle.so.7
+$ sudo pacman -S glusterfs libiscsi liburing
+$ qemu-system-riscv64 -version
+qemu-system-riscv64: /usr/lib/liburing.so.1: version <span class="sb">`</span>LIBURING_0.2<span class="s1">&#39; not found (required by qemu-system-riscv64)
+</span><span class="s1">qemu-system-riscv64: /usr/lib/liburing.so.1: version `LIBURING_0.1&#39;</span> not found <span class="o">(</span>required by qemu-system-riscv64<span class="o">)</span>
+qemu-system-riscv64: /usr/lib/libnettle.so.7: version <span class="sb">`</span>NETTLE_7<span class="err">&#39;</span> not found <span class="o">(</span>required by qemu-system-riscv64<span class="o">)</span>
+
+<span class="c1"># 看样子软链接不太行，到项目里 make 也没有通过。下面就是删除软链接、卸载这个版本</span>
+
+$ sudo rm libbrlapi.so.0.7
+$ sudo rm liburing.so.1
+$ sudo rm libnettle.so.7
+$ sudo pacman -R glusterfs libiscsi liburing
+$ sudo pacman -R qemu qemu-arch-extra
+</code></pre></td></tr></table>
+</div>
+</div><p>现在只剩下三个中最后一个办法了 - downgrade</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo downgrade qemu-arch-extra
+
+$ qemu-riscv64 -version
+qemu-riscv64 version 5.0.0
+
+$ qemu-system-riscv64 -version
+qemu-system-riscv64: error <span class="k">while</span> loading shared libraries: libbrlapi.so.0.7: cannot open shared object file: No such file or directory
+<span class="c1"># 伤心太平洋，卸载再见</span>
+$ sudo pacman -R qemu qemu-arch-extra
+</code></pre></td></tr></table>
+</div>
+</div><p>现在还没有尝试的办法有：降级内核、将所有的包回退到某个日期、手动编译、snapshot等。前两个试错成本高，先尝试后面两个办法。</p>
+<h2 id="编译安装---failed">编译安装 - failed</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget https://download.qemu.org/qemu-5.0.0.tar.xz 
+<span class="c1"># 解压</span>
+tar xvJf qemu-5.0.0.tar.xz
+<span class="nb">cd</span> qemu-5.0.0
+<span class="c1"># 配置 RISC-V 支持</span>
+./configure --target-list<span class="o">=</span>riscv64-softmmu,riscv64-linux-user
+<span class="c1"># 多线程编译</span>
+make -j<span class="k">$(</span>nproc<span class="k">)</span>
+
+<span class="c1"># 安装</span>
+sudo make install
+</code></pre></td></tr></table>
+</div>
+</div><p>报错信息，编译安装行不通</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ make -j<span class="k">$(</span>nproc<span class="k">)</span>&gt;log_make.txt
+ar: 正在创建 /home/kearney/Downloads/qemu-5.0.0/capstone/libcapstone.a
+block/vpc.c: 在函数‘vpc_open’中:
+block/vpc.c:360:51: 警告：array subscript ‘VHDDynDiskHeader <span class="o">{</span>或称 struct vhd_dyndisk_header<span class="o">}[</span>0<span class="o">]</span>’ is partly outside array bounds of ‘uint8_t<span class="o">[</span>512<span class="o">]</span>’ <span class="o">{</span>或称 ‘unsigned char<span class="o">[</span>512<span class="o">]</span>’<span class="o">}</span> <span class="o">[</span>-Warray-bounds<span class="o">]</span>
+  <span class="m">360</span> <span class="p">|</span>         s-&gt;block_size <span class="o">=</span> be32_to_cpu<span class="o">(</span>dyndisk_header-&gt;block_size<span class="o">)</span><span class="p">;</span>
+      <span class="p">|</span>                                                   ^~
+block/vpc.c:223:13: 附注：while referencing ‘buf’
+  <span class="m">223</span> <span class="p">|</span>     uint8_t buf<span class="o">[</span>HEADER_SIZE<span class="o">]</span><span class="p">;</span>
+      <span class="p">|</span>             ^~~
+block/vpc.c:368:58: 警告：array subscript ‘VHDDynDiskHeader <span class="o">{</span>或称 struct vhd_dyndisk_header<span class="o">}[</span>0<span class="o">]</span>’ is partly outside array bounds of ‘uint8_t<span class="o">[</span>512<span class="o">]</span>’ <span class="o">{</span>或称 ‘unsigned char<span class="o">[</span>512<span class="o">]</span>’<span class="o">}</span> <span class="o">[</span>-Warray-bounds<span class="o">]</span>
+  <span class="m">368</span> <span class="p">|</span>         s-&gt;max_table_entries <span class="o">=</span> be32_to_cpu<span class="o">(</span>dyndisk_header-&gt;max_table_entries<span class="o">)</span><span class="p">;</span>
+      <span class="p">|</span>                                                          ^~
+block/vpc.c:223:13: 附注：while referencing ‘buf’
+  <span class="m">223</span> <span class="p">|</span>     uint8_t buf<span class="o">[</span>HEADER_SIZE<span class="o">]</span><span class="p">;</span>
+      <span class="p">|</span>             ^~~
+block/vpc.c:400:51: 警告：array subscript ‘VHDDynDiskHeader <span class="o">{</span>或称 struct vhd_dyndisk_header<span class="o">}[</span>0<span class="o">]</span>’ is partly outside array bounds of ‘uint8_t<span class="o">[</span>512<span class="o">]</span>’ <span class="o">{</span>或称 ‘unsigned char<span class="o">[</span>512<span class="o">]</span>’<span class="o">}</span> <span class="o">[</span>-Warray-bounds<span class="o">]</span>
+  <span class="m">400</span> <span class="p">|</span>         s-&gt;bat_offset <span class="o">=</span> be64_to_cpu<span class="o">(</span>dyndisk_header-&gt;table_offset<span class="o">)</span><span class="p">;</span>
+      <span class="p">|</span>                                                   ^~
+block/vpc.c:223:13: 附注：while referencing ‘buf’
+  <span class="m">223</span> <span class="p">|</span>     uint8_t buf<span class="o">[</span>HEADER_SIZE<span class="o">]</span><span class="p">;</span>
+      <span class="p">|</span>             ^~~
+block/sheepdog.c: 在函数‘reload_inode’中:
+block/sheepdog.c:1462:14: 警告：array subscript ‘SheepdogInode<span class="o">[</span>0<span class="o">]</span>’ is partly outside array bounds of ‘unsigned char<span class="o">[</span>4664<span class="o">]</span>’ <span class="o">[</span>-Warray-bounds<span class="o">]</span>
+ <span class="m">1462</span> <span class="p">|</span>     <span class="k">if</span> <span class="o">(</span>inode-&gt;vdi_id !<span class="o">=</span> s-&gt;inode.vdi_id<span class="o">)</span> <span class="o">{</span>
+      <span class="p">|</span>              ^~
+block/sheepdog.c:1447:13: 附注：referencing an object of size <span class="m">4664</span> allocated by ‘g_malloc’
+ <span class="m">1447</span> <span class="p">|</span>     <span class="nv">inode</span> <span class="o">=</span> g_malloc<span class="o">(</span>SD_INODE_HEADER_SIZE<span class="o">)</span><span class="p">;</span>
+      <span class="p">|</span>             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+block/sheepdog.c: 在函数‘sd_snapshot_list’中:
+block/sheepdog.c:297:19: 警告：array subscript ‘struct SheepdogInode<span class="o">[</span>0<span class="o">]</span>’ is partly outside array bounds of ‘unsigned char<span class="o">[</span>4664<span class="o">]</span>’ <span class="o">[</span>-Warray-bounds<span class="o">]</span>
+  <span class="m">297</span> <span class="p">|</span>     <span class="k">return</span> !!inode-&gt;snap_ctime<span class="p">;</span>
+      <span class="p">|</span>              ~~~~~^~~~~~~~~~~~
+block/sheepdog.c:2929:13: 附注：referencing an object of size <span class="m">4664</span> allocated by ‘g_malloc’
+ <span class="m">2929</span> <span class="p">|</span>     <span class="nv">inode</span> <span class="o">=</span> g_malloc<span class="o">(</span>SD_INODE_HEADER_SIZE<span class="o">)</span><span class="p">;</span>
+      <span class="p">|</span>             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+block/sheepdog.c:2984:48: 警告：array subscript ‘SheepdogInode<span class="o">[</span>0<span class="o">]</span>’ is partly outside array bounds of ‘unsigned char<span class="o">[</span>4664<span class="o">]</span>’ <span class="o">[</span>-Warray-bounds<span class="o">]</span>
+ <span class="m">2984</span> <span class="p">|</span>             sn_tab<span class="o">[</span>found<span class="o">]</span>.vm_state_size <span class="o">=</span> inode-&gt;vm_state_size<span class="p">;</span>
+      <span class="p">|</span>                                                ^~
+block/sheepdog.c:2929:13: 附注：referencing an object of size <span class="m">4664</span> allocated by ‘g_malloc’
+ <span class="m">2929</span> <span class="p">|</span>     <span class="nv">inode</span> <span class="o">=</span> g_malloc<span class="o">(</span>SD_INODE_HEADER_SIZE<span class="o">)</span><span class="p">;</span>
+      <span class="p">|</span>             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+block/sheepdog.c:2985:48: 警告：array subscript ‘SheepdogInode<span class="o">[</span>0<span class="o">]</span>’ is partly outside array bounds of ‘unsigned char<span class="o">[</span>4664<span class="o">]</span>’ <span class="o">[</span>-Warray-bounds<span class="o">]</span>
+ <span class="m">2985</span> <span class="p">|</span>             sn_tab<span class="o">[</span>found<span class="o">]</span>.vm_clock_nsec <span class="o">=</span> inode-&gt;vm_clock_nsec<span class="p">;</span>
+      <span class="p">|</span>                                                ^~
+block/sheepdog.c:2929:13: 附注：referencing an object of size <span class="m">4664</span> allocated by ‘g_malloc’
+ <span class="m">2929</span> <span class="p">|</span>     <span class="nv">inode</span> <span class="o">=</span> g_malloc<span class="o">(</span>SD_INODE_HEADER_SIZE<span class="o">)</span><span class="p">;</span>
+      <span class="p">|</span>             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+block/sheepdog.c:2988:39: 警告：array subscript ‘SheepdogInode<span class="o">[</span>0<span class="o">]</span>’ is partly outside array bounds of ‘unsigned char<span class="o">[</span>4664<span class="o">]</span>’ <span class="o">[</span>-Warray-bounds<span class="o">]</span>
+ <span class="m">2988</span> <span class="p">|</span>                      <span class="s2">&#34;%&#34;</span> PRIu32, inode-&gt;snap_id<span class="o">)</span><span class="p">;</span>
+      <span class="p">|</span>                                       ^~
+block/sheepdog.c:2929:13: 附注：referencing an object of size <span class="m">4664</span> allocated by ‘g_malloc’
+ <span class="m">2929</span> <span class="p">|</span>     <span class="nv">inode</span> <span class="o">=</span> g_malloc<span class="o">(</span>SD_INODE_HEADER_SIZE<span class="o">)</span><span class="p">;</span>
+      <span class="p">|</span>             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^Cmake: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: blockdev.o<span class="o">]</span> 中断
+make: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: fsdev/virtfs-proxy-helper.o<span class="o">]</span> 中断
+make: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: contrib/vhost-user-gpu/vhost-user-gpu.o<span class="o">]</span> 中断
+make: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: contrib/libvhost-user/libvhost-user.o<span class="o">]</span> 中断
+make: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: tools/virtiofsd/buffer.o<span class="o">]</span> 中断
+make: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: tools/virtiofsd/fuse_opt.o<span class="o">]</span> 中断
+make: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: tools/virtiofsd/fuse_log.o<span class="o">]</span> 中断
+make: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: tools/virtiofsd/fuse_lowlevel.o<span class="o">]</span> 中断
+make: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: tools/virtiofsd/fuse_signals.o<span class="o">]</span> 中断
+make: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: tools/virtiofsd/fuse_virtio.o<span class="o">]</span> 中断
+make: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: tools/virtiofsd/helper.o<span class="o">]</span> 中断
+make: *** <span class="o">[</span>/home/kearney/Downloads/qemu-5.0.0/rules.mak:69: tools/virtiofsd/passthrough_ll.o<span class="o">]</span> 中断
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="kubuntu-编译尝试---fail">Kubuntu 编译尝试 - fail</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ./configure --target-list<span class="o">=</span>riscv64-softmmu,riscv64-linux-user
+
+ERROR: <span class="s2">&#34;cc&#34;</span> either does not exist or does not work
+
+$ sudo apt install gcc
+$ ./configure --target-list<span class="o">=</span>riscv64-softmmu,riscv64-linux-user
+
+ERROR: pkg-config binary <span class="s1">&#39;pkg-config&#39;</span> not found
+
+$ sudo apt install pkg-config
+
+$ ./configure --target-list<span class="o">=</span>riscv64-softmmu,riscv64-linux-user
+
+ERROR: glib-2.48 gthread-2.0 is required to compile QEMU
+
+$  sudo apt install glib gthread
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树... 完成
+正在读取状态信息... 完成
+E: 无法定位软件包 glib
+E: 无法定位软件包 gthread
+
+$ sudo apt-get install libglib2.0-dev
+$ ./configure --target-list<span class="o">=</span>riscv64-softmmu,riscv64-linux-user
+
+ERROR: pixman &gt;<span class="o">=</span> 0.21.8 not present.
+       Please install the pixman devel package.
+
+$ sudo apt-get install libpixman-1-dev
+$ sudo apt install make
+<span class="c1"># 多线程编译</span>
+$ make -j<span class="k">$(</span>nproc<span class="k">)</span>
+
+<span class="c1"># 安装</span>
+$ sudo make install
+
+
+/usr/bin/ld: scsi/qemu-pr-helper.o: in <span class="k">function</span> <span class="sb">`</span>drop_privileges<span class="s1">&#39;:
+</span><span class="s1">/home/kearney/Downloads/qemu-5.0.0/scsi/qemu-pr-helper.c:837: undefined reference to `capng_clear&#39;</span>
+/usr/bin/ld: /home/kearney/Downloads/qemu-5.0.0/scsi/qemu-pr-helper.c:839: undefined reference to <span class="sb">`</span>capng_update<span class="s1">&#39;
+</span><span class="s1">/usr/bin/ld: /home/kearney/Downloads/qemu-5.0.0/scsi/qemu-pr-helper.c:856: undefined reference to `capng_change_id&#39;</span>
+collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</span> status
+make: *** <span class="o">[</span>/home/kearney/下载/qemu-5.0.0/rules.mak:124: scsi/qemu-pr-helper<span class="o">]</span> Error <span class="m">1</span>
+
+$ qemu-riscv64 -version
+Command <span class="s1">&#39;qemu-riscv64&#39;</span> not found, but can be installed with:
+sudo apt install qemu-user
+
+$ qemu-system-riscv64 -version
+Command <span class="s1">&#39;qemu-system-riscv64&#39;</span> not found, but can be installed with:
+sudo apt install qemu-system-misc
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="手动安装-lib----failed">手动安装 lib  - failed</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -U qemu-5.2.0-4-x86_64.pkg.tar.zst qemu-arch-extra-5.0.0-8-x86_64.pkg.tar.zst
+$ ldd /usr/bin/qemu-system-riscv64
+libbrlapi.so.0.7 <span class="o">=</span>&gt; not found
+liburing.so.1 <span class="o">=</span>&gt; not found
+<span class="c1"># libbrlapi.so 对于的包是 brltty</span>
+<span class="c1"># liburing 对于的包是 liburing</span>
+
+<span class="c1"># https://git.kernel.dk/cgit/liburing/ 下载0.1版的解压</span>
+$ <span class="nb">cd</span> liburing-0.1
+$ ./configure
+$ make
+$ sudo make install
+
+<span class="c1"># https://ubuntu.pkgs.org/20.04/ubuntu-main-amd64/libbrlapi0.7_6.0+dfsg-4ubuntu6_amd64.deb.html</span>
+<span class="c1"># 解压deb,得到so文件。deb/data//lib/x86_64-linux-gnu</span>
+$ sudo cp libbrlapi.so.0.7 /usr/lib64/
+$ sudo cp libbrlapi.so.0.7.0 /usr/lib64/
+$ qemu-system-riscv64 -version
+qemu-system-riscv64: /usr/lib/liburing.so.1: version <span class="sb">`</span>LIBURING_0.2<span class="sb">`</span> not found <span class="o">(</span>required by qemu-system-riscv64<span class="o">)</span>
+
+<span class="c1"># 系统中本来就是有liburing.so.2</span>
+$ sudo pacman -S liburing
+$ qemu-system-riscv64 -version
+qemu-system-riscv64: /usr/lib/liburing.so.1: version <span class="sb">`</span>LIBURING_0.2<span class="sb">`</span> not found <span class="o">(</span>required by qemu-system-riscv64<span class="o">)</span>
+
+<span class="c1"># 善后清理重建</span>
+$ sudo pacman -R qemu qemu-arch-extra
+$ sudo rm /usr/lib64/libbrlapi.so.0.7
+$ sudo rm /usr/lib64/libbrlapi.so.0.7.0
+
+<span class="c1"># liburing-0.1 没有 make uninstall 选项。。</span>
+<span class="c1"># https://www.zhihu.com/question/20092756</span>
+$ make &gt;<span class="p">&amp;</span> LOG_make.txt
+$ sudo make install &gt;<span class="p">&amp;</span> LOG_install.txt
+<span class="c1"># 分析 log</span>
+$ sudo rm /usr/include/liburing/io_uring.h
+$ sudo rm /usr/include/liburing.h
+$ sudo rm /usr/include/liburing/compat.h
+$ sudo rm /usr/include/liburing/barrier.h
+$ sudo rm /usr/lib/liburing.a
+$ sudo rm /usr/lib/liburing.so.1.0.1
+$ sudo rm /usr/lib/liburing.so.1
+$ sudo rm /usr/lib/liburing.so
+$ sudo rm /usr/lib/pkgconfig/liburing.pc
+<span class="c1"># 检查 man2 下是只有复制过去的三个文件</span>
+$ sudo rm /usr/man/man2/*.2
+$ sudo rm  -r /usr/man/man2
+
+$ sudo pacman -R qemu qemu-arch-extra
+
+<span class="c1"># 重装 liburing 以防万一</span>
+$ sudo pacman -S liburing
+警告：liburing-2.0-1 已经为最新 -- 重新安装
+警告：无法获取 usr/include/liburing.h 的文件信息
+警告：无法获取 usr/include/liburing/barrier.h 的文件信息
+警告：无法获取 usr/include/liburing/compat.h 的文件信息
+警告：无法获取 usr/lib/liburing.so 的文件信息
+警告：无法获取 usr/lib/pkgconfig/liburing.pc 的文件信息
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://git.kernel.dk/cgit/liburing/">https://git.kernel.dk/cgit/liburing/</a> 下载 2.0 版本的解压</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> liburing-2.0
+$ ./configure
+$ make &gt;<span class="p">&amp;</span> log_make.txt
+$ sudo make install &gt;<span class="p">&amp;</span> log_install.txt
+
+$ sudo pacman -S liburing
+<span class="c1"># 除了 重装警告 其它警告已经解决</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="lubuntu">lubuntu</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt search qemu*
+
+no any name about riscv
+
+$ qemu-system-riscv64
+Command <span class="s1">&#39;qemu-system-riscv64&#39;</span> not found, but can be installed with:
+sudo apt install qemu-system-misc
+
+$ sudo apt show qemu-system-misc
+Package: qemu-system-misc
+Version: 1:5.2+dfsg-9ubuntu3
+Priority: optional
+Section: misc
+Source: qemu
+Origin: Ubuntu
+Maintainer: Ubuntu Developers &lt;ubuntu-devel-discuss@lists.ubuntu.com&gt;
+Original-Maintainer: Debian QEMU Team &lt;pkg-qemu-devel@lists.alioth.debian.org&gt;
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: <span class="m">180</span> MB
+Provides: qemu-system-alpha, qemu-system-avr, qemu-system-cris, qemu-system-hppa, qemu-system-m68k, qemu-system-microblaze, qemu-system-microblazeel, qemu-system-moxie, qemu-system-nios2, qemu-system-or1k, qemu-system-riscv32, qemu-system-riscv64, qemu-system-rx, qemu-system-sh4, qemu-system-sh4eb, qemu-system-tricore, qemu-system-xtensa, qemu-system-xtensaeb
+Depends: libaio1 <span class="o">(</span>&gt;<span class="o">=</span> 0.3.93<span class="o">)</span>, libasound2 <span class="o">(</span>&gt;<span class="o">=</span> 1.0.16<span class="o">)</span>, libbrlapi0.8 <span class="o">(</span>&gt;<span class="o">=</span> 6.3+dfsg<span class="o">)</span>, libc6 <span class="o">(</span>&gt;<span class="o">=</span> 2.33<span class="o">)</span>, libcacard0 <span class="o">(</span>&gt;<span class="o">=</span> 2.2<span class="o">)</span>, libepoxy0 <span class="o">(</span>&gt;<span class="o">=</span> 1.3<span class="o">)</span>, libfdt1 <span class="o">(</span>&gt;<span class="o">=</span> 1.6.0<span class="o">)</span>, libgbm1 <span class="o">(</span>&gt;<span class="o">=</span> 7.11~1<span class="o">)</span>, libgcc-s1 <span class="o">(</span>&gt;<span class="o">=</span> 4.7<span class="o">)</span>, libglib2.0-0 <span class="o">(</span>&gt;<span class="o">=</span> 2.39.4<span class="o">)</span>, libgnutls30 <span class="o">(</span>&gt;<span class="o">=</span> 3.7.0<span class="o">)</span>, libibverbs1 <span class="o">(</span>&gt;<span class="o">=</span> 28<span class="o">)</span>, libjpeg8 <span class="o">(</span>&gt;<span class="o">=</span> 8c<span class="o">)</span>, libncursesw6 <span class="o">(</span>&gt;<span class="o">=</span> 6<span class="o">)</span>, libnettle8, libnuma1 <span class="o">(</span>&gt;<span class="o">=</span> 2.0.11<span class="o">)</span>, libpixman-1-0 <span class="o">(</span>&gt;<span class="o">=</span> 0.19.6<span class="o">)</span>, libpmem1 <span class="o">(</span>&gt;<span class="o">=</span> 1.4<span class="o">)</span>, libpng16-16 <span class="o">(</span>&gt;<span class="o">=</span> 1.6.2-1<span class="o">)</span>, librdmacm1 <span class="o">(</span>&gt;<span class="o">=</span> 1.0.15<span class="o">)</span>, libsasl2-2 <span class="o">(</span>&gt;<span class="o">=</span> 2.1.27+dfsg<span class="o">)</span>, libseccomp2 <span class="o">(</span>&gt;<span class="o">=</span> 2.1.0<span class="o">)</span>, libslirp0 <span class="o">(</span>&gt;<span class="o">=</span> 4.0.0<span class="o">)</span>, libspice-server1 <span class="o">(</span>&gt;<span class="o">=</span> 0.14.2<span class="o">)</span>, libtinfo6 <span class="o">(</span>&gt;<span class="o">=</span> 6<span class="o">)</span>, libudev1 <span class="o">(</span>&gt;<span class="o">=</span> 183<span class="o">)</span>, liburing1 <span class="o">(</span>&gt;<span class="o">=</span> 0.7<span class="o">)</span>, libusb-1.0-0 <span class="o">(</span>&gt;<span class="o">=</span> 2:1.0.23~<span class="o">)</span>, libusbredirparser1 <span class="o">(</span>&gt;<span class="o">=</span> 0.6<span class="o">)</span>, libvirglrenderer1 <span class="o">(</span>&gt;<span class="o">=</span> 0.8.0<span class="o">)</span>, zlib1g <span class="o">(</span>&gt;<span class="o">=</span> 1:1.2.0<span class="o">)</span>, qemu-system-common <span class="o">(</span>&gt;&gt; 1:5.2+dfsg-9ubuntu3~<span class="o">)</span>, qemu-system-data <span class="o">(</span>&gt;&gt; 1:5.2+dfsg-9ubuntu3~<span class="o">)</span>
+Recommends: qemu-system-gui <span class="o">(=</span> 1:5.2+dfsg-9ubuntu3<span class="o">)</span>, qemu-utils, seabios, ipxe-qemu <span class="o">(</span>&gt;<span class="o">=</span> 1.0.0+git-20131111.c3d1e78-1~<span class="o">)</span>
+Suggests: samba, vde2, qemu-block-extra <span class="o">(=</span> 1:5.2+dfsg-9ubuntu3<span class="o">)</span>
+Homepage: http://www.qemu.org/
+Download-Size: 37.8 MB
+APT-Sources: http://cn.archive.ubuntu.com/ubuntu hirsute-updates/main amd64 Packages
+Description: QEMU full system emulation binaries <span class="o">(</span>miscellaneous<span class="o">)</span>
+ QEMU is a fast processor emulator: currently the package supports
+ ARM, CRIS, M68k <span class="o">(</span>ColdFire<span class="o">)</span>, MicroBlaze, and SH4
+emulation. By using dynamic translation it achieves
+ reasonable speed <span class="k">while</span> being easy to port on new host CPUs.
+ .
+ This package provides the full system emulation binaries to emulate
+ various other hardware which did not made into separate packages.
+ Emulators <span class="k">for</span> the following architectures are provided:
+   alpha avr cris hppa m68k microblaze microblazeel moxie
+  nios2 or1k riscv32 riscv64 rx sh4 sh4eb tricore xtensa xtensaeb.
+ .
+ In system emulation mode QEMU emulates a full system, including a processor
+ and various peripherals.  It enables easier testing and debugging of system
+ code.  It can also be used to provide virtual hosting of several virtual
+ machines on a single server.
+
+N: 有 <span class="m">1</span> 条附加记录。请加上 ‘-a’ 参数来查看它们
+
+
+$ sudo apt install qemu-system-misc
+
+$ qemu-system-riscv64 --version
+QEMU emulator version 5.2.0 <span class="o">(</span>Debian 1:5.2+dfsg-9ubuntu3<span class="o">)</span>
+Copyright <span class="o">(</span>c<span class="o">)</span> 2003-2020 Fabrice Bellard and the QEMU Project developers
+
+$ sudo apt-cache madison qemu-system-misc
+qemu-system-misc <span class="p">|</span> 1:5.2+dfsg-9ubuntu3 <span class="p">|</span> http://mirrors.tuna.tsinghua.edu.cn/ubuntu hirsute-updates/main amd64 Packages
+qemu-system-misc <span class="p">|</span> 1:5.2+dfsg-9ubuntu2 <span class="p">|</span> http://mirrors.tuna.tsinghua.edu.cn/ubuntu hirsute/main amd64 Packages
+
+$ sudo apt remove qemu-system-misc
+$ sudo apt install qemu-system-misc<span class="o">=</span>1:5.2+dfsg-9ubuntu2
+
+$ qemu-system-riscv64 --version
+QEMU emulator version 5.2.0 <span class="o">(</span>Debian 1:5.2+dfsg-9ubuntu2<span class="o">)</span>
+Copyright <span class="o">(</span>c<span class="o">)</span> 2003-2020 Fabrice Bellard and the QEMU Project developers
+$ sudo apt remove qemu-system-misc
+
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="参考">参考</h1>
+<p><a href="https://linux.cn/article-9730-1.html">如何在 Arch Linux 中降级软件包 作者： Sk 译者： LCTT MjSeven | 2018-06-08 22:27</a>：archlinuxfr 仓库中的 downgrade</p>
+<p><a href="https://wiki.archlinux.org/title/Downgrading_packages">Downgrading packages Arch Wiki</a></p>
+<p><a href="https://archive.archlinux.org/">Arch Linux Archive</a>：使用 pacman 安装旧版包需要自己解决依赖问题，倒是说一下如何解决嘛。</p>
+<blockquote>
+<p>Package verification is controlled by pacman&rsquo;s RemoteFileSigLevel option. Note that if you use pacman, you have to figure out the dependencies yourself.</p>
+</blockquote>
+<p><a href="https://wiki.archlinux.org/title/Frequently_asked_questions">Frequently_asked_questions Arch Wiki</a>：没找到合适的库</p>
+<blockquote>
+<p>If_I_need_an_older_version_of_an_installed_library,_can_I_just_symlink_to_the_newer_version?
+Instead, e.g. use/write a compat package, which provides the required library version.</p>
+</blockquote>
+<p><a href=""></a></p>
+<p><a href=""></a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-05-28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/arch/">arch</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/environment_variable/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/arch-begin/">
+            <span class="next-text nav-default">Arch 新手的基本知识</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">筱氚</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

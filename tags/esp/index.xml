@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>esp on 筱氚~物语</title>
+    <link>http://anidea.gitee.io/tags/esp/</link>
+    <description>Recent content in esp on 筱氚~物语</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>筱氚</copyright>
+    <lastBuildDate>Fri, 04 Jun 2021 12:01:08 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/esp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ESP IDF 开发框架构建 与 ADF 语音识别框架尝试 - esp 32s</title>
+      <link>http://anidea.gitee.io/post/espidf/</link>
+      <pubDate>Fri, 04 Jun 2021 12:01:08 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/espidf/</guid>
+      <description>ESP-ADF ESP32 语音框架开发文档 ESP IDF 环境准备 根据vscode-esp-idf-extension/docs/tutorial/install.md 所描述</description>
+    </item>
+    
+  </channel>
+</rss>

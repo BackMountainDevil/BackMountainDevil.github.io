@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 01 Jun 2021 20:21:28 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Jun 2021 12:01:08 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ESP IDF 开发框架构建 与 ADF 语音识别框架尝试 - esp 32s</title>
+      <link>http://anidea.gitee.io/post/espidf/</link>
+      <pubDate>Fri, 04 Jun 2021 12:01:08 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/espidf/</guid>
+      <description>ESP-ADF ESP32 语音框架开发文档 ESP IDF 环境准备 根据vscode-esp-idf-extension/docs/tutorial/install.md 所描述</description>
+    </item>
+    
+    <item>
+      <title>rEFInd - 一款优美的多系统引导软件</title>
+      <link>http://anidea.gitee.io/post/refind/</link>
+      <pubDate>Thu, 03 Jun 2021 12:04:58 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/refind/</guid>
+      <description>rEFInd 这一个用来自定义引导操作系统的软件。通常用在多操作系统的电脑中选择使用哪一个 OS。类似于 Linux 的开机选择操作系统的 grub，可以选择不同内核、</description>
+    </item>
+    
     <item>
       <title>设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH</title>
       <link>http://anidea.gitee.io/post/environment_variable/</link>
@@ -15,6 +33,15 @@
       
       <guid>http://anidea.gitee.io/post/environment_variable/</guid>
       <description>环境变量 环境变量是什么？通俗的说就是变量，这些变量设置的内容可能是当前的语言、地区、shell、程序的位置、日志等级等。而比较常见的 $PATH 变量就</description>
+    </item>
+    
+    <item>
+      <title>Arch 安装旧版软件的办法（软件降级）</title>
+      <link>http://anidea.gitee.io/post/arch-downgrade/</link>
+      <pubDate>Fri, 28 May 2021 22:55:11 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/arch-downgrade/</guid>
+      <description>简介 介绍在 Arch Linux 安装旧版软件或者软件降级的办法 为什么 Arch 默认是滚动发行的，更新速度那就是一周更新好多次，软件版本都是最新版。但这样也会存在其弊端</description>
     </item>
     
     <item>
