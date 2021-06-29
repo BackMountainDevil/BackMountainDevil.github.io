@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.84.1 with theme even" />
 
 
 <link rel="canonical" href="http://anidea.gitee.io/post/arch-downgrade/" />
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Arch 安装旧版软件的办法（软件降级）">
 <meta itemprop="description" content="因为要使用旧版的qemu,于是就有了这个记录"><meta itemprop="datePublished" content="2021-05-28T22:55:11&#43;08:00" />
 <meta itemprop="dateModified" content="2021-05-28T22:55:11&#43;08:00" />
-<meta itemprop="wordCount" content="790">
+<meta itemprop="wordCount" content="1062">
 <meta itemprop="keywords" content="linux,arch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Arch 安装旧版软件的办法（软件降级）"/>
 <meta name="twitter:description" content="因为要使用旧版的qemu,于是就有了这个记录"/>
@@ -122,8 +122,8 @@
         <div class="post-category">
             <a href="/categories/os/"> os </a>
             </div>
-          <span class="more-meta"> 约 790 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+          <span class="more-meta"> 约 1062 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
         
       </div>
     </header>
@@ -145,6 +145,7 @@
         <li><a href="#downgrade">downgrade</a></li>
       </ul>
     </li>
+    <li><a href="#demo">Demo</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
@@ -214,7 +215,44 @@ yay -S downgrade
 sudo downgrade PACKAGE_NAME
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="参考">参考</h1>
+</div><h1 id="demo">Demo</h1>
+<p>我需要对 qemu, qemu-arch-extra 两个包进行降级到 5.0.0，以适应学习需要。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S downgrade
+$ sudo downgrade qemu-arch-extra
+- 25<span class="o">)</span> qemu-arch-extra    5.1.0  <span class="m">3</span>  /var/cache/pacman/pkg
+$ sudo downgrade qemu
+- 21<span class="o">)</span> qemu    5.0.0  <span class="m">8</span>  /var/cache/pacman/pkg
+<span class="c1">## 测试安装效果</span>
+$ qemu-riscv64 -version
+qemu-riscv64 version 5.1.0
+Copyright <span class="o">(</span>c<span class="o">)</span> 2003-2020 Fabrice Bellard and the QEMU Project developers
+$ qemu-system-riscv64 -version
+qemu-system-riscv64: error <span class="k">while</span> loading shared libraries: liburing.so.1: cannot open shared object file: No such file or directory
+<span class="c1"># 晚年依赖库问题，把库也进行降级</span>
+$ sudo downgrade liburing
+-  5<span class="o">)</span>  liburing    0.7  <span class="m">2</span>  /var/cache/pacman/pkg
+</code></pre></td></tr></table>
+</div>
+</div><p>在降级过程中，downgrade 会询问要不要把该软件包加入更新白名单，这样子更新系统的时候就不会更新这个包。最好还是加入白名单，说不准小手一抖就更新了呢。这个配置项会在 <code>/etc/pacman.conf</code> 中的 <code>IgnorePkg</code>，可以手动修改。</p>
+<h1 id="参考">参考</h1>
 <p><a href="https://linux.cn/article-9730-1.html">如何在 Arch Linux 中降级软件包 作者： Sk 译者： LCTT MjSeven | 2018-06-08 22:27</a>：archlinuxfr 仓库中的 downgrade</p>
 <p><a href="https://wiki.archlinux.org/title/Downgrading_packages">Downgrading packages Arch Wiki</a></p>
 <p><a href="https://archive.archlinux.org/">Arch Linux Archive</a>：使用 pacman 安装旧版包需要自己解决依赖问题，倒是说一下如何解决嘛。</p>
@@ -226,6 +264,7 @@ sudo downgrade PACKAGE_NAME
 <p>If_I_need_an_older_version_of_an_installed_library,_can_I_just_symlink_to_the_newer_version?
 Instead, e.g. use/write a compat package, which provides the required library version.</p>
 </blockquote>
+<p><a href="https://github.com/rcore-os/rCore-Tutorial-v3/issues/18">[rustsbi-panic] system shutdown scheduled due to RustSBI panic #18</a>:recore 学习中遇到的qemu与rustsbi版本问题</p>
 
     </div>
 

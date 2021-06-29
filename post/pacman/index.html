@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.84.1 with theme even" />
 
 
 <link rel="canonical" href="http://anidea.gitee.io/post/pacman/" />
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法">
 <meta itemprop="description" content="简要介绍 Arch 中 Pacman &amp; Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency &#39;libcap=2.48&#39; required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 &#39;libjpeg-turbo=2.0.6&#39; （lib32-libjpeg-turbo 需要）"><meta itemprop="datePublished" content="2021-04-30T08:36:59&#43;08:00" />
 <meta itemprop="dateModified" content="2021-04-30T08:36:59&#43;08:00" />
-<meta itemprop="wordCount" content="1382">
+<meta itemprop="wordCount" content="1395">
 <meta itemprop="keywords" content="arch,linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法"/>
 <meta name="twitter:description" content="简要介绍 Arch 中 Pacman &amp; Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency &#39;libcap=2.48&#39; required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 &#39;libjpeg-turbo=2.0.6&#39; （lib32-libjpeg-turbo 需要）"/>
@@ -122,7 +122,7 @@
         <div class="post-category">
             <a href="/categories/os/"> os </a>
             </div>
-          <span class="more-meta"> 约 1382 字 </span>
+          <span class="more-meta"> 约 1395 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         
       </div>
@@ -219,12 +219,16 @@ $ sudo reflector -c China -a <span class="m">6</span> --sort rate --save /etc/pa
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S git go base-devel
 git clone https://aur.archlinux.org/yay.git
 <span class="nb">cd</span> yay
 makepkg -si
+<span class="c1"># 添加 TUNA 镜像 https://mirrors6.tuna.tsinghua.edu.cn/help/AUR/</span>
+yay --aururl <span class="s2">&#34;https://aur.tuna.tsinghua.edu.cn&#34;</span> --save
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="使用">使用</h3>
