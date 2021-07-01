@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.84.1 with theme even" />
+<meta name="generator" content="Hugo 0.84.3 with theme even" />
 
 
 <link rel="canonical" href="http://anidea.gitee.io/post/pacman/" />
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法">
 <meta itemprop="description" content="简要介绍 Arch 中 Pacman &amp; Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency &#39;libcap=2.48&#39; required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 &#39;libjpeg-turbo=2.0.6&#39; （lib32-libjpeg-turbo 需要）"><meta itemprop="datePublished" content="2021-04-30T08:36:59&#43;08:00" />
 <meta itemprop="dateModified" content="2021-04-30T08:36:59&#43;08:00" />
-<meta itemprop="wordCount" content="1395">
+<meta itemprop="wordCount" content="1588">
 <meta itemprop="keywords" content="arch,linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法"/>
 <meta name="twitter:description" content="简要介绍 Arch 中 Pacman &amp; Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency &#39;libcap=2.48&#39; required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 &#39;libjpeg-turbo=2.0.6&#39; （lib32-libjpeg-turbo 需要）"/>
@@ -122,8 +122,8 @@
         <div class="post-category">
             <a href="/categories/os/"> os </a>
             </div>
-          <span class="more-meta"> 约 1395 字 </span>
-          <span class="more-meta"> 预计阅读 3 分钟 </span>
+          <span class="more-meta"> 约 1588 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
         
       </div>
     </header>
@@ -185,6 +185,10 @@
 <td style="text-align:left">pacman pacman -Syu</td>
 <td style="text-align:left">更新整个系统和软件</td>
 </tr>
+<tr>
+<td style="text-align:left">pacman -Sc</td>
+<td style="text-align:left">删除 pacman 缓存的软件包和无用的软件库（旧版安装包和已经安装过的安装包）</td>
+</tr>
 </tbody>
 </table>
 <p>非 root 用户的管理员需要在前面加上 sudo; 如何将 deb 包转换为 arch 使用的包格式，请参考 <a href="./debtap.md">debtap</a>。</p>
@@ -218,15 +222,9 @@ $ sudo reflector -c China -a <span class="m">6</span> --sort rate --save /etc/pa
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S git go base-devel
-git clone https://aur.archlinux.org/yay.git
-<span class="nb">cd</span> yay
-makepkg -si
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S yay
 <span class="c1"># 添加 TUNA 镜像 https://mirrors6.tuna.tsinghua.edu.cn/help/AUR/</span>
 yay --aururl <span class="s2">&#34;https://aur.tuna.tsinghua.edu.cn&#34;</span> --save
 </code></pre></td></tr></table>
@@ -277,6 +275,25 @@ yay -S lantern
 <span class="c1"># 哪天不开心就卸载</span>
 yay -Rs wechat-uos
 yay -Rs google-chrome
+</code></pre></td></tr></table>
+</div>
+</div><p>临时解决方案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ lantern
+Running installation script...
+/usr/lib/lantern/lantern-binary: 成功
+/home/kearney/.lantern/bin/lantern: error <span class="k">while</span> loading shared libraries: libpcap.so.0.8: cannot open shared object file: No such file or directory
+$ <span class="nb">cd</span> /usr/lib
+$ sudo ln -s libpcap.so.1.10.1 libpcap.so.0.8
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="deb">deb</h1>
@@ -386,6 +403,13 @@ error: failed to prepare transaction <span class="o">(</span>could not satisfy d
 <p><a href="https://bbs.archlinux.org/viewtopic.php?id=263521">[SOLVED] Pacman -Syu: installing libcap breaks dependency 2021-02-11</a></p>
 <p><a href="https://blog.csdn.net/weixin_43031092/article/details/113944349">Arch Linux wine 微信、heidissql、chrome - AUR heplers - yay Kearney form An idea 2021-03-17</a></p>
 <p><a href="https://linux.cn/article-12019-1.html">6 个用于 Arch Linux 的最佳 AUR 助手 作者： Magesh Maruthamuthu 译者： LCTT hkurj | 2020-03-21 08:30</a></p>
+<p><a href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/advanced/troubleshooting">ArchLinux安装使用教程</a></p>
+<blockquote>
+<p>升级系统时出现形如 unable to lock database 的错误
+可能存在升级系统时异常关机或程序异常退出的情况，或者多个 pacman 的相关程序在同时执行。移除 pacman 的 db 锁即可<br>
+<code>sudo rm /var/lib/pacman/db.lck</code></p>
+</blockquote>
+<p>教程中关于删除孤立软件包的内容过于激进，当你不知道这个包是干嘛用的，就不要随便删除。</p>
 
     </div>
 

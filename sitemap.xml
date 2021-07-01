@@ -2,28 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://anidea.gitee.io/categories/</loc>
-    <lastmod>2021-06-07T23:20:29+08:00</lastmod>
+    <loc>http://anidea.gitee.io/tags/arch/</loc>
+    <lastmod>2021-07-01T20:28:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://anidea.gitee.io/categories/maker/</loc>
-    <lastmod>2021-06-07T23:20:29+08:00</lastmod>
+    <loc>http://anidea.gitee.io/categories/</loc>
+    <lastmod>2021-07-01T20:28:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/categories/os/</loc>
+    <lastmod>2021-07-01T20:28:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://anidea.gitee.io/post/</loc>
-    <lastmod>2021-06-07T23:20:29+08:00</lastmod>
+    <lastmod>2021-07-01T20:28:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/tags/</loc>
+    <lastmod>2021-07-01T20:28:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/post/archkernel/</loc>
+    <lastmod>2021-07-01T20:28:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://anidea.gitee.io/</loc>
+    <lastmod>2021-07-01T20:28:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://anidea.gitee.io/categories/maker/</loc>
     <lastmod>2021-06-07T23:20:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -58,13 +86,6 @@
   </url>
   
   <url>
-    <loc>http://anidea.gitee.io/tags/</loc>
-    <lastmod>2021-06-04T12:01:08+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://anidea.gitee.io/categories/app/</loc>
     <lastmod>2021-06-03T12:04:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -81,20 +102,6 @@
   <url>
     <loc>http://anidea.gitee.io/post/refind/</loc>
     <lastmod>2021-06-03T12:04:58+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://anidea.gitee.io/tags/arch/</loc>
-    <lastmod>2021-06-01T20:21:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://anidea.gitee.io/categories/os/</loc>
-    <lastmod>2021-06-01T20:21:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
