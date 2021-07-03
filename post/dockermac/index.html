@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina" /><meta name="keywords" content="mac os, docker, Catalina, linux" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
+
+
+<link rel="canonical" href="http://anidea.gitee.io/post/dockermac/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina" />
+<meta property="og:description" content="在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://anidea.gitee.io/post/dockermac/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-02T19:13:35+08:00" />
+<meta property="article:modified_time" content="2021-07-02T19:13:35+08:00" />
+
+<meta itemprop="name" content="在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina">
+<meta itemprop="description" content="在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina"><meta itemprop="datePublished" content="2021-07-02T19:13:35+08:00" />
+<meta itemprop="dateModified" content="2021-07-02T19:13:35+08:00" />
+<meta itemprop="wordCount" content="3862">
+<meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina"/>
+<meta name="twitter:description" content="在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-02 </span>
+        <div class="post-category">
+            <a href="/categories/os/"> os </a>
+            </div>
+          <span class="more-meta"> 约 3862 字 </span>
+          <span class="more-meta"> 预计阅读 8 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景介绍">背景介绍</a>
+      <ul>
+        <li><a href="#环境介绍">环境介绍</a></li>
+        <li><a href="#最终效果">最终效果</a></li>
+      </ul>
+    </li>
+    <li><a href="#动手">动手</a>
+      <ul>
+        <li><a href="#安装软件">安装软件</a></li>
+        <li><a href="#开启-kvm-内核模块并启动-docker">开启 KVM 内核模块并启动 docker</a></li>
+        <li><a href="#添加用户组">添加用户组</a></li>
+        <li><a href="#拉取镜像">拉取镜像</a>
+          <ul>
+            <li><a href="#设置-docker-hub-镜像">设置 docker hub 镜像</a></li>
+            <li><a href="#拉取镜像-1">拉取镜像</a></li>
+          </ul>
+        </li>
+        <li><a href="#启动容器">启动容器</a>
+          <ul>
+            <li><a href="#catalina">Catalina</a></li>
+            <li><a href="#big-sur">Big Sur</a></li>
+          </ul>
+        </li>
+        <li><a href="#修改-mac-配置">修改 Mac 配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#qa">Q&amp;A</a>
+      <ul>
+        <li><a href="#个人配置信息">个人配置信息</a></li>
+        <li><a href="#gtk-initialization-failed">gtk initialization failed</a>
+          <ul>
+            <li><a href="#解决办法">解决办法</a></li>
+          </ul>
+        </li>
+        <li><a href="#docker-unknown-server-os">docker: unknown server OS</a></li>
+        <li><a href="#alas-警告错误">ALAS 警告、错误</a></li>
+        <li><a href="#已经尝试过失败的办法">已经尝试过失败的办法</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="背景介绍">背景介绍</h1>
+<p>MacOS默认不对其他电脑平台发布，在 Apple 目前的战略中不把 os 作为可交易的商品，而是一种卖硬件附送的高价值软件。因此对于非 A 家的设备，想要整个 Mac OS 就需要自己想办法了，黑苹果的驱动问题不太好解决 -.- 个人已经六岁的 se 想给它加点东西，奈何 xcode 不能跑在 other os，也没听说过类似 wine 的 mac wine。</p>
+<p>查了一下黑苹果的几种办法：虚拟机（VM、VirtualBox）、双系统（单黑系统不推荐）、KVM、Docker。后两种办法见于参考前排。</p>
+<p>至于采用何种办法见仁见智，最简单省事的办法是虚拟机，下载启动。缺点是占用空间大。双系统自己找资料补驱动，KVM 的速度比 docker 慢一点（该方案可在参考中学习）。所以这里我采用 docker 方案。此方案适合有耐心捣鼓的朋友，可能会遇到不少 warninig error.</p>
+<h2 id="环境介绍">环境介绍</h2>
+<ul>
+<li>OS： Arch Linux 5.10.47-1-lts</li>
+<li>CPU: AMD R5-4600u(支持虚拟化技术)</li>
+<li>Docker version 20.10.7</li>
+</ul>
+<h2 id="最终效果">最终效果</h2>
+<p><img src="/images/dockerMac/Catalina.jpg" alt="Catalina 系统桌面"></p>
+<h1 id="动手">动手</h1>
+<p>主要参考 <a href="https://github.com/sickcodes/Docker-OSX">sickcodes/Docker-OSX</a> 的 README.md</p>
+<h2 id="安装软件">安装软件</h2>
+<p>我这里的 os 是 Arch，其它 os 的慢慢看 README 找。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S qemu libvirt dnsmasq virt-manager bridge-utils flex bison iptables-nft edk2-ovmf docker
+
+iptables-nft 与 iptables 有冲突。删除 iptables 吗?y
+软件包 <span class="o">(</span>16<span class="o">)</span> gtk-vnc-1.2.0-1  gtksourceview4-4.8.1-1  iptables-1:1.8.7-1 <span class="o">[</span>删除<span class="o">]</span>  libosinfo-1.9.0-1
+            libvirt-glib-4.0.0-1  libvirt-python-1:7.3.0-1  osinfo-db-20210531-1  phodav-2.5-1
+            spice-gtk-0.39-3  virt-install-3.2.0-1  yajl-2.1.0-4  dnsmasq-2.85-1  edk2-ovmf-202105-1
+            iptables-nft-1:1.8.7-1  libvirt-1:7.3.0-1  virt-manager-3.2.0-1
+</code></pre></td></tr></table>
+</div>
+</div><p>有些包已经安装过了不再重复安装，所以上面没有显示 qemu bridge-utils flex bison docker</p>
+<h2 id="开启-kvm-内核模块并启动-docker">开启 KVM 内核模块并启动 docker</h2>
+<p>这里进行操作之前需要现在 BIOS 开启虚拟化技术。此步骤需要自行解决，比较简单就不赘述贴图了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl <span class="nb">enable</span> --now libvirtd
+sudo systemctl <span class="nb">enable</span> --now virtlogd
+
+<span class="nb">echo</span> <span class="m">1</span> <span class="p">|</span> sudo tee /sys/module/kvm/parameters/ignore_msrs
+
+sudo modprobe kvm
+
+<span class="c1"># 启动 docker, 并且设置开机自动启动 docker</span>
+sudo systemctl <span class="nb">enable</span> --now docker
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="添加用户组">添加用户组</h2>
+<p>这个不加入用户组的话就不能正常使用 docker、libvert、kvm，为了减少 bug 的数量还是动动小手好一点。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo usermod -aG docker <span class="s2">&#34;</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">&#34;</span>
+sudo usermod -aG libvirt <span class="s2">&#34;</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">&#34;</span>
+sudo usermod -aG kvm <span class="s2">&#34;</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">&#34;</span>
+
+<span class="c1"># kearney 是我的用户名</span>
+xhost +SI:localuser:kearney
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="拉取镜像">拉取镜像</h2>
+<p>两个最新版本（11、10）的Mac OS，挑一个喜欢的下载就行。此步骤耗时较长，与网络状态有关，建议打开电影《建国大业》观看等待。本人校园网下载了半个多小时最后卡死了。。所以特意将镜像步骤放在了这里</p>
+<h3 id="设置-docker-hub-镜像">设置 docker hub 镜像</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo nano /etc/docker/daemon.json
+<span class="c1"># 复制粘贴下面的内容， ctrl + x 保存退出</span>
+<span class="o">{</span>
+  <span class="s2">&#34;registry-mirrors&#34;</span>: <span class="o">[</span>
+    <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span>,
+    <span class="s2">&#34;https://ustc-edu-cn.mirror.aliyuncs.com/&#34;</span>,
+    <span class="s2">&#34;https://mirror.baidubce.com&#34;</span>,
+    <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下面重启 docker 服务使镜像设置生效</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload 
+sudo systemctl restart docker
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="拉取镜像-1">拉取镜像</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 如果要下载 Catalina 1.5 G，运行下面这个，我这里选择的是这个</span>
+docker pull sickcodes/docker-osx:latest
+<span class="c1"># 如果要下载 Big Sur 1.8 G，运行下面这个</span>
+docker pull sickcodes/docker-osx:big-sur
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="启动容器">启动容器</h2>
+<h3 id="catalina">Catalina</h3>
+<p>Catalina 运作这个</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -it <span class="se">\
+</span><span class="se"></span>    --device /dev/kvm <span class="se">\
+</span><span class="se"></span>    -p 50922:10022 <span class="se">\
+</span><span class="se"></span>    -v /tmp/.X11-unix:/tmp/.X11-unix <span class="se">\
+</span><span class="se"></span>    -e <span class="s2">&#34;DISPLAY=</span><span class="si">${</span><span class="nv">DISPLAY</span><span class="k">:-</span><span class="p">:</span><span class="nv">0</span><span class="p">.0</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span><span class="se"></span>    sickcodes/docker-osx:latest
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="big-sur">Big Sur</h3>
+<p>Big Sur 版本则运行这个</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -it <span class="se">\
+</span><span class="se"></span>    --device /dev/kvm <span class="se">\
+</span><span class="se"></span>    -p 50922:10022 <span class="se">\
+</span><span class="se"></span>    -v /tmp/.X11-unix:/tmp/.X11-unix <span class="se">\
+</span><span class="se"></span>    -e <span class="s2">&#34;DISPLAY=</span><span class="si">${</span><span class="nv">DISPLAY</span><span class="k">:-</span><span class="p">:</span><span class="nv">0</span><span class="p">.0</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span><span class="se"></span>    -e <span class="nv">GENERATE_UNIQUE</span><span class="o">=</span><span class="nb">true</span> <span class="se">\
+</span><span class="se"></span>    -e <span class="nv">MASTER_PLIST_URL</span><span class="o">=</span>https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist <span class="se">\
+</span><span class="se"></span>    sickcodes/docker-osx:big-sur
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="修改-mac-配置">修改 Mac 配置</h2>
+<p>成功启动之后选择 ‘Disk Utiliy’，左侧列表（Internal）里会有一些磁盘，选中那个 200G 左右的 QEMU HARDDISK Media,然后在上面五个按钮中点击Erase，名称你开心就好，随便填一个。</p>
+<p>之后我分了个区，从 200 里分了个 60（本来想分 30 但是 readme 里说 xcode 至少 60G），然而硬盘只有 20G 剩余，现装试一试。</p>
+<p>整好之后点击左上角红点返回，然后选择 Reinstall macOS 后继续。之后就一气呵成 同意、继续啥的。安装时间可以看会《觉醒年代》。</p>
+<h1 id="qa">Q&amp;A</h1>
+<h2 id="个人配置信息">个人配置信息</h2>
+<p>当无法正常运行 Docker-OSX，提问之前需要把这些信息加上</p>
+<details>
+<summary>点击查看如何获取个人配置信息</summary>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ uname -a
+Linux arch 5.10.47-1-lts <span class="c1">#1 SMP Wed, 30 Jun 2021 13:52:19 +0000 x86_64 GNU/Linux</span>
+$ qemu-system-x86_64 --version 
+QEMU emulator version 6.0.0
+Copyright <span class="o">(</span>c<span class="o">)</span> 2003-2021 Fabrice Bellard and the QEMU Project developers
+
+$ <span class="nb">echo</span> <span class="nv">$DISPLAY</span>
+:0
+
+$ uname -a <span class="se">\
+</span><span class="se"></span><span class="p">;</span> <span class="nb">echo</span> <span class="m">1</span> <span class="p">|</span> sudo tee /sys/module/kvm/parameters/ignore_msrs <span class="se">\
+</span><span class="se"></span><span class="p">;</span> grep NAME /etc/os-release <span class="se">\
+</span><span class="se"></span><span class="p">;</span> df -h . <span class="se">\
+</span><span class="se"></span><span class="p">;</span> qemu-system-x86_64 --version <span class="se">\
+</span><span class="se"></span><span class="p">;</span> libvirtd --version <span class="se">\
+</span><span class="se"></span><span class="p">;</span> free -mh <span class="se">\
+</span><span class="se"></span><span class="p">;</span> nproc <span class="se">\
+</span><span class="se"></span><span class="p">;</span> egrep -c <span class="s1">&#39;(svm|vmx)&#39;</span> /proc/cpuinfo <span class="se">\
+</span><span class="se"></span><span class="p">;</span> ls -lha /dev/kvm <span class="se">\
+</span><span class="se"></span><span class="p">;</span> ls -lha /tmp/.X11-unix/ <span class="se">\
+</span><span class="se"></span><span class="p">;</span> ps aux <span class="p">|</span> grep dockerd <span class="se">\
+</span><span class="se"></span><span class="p">;</span> docker ps <span class="p">|</span> grep osx <span class="se">\
+</span><span class="se"></span><span class="p">;</span> grep <span class="s2">&#34;docker\|kvm\|virt&#34;</span> /etc/group
+Linux arch 5.10.47-1-lts <span class="c1">#1 SMP Wed, 30 Jun 2021 13:52:19 +0000 x86_64 GNU/Linux</span>
+<span class="m">1</span>
+<span class="nv">NAME</span><span class="o">=</span><span class="s2">&#34;Arch Linux&#34;</span>
+<span class="nv">PRETTY_NAME</span><span class="o">=</span><span class="s2">&#34;Arch Linux&#34;</span>
+文件系统        容量  已用  可用 已用% 挂载点
+/dev/nvme0n1p5  108G   89G   14G   87% /
+QEMU emulator version 6.0.0
+Copyright <span class="o">(</span>c<span class="o">)</span> 2003-2021 Fabrice Bellard and the QEMU Project developers
+libvirtd <span class="o">(</span>libvirt<span class="o">)</span> 7.3.0
+               total        used        free      shared  buff/cache   available
+内存：       15Gi       3.9Gi       6.9Gi        99Mi       4.2Gi        10Gi
+交换：      976Mi          0B       976Mi
+<span class="m">12</span>
+<span class="m">12</span>
+crw-rw-rw- <span class="m">1</span> root kvm 10, <span class="m">232</span>  7月  <span class="m">2</span> 23:14 /dev/kvm
+总用量 <span class="m">0</span>
+drwxrwxrwt  <span class="m">2</span> root root  <span class="m">60</span>  7月  <span class="m">2</span> 22:54 .
+drwxrwxrwt <span class="m">12</span> root root <span class="m">560</span>  7月  <span class="m">2</span> 23:14 ..
+srwxrwxrwx  <span class="m">1</span> root root   <span class="m">0</span>  7月  <span class="m">2</span> 22:54 X0
+root        <span class="m">5084</span>  0.1  0.5 <span class="m">2127756</span> <span class="m">83268</span> ?       Ssl  23:03   0:00 /usr/bin/dockerd -H fd://
+kearney     <span class="m">9738</span>  0.0  0.0   <span class="m">9516</span>  <span class="m">2344</span> pts/1    S+   23:14   0:00 grep dockerd
+kvm❌992:kearney
+docker❌962:kearney
+libvirt❌960:kearney
+</code></pre></td></tr></table>
+</div>
+</div></details>
+<h2 id="gtk-initialization-failed">gtk initialization failed</h2>
+<p>这个是最常见的错误。。。issue里面相关的一大把。</p>
+<details>
+<summary>点击展开错误信息</summary>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker run -it <span class="se">\
+</span><span class="se"></span>    --device /dev/kvm <span class="se">\
+</span><span class="se"></span>    -p 50922:10022 <span class="se">\
+</span><span class="se"></span>    -v /tmp/.X11-unix:/tmp/.X11-unix <span class="se">\
+</span><span class="se"></span>    -e <span class="s2">&#34;DISPLAY=</span><span class="si">${</span><span class="nv">DISPLAY</span><span class="k">:-</span><span class="p">:</span><span class="nv">0</span><span class="p">.0</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span><span class="se"></span>    sickcodes/docker-osx:latest
+ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519 
+nohup: appending output to <span class="s1">&#39;nohup.out&#39;</span>
+++ id -u
+++ id -g
++ sudo chown 1000:1000 /dev/kvm
+++ id -u
+++ id -g
++ sudo chown -R 1000:1000 /dev/snd
++ <span class="o">[[</span> <span class="nv">3</span> <span class="o">=</span> max <span class="o">]]</span>
++ <span class="o">[[</span> <span class="nv">3</span> <span class="o">=</span> half <span class="o">]]</span>
+++ id -u
+++ id -g
++ sudo chown -R 1000:1000 /dev/snd
++ <span class="nb">exec</span> qemu-system-x86_64 -m <span class="m">3000</span> -cpu Penryn,vendor<span class="o">=</span>GenuineIntel,+invtsc,vmware-cpuid-freq<span class="o">=</span>on,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check, -machine q35,accel<span class="o">=</span>kvm:tcg -smp 4,cores<span class="o">=</span><span class="m">4</span> -usb -device usb-kbd -device usb-tablet -device <span class="s1">&#39;isa-applesmc,osk=ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&#39;</span> -drive <span class="k">if</span><span class="o">=</span>pflash,format<span class="o">=</span>raw,readonly,file<span class="o">=</span>/home/arch/OSX-KVM/OVMF_CODE.fd -drive <span class="k">if</span><span class="o">=</span>pflash,format<span class="o">=</span>raw,file<span class="o">=</span>/home/arch/OSX-KVM/OVMF_VARS-1024x768.fd -smbios <span class="nv">type</span><span class="o">=</span><span class="m">2</span> -audiodev alsa,id<span class="o">=</span>hda -device ich9-intel-hda -device hda-duplex,audiodev<span class="o">=</span>hda -device ich9-ahci,id<span class="o">=</span>sata -drive <span class="nv">id</span><span class="o">=</span>OpenCoreBoot,if<span class="o">=</span>none,snapshot<span class="o">=</span>on,format<span class="o">=</span>qcow2,file<span class="o">=</span>/home/arch/OSX-KVM/OpenCore-Catalina/OpenCore.qcow2 -device ide-hd,bus<span class="o">=</span>sata.2,drive<span class="o">=</span>OpenCoreBoot -device ide-hd,bus<span class="o">=</span>sata.3,drive<span class="o">=</span>InstallMedia -drive <span class="nv">id</span><span class="o">=</span>InstallMedia,if<span class="o">=</span>none,file<span class="o">=</span>/home/arch/OSX-KVM/BaseSystem.img,format<span class="o">=</span>qcow2 -drive <span class="nv">id</span><span class="o">=</span>MacHDD,if<span class="o">=</span>none,file<span class="o">=</span>/home/arch/OSX-KVM/mac_hdd_ng.img,format<span class="o">=</span>qcow2 -device ide-hd,bus<span class="o">=</span>sata.4,drive<span class="o">=</span>MacHDD -netdev user,id<span class="o">=</span>net0,hostfwd<span class="o">=</span>tcp::10022-:22,hostfwd<span class="o">=</span>tcp::5900-:5900, -device vmxnet3,netdev<span class="o">=</span>net0,id<span class="o">=</span>net0,mac<span class="o">=</span>52:54:00:09:49:17 -monitor stdio -vga vmware
+qemu-system-x86_64: -drive <span class="k">if</span><span class="o">=</span>pflash,format<span class="o">=</span>raw,readonly,file<span class="o">=</span>/home/arch/OSX-KVM/OVMF_CODE.fd: warning: short-form boolean option <span class="s1">&#39;readonly&#39;</span> deprecated
+Please use <span class="nv">readonly</span><span class="o">=</span>on instead
+No protocol specified
+Unable to init server: Could not connect: Connection refused
+QEMU 6.0.0 monitor - <span class="nb">type</span> <span class="s1">&#39;help&#39;</span> <span class="k">for</span> more information
+<span class="o">(</span>qemu<span class="o">)</span> qemu-system-x86_64: warning: host doesn<span class="s1">&#39;t support requested feature: CPUID.01H:ECX.pcid [bit 17]
+</span><span class="s1">qemu-system-x86_64: warning: host doesn&#39;</span>t support requested feature: CPUID.01H:ECX.pcid <span class="o">[</span>bit 17<span class="o">]</span>
+qemu-system-x86_64: warning: host doesn<span class="s1">&#39;t support requested feature: CPUID.01H:ECX.pcid [bit 17]
+</span><span class="s1">qemu-system-x86_64: warning: host doesn&#39;</span>t support requested feature: CPUID.01H:ECX.pcid <span class="o">[</span>bit 17<span class="o">]</span>
+ALSA lib confmisc.c:767:<span class="o">(</span>parse_card<span class="o">)</span> cannot find card <span class="s1">&#39;0&#39;</span>
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:<span class="o">(</span>snd_func_concat<span class="o">)</span> error evaluating strings
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:<span class="o">(</span>snd_func_refer<span class="o">)</span> error evaluating name
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5233:<span class="o">(</span>snd_config_expand<span class="o">)</span> Evaluate error: No such file or directory
+ALSA lib pcm.c:2660:<span class="o">(</span>snd_pcm_open_noupdate<span class="o">)</span> Unknown PCM default
+alsa: Could not initialize DAC
+alsa: Failed to open <span class="sb">`</span>default<span class="s1">&#39;:
+</span><span class="s1">alsa: Reason: No such file or directory
+</span><span class="s1">ALSA lib confmisc.c:767:(parse_card) cannot find card &#39;</span>0<span class="s1">&#39;
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+</span><span class="s1">ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+</span><span class="s1">ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+</span><span class="s1">ALSA lib conf.c:5233:(snd_config_expand) Evaluate error: No such file or directory
+</span><span class="s1">ALSA lib pcm.c:2660:(snd_pcm_open_noupdate) Unknown PCM default
+</span><span class="s1">alsa: Could not initialize DAC
+</span><span class="s1">alsa: Failed to open `default&#39;</span>:
+alsa: Reason: No such file or directory
+audio: Failed to create voice <span class="sb">`</span>dac<span class="s1">&#39;
+</span><span class="s1">ALSA lib confmisc.c:767:(parse_card) cannot find card &#39;</span>0<span class="s1">&#39;
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+</span><span class="s1">ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+</span><span class="s1">ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+</span><span class="s1">ALSA lib conf.c:5233:(snd_config_expand) Evaluate error: No such file or directory
+</span><span class="s1">ALSA lib pcm.c:2660:(snd_pcm_open_noupdate) Unknown PCM default
+</span><span class="s1">alsa: Could not initialize ADC
+</span><span class="s1">alsa: Failed to open `default&#39;</span>:
+alsa: Reason: No such file or directory
+ALSA lib confmisc.c:767:<span class="o">(</span>parse_card<span class="o">)</span> cannot find card <span class="s1">&#39;0&#39;</span>
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:<span class="o">(</span>snd_func_concat<span class="o">)</span> error evaluating strings
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:<span class="o">(</span>snd_func_refer<span class="o">)</span> error evaluating name
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5233:<span class="o">(</span>snd_config_expand<span class="o">)</span> Evaluate error: No such file or directory
+ALSA lib pcm.c:2660:<span class="o">(</span>snd_pcm_open_noupdate<span class="o">)</span> Unknown PCM default
+alsa: Could not initialize ADC
+alsa: Failed to open <span class="sb">`</span>default<span class="s1">&#39;:
+</span><span class="s1">alsa: Reason: No such file or directory
+</span><span class="s1">audio: Failed to create voice `adc&#39;</span>
+gtk initialization failed
+
+</code></pre></td></tr></table>
+</div>
+</div></details>
+<p>这是我遇到的第一个错误，查了 troubleshoot 和有关 run fail、gtk 的所有 issue，把里面提到的所有办法都尝试了一遍，于是就有了下面的“已经尝试过失败的办法”。最后不知道这个错误是如何变成了下面这个错误。。。</p>
+<p>当这个问题转到下一个问题有回来的时候，我再次尝试失败办法中的可能，到 xhost + 就成功了。</p>
+<h3 id="解决办法">解决办法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 关闭 x 的安保措施</span>
+xhost +
+
+<span class="c1"># 运行 Catalina</span>
+docker run -it     --device /dev/kvm     -p 50922:10022     -v /tmp/.X11-unix:/tmp/.X11-unix     -e <span class="s2">&#34;DISPLAY=</span><span class="si">${</span><span class="nv">DISPLAY</span><span class="k">:-</span><span class="p">:</span><span class="nv">0</span><span class="p">.0</span><span class="si">}</span><span class="s2">&#34;</span>     sickcodes/docker-osx:latest
+<span class="c1"># 能正常运行在往下走</span>
+
+<span class="c1"># 开启 x 的安保措施</span>
+xhost -
+
+<span class="c1"># 将自己加入白名单。kearney 是我的用户名，注意更换</span>
+xhost +SI:localuser:kearney
+</code></pre></td></tr></table>
+</div>
+</div><p>xhost 设置会在重启后还原默认值，因此如果要经常用这个玩意，可以把<code>xhost +SI:localuser:kearney</code>加入<code>~/.bashrc</code>。这样每次打开 bash，都会自动载入这个设置。</p>
+<h2 id="docker-unknown-server-os">docker: unknown server OS</h2>
+<p>出现这个问题说明 docker 出了问题。。issue 里说是 docker 没有允许，但是我这里 docker 服务是在运行的（systemctl status docker），但是 Docker daemon 却没有跑起来。最后万能办法 - 重启一下电脑。这个错误就消失了，变回了上面的错误。</p>
+<details>
+<summary>点击展开错误信息</summary>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker run -it     --device /dev/kvm     -p 50922:10022     -v /tmp/.X11-unix:/tmp/.X11-unix     -e <span class="s2">&#34;DISPLAY=</span><span class="si">${</span><span class="nv">DISPLAY</span><span class="k">:-</span><span class="p">:</span><span class="nv">0</span><span class="p">.0</span><span class="si">}</span><span class="s2">&#34;</span>     sickcodes/docker-osx:latest
+docker: unknown server OS: .
+See <span class="s1">&#39;docker run --help&#39;</span>.
+
+$ sudo systemctl start docker
+$ docker info
+Client:
+ Context:    default
+ Debug Mode: <span class="nb">false</span>
+ Plugins:
+  app: Docker App <span class="o">(</span>Docker Inc., v0.9.1-beta3<span class="o">)</span>
+  buildx: Build with BuildKit <span class="o">(</span>Docker Inc., v0.5.1-tp-docker<span class="o">)</span>
+
+Server:
+ERROR: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+errors pretty printing info
+
+$ pgrep dockerd
+<span class="m">103238</span>
+
+$ sudo systemctl stop docker
+$ sudo dockerd
+
+$ docker run -it <span class="se">\
+</span><span class="se"></span>    --device /dev/kvm <span class="se">\
+</span><span class="se"></span>    -p 50922:10022 <span class="se">\
+</span><span class="se"></span>    -v /tmp/.X11-unix:/tmp/.X11-unix <span class="se">\
+</span><span class="se"></span>    -e <span class="s2">&#34;DISPLAY=</span><span class="si">${</span><span class="nv">DISPLAY</span><span class="k">:-</span><span class="p">:</span><span class="nv">0</span><span class="p">.0</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span><span class="se"></span>    sickcodes/docker-osx:latest
+ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519 
+nohup: appending output to <span class="s1">&#39;nohup.out&#39;</span>
+++ id -u
+++ id -g
++ sudo chown 1000:1000 /dev/kvm
+++ id -u
+++ id -g
++ sudo chown -R 1000:1000 /dev/snd
++ <span class="o">[[</span> <span class="nv">3</span> <span class="o">=</span> max <span class="o">]]</span>
++ <span class="o">[[</span> <span class="nv">3</span> <span class="o">=</span> half <span class="o">]]</span>
+++ id -u
+++ id -g
++ sudo chown -R 1000:1000 /dev/snd
++ <span class="nb">exec</span> qemu-system-x86_64 -m <span class="m">3000</span> -cpu Penryn,vendor<span class="o">=</span>GenuineIntel,+invtsc,vmware-cpuid-freq<span class="o">=</span>on,+pcid,+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check, -machine q35,accel<span class="o">=</span>kvm:tcg -smp 4,cores<span class="o">=</span><span class="m">4</span> -usb -device usb-kbd -device usb-tablet -device <span class="s1">&#39;isa-applesmc,osk=ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&#39;</span> -drive <span class="k">if</span><span class="o">=</span>pflash,format<span class="o">=</span>raw,readonly,file<span class="o">=</span>/home/arch/OSX-KVM/OVMF_CODE.fd -drive <span class="k">if</span><span class="o">=</span>pflash,format<span class="o">=</span>raw,file<span class="o">=</span>/home/arch/OSX-KVM/OVMF_VARS-1024x768.fd -smbios <span class="nv">type</span><span class="o">=</span><span class="m">2</span> -audiodev alsa,id<span class="o">=</span>hda -device ich9-intel-hda -device hda-duplex,audiodev<span class="o">=</span>hda -device ich9-ahci,id<span class="o">=</span>sata -drive <span class="nv">id</span><span class="o">=</span>OpenCoreBoot,if<span class="o">=</span>none,snapshot<span class="o">=</span>on,format<span class="o">=</span>qcow2,file<span class="o">=</span>/home/arch/OSX-KVM/OpenCore-Catalina/OpenCore.qcow2 -device ide-hd,bus<span class="o">=</span>sata.2,drive<span class="o">=</span>OpenCoreBoot -device ide-hd,bus<span class="o">=</span>sata.3,drive<span class="o">=</span>InstallMedia -drive <span class="nv">id</span><span class="o">=</span>InstallMedia,if<span class="o">=</span>none,file<span class="o">=</span>/home/arch/OSX-KVM/BaseSystem.img,format<span class="o">=</span>qcow2 -drive <span class="nv">id</span><span class="o">=</span>MacHDD,if<span class="o">=</span>none,file<span class="o">=</span>/home/arch/OSX-KVM/mac_hdd_ng.img,format<span class="o">=</span>qcow2 -device ide-hd,bus<span class="o">=</span>sata.4,drive<span class="o">=</span>MacHDD -netdev user,id<span class="o">=</span>net0,hostfwd<span class="o">=</span>tcp::10022-:22,hostfwd<span class="o">=</span>tcp::5900-:5900, -device vmxnet3,netdev<span class="o">=</span>net0,id<span class="o">=</span>net0,mac<span class="o">=</span>52:54:00:09:49:17 -monitor stdio -vga vmware
+qemu-system-x86_64: -drive <span class="k">if</span><span class="o">=</span>pflash,format<span class="o">=</span>raw,readonly,file<span class="o">=</span>/home/arch/OSX-KVM/OVMF_CODE.fd: warning: short-form boolean option <span class="s1">&#39;readonly&#39;</span> deprecated
+Please use <span class="nv">readonly</span><span class="o">=</span>on instead
+No protocol specified
+Unable to init server: Could not connect: Connection refused
+QEMU 6.0.0 monitor - <span class="nb">type</span> <span class="s1">&#39;help&#39;</span> <span class="k">for</span> more information
+<span class="o">(</span>qemu<span class="o">)</span> qemu-system-x86_64: warning: host doesn<span class="s1">&#39;t support requested feature: CPUID.01H:ECX.pcid [bit 17]
+</span><span class="s1">qemu-system-x86_64: warning: host doesn&#39;</span>t support requested feature: CPUID.01H:ECX.pcid <span class="o">[</span>bit 17<span class="o">]</span>
+qemu-system-x86_64: warning: host doesn<span class="s1">&#39;t support requested feature: CPUID.01H:ECX.pcid [bit 17]
+</span><span class="s1">qemu-system-x86_64: warning: host doesn&#39;</span>t support requested feature: CPUID.01H:ECX.pcid <span class="o">[</span>bit 17<span class="o">]</span>
+ALSA lib confmisc.c:767:<span class="o">(</span>parse_card<span class="o">)</span> cannot find card <span class="s1">&#39;0&#39;</span>
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:<span class="o">(</span>snd_func_concat<span class="o">)</span> error evaluating strings
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:<span class="o">(</span>snd_func_refer<span class="o">)</span> error evaluating name
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5233:<span class="o">(</span>snd_config_expand<span class="o">)</span> Evaluate error: No such file or directory
+ALSA lib pcm.c:2660:<span class="o">(</span>snd_pcm_open_noupdate<span class="o">)</span> Unknown PCM default
+alsa: Could not initialize DAC
+alsa: Failed to open <span class="sb">`</span>default<span class="s1">&#39;:
+</span><span class="s1">alsa: Reason: No such file or directory
+</span><span class="s1">ALSA lib confmisc.c:767:(parse_card) cannot find card &#39;</span>0<span class="s1">&#39;
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+</span><span class="s1">ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+</span><span class="s1">ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+</span><span class="s1">ALSA lib conf.c:5233:(snd_config_expand) Evaluate error: No such file or directory
+</span><span class="s1">ALSA lib pcm.c:2660:(snd_pcm_open_noupdate) Unknown PCM default
+</span><span class="s1">alsa: Could not initialize DAC
+</span><span class="s1">alsa: Failed to open `default&#39;</span>:
+alsa: Reason: No such file or directory
+audio: Failed to create voice <span class="sb">`</span>dac<span class="s1">&#39;
+</span><span class="s1">ALSA lib confmisc.c:767:(parse_card) cannot find card &#39;</span>0<span class="s1">&#39;
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+</span><span class="s1">ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+</span><span class="s1">ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+</span><span class="s1">ALSA lib conf.c:4745:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+</span><span class="s1">ALSA lib conf.c:5233:(snd_config_expand) Evaluate error: No such file or directory
+</span><span class="s1">ALSA lib pcm.c:2660:(snd_pcm_open_noupdate) Unknown PCM default
+</span><span class="s1">alsa: Could not initialize ADC
+</span><span class="s1">alsa: Failed to open `default&#39;</span>:
+alsa: Reason: No such file or directory
+ALSA lib confmisc.c:767:<span class="o">(</span>parse_card<span class="o">)</span> cannot find card <span class="s1">&#39;0&#39;</span>
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:<span class="o">(</span>snd_func_concat<span class="o">)</span> error evaluating strings
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:<span class="o">(</span>snd_func_refer<span class="o">)</span> error evaluating name
+ALSA lib conf.c:4745:<span class="o">(</span>_snd_config_evaluate<span class="o">)</span> <span class="k">function</span> snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5233:<span class="o">(</span>snd_config_expand<span class="o">)</span> Evaluate error: No such file or directory
+ALSA lib pcm.c:2660:<span class="o">(</span>snd_pcm_open_noupdate<span class="o">)</span> Unknown PCM default
+alsa: Could not initialize ADC
+alsa: Failed to open <span class="sb">`</span>default<span class="s1">&#39;:
+</span><span class="s1">alsa: Reason: No such file or directory
+</span><span class="s1">audio: Failed to create voice `adc&#39;</span>
+gtk initialization failed
+
+$ docker info
+Client:
+ Context:    default
+ Debug Mode: <span class="nb">false</span>
+ Plugins:
+  app: Docker App <span class="o">(</span>Docker Inc., v0.9.1-beta3<span class="o">)</span>
+  buildx: Build with BuildKit <span class="o">(</span>Docker Inc., v0.5.1-tp-docker<span class="o">)</span>
+
+Server:
+ Containers: <span class="m">8</span>
+  Running: <span class="m">0</span>
+  Paused: <span class="m">0</span>
+  Stopped: <span class="m">8</span>
+ Images: <span class="m">2</span>
+ Server Version: 20.10.7
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: <span class="nb">true</span>
+  Native Overlay Diff: <span class="nb">false</span>
+  userxattr: <span class="nb">false</span>
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: <span class="m">2</span>
+ Plugins:
+  Volume: <span class="nb">local</span>
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file <span class="nb">local</span> logentries splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 36cc874494a56a253cd181a1a685b44b58a2e34a.m
+ runc version: v1.0.0-0-g84113eef
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: default
+  cgroupns
+ Kernel Version: 5.10.47-1-lts
+ Operating System: Arch Linux
+ OSType: linux
+ Architecture: x86_64
+ CPUs: <span class="m">12</span>
+ Total Memory: 15.06GiB
+ Name: arch
+ ID: PDMD:ZWZ3:XLJN:KJCX:PXXH:THRT:DLWM:W2J6:BRLM:E7VK:OUPS:Y4L3
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: <span class="nb">false</span>
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: <span class="nb">false</span>
+ Insecure Registries:
+  127.0.0.0/8
+ Registry Mirrors:
+  https://docker.mirrors.ustc.edu.cn/
+  https://ustc-edu-cn.mirror.aliyuncs.com/
+  https://mirror.baidubce.com/
+  https://hub-mirror.c.163.com/
+ Live Restore Enabled: <span class="nb">false</span>
+</code></pre></td></tr></table>
+</div>
+</div></details>
+<h2 id="alas-警告错误">ALAS 警告、错误</h2>
+<p>类似于下面这些东西，readme 中说了不用担心，忽略ta就行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ALSA lib pcm.c:2660:<span class="o">(</span>snd_pcm_open_noupdate<span class="o">)</span> Unknown PCM default
+alsa: Could not initialize DAC
+alsa: Failed to open <span class="sb">`</span>default<span class="s1">&#39;:
+</span><span class="s1">alsa: Reason: No such file or directory
+</span><span class="s1">audio: Failed to create voice `dac&#39;</span>
+ALSA lib *.c:: cannot find card <span class="s1">&#39;0&#39;</span>
+ALSA lib *.c:No such file or directory
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="已经尝试过失败的办法">已经尝试过失败的办法</h2>
+<ul>
+<li>sudo chmod 666 /dev/kvm</li>
+<li>xhost +（失败后记得用 <code>xhost -</code> 开启安全保护）</li>
+<li>sudo pacman -S xorg-xhost</li>
+</ul>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://github.com/foxlet/macOS-Simple-KVM">foxlet/macOS-Simple-KVM</a>: Tools to set up a quick macOS VM in QEMU, accelerated by KVM.</li>
+<li><a href="https://github.com/sickcodes/Docker-OSX">sickcodes/Docker-OSX</a>: Run Mac in a Docker!</li>
+<li><a href="https://github.com/sickcodes/Docker-OSX/issues/302">Docker-OSX/issues/302</a>：提问完重启我就好了。。尴尬</li>
+<li><a href="https://support.apple.com/zh-cn/HT201260">macOS 版本官方清单</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-07-02
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/docker/">docker</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/archkernel/">
+            <span class="next-text nav-default">将 Arch Linux 内核从 stable 更换为 LTS 的办法与案例</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">筱氚</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

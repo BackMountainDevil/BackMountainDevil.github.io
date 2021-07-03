@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.84.3 with theme even" />
+<meta name="generator" content="Hugo 0.84.4 with theme even" />
 
 
 <link rel="canonical" href="http://anidea.gitee.io/post/pacman/" />
@@ -43,13 +43,13 @@
 <meta property="og:description" content="简要介绍 Arch 中 Pacman &amp; Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency &#39;libcap=2.48&#39; required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 &#39;libjpeg-turbo=2.0.6&#39; （lib32-libjpeg-turbo 需要）" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://anidea.gitee.io/post/pacman/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-04-30T08:36:59&#43;08:00" />
-<meta property="article:modified_time" content="2021-04-30T08:36:59&#43;08:00" />
+<meta property="article:published_time" content="2021-04-30T08:36:59+08:00" />
+<meta property="article:modified_time" content="2021-04-30T08:36:59+08:00" />
 
 <meta itemprop="name" content="Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法">
-<meta itemprop="description" content="简要介绍 Arch 中 Pacman &amp; Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency &#39;libcap=2.48&#39; required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 &#39;libjpeg-turbo=2.0.6&#39; （lib32-libjpeg-turbo 需要）"><meta itemprop="datePublished" content="2021-04-30T08:36:59&#43;08:00" />
-<meta itemprop="dateModified" content="2021-04-30T08:36:59&#43;08:00" />
-<meta itemprop="wordCount" content="1588">
+<meta itemprop="description" content="简要介绍 Arch 中 Pacman &amp; Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency &#39;libcap=2.48&#39; required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 &#39;libjpeg-turbo=2.0.6&#39; （lib32-libjpeg-turbo 需要）"><meta itemprop="datePublished" content="2021-04-30T08:36:59+08:00" />
+<meta itemprop="dateModified" content="2021-04-30T08:36:59+08:00" />
+<meta itemprop="wordCount" content="1808">
 <meta itemprop="keywords" content="arch,linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法"/>
 <meta name="twitter:description" content="简要介绍 Arch 中 Pacman &amp; Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency &#39;libcap=2.48&#39; required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 &#39;libjpeg-turbo=2.0.6&#39; （lib32-libjpeg-turbo 需要）"/>
@@ -122,7 +122,7 @@
         <div class="post-category">
             <a href="/categories/os/"> os </a>
             </div>
-          <span class="more-meta"> 约 1588 字 </span>
+          <span class="more-meta"> 约 1808 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         
       </div>
@@ -186,12 +186,21 @@
 <td style="text-align:left">更新整个系统和软件</td>
 </tr>
 <tr>
+<td style="text-align:left">paccache -r</td>
+<td style="text-align:left">删除不使用的包，但保留最近的三个版本</td>
+</tr>
+<tr>
 <td style="text-align:left">pacman -Sc</td>
 <td style="text-align:left">删除 pacman 缓存的软件包和无用的软件库（旧版安装包和已经安装过的安装包）</td>
+</tr>
+<tr>
+<td style="text-align:left">pacman -Scc</td>
+<td style="text-align:left">删除缓存中的全部文件，一个不留，谨慎操作！！！</td>
 </tr>
 </tbody>
 </table>
 <p>非 root 用户的管理员需要在前面加上 sudo; 如何将 deb 包转换为 arch 使用的包格式，请参考 <a href="./debtap.md">debtap</a>。</p>
+<p>由于 pacman 的设计上不会自动移除旧的和未安装版本的软件包，所以 <code>/var/cache/pacman/pkg/</code> 中积累的软件包数量会越来越多，占用存储空间越来越大（半年多积累了18 G），因此需要自己清理这些缓存（paccache -r）。但是我懒的自己去做这件事情，开启每周自动清理功能即可 <code>sudo systemctl enable paccache.timer</code>。</p>
 <h2 id="仓库">仓库</h2>
 <p>pacman 默认只开启三个官方仓库：core, extra, community. 默认不开启 multilib（ 32 位软件库 ），配置文件为 <code>/etc/pacman.conf</code>。目前来说我只有 wine 需要开启 multilib。</p>
 <p>更多见<a href="https://wiki.archlinux.org/index.php/Official_repositories">Official repositories arch wiki</a></p>
@@ -245,6 +254,14 @@ yay --aururl <span class="s2">&#34;https://aur.tuna.tsinghua.edu.cn&#34;</span> 
 <tr>
 <td style="text-align:left">yay -Rs 软件包名</td>
 <td style="text-align:left">卸载软件及其依赖</td>
+</tr>
+<tr>
+<td style="text-align:left">yay -Ps</td>
+<td style="text-align:left">输出版本信息、软件包数量、总大小、前十个最大的软件包</td>
+</tr>
+<tr>
+<td style="text-align:left">yay -Yc</td>
+<td style="text-align:left">清理不再需要的依赖包</td>
 </tr>
 </tbody>
 </table>

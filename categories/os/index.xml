@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Thu, 01 Jul 2021 20:28:24 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/categories/os/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Jul 2021 19:13:35 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/categories/os/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina</title>
+      <link>http://anidea.gitee.io/post/dockermac/</link>
+      <pubDate>Fri, 02 Jul 2021 19:13:35 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/dockermac/</guid>
+      <description>背景介绍 MacOS默认不对其他电脑平台发布，在 Apple 目前的战略中不把 os 作为可交易的商品，而是一种卖硬件附送的高价值软件。因此对于非 A 家的设备，想</description>
+    </item>
+    
     <item>
       <title>将 Arch Linux 内核从 stable 更换为 LTS 的办法与案例</title>
       <link>http://anidea.gitee.io/post/archkernel/</link>

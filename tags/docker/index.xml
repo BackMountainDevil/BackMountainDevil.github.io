@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on 筱氚~物语</title>
+    <link>http://anidea.gitee.io/tags/docker/</link>
+    <description>Recent content in docker on 筱氚~物语</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>筱氚</copyright>
+    <lastBuildDate>Fri, 02 Jul 2021 19:13:35 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina</title>
+      <link>http://anidea.gitee.io/post/dockermac/</link>
+      <pubDate>Fri, 02 Jul 2021 19:13:35 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/dockermac/</guid>
+      <description>背景介绍 MacOS默认不对其他电脑平台发布，在 Apple 目前的战略中不把 os 作为可交易的商品，而是一种卖硬件附送的高价值软件。因此对于非 A 家的设备，想</description>
+    </item>
+    
+  </channel>
+</rss>
