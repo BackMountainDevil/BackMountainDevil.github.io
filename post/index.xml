@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Fri, 02 Jul 2021 19:13:35 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Jul 2021 23:23:32 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 arp-scan 快速扫描局域网 IP -&gt; raspberry pi ssh vnc</title>
+      <link>http://anidea.gitee.io/post/rasip/</link>
+      <pubDate>Fri, 16 Jul 2021 23:23:32 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/rasip/</guid>
+      <description>简介 在使用 ssh/vnc 对树莓派进行远程操作的时候，都需要获取树莓派的 IP。常见的办法是路由器管理页面或者使用 Advanced IP Scanner。但是我既没有路由器，也</description>
+    </item>
+    
+    <item>
+      <title>Eclipse 设置国内镜像加快下载速度 Plugin Maven Mirror</title>
+      <link>http://anidea.gitee.io/post/eclipse-mirror/</link>
+      <pubDate>Mon, 12 Jul 2021 12:05:03 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/eclipse-mirror/</guid>
+      <description>由于一些原因，默认镜像下载速度感人，颇有愚公移山的精神，但是时间就是生命！下面是更换国内镜像走上高速的办法。 Plugin Eclipse -&amp;gt; Window -&amp;gt; Preferences -&amp;gt; Install/Update -&amp;gt; Available software Sites -&amp;gt; Add&amp;hellip; Name: utsc</description>
+    </item>
+    
     <item>
       <title>在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina</title>
       <link>http://anidea.gitee.io/post/dockermac/</link>

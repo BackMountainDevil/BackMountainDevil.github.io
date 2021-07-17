@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 27 Apr 2021 22:26:58 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Jul 2021 23:23:32 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 arp-scan 快速扫描局域网 IP -&gt; raspberry pi ssh vnc</title>
+      <link>http://anidea.gitee.io/post/rasip/</link>
+      <pubDate>Fri, 16 Jul 2021 23:23:32 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/rasip/</guid>
+      <description>简介 在使用 ssh/vnc 对树莓派进行远程操作的时候，都需要获取树莓派的 IP。常见的办法是路由器管理页面或者使用 Advanced IP Scanner。但是我既没有路由器，也</description>
+    </item>
+    
     <item>
       <title>在树莓派2上非全局编译安装 python39</title>
       <link>http://anidea.gitee.io/post/compilepy39/</link>

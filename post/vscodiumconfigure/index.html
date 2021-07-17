@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.84.4 with theme even" />
+<meta name="generator" content="Hugo 0.85.0 with theme even" />
 
 
 <link rel="canonical" href="http://anidea.gitee.io/post/vscodiumconfigure/" />
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="VSCodiumConfigure">
 <meta itemprop="description" content="Visual Studio Codium的常用语言配置"><meta itemprop="datePublished" content="2020-11-15T21:10:21+08:00" />
 <meta itemprop="dateModified" content="2020-11-15T21:10:21+08:00" />
-<meta itemprop="wordCount" content="2081">
+<meta itemprop="wordCount" content="2194">
 <meta itemprop="keywords" content="python,c,c&#43;&#43;," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VSCodiumConfigure"/>
 <meta name="twitter:description" content="Visual Studio Codium的常用语言配置"/>
@@ -122,7 +122,7 @@
         <div class="post-category">
             <a href="/categories/vscodium/"> VSCodium </a>
             </div>
-          <span class="more-meta"> 约 2081 字 </span>
+          <span class="more-meta"> 约 2194 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         
       </div>
@@ -146,14 +146,13 @@
         <li><a href="#snippet">snippet</a></li>
       </ul>
     </li>
-    <li><a href="#c">c</a>
+    <li><a href="#cc">C/C++</a>
       <ul>
         <li><a href="#gcc">gcc</a></li>
         <li><a href="#c-extend">c-extend</a></li>
+        <li><a href="#snippet-1">snippet</a></li>
       </ul>
     </li>
-    <li><a href="#c-1">c++</a></li>
-    <li><a href="#uninstall">Uninstall</a></li>
     <li><a href="#references">References</a></li>
   </ul>
 </nav>
@@ -341,7 +340,7 @@ pip3 install yapf flake8
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="c">c</h1>
+</div><h1 id="cc">C/C++</h1>
 <h2 id="gcc">gcc</h2>
 <p>Deepin默认带了gcc 8.3.0，写完c程序tmp.c可以在终端里面敲入</p>
 <div class="highlight"><div class="chroma">
@@ -350,35 +349,69 @@ pip3 install yapf flake8
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 生成程序</span>
-gcc -W  tmp.c -o tmp.out
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 编译 C 程序</span>
+gcc -W  tmp.c -o tmp
 <span class="c1"># 运行程序</span>
-./tmp.out
+./tmp
+
+<span class="c1"># 编译 C++ 程序</span>
+g++ -W  tmp.cpp -o tmp
+<span class="c1"># 运行程序</span>
+./tmp
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="c-extend">c-extend</h2>
-<p>marketplace没有C/C++插件。。。然后我跑去微软C/C++ rpo发isuue请人家以后发一个version到open-vsx.org。。。现在采用的是下载插件的vsix文件，命令行安装
-codium &ndash;install-extension myextension.vsix</p>
-<h1 id="c-1">c++</h1>
+<p>marketplace没有C/C++插件。。。然后我跑去微软C/C++ rpo发isuue请人家以后发一个version到open-vsx.org。。。现在采用的是下载插件的vsix文件，命令行安装<br>
+<code>codium --install-extension myextension.vsix</code></p>
+<h2 id="snippet-1">snippet</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 生成程序</span>
-g++ -W  tmp.cpp -o tmp.out
-<span class="c1"># 运行程序</span>
-./tmp.out
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+		<span class="nt">&#34;添加注释：作者和版权信息模板&#34;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&#34;prefix&#34;</span><span class="p">:</span> <span class="s2">&#34;author&#34;</span><span class="p">,</span>
+		<span class="nt">&#34;body&#34;</span><span class="p">:</span> <span class="p">[</span>
+			<span class="s2">&#34;/*@File    :  $TM_FILENAME&#34;</span><span class="p">,</span>
+			<span class="s2">&#34;  @Desc    :  对文件的简述&#34;</span><span class="p">,</span>
+			<span class="s2">&#34;  @@Author :  Kearney&#34;</span><span class="p">,</span>
+			<span class="s2">&#34;  @Contact :  191615342@qq.com&#34;</span><span class="p">,</span>
+			<span class="s2">&#34;  @version :  0.0.0&#34;</span><span class="p">,</span>
+			<span class="s2">&#34;  @Time    :	$CURRENT_YEAR/$CURRENT_MONTH/$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND&#34;</span><span class="p">,</span>
+			<span class="s2">&#34;  @License :  MIT&#34;</span><span class="p">,</span>
+			<span class="s2">&#34;  @Encoding:  UTF-8  */&#34;</span><span class="p">,</span>
+			<span class="s2">&#34;&#34;</span>
+		<span class="p">],</span>
+		<span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;添加作者、版权信息、文件内容的基本信息&#34;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="uninstall">Uninstall</h1>
-<p>在菜单栏中单击右键右键-卸载</p>
-<h1 id="references">References</h1>
+</div><h1 id="references">References</h1>
 <ul>
 <li><a href="https://github.com/VSCodium/vscodium/blob/master/DOCS.md"> vscodium/DOCS.md </a></li>
 <li><a href="https://bbs.deepin.org/post/132143#mod=viewthread&amp;tid=132143">python没有安装pip么？-Deepin</a></li>

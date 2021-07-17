@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.84.4 with theme even" />
+<meta name="generator" content="Hugo 0.85.0 with theme even" />
 
 
 <link rel="canonical" href="http://anidea.gitee.io/post/dockermac/" />
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina">
 <meta itemprop="description" content="在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina"><meta itemprop="datePublished" content="2021-07-02T19:13:35+08:00" />
 <meta itemprop="dateModified" content="2021-07-02T19:13:35+08:00" />
-<meta itemprop="wordCount" content="3862">
+<meta itemprop="wordCount" content="4218">
 <meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina"/>
 <meta name="twitter:description" content="在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina"/>
@@ -122,8 +122,8 @@
         <div class="post-category">
             <a href="/categories/os/"> os </a>
             </div>
-          <span class="more-meta"> 约 3862 字 </span>
-          <span class="more-meta"> 预计阅读 8 分钟 </span>
+          <span class="more-meta"> 约 4218 字 </span>
+          <span class="more-meta"> 预计阅读 9 分钟 </span>
         
       </div>
     </header>
@@ -170,6 +170,8 @@
         <li><a href="#docker-unknown-server-os">docker: unknown server OS</a></li>
         <li><a href="#alas-警告错误">ALAS 警告、错误</a></li>
         <li><a href="#已经尝试过失败的办法">已经尝试过失败的办法</a></li>
+        <li><a href="#docker-文件清理">docker 文件清理</a></li>
+        <li><a href="#从-qemu-中取回鼠标键盘控制权">从 QEMU 中取回鼠标、键盘控制权</a></li>
       </ul>
     </li>
     <li><a href="#参考">参考</a></li>
@@ -1027,6 +1029,131 @@ ALSA lib *.c:No such file or directory
 <li>xhost +（失败后记得用 <code>xhost -</code> 开启安全保护）</li>
 <li>sudo pacman -S xorg-xhost</li>
 </ul>
+<h2 id="docker-文件清理">docker 文件清理</h2>
+<p>硬盘只剩下 700 M，一看是 docker 的文件占了 30 G。可是两个 docker 镜像才 5 G 不到；因此猜测是运行这个镜像安装 mac 系统时产生的。。。先清理了再说吧。</p>
+<details>
+<summary>点击展开操作过程演示</summary>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker images
+REPOSITORY                  TAG       IMAGE ID       CREATED        SIZE
+sickcodes/docker-osx        latest    87e0808867a0   <span class="m">5</span> weeks ago    3.09GB
+dinghao188/rcore-tutorial   latest    779b0c88b284   <span class="m">4</span> months ago   1.17GB
+
+<span class="c1"># 先运行两个 docker 镜像</span>
+$ docker run -it     --device /dev/kvm     -p 50922:10022     -v /tmp/.X11-unix:/tmp/.X11-unix     -e <span class="s2">&#34;DISPLAY=</span><span class="si">${</span><span class="nv">DISPLAY</span><span class="k">:-</span><span class="p">:</span><span class="nv">0</span><span class="p">.0</span><span class="si">}</span><span class="s2">&#34;</span>     sickcodes/docker-osx:latest
+
+$ docker run --rm -it --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>/home/kearney/Documents/code/rust/ros/rCore-Tutorial-v3,destination<span class="o">=</span>/mnt dinghao188/rcore-tutorial
+
+<span class="c1"># 删除未在运行的镜像及其文件，一定要先运行 image 哈，不然连 image 都没了</span>
+$ docker system prune
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all dangling images
+  - all dangling build cache
+
+Are you sure you want to <span class="k">continue</span>? <span class="o">[</span>y/N<span class="o">]</span> y
+Deleted Containers:
+3f630d1695dd24eca1d9df6cef46b28f62517dccb9541094224f1a7a97b1436d
+d53e208599b1e0f84de9fcb6d35b73d8ce4450043b79a6b027bc951c7af58738
+2ac6d31a859e46e2fcb7f8b3d1432247a80ff0551f8bd568ab5b09124bb5c5c9
+93ecc91d5299b1e3e7a4816818e4020e424cb85b06e83b6861adabc00d14d700
+7b3075385213caccd59845cc3a9032a1c176a58860b40927d1c7aee12b8bec0d
+1040de33193eb3239810b110947a9201a7178afb623fe8f4ee630ec3f18184e8
+b0184de7b952f5fc3d5ac875def5376ad5d7be689e911acb91c35836b6dcec82
+dc640723ead85c4c3adbf74e1dc150f5decf01cea91f0812192fbb348763ee3b
+9344b05e2c92ab517992209eb66e31fc120c4ca6fd314c00db7734dc8223e45b
+1b626f92bdc28789321cb2cc78790349e55516e8107db29a8d32a9536d8a2675
+7aa8432d607e70ffa7bdad3d659731f6ccc8adeccba7e042d6c256a9e9ce2eb1
+071e511d8e5b89115b13cae538ecb0e1b0035fa19233c7316ed56d8dfbeb1560
+0c8dd0544f441c1de41ec729814c8e0790c4f4574a7c4c92f544a6fb71d52563
+79c868f8f62dee1ba0e1cc752de1c76270fc15bef3560070011fd173c56646c3
+14989b73427d9d4a7fd6df5d357051fe96f3ed15bcbeac25d47a945348a8e27a
+77b676293ceed30b9bd9d7255bcbb1b611ca8080649bd121d2a69c4f128e373d
+4cb1956c4e5052bb3938f00c5d8a4682c936b96cd5acedce7bdf2dcd1152a509
+9fc94912b7496e942b1a015f742ab243d7e779f02d7cc9ddbf976f18e0c33c54
+b281eb6a9734a9b3181b611b188322a57a8680fa4bd4271bb1b360e2ee20fabb
+b90a316b86069629c43bf751d12dd9049039808dc0d65d8198062acf9133ff47
+fc3ea968c0548af3224027a3ad29a526574fc1d63c6311d3e05e34f8d6ccc970
+13b02d4480f996300c81eaa045abb7c44c6b6b6a5fb9dd9362fbf1880be042d5
+0da1255597bb8ea26d97110be758616696491909a96043426108c2b0de2473b4
+d51e9586fafb77a1a73a2efad60040c25b912816aa366d20ae6177434dda7623
+97054b85fa72db2af3ca37d50b244eeac0c25c52e85b9bd3ca3e3d6391f5087d
+d6ed107c6d2b193e5e9a9df76262e938f773eca605628e22c22e1aeb2ae0e758
+fdb53e84b237e6c2b52064ecc4c392c58e604e38cf69b41d9dfd3ca674a9b498
+fa47639a074653202acc09a0c255f738ef28d8b5cbabc252f17d4f72b9cbf8b1
+ae3d573e1f4984bbc8b26e20b170dc766c48109e79eaf767d24c56e141818045
+00641c61807ab6d2133a8f534ca7c407552889d11c4780af3424e2a7a6950161
+b6ce564be398ef5eb2d2ae6fc371b71f5a41f0b00bbebb5177356a76b4310ea2
+dcd120233428476e19eb8b30ba23a25cb802c8de12278bce6c23da647266fe87
+3692f925d0017743c088029b30fcb1d9862854cec59e4b434a90ebcda26d8884
+4248205a172eac018243137329e86ca9946bb97c1f1cabec4d1e44ee497ed1a5
+
+Total reclaimed space: 29.62GB
+</code></pre></td></tr></table>
+</div>
+</div></details>
+<h2 id="从-qemu-中取回鼠标键盘控制权">从 QEMU 中取回鼠标、键盘控制权</h2>
+<p>真的头大，在那里一对代码滚动，也没法操作，鼠标键盘都没法用了。。同时按住 Ctrl + Alt + G 即可。</p>
 <h1 id="参考">参考</h1>
 <ul>
 <li><a href="https://github.com/foxlet/macOS-Simple-KVM">foxlet/macOS-Simple-KVM</a>: Tools to set up a quick macOS VM in QEMU, accelerated by KVM.</li>
@@ -1057,7 +1184,11 @@ ALSA lib *.c:No such file or directory
           <a href="/tags/docker/">docker</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/eclipse-mirror/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Eclipse 设置国内镜像加快下载速度 Plugin Maven Mirror</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/archkernel/">
             <span class="next-text nav-default">将 Arch Linux 内核从 stable 更换为 LTS 的办法与案例</span>
             <span class="next-text nav-mobile">下一篇</span>

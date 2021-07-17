@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用 arp-scan 快速扫描局域网 IP -&gt; raspberry pi ssh vnc - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="树莓派无屏幕连接的一种方法，使用 arp-scan 快速扫描局域网 IP" /><meta name="keywords" content="arp-scan" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.85.0 with theme even" />
+
+
+<link rel="canonical" href="http://anidea.gitee.io/post/rasip/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="使用 arp-scan 快速扫描局域网 IP -&gt; raspberry pi ssh vnc" />
+<meta property="og:description" content="树莓派无屏幕连接的一种方法，使用 arp-scan 快速扫描局域网 IP" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://anidea.gitee.io/post/rasip/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-16T23:23:32+08:00" />
+<meta property="article:modified_time" content="2021-07-16T23:23:32+08:00" />
+
+<meta itemprop="name" content="使用 arp-scan 快速扫描局域网 IP -&gt; raspberry pi ssh vnc">
+<meta itemprop="description" content="树莓派无屏幕连接的一种方法，使用 arp-scan 快速扫描局域网 IP"><meta itemprop="datePublished" content="2021-07-16T23:23:32+08:00" />
+<meta itemprop="dateModified" content="2021-07-16T23:23:32+08:00" />
+<meta itemprop="wordCount" content="1219">
+<meta itemprop="keywords" content="raspberry," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用 arp-scan 快速扫描局域网 IP -&gt; raspberry pi ssh vnc"/>
+<meta name="twitter:description" content="树莓派无屏幕连接的一种方法，使用 arp-scan 快速扫描局域网 IP"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用 arp-scan 快速扫描局域网 IP -&gt; raspberry pi ssh vnc</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-16 </span>
+        <div class="post-category">
+            <a href="/categories/os/"> os </a>
+            </div>
+          <span class="more-meta"> 约 1219 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a>
+      <ul>
+        <li><a href="#树莓派无屏连接步骤">树莓派无屏连接步骤</a></li>
+      </ul>
+    </li>
+    <li><a href="#局域网-ip-扫描软件">局域网 IP 扫描软件</a>
+      <ul>
+        <li><a href="#arp-scan">arp-scan</a></li>
+      </ul>
+    </li>
+    <li><a href="#namp">namp</a></li>
+    <li><a href="#ipscan">ipscan</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="简介">简介</h1>
+<p>在使用 ssh/vnc 对树莓派进行远程操作的时候，都需要获取树莓派的 IP。常见的办法是路由器管理页面或者使用 Advanced IP Scanner。但是我既没有路由器，也没搞懂这个软件怎么用。</p>
+<h2 id="树莓派无屏连接步骤">树莓派无屏连接步骤</h2>
+<ol>
+<li>开始 ssh</li>
+<li>写入 wifi 账号密码</li>
+<li>获取树莓派 IP</li>
+</ol>
+<p>其中第一步、第二步比较简单，关键在于第三步，宿舍装路由器的毕竟是少数，校园网 WiFi 也不支持局域网连接（打局域网游戏就会发现），一般我是手机开个热点，电脑和树莓派都处在热点网络里，然后给树莓派插上屏幕获取 ip，之后就可以使用 ssh 直接远程操作了，说好的没有屏幕呢？上面说的是正常情况下，没有屏幕的时候，就得借助一些软件进行局域网 IP 扫描了。</p>
+<p>有点手机热点会显示有几个用户，有的还会显示 MAC，那这样说不就是也可以显示 IP 吗？但是我还没有发现它有。。。换一个角度思考，现在的手机热点不就是相当于路由器 wifi吗？有没有类似的路由器管理页面呢？我也还没有发现。</p>
+<h1 id="局域网-ip-扫描软件">局域网 IP 扫描软件</h1>
+<p>找了不少的文章和软件，大体上都是支持网段扫描，关键在于我咋知道我要扫描那一个网段呢？然后查了一下局域网的 IP 范围，下面是一个常见的结果，也就是说我得逐个局域网网段扫描，但是我本着一切从简的原则，找到了一个一行命令就可以解决的办法。</p>
+<ul>
+<li><a href="https://www.cnblogs.com/xiaochina/p/5823451.html">局域网IP段.2016-09-17 21:26  mvpbang</a>
+<blockquote>
+<p>C类：192.168.0.0-192.168.255.255<br>
+B类：172.16.0.0-172.31.255.255    #小型的局域网<br>
+A类：10.0.0.0-10.255.255.255         #一般大型局域网用的</p>
+</blockquote>
+</li>
+</ul>
+<p>下面的三个软件（同源归为一个）中，arp-scan 最简单好用，也不用输入网段，就可以得到局域网内的主机对应的 IP，而 nmap, IP Scanner都需要填网段，因此推荐使用 arp-scan。安装方法因操作系统的包管理方式有所区别，这里以 Arch Linux 为例。</p>
+<h2 id="arp-scan">arp-scan</h2>
+<p>这是我从中找到的最简单、最方便的一个，安装运行就完事了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装 arp-scan</span>
+sudo pacman -S arp-scan
+<span class="c1"># 扫描本地局域网的 IP+MAC+</span>
+sudo arp-scan -l
+<span class="c1"># 网段扫描</span>
+sudo arp-scan 192.168.1.0/24     <span class="c1">#Scans 192.168.1.0 255.255.255.0</span>
+sudo arp-scan 192.168.1.1-192.168.1.254     <span class="c1">#Scans the obvious range</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这是我电脑和树莓派连接手机热点时的情况（其中 MAC 地址已打码），可以明显知道树莓派的 IP 是 <code>172.20.10.2</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo arp-scan -l
+Interface: wlp1s0, type: EN10MB, MAC: 2-------------b, IPv4: 172.20.10.4
+Starting arp-scan 1.9.7 with <span class="m">16</span> hosts <span class="o">(</span>https://github.com/royhills/arp-scan<span class="o">)</span>
+172.20.10.1     2-------------4       <span class="o">(</span>Unknown: locally administered<span class="o">)</span>
+172.20.10.2     d-------------1       Raspberry Pi Trading Ltd
+172.20.10.2     d-------------1       Raspberry Pi Trading Ltd <span class="o">(</span>DUP: 2<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="namp">namp</h1>
+<p>这个可以对指定的网段进行扫描，但问题的关键在于我怎么知道是哪个网段呢？一个个试一试。。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装 nmap，无图形界面</span>
+sudo pacman -S nmap
+<span class="c1"># 或者安装 zenmap（带图形化界面的 namp）</span>
+yay -S zenmap
+sudo nmap -sP 192.168.1.0/24     <span class="c1">#Scans 192.168.1.0 255.255.255.0</span>
+sudo nmap -sP 192.168.1.1-254     <span class="c1">#Scans the obvious range</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="ipscan">ipscan</h1>
+<p>这个是 Angry IP Scanner，和 Advanced IP Scanner 差不多的东西，带图形界面，还是那个老问题。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装 ipscan，从 github 下，需要网速靠谱</span>
+yay -S ipscan
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://wiki.archlinux.org/title/Nmap">Namp Arch Wiki</a>:yay 安装 zenmap 失败：不到所有需要的包:libglade, python2-gobject2
+<blockquote>
+<p>Nmap has a GUI called zenmap</p>
+</blockquote>
+</li>
+<li><a href="https://archlinux.org/packages/community/x86_64/arp-scan/">arp-scan Arch pkg</a></li>
+<li><a href="https://aur.archlinux.org/packages/ipscan/">ipscan. Arch AUR</a>:Angry IP Scanner (or simply ipscan)</li>
+<li><a href="http://www.itswapshop.com/articles/top-3-ip-scanners-linux">Top 3 IP Scanners for Linux.  ingram on Mon, 12/12/2011</a>:arp-scan, nmap, Angry IP Scanner</li>
+<li><a href="https://m.linuxidc.com/Linux/2019-08/159986.htm">如何在 Linux 中查看 IP 地址. 2019-8-12. Linux公社</a>: arch 上默认只有第一种
+<blockquote>
+<p>ip addr<br>
+hostname -I<br>
+ifconfig</p>
+</blockquote>
+</li>
+<li><a href="https://www.cnblogs.com/xiaochina/p/5823451.html">局域网IP段.2016-09-17 21:26  mvpbang</a></li>
+<li><a href="../raspberrypi">树莓派入门第一步 - 装系统并配置镜像、SSH</a></li>
+<li><a href="../rbpnoscreen">树莓派无显示屏入门的方法总结</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-07-16
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/raspberry/">raspberry</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/eclipse-mirror/">
+            <span class="next-text nav-default">Eclipse 设置国内镜像加快下载速度 Plugin Maven Mirror</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">筱氚</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
