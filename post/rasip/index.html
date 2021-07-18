@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="筱氚" /><meta name="description" content="树莓派无屏幕连接的一种方法，使用 arp-scan 快速扫描局域网 IP" /><meta name="keywords" content="arp-scan" />
+<meta name="author" content="筱氚" /><meta name="description" content="树莓派无屏幕连接的一种方法，使用 arp-scan 快速扫描局域网 IP" /><meta name="keywords" content="linux, raspberry, arp-scan" />
 
 
 
@@ -141,10 +141,10 @@
     <li><a href="#局域网-ip-扫描软件">局域网 IP 扫描软件</a>
       <ul>
         <li><a href="#arp-scan">arp-scan</a></li>
+        <li><a href="#namp">namp</a></li>
+        <li><a href="#ipscan">ipscan</a></li>
       </ul>
     </li>
-    <li><a href="#namp">namp</a></li>
-    <li><a href="#ipscan">ipscan</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
@@ -214,7 +214,7 @@ Starting arp-scan 1.9.7 with <span class="m">16</span> hosts <span class="o">(</
 172.20.10.2     d-------------1       Raspberry Pi Trading Ltd <span class="o">(</span>DUP: 2<span class="o">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="namp">namp</h1>
+</div><h2 id="namp">namp</h2>
 <p>这个可以对指定的网段进行扫描，但问题的关键在于我怎么知道是哪个网段呢？一个个试一试。。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -234,7 +234,7 @@ sudo nmap -sP 192.168.1.0/24     <span class="c1">#Scans 192.168.1.0 255.255.255
 sudo nmap -sP 192.168.1.1-254     <span class="c1">#Scans the obvious range</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="ipscan">ipscan</h1>
+</div><h2 id="ipscan">ipscan</h2>
 <p>这个是 Angry IP Scanner，和 Advanced IP Scanner 差不多的东西，带图形界面，还是那个老问题。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

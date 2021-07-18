@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>树莓派无屏幕连接之 VNC realvnc-vnc-viewer - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer" /><meta name="keywords" content="vnc, raspberry, realvnc-vnc-viewer, tigervnc, 远程桌面" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.85.0 with theme even" />
+
+
+<link rel="canonical" href="http://anidea.gitee.io/post/rasvnc/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer" />
+<meta property="og:description" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://anidea.gitee.io/post/rasvnc/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-18T10:08:46+08:00" />
+<meta property="article:modified_time" content="2021-07-18T10:08:46+08:00" />
+
+<meta itemprop="name" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer">
+<meta itemprop="description" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer"><meta itemprop="datePublished" content="2021-07-18T10:08:46+08:00" />
+<meta itemprop="dateModified" content="2021-07-18T10:08:46+08:00" />
+<meta itemprop="wordCount" content="1217">
+<meta itemprop="keywords" content="raspberry," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer"/>
+<meta name="twitter:description" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">树莓派无屏幕连接之 VNC realvnc-vnc-viewer</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-18 </span>
+        <div class="post-category">
+            <a href="/categories/os/"> OS </a>
+            </div>
+          <span class="more-meta"> 约 1217 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a>
+      <ul>
+        <li><a href="#krdc">KRDC</a></li>
+        <li><a href="#tigervnc">tigervnc</a></li>
+      </ul>
+    </li>
+    <li><a href="#realvnc-vnc-viewer">realvnc-vnc-viewer</a>
+      <ul>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#问题之摄像头画面">问题之摄像头画面</a></li>
+        <li><a href="#问题之分辨率">问题之分辨率</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="背景">背景</h1>
+<p>在 <a href="https://wiki.archlinux.org/title/List_of_applications/Internet#Remote_desktop">Remote desktop - Arch Wiki</a> 中列出了许多远程桌面软件，先后尝试了 KRDC、TigerVNC，最后又回到了最初的起点 realvnc-vnc-viewer。
+自己大部分时间用的都是 ssh 远程操纵，偶尔用一下 win10 的远程桌面亮机，这次自己有个需求，想远程桌面整调试，七寸的太小，屏幕我外接电脑用，和树莓派来回切换太麻烦了。树莓派最近装的官方系统自带 vnc。</p>
+<h2 id="krdc">KRDC</h2>
+<p>于是我看 KRDC 简介上说支持 RDP 和 VNC 协议，下载尝试了好久都没能连接上树莓派，最后被我卸掉了。。。通往失败的方式减一</p>
+<h2 id="tigervnc">tigervnc</h2>
+<p>CSDN 上有不少帖子都在说用这一个，于是一通操作在树莓派上安装 tightvncserver ，电脑上也装了客户端，在树莓派上跑一下获得一个序号，然后在客户端轻松连接上了。起初啥事也没有，但随着程序的运行才知道问题大了，无法运行程序。原因是啥也不知道，通过 ssh 启动程序也是类似的错误，无法获得窗口载体，还有点奇怪的是通过 tiger 操作的画面和树莓派 HDMI 输出的画面毫无关系，相当于新开了一个桌面。</p>
+<h1 id="realvnc-vnc-viewer">realvnc-vnc-viewer</h1>
+<p>由于 tightvncserver 无法跑起来我需要的程序，便被卸载了，于是试了一下原装的到底可以不可以，最后成功按照想要的样子运行起来。和上面不同的是，它更像是远程接管桌面（类似 teamviewer），所有的操作会同步到 HDMI 输出上；其次是不需要重新设置，开机自动运行，输入 IP 就能连接，tiger 还需要 ip 后面的序号。</p>
+<h2 id="安装">安装</h2>
+<p><code>yay -S realvnc-vnc-viewer</code><br>
+运行之后输入树莓派的 IP 就能愉快的玩耍了，局域网内快速获得树莓派 IP 可以参考使用  <a href="../rasip">arp-scan</a></p>
+<h2 id="问题之摄像头画面">问题之摄像头画面</h2>
+<p>GUI 程序成功跑起来之后，获取摄像头画面的时候却没法同步到 VNC 之后，在 HDMI 输出上却清晰可见，查了一下解决了这个问题。在 <a href="https://blog.csdn.net/qq_22945165/article/details/113541514">树莓派摄像头在桌面不显示 | 树莓派VNC摄像头实时显示。BlainWu 2021-02-02</a> 一文中，作者给出了图文并茂的答案，这里简单总结一下：</p>
+<p>VNC Connect 右上角 三条杠 的按钮，点击选择 Options，然后左边选择 Troubleshooting，然后再在右边勾选 Enable direct capture mode，右下角点击 OK（确认）即可。</p>
+<h2 id="问题之分辨率">问题之分辨率</h2>
+<p><a href="www.cnblogs.com/xuchunlin/p/10692957.html">VNC Viewer 设置屏幕分辨率. 淋哥 2019-04-11</a></p>
+<blockquote>
+<p>vncserver -geometry 1280x1024
+vncserver -kill:1</p>
+</blockquote>
+<p>我使用无论是 tigervnc 还是现在用的 real vnc viwer，屏幕设置里的分辨率调到最大也只是 800x480（还有一个是 640x480），有的时候显示不全，比如上面设置摄像头的时候，标题栏看不到（没法移动），底部的确认按钮看不到，最后还是靠 Tab 和 回车搞定的。。。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 不推荐使用这个办法</span>
+$ vncserver -geometry 1280x1024
+VNC<span class="o">(</span>R<span class="o">)</span> Server 6.7.2 <span class="o">(</span>r42622<span class="o">)</span> ARMv6 <span class="o">(</span>May <span class="m">13</span> <span class="m">2020</span> 19:34:20<span class="o">)</span>
+OS: Raspbian GNU/Linux 10, Linux 5.4.79, armv7l
+Running applications in /home/pi/.vnc/xstartup
+VNC Server catchphrase: <span class="s2">&#34;Algebra pencil anvil. Iron samba genesis.&#34;</span>
+             signature: b-----------------e
+
+Log file is /home/pi/.vnc/raspberrypi:1.log
+New desktop is raspberrypi:1 <span class="o">(</span>172.20.10.2:1<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后在打开一个新的 vnc 会话，地址不再是 ip，而是上面给出的 172.20.10.2:1，输入了好几此密码都没对，裂开，第四次输入才登陆成功，分辨率终于整大了。</p>
+<p>重启之后发现 vnc 无法正常使用了。。<code>cannot currently show the desktop</code>，看来上面的不是一个好办法。。不过 ssh 还是可以用，<code>sudo raspi-config</code> 重新设置了分辨率重启又生龙活虎了。所以还是用它来设置吧。</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://wiki.archlinux.org/title/List_of_applications/Internet#Remote_desktop">Remote desktop - Arch Wiki</a></li>
+<li><a href="https://aur.archlinux.org/packages/realvnc-vnc-viewer/">realvnc-vnc-viewer. Arch AUR</a></li>
+<li><a href="https://www.realvnc.com/en/connect/download/viewer/linux/">Download VNC® Viewer</a></li>
+<li><a href="https://blog.csdn.net/qq_22945165/article/details/113541514">树莓派摄像头在桌面不显示 | 树莓派VNC摄像头实时显示。BlainWu 2021-02-02</a></li>
+<li><a href="www.cnblogs.com/xuchunlin/p/10692957.html">VNC Viewer 设置屏幕分辨率. 淋哥 2019-04-11</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-07-18
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/raspberry/">raspberry</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/espplatformio/">
+            <span class="next-text nav-default">PlatformIO 与 ESP 32 点灯体验</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">筱氚</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

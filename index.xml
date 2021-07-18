@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sat, 17 Jul 2021 18:31:55 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Jul 2021 10:08:46 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派无屏幕连接之 VNC realvnc-vnc-viewer</title>
+      <link>http://anidea.gitee.io/post/rasvnc/</link>
+      <pubDate>Sun, 18 Jul 2021 10:08:46 +0800</pubDate>
+      
+      <guid>http://anidea.gitee.io/post/rasvnc/</guid>
+      <description>背景 在 Remote desktop - Arch Wiki 中列出了许多远程桌面软件，先后尝试了 KRDC、TigerVNC，最后又回到了最初的起点 realvnc-vnc-viewer。</description>
+    </item>
+    
     <item>
       <title>PlatformIO 与 ESP 32 点灯体验</title>
       <link>http://anidea.gitee.io/post/espplatformio/</link>
