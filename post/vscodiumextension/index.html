@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/vscodiumextension/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/vscodiumextension/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="VSCodiumExtension" />
 <meta property="og:description" content="Intro 尝试为VS Codium开发一个完全Free的c/c&#43;&#43;插件，或者催促microsoft发布一个free版本的。 OS: Deepin 20 如果使用VS Code的" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/vscodiumextension/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/vscodiumextension/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-11-16T10:55:37+08:00" />
 <meta property="article:modified_time" content="2020-11-16T10:55:37+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -167,7 +177,7 @@ OS: Deepin 20
 <p>不要着急复制运行，下面出错了。只是错误记录，可以直接跳转到welldone部分</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -191,7 +201,7 @@ OS: Deepin 20
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt install npm -y
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt install npm -y
 $ sudo npm install -g yo generator-code
 <span class="c1"># 报错</span>
 npm WARN npm npm does not support Node.js v10.19.0
@@ -219,7 +229,7 @@ sudo apt remove  nodejs
 <p>直接去官网下载安装最新稳定版nodejs，解压后移动到软件安装位置</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -231,7 +241,7 @@ sudo apt remove  nodejs
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo mv node-v14.15.0-linux-x64 /opt/nodejs
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo mv node-v14.15.0-linux-x64 /opt/nodejs
 <span class="c1"># 建立软链接</span>
 $ sudo ln -s /opt/nodejs/bin/npm /usr/local/bin/
 $ sudo ln -s /opt/nodejs/bin/node /usr/local/bin/
@@ -248,7 +258,7 @@ $ npm config get registry
 <p>安装Yeoman 和 VS Code Extension generator</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -328,7 +338,7 @@ $ npm config get registry
 </span><span class="lnt">78
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ npm install -g yo generator-code
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ npm install -g yo generator-code
 npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
 npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
 npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
@@ -411,16 +421,16 @@ added <span class="m">1168</span> packages from <span class="m">397</span> contr
 </div><p>测试安装是否成功</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ yo --version
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ yo --version
 </code></pre></td></tr></table>
 </div>
 </div><p>显示版本好就成功了，反正我的是未找到命令安装失败，怎么办怎么办？？？要不要跑去提issue，emmm想了一下还是耸了，算了，我不如地狱，谁入地狱</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -429,7 +439,7 @@ added <span class="m">1168</span> packages from <span class="m">397</span> contr
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ whereis yo
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ whereis yo
 yo: /opt/nodejs/bin/yo
 $ <span class="nb">cd</span> /opt/nodejs/bin/
 $ ./yo --version
@@ -443,7 +453,7 @@ $ sudo ln -s /opt/nodejs/bin/yo /usr/local/bin/
 <p>建立一个文件夹当工作区</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -456,7 +466,7 @@ $ sudo ln -s /opt/nodejs/bin/yo /usr/local/bin/
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ mkdir yo
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ mkdir yo
 $ <span class="nb">cd</span> yo
 $ yo code
 
@@ -472,11 +482,11 @@ $ yo code
 </div><h2 id="run-demo">run demo</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> hello
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> hello
 $ codium .
 </code></pre></td></tr></table>
 </div>
@@ -540,7 +550,7 @@ $ codium .
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -558,13 +568,10 @@ $ codium .
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -578,7 +585,7 @@ $ codium .
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

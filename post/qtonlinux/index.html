@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/qtonlinux/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/qtonlinux/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="QtOnLinux" />
 <meta property="og:description" content="在deepin 20 linux OS 下安装Qt" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/qtonlinux/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/qtonlinux/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-11-24T11:54:39+08:00" />
 <meta property="article:modified_time" content="2020-11-24T11:54:39+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -155,12 +165,12 @@
 <p>gcc和g++其实Linux OS都会自带，以防万一你卸载了还是try吧，装了也不会覆盖安装。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt update
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt update
 $ sudo apt install gcc g++
 $ sudo apt install build-essential libgl1-mesa-dev
 </code></pre></td></tr></table>
@@ -169,11 +179,11 @@ $ sudo apt install build-essential libgl1-mesa-dev
 <p>下载qt的安装包，我下载的从清华镜像下的<a href="https://mirrors.tuna.tsinghua.edu.cn/qt/archive/qt/5.14/5.14.2/">qt-opensource-linux-x64-5.14.2.run</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo chmod +x qt-opensource-linux-x64-5.14.2.run
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo chmod +x qt-opensource-linux-x64-5.14.2.run
 $ sudo ./qt-opensource-linux-x64-5.14.2.run
 </code></pre></td></tr></table>
 </div>
@@ -182,11 +192,11 @@ $ sudo ./qt-opensource-linux-x64-5.14.2.run
 <p>我的OS安装完之后在开始菜单中有Qt Creator的快捷方式，单击即可启动Qt Creator，没有快捷方式的话可以按照下面的方式启动</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> /opt/Qt5.14.2/Tools/QtCreator/bin
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> /opt/Qt5.14.2/Tools/QtCreator/bin
 $ ./qtcreator
 </code></pre></td></tr></table>
 </div>
@@ -194,11 +204,11 @@ $ ./qtcreator
 <p>卸载方式，emm第一次装的时候我没有选择Desktop gcc，只能卸载了重新装。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> /opt/Qt5.14.2
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> /opt/Qt5.14.2
 $ sudo ./MaintenanceTool
 </code></pre></td></tr></table>
 </div>
@@ -284,7 +294,7 @@ $ sudo ./MaintenanceTool
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -302,13 +312,10 @@ $ sudo ./MaintenanceTool
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -322,7 +329,7 @@ $ sudo ./MaintenanceTool
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

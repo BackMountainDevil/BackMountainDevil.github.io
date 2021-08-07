@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/arch-begin/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/arch-begin/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Arch 新手的基本知识" />
 <meta property="og:description" content="向 Arch 入门用户介绍系统安装和基本配置，也有进阶的人脸识别认证和软件安装等" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/arch-begin/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/arch-begin/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-05-28T11:58:39+08:00" />
 <meta property="article:modified_time" content="2021-05-28T11:58:39+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -166,7 +176,7 @@
 <p>这里示范的是 fcitx5，主要是 fcitx 装完有点问题，搜狗输入法界面不喜欢</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -178,7 +188,7 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S fcitx5-im fcitx5-chinese-addons
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S fcitx5-im fcitx5-chinese-addons
 
 <span class="c1"># 修改配置</span>
 nano ~/.pam_environment
@@ -196,7 +206,7 @@ SDL_IM_MODULE <span class="nv">DEFAULT</span><span class="o">=</span>fcitx
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -207,7 +217,7 @@ SDL_IM_MODULE <span class="nv">DEFAULT</span><span class="o">=</span>fcitx
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装蓝牙相关的包</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装蓝牙相关的包</span>
 sudo pacman -S bluez bluez-utils
 <span class="c1"># 设置登陆成功自动开启蓝牙服务</span>
 systemctl <span class="nb">enable</span> bluetooth.service
@@ -289,7 +299,7 @@ sudo nano /etc/bluetooth/main.conf
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -307,13 +317,10 @@ sudo nano /etc/bluetooth/main.conf
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -327,7 +334,7 @@ sudo nano /etc/bluetooth/main.conf
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

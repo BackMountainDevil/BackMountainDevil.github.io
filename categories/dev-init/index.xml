@@ -2,45 +2,72 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dev-init on 筱氚~物语</title>
-    <link>http://anidea.gitee.io/categories/dev-init/</link>
+    <link>https://backmountaindevil.github.io/categories/dev-init/</link>
     <description>Recent content in dev-init on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sat, 17 Jul 2021 18:31:55 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/categories/dev-init/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Aug 2021 12:12:34 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/categories/dev-init/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派上开热点（AP）的三种办法实践结果</title>
+      <link>https://backmountaindevil.github.io/post/raspiap/</link>
+      <pubDate>Mon, 02 Aug 2021 12:12:34 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/raspiap/</guid>
+      <description>背景 UC2 项目中树莓派大脑和子模块有两种方式连接方式，一种是采用 I2C 总线通过 Arduino 做主从，一种是走 WIFI 使用 MQTT 协议与子模块通信。为了减少线数，采用了后者。</description>
+    </item>
+    
+    <item>
+      <title>树莓派摄像头无法使用，报错 No data received from sensor，原因是带电插拔摄像头引起损坏</title>
+      <link>https://backmountaindevil.github.io/post/raspicam/</link>
+      <pubDate>Fri, 23 Jul 2021 17:51:55 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/raspicam/</guid>
+      <description>摄像头错误情况 今天发现了一个程序的 bug 的大致原因，想用树莓派摄像头测试一下，结果显示我摄像头没有连接上。寻思着我也开启了哈，无论是 pi config 界面还是</description>
+    </item>
+    
+    <item>
+      <title>ESP32 疯狂重启的原因探究</title>
+      <link>https://backmountaindevil.github.io/post/mcureboot/</link>
+      <pubDate>Sun, 18 Jul 2021 23:08:18 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/mcureboot/</guid>
+      <description>背景介绍 ESP 32 烧录点灯程序正常，烧录自定义代码也正常，烧入某个代码就疯狂重启。 错误信息 点击查看串口输出 错误程序源码地址 1 2 3 4 5 6 7 8 9 10 11 12</description>
+    </item>
+    
     <item>
       <title>PlatformIO 与 ESP 32 点灯体验</title>
-      <link>http://anidea.gitee.io/post/espplatformio/</link>
+      <link>https://backmountaindevil.github.io/post/espplatformio/</link>
       <pubDate>Sat, 17 Jul 2021 18:31:55 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/espplatformio/</guid>
+      <guid>https://backmountaindevil.github.io/post/espplatformio/</guid>
       <description>背景 去年学会了 Arduino 写 ESP 8266+32，后面有看到了 PlatforrmIO，于是那时候立马跃跃欲试，就有了用PlatformIO开发Esp826</description>
     </item>
     
     <item>
       <title>Eclipse 设置国内镜像加快下载速度 Plugin Maven Mirror</title>
-      <link>http://anidea.gitee.io/post/eclipse-mirror/</link>
+      <link>https://backmountaindevil.github.io/post/eclipse-mirror/</link>
       <pubDate>Mon, 12 Jul 2021 12:05:03 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/eclipse-mirror/</guid>
+      <guid>https://backmountaindevil.github.io/post/eclipse-mirror/</guid>
       <description>由于一些原因，默认镜像下载速度感人，颇有愚公移山的精神，但是时间就是生命！下面是更换国内镜像走上高速的办法。 Plugin Eclipse -&amp;gt; Window -&amp;gt; Preferences -&amp;gt; Install/Update -&amp;gt; Available software Sites -&amp;gt; Add&amp;hellip; Name: utsc</description>
     </item>
     
     <item>
       <title>ESP IDF 开发框架构建 与 ADF 语音识别框架尝试 - esp 32s</title>
-      <link>http://anidea.gitee.io/post/espidf/</link>
+      <link>https://backmountaindevil.github.io/post/espidf/</link>
       <pubDate>Fri, 04 Jun 2021 12:01:08 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/espidf/</guid>
+      <guid>https://backmountaindevil.github.io/post/espidf/</guid>
       <description>ESP-ADF ESP32 语音框架开发文档 ESP IDF 环境准备 根据vscode-esp-idf-extension/docs/tutorial/install.md 所描述</description>
     </item>
     
     <item>
       <title>在 Arch 上安装 eclipse-jee 并配置 tomcat7</title>
-      <link>http://anidea.gitee.io/post/eclipse/</link>
+      <link>https://backmountaindevil.github.io/post/eclipse/</link>
       <pubDate>Mon, 24 May 2021 08:27:43 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/eclipse/</guid>
+      <guid>https://backmountaindevil.github.io/post/eclipse/</guid>
       <description>正文 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomc</description>
     </item>
     

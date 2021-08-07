@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/tft-lcd-ili9341-display-1/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/tft-lcd-ili9341-display-1/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="TFT LCD ILI9341 Display_1" />
 <meta property="og:description" content="[TOC] 简介 由于项目需求，需要做个屏幕控制，支持按钮控制和触摸控制 一番选择思考之后选择了比较容易的Arduino Uno和2.4‘’ TFT LCD with Touch" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/tft-lcd-ili9341-display-1/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/tft-lcd-ili9341-display-1/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-08-27T16:33:31+08:00" />
 <meta property="article:modified_time" content="2020-08-27T19:33:31+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -198,11 +208,11 @@
 <h2 id="needed-libraries">Needed Libraries</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">Adafruit_GFX</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">Adafruit_GFX</span>
 <span class="n">Adafruit_TFTLCD</span>
 </code></pre></td></tr></table>
 </div>
@@ -213,7 +223,7 @@
 <h1 id="adafruit_gfx">Adafruit_GFX</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -469,7 +479,7 @@
 </span><span class="lnt">254
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Adafruit_GFX</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Print</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Adafruit_GFX</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Print</span> <span class="p">{</span>
 
 <span class="k">public</span><span class="o">:</span>
   <span class="n">Adafruit_GFX</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">h</span><span class="p">);</span> <span class="c1">// Constructor
@@ -728,7 +738,7 @@
 </div><h1 id="adafruit_tftlcd">Adafruit_TFTLCD</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -756,7 +766,7 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Adafruit_TFTLCD</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Adafruit_GFX</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Adafruit_TFTLCD</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Adafruit_GFX</span> <span class="p">{</span>
 
 <span class="k">public</span><span class="o">:</span>
   <span class="n">Adafruit_TFTLCD</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">cs</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">cd</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">wr</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">rd</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">rst</span><span class="p">);</span>
@@ -788,7 +798,7 @@
 <h2 id="创建对象">创建对象</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -796,7 +806,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Adafruit_TFTLCD</span> <span class="nf">tft</span><span class="p">(</span><span class="n">LCD_CS</span><span class="p">,</span> <span class="n">LCD_CD</span><span class="p">,</span> <span class="n">LCD_WR</span><span class="p">,</span> <span class="n">LCD_RD</span><span class="p">,</span> <span class="n">LCD_RESET</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Adafruit_TFTLCD</span> <span class="nf">tft</span><span class="p">(</span><span class="n">LCD_CS</span><span class="p">,</span> <span class="n">LCD_CD</span><span class="p">,</span> <span class="n">LCD_WR</span><span class="p">,</span> <span class="n">LCD_RD</span><span class="p">,</span> <span class="n">LCD_RESET</span><span class="p">);</span>
 
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">tft</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
@@ -809,13 +819,13 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 <h2 id="屏幕">屏幕</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">fillScreen</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">fillScreen</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
 
 <span class="kt">uint16_t</span> <span class="nf">width</span><span class="p">();</span>  <span class="c1">//屏幕的宽度
 </span><span class="c1"></span><span class="kt">uint16_t</span> <span class="nf">height</span><span class="p">();</span>  <span class="c1">//屏幕的高度
@@ -825,7 +835,7 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 <h3 id="案例">案例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -833,7 +843,7 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++">  <span class="n">tft</span><span class="p">.</span><span class="n">fillScreen</span><span class="p">(</span><span class="n">BLACK</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++">  <span class="n">tft</span><span class="p">.</span><span class="n">fillScreen</span><span class="p">(</span><span class="n">BLACK</span><span class="p">);</span>
   <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
   <span class="n">tft</span><span class="p">.</span><span class="n">fillScreen</span><span class="p">(</span><span class="n">RED</span><span class="p">);</span>
   <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
@@ -844,24 +854,24 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 </div><h2 id="点">点</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">drawPixel</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">drawPixel</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>在点（x，y）上画一个颜色为color的像素点。</p>
 <h3 id="案例-1">案例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="n">tft</span><span class="p">.</span><span class="n">drawPixel</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="n">tft</span><span class="p">.</span><span class="n">drawPixel</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
   <span class="n">tft</span><span class="p">.</span><span class="n">drawPixel</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
   <span class="n">tft</span><span class="p">.</span><span class="n">drawPixel</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
   <span class="n">tft</span><span class="p">.</span><span class="n">drawPixel</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
@@ -871,13 +881,13 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 </div><h2 id="线">线</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="kt">void</span> <span class="nf">drawLine</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y1</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>  
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="kt">void</span> <span class="nf">drawLine</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y1</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>  
   <span class="kt">void</span> <span class="nf">drawFastHLine</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">w</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
   <span class="kt">void</span> <span class="nf">drawFastVLine</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">h</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
   
@@ -887,12 +897,12 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 <h3 id="案例-2">案例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"> <span class="n">tft</span><span class="p">.</span><span class="n">drawFastHLine</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">170</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"> <span class="n">tft</span><span class="p">.</span><span class="n">drawFastHLine</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">170</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
  <span class="n">tft</span><span class="p">.</span><span class="n">drawFastVLine</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">170</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
  <span class="n">tft</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
 </code></pre></td></tr></table>
@@ -900,14 +910,14 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 </div><h2 id="矩形圆角矩形">矩形&amp;&amp;圆角矩形</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">drawRect</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">h</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">c</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">drawRect</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">h</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">c</span><span class="p">);</span>
 <span class="kt">void</span> <span class="nf">fillRect</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">h</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">c</span><span class="p">);</span>
 
 <span class="kt">void</span> <span class="nf">drawRoundRect</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">h</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">radius</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
@@ -919,32 +929,32 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 <h3 id="案例-3">案例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++">   <span class="n">tft</span><span class="p">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++">   <span class="n">tft</span><span class="p">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
    <span class="n">tft</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"> <span class="n">tft</span><span class="p">.</span><span class="n">drawRoundRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"> <span class="n">tft</span><span class="p">.</span><span class="n">drawRoundRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
  <span class="n">tft</span><span class="p">.</span><span class="n">fillRoundRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">RED</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="圆形">圆形</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">drawCircle</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">r</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">drawCircle</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">r</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
 <span class="kt">void</span> <span class="nf">fillCircle</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">r</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
@@ -952,22 +962,22 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 <h3 id="案例-4">案例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"> <span class="n">tft</span><span class="p">.</span><span class="n">drawCircle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="n">WHITE</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"> <span class="n">tft</span><span class="p">.</span><span class="n">drawCircle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="n">WHITE</span><span class="p">);</span>
  <span class="n">tft</span><span class="p">.</span><span class="n">fillCircle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">260</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="n">BLUE</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="三角形">三角形</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">drawTriangle</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y1</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">x2</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y2</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">drawTriangle</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y1</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">x2</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y2</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
 <span class="kt">void</span> <span class="nf">fillTriangle</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y1</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">x2</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y2</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
@@ -975,18 +985,18 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 <h3 id="案例-5">案例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"> <span class="n">tft</span><span class="p">.</span><span class="n">drawTriangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="n">GREEN</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"> <span class="n">tft</span><span class="p">.</span><span class="n">drawTriangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="n">GREEN</span><span class="p">);</span>
  <span class="n">tft</span><span class="p">.</span><span class="n">fillTriangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">115</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="n">GREEN</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="字符英文文本">字符&amp;&amp;英文文本</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -995,7 +1005,7 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">drawChar</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">x</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y</span><span class="p">,</span> <span class="kt">char</span> <span class="n">c</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">bg</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">size</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">drawChar</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">x</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y</span><span class="p">,</span> <span class="kt">char</span> <span class="n">c</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">color</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">bg</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">size</span><span class="p">);</span>
 
 <span class="kt">void</span> <span class="nf">setCursor</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">y0</span><span class="p">);</span>  <span class="c1">//字体左上角顶点坐标
 </span><span class="c1"></span><span class="kt">void</span> <span class="nf">setTextColor</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">color</span><span class="p">);</span> <span class="c1">//字体前景色
@@ -1009,7 +1019,7 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 <h3 id="案例-6">案例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1031,7 +1041,7 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">tft</span><span class="p">.</span><span class="n">fillScreen</span><span class="p">(</span><span class="n">GREEN</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">tft</span><span class="p">.</span><span class="n">fillScreen</span><span class="p">(</span><span class="n">GREEN</span><span class="p">);</span>
  <span class="n">tft</span><span class="p">.</span><span class="n">drawChar</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="n">RED</span><span class="p">,</span><span class="n">WHITE</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
 
  <span class="n">tft</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
@@ -1057,10 +1067,10 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 <h2 id="旋转">旋转</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">setRotation</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">rotation</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">setRotation</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">rotation</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>旋转参数可以是0、1、2或3，分别对应0,90,180或270度。</p>
@@ -1068,7 +1078,7 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 <h3 id="案例-7">案例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1092,7 +1102,7 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"> <span class="c1">//tft.setRotation(1); //注释和未注释的情况下做对比
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"> <span class="c1">//tft.setRotation(1); //注释和未注释的情况下做对比
 </span><span class="c1"></span>
  <span class="n">tft</span><span class="p">.</span><span class="n">fillScreen</span><span class="p">(</span><span class="n">GREEN</span><span class="p">);</span>
  <span class="n">tft</span><span class="p">.</span><span class="n">drawChar</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="n">RED</span><span class="p">,</span><span class="n">WHITE</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
@@ -1181,7 +1191,7 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -1199,13 +1209,10 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -1219,7 +1226,7 @@ begin方法中的0x9341表示改TFT LCD的驱动为ILI9341，其它的这里不�
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

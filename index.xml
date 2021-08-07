@@ -2,612 +2,657 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>筱氚~物语</title>
-    <link>http://anidea.gitee.io/</link>
+    <link>https://backmountaindevil.github.io/</link>
     <description>Recent content on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sun, 18 Jul 2021 10:08:46 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Aug 2021 21:56:09 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> libsvm 的 python 版使用办法</title>
+      <link>https://backmountaindevil.github.io/post/libsvm/</link>
+      <pubDate>Fri, 06 Aug 2021 21:56:09 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/libsvm/</guid>
+      <description>简介 记录 libsvm 的 python 使用办法。这里并不会介绍 svm 是什么以及实现原理。 libsvm 在学习 SVM 的时候，代码用的是 sklearn 还是 tensorflow 的了，再次重温机器学习的时候在支持向量机 兵王</description>
+    </item>
+    
+    <item>
+      <title>树莓派上开热点（AP）的三种办法实践结果</title>
+      <link>https://backmountaindevil.github.io/post/raspiap/</link>
+      <pubDate>Mon, 02 Aug 2021 12:12:34 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/raspiap/</guid>
+      <description>背景 UC2 项目中树莓派大脑和子模块有两种方式连接方式，一种是采用 I2C 总线通过 Arduino 做主从，一种是走 WIFI 使用 MQTT 协议与子模块通信。为了减少线数，采用了后者。</description>
+    </item>
+    
+    <item>
+      <title>Arch 升级中的警告是什么：Possibly missing firmware for module: wd719x、aic94xx、xhci_pci</title>
+      <link>https://backmountaindevil.github.io/post/archupdatewarning/</link>
+      <pubDate>Sun, 25 Jul 2021 15:09:44 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/archupdatewarning/</guid>
+      <description>问题 今天顺手升级，仔细一看发现了三个 waning（平时懒得看的），不过更新顺利还是完成了。最后查了一波是正常 Warning，我也没有这几个硬</description>
+    </item>
+    
+    <item>
+      <title>树莓派摄像头无法使用，报错 No data received from sensor，原因是带电插拔摄像头引起损坏</title>
+      <link>https://backmountaindevil.github.io/post/raspicam/</link>
+      <pubDate>Fri, 23 Jul 2021 17:51:55 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/raspicam/</guid>
+      <description>摄像头错误情况 今天发现了一个程序的 bug 的大致原因，想用树莓派摄像头测试一下，结果显示我摄像头没有连接上。寻思着我也开启了哈，无论是 pi config 界面还是</description>
+    </item>
+    
+    <item>
+      <title>ESP32 疯狂重启的原因探究</title>
+      <link>https://backmountaindevil.github.io/post/mcureboot/</link>
+      <pubDate>Sun, 18 Jul 2021 23:08:18 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/mcureboot/</guid>
+      <description>背景介绍 ESP 32 烧录点灯程序正常，烧录自定义代码也正常，烧入某个代码就疯狂重启。 错误信息 点击查看串口输出 错误程序源码地址 1 2 3 4 5 6 7 8 9 10 11 12</description>
+    </item>
+    
     <item>
       <title>树莓派无屏幕连接之 VNC realvnc-vnc-viewer</title>
-      <link>http://anidea.gitee.io/post/rasvnc/</link>
+      <link>https://backmountaindevil.github.io/post/rasvnc/</link>
       <pubDate>Sun, 18 Jul 2021 10:08:46 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/rasvnc/</guid>
+      <guid>https://backmountaindevil.github.io/post/rasvnc/</guid>
       <description>背景 在 Remote desktop - Arch Wiki 中列出了许多远程桌面软件，先后尝试了 KRDC、TigerVNC，最后又回到了最初的起点 realvnc-vnc-viewer。</description>
     </item>
     
     <item>
       <title>PlatformIO 与 ESP 32 点灯体验</title>
-      <link>http://anidea.gitee.io/post/espplatformio/</link>
+      <link>https://backmountaindevil.github.io/post/espplatformio/</link>
       <pubDate>Sat, 17 Jul 2021 18:31:55 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/espplatformio/</guid>
+      <guid>https://backmountaindevil.github.io/post/espplatformio/</guid>
       <description>背景 去年学会了 Arduino 写 ESP 8266+32，后面有看到了 PlatforrmIO，于是那时候立马跃跃欲试，就有了用PlatformIO开发Esp826</description>
     </item>
     
     <item>
       <title>使用 arp-scan 快速扫描局域网 IP -&gt; raspberry pi ssh vnc</title>
-      <link>http://anidea.gitee.io/post/rasip/</link>
+      <link>https://backmountaindevil.github.io/post/rasip/</link>
       <pubDate>Fri, 16 Jul 2021 23:23:32 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/rasip/</guid>
+      <guid>https://backmountaindevil.github.io/post/rasip/</guid>
       <description>简介 在使用 ssh/vnc 对树莓派进行远程操作的时候，都需要获取树莓派的 IP。常见的办法是路由器管理页面或者使用 Advanced IP Scanner。但是我既没有路由器，也</description>
     </item>
     
     <item>
       <title>Eclipse 设置国内镜像加快下载速度 Plugin Maven Mirror</title>
-      <link>http://anidea.gitee.io/post/eclipse-mirror/</link>
+      <link>https://backmountaindevil.github.io/post/eclipse-mirror/</link>
       <pubDate>Mon, 12 Jul 2021 12:05:03 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/eclipse-mirror/</guid>
+      <guid>https://backmountaindevil.github.io/post/eclipse-mirror/</guid>
       <description>由于一些原因，默认镜像下载速度感人，颇有愚公移山的精神，但是时间就是生命！下面是更换国内镜像走上高速的办法。 Plugin Eclipse -&amp;gt; Window -&amp;gt; Preferences -&amp;gt; Install/Update -&amp;gt; Available software Sites -&amp;gt; Add&amp;hellip; Name: utsc</description>
     </item>
     
     <item>
       <title>在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina</title>
-      <link>http://anidea.gitee.io/post/dockermac/</link>
+      <link>https://backmountaindevil.github.io/post/dockermac/</link>
       <pubDate>Fri, 02 Jul 2021 19:13:35 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/dockermac/</guid>
+      <guid>https://backmountaindevil.github.io/post/dockermac/</guid>
       <description>背景介绍 MacOS默认不对其他电脑平台发布，在 Apple 目前的战略中不把 os 作为可交易的商品，而是一种卖硬件附送的高价值软件。因此对于非 A 家的设备，想</description>
     </item>
     
     <item>
       <title>将 Arch Linux 内核从 stable 更换为 LTS 的办法与案例</title>
-      <link>http://anidea.gitee.io/post/archkernel/</link>
+      <link>https://backmountaindevil.github.io/post/archkernel/</link>
       <pubDate>Thu, 01 Jul 2021 20:28:24 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/archkernel/</guid>
+      <guid>https://backmountaindevil.github.io/post/archkernel/</guid>
       <description>干啥 将 Arch Linux 内核从 stable 更换为 LTS。以此降低内核更新的频率。 Q&amp;amp;A 安装内核只需要安装内核的包吗？对应的头文件包要不要装？比如 linux-lts 与 linux-lts-</description>
     </item>
     
     <item>
       <title>麦克纳姆轮</title>
-      <link>http://anidea.gitee.io/post/mecanumwheel/</link>
+      <link>https://backmountaindevil.github.io/post/mecanumwheel/</link>
       <pubDate>Mon, 07 Jun 2021 23:20:29 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/mecanumwheel/</guid>
+      <guid>https://backmountaindevil.github.io/post/mecanumwheel/</guid>
       <description>全向轮 目前看到两种全向轮，一种就叫全向轮（就是那么神奇，某宝上也看到有叫做福来轮），一种叫麦克纳姆轮。这两种轮子都是车轮里套小轮子，本文不会</description>
     </item>
     
     <item>
       <title>ESP IDF 开发框架构建 与 ADF 语音识别框架尝试 - esp 32s</title>
-      <link>http://anidea.gitee.io/post/espidf/</link>
+      <link>https://backmountaindevil.github.io/post/espidf/</link>
       <pubDate>Fri, 04 Jun 2021 12:01:08 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/espidf/</guid>
+      <guid>https://backmountaindevil.github.io/post/espidf/</guid>
       <description>ESP-ADF ESP32 语音框架开发文档 ESP IDF 环境准备 根据vscode-esp-idf-extension/docs/tutorial/install.md 所描述</description>
     </item>
     
     <item>
       <title>rEFInd - 一款优美的多系统引导软件</title>
-      <link>http://anidea.gitee.io/post/refind/</link>
+      <link>https://backmountaindevil.github.io/post/refind/</link>
       <pubDate>Thu, 03 Jun 2021 12:04:58 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/refind/</guid>
+      <guid>https://backmountaindevil.github.io/post/refind/</guid>
       <description>rEFInd 这一个用来自定义引导操作系统的软件。通常用在多操作系统的电脑中选择使用哪一个 OS。类似于 Linux 的开机选择操作系统的 grub，可以选择不同内核、</description>
     </item>
     
     <item>
       <title>设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH</title>
-      <link>http://anidea.gitee.io/post/environment_variable/</link>
+      <link>https://backmountaindevil.github.io/post/environment_variable/</link>
       <pubDate>Tue, 01 Jun 2021 20:21:28 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/environment_variable/</guid>
+      <guid>https://backmountaindevil.github.io/post/environment_variable/</guid>
       <description>环境变量 环境变量是什么？通俗的说就是变量，这些变量设置的内容可能是当前的语言、地区、shell、程序的位置、日志等级等。而比较常见的 $PATH 变量就</description>
     </item>
     
     <item>
       <title>Arch 安装旧版软件的办法（软件降级）</title>
-      <link>http://anidea.gitee.io/post/arch-downgrade/</link>
+      <link>https://backmountaindevil.github.io/post/arch-downgrade/</link>
       <pubDate>Fri, 28 May 2021 22:55:11 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/arch-downgrade/</guid>
+      <guid>https://backmountaindevil.github.io/post/arch-downgrade/</guid>
       <description>简介 介绍在 Arch Linux 安装旧版软件或者软件降级的办法 为什么 Arch 默认是滚动发行的，更新速度那就是一周更新好多次，软件版本都是最新版。但这样也会存在其弊端</description>
     </item>
     
     <item>
       <title>Arch 新手的基本知识</title>
-      <link>http://anidea.gitee.io/post/arch-begin/</link>
+      <link>https://backmountaindevil.github.io/post/arch-begin/</link>
       <pubDate>Fri, 28 May 2021 11:58:39 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/arch-begin/</guid>
+      <guid>https://backmountaindevil.github.io/post/arch-begin/</guid>
       <description>安装系统 镜像+网络安装 详细请看Arch Linux多系统安装安装记录和蓝牙、fcitx5输入法-win\deepin\arch Kearney form An idea 2021-02-21 基础配</description>
     </item>
     
     <item>
       <title>在 Arch 上安装 eclipse-jee 并配置 tomcat7</title>
-      <link>http://anidea.gitee.io/post/eclipse/</link>
+      <link>https://backmountaindevil.github.io/post/eclipse/</link>
       <pubDate>Mon, 24 May 2021 08:27:43 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/eclipse/</guid>
+      <guid>https://backmountaindevil.github.io/post/eclipse/</guid>
       <description>正文 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomc</description>
     </item>
     
     <item>
       <title>HTG Locker &amp;&amp; locker.bat 分析 与 80 G的数据恢复记录</title>
-      <link>http://anidea.gitee.io/post/htglocker/</link>
+      <link>https://backmountaindevil.github.io/post/htglocker/</link>
       <pubDate>Sat, 01 May 2021 15:31:48 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/htglocker/</guid>
+      <guid>https://backmountaindevil.github.io/post/htglocker/</guid>
       <description>简介 好些年前不晓得在哪里看到一个简单粗暴的‘加密’批处理程序，然后如法炮制使用了三年多。。然后某天数据都不见了（不一定是该程序的问题，有可能</description>
     </item>
     
     <item>
       <title>在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF</title>
-      <link>http://anidea.gitee.io/post/pandoc/</link>
+      <link>https://backmountaindevil.github.io/post/pandoc/</link>
       <pubDate>Sat, 01 May 2021 15:12:16 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/pandoc/</guid>
+      <guid>https://backmountaindevil.github.io/post/pandoc/</guid>
       <description>简介 自己平时写文档主要是用 md 写，但是甲方和乙方有时候说喜欢 pdf 或者 word. docsify 没 的自带的 pdf 转换（实际上插件可以导出），最基本的王者就是这个 pandoc 了。 pandoc 一个</description>
     </item>
     
     <item>
       <title>Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法</title>
-      <link>http://anidea.gitee.io/post/pacman/</link>
+      <link>https://backmountaindevil.github.io/post/pacman/</link>
       <pubDate>Fri, 30 Apr 2021 08:36:59 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/pacman/</guid>
+      <guid>https://backmountaindevil.github.io/post/pacman/</guid>
       <description>pacman 虽然 arch 衍生自 debian, 但是在包管理上采取了一种不太一样的工具，不是常见的 apt 而是 pacman 常用命令 指令 说明 pacman -S 软件包名 安装软件及其依赖 pacman -Rs 软件包名 卸载软件及</description>
     </item>
     
     <item>
       <title>Arch 下 VS Code, Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法</title>
-      <link>http://anidea.gitee.io/post/codeupdateerror/</link>
+      <link>https://backmountaindevil.github.io/post/codeupdateerror/</link>
       <pubDate>Thu, 29 Apr 2021 09:13:42 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/codeupdateerror/</guid>
+      <guid>https://backmountaindevil.github.io/post/codeupdateerror/</guid>
       <description>问题描述 背景 将近一个多月没有更新软件了，打开 Discover 发现六百多个没更新的，就选了几个常用的软件进行更新（fcitix5、VS Code、Ciano）</description>
     </item>
     
     <item>
       <title>在树莓派2上非全局编译安装 python39</title>
-      <link>http://anidea.gitee.io/post/compilepy39/</link>
+      <link>https://backmountaindevil.github.io/post/compilepy39/</link>
       <pubDate>Tue, 27 Apr 2021 22:26:58 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/compilepy39/</guid>
+      <guid>https://backmountaindevil.github.io/post/compilepy39/</guid>
       <description>简介 目地： 自定义编译安装 python39 到当前用户目录下 硬件： 树莓派2 软件： 2021-03-04-raspios-buster-armhf 时长： 将近一个半小时，一个多小时在编译 安装依赖 看了不少帖子，每个帖子说的依赖</description>
     </item>
     
     <item>
       <title>树莓派无显示屏入门的方法总结</title>
-      <link>http://anidea.gitee.io/post/rbpnoscreen/</link>
+      <link>https://backmountaindevil.github.io/post/rbpnoscreen/</link>
       <pubDate>Tue, 27 Apr 2021 18:43:27 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/rbpnoscreen/</guid>
+      <guid>https://backmountaindevil.github.io/post/rbpnoscreen/</guid>
       <description>无显示屏 树莓派的小屏幕买来着实鸡肋，看着眼瞎系列。显示器多好，字大亮度够，HDMI 直插。但是有一些人只有一台笔记本屏幕，HDMI接口不支持视</description>
     </item>
     
     <item>
       <title>树莓派入门第一步 - 装系统并配置镜像、SSH</title>
-      <link>http://anidea.gitee.io/post/raspberrypi/</link>
+      <link>https://backmountaindevil.github.io/post/raspberrypi/</link>
       <pubDate>Tue, 27 Apr 2021 11:21:15 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/raspberrypi/</guid>
+      <guid>https://backmountaindevil.github.io/post/raspberrypi/</guid>
       <description>简介 树莓派入门第一步 - 装系统并配置镜像、SSH 装系统 下系统镜像 官方镜像地址：Raspberry Pi OS Images 推荐下一个 32 位桌面版（大概 1.1 G），以后无</description>
     </item>
     
     <item>
       <title>用 debtap 将 deb 转换成 arch 的软件包格式，以 Raspberry Pi Imager 为例</title>
-      <link>http://anidea.gitee.io/post/debtap/</link>
+      <link>https://backmountaindevil.github.io/post/debtap/</link>
       <pubDate>Tue, 27 Apr 2021 10:59:23 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/debtap/</guid>
+      <guid>https://backmountaindevil.github.io/post/debtap/</guid>
       <description>简介 用 debtap 将 deb 软件包转换成 arch 下的软件包格式 Raspberry Pi Imager 只提供了 Ubuntu、Windows、MacOS 版本，使用 yay 下载 rpi-imager 下载多次也失败了。。。(但是</description>
     </item>
     
     <item>
       <title>读记 -《最好的告别》</title>
-      <link>http://anidea.gitee.io/post/rn3/</link>
+      <link>https://backmountaindevil.github.io/post/rn3/</link>
       <pubDate>Sun, 18 Apr 2021 15:18:22 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/rn3/</guid>
+      <guid>https://backmountaindevil.github.io/post/rn3/</guid>
       <description>最好的告别 作者： [美] Atul Gawande 译者: 彭小华 这几天脑子有点乱，在图书馆随机选了一些书，第一本算法书、自卑与超越、自我关怀，最后看的下去的除了算法就</description>
     </item>
     
     <item>
       <title>JsDemoBmi</title>
-      <link>http://anidea.gitee.io/post/jsdemobmi/</link>
+      <link>https://backmountaindevil.github.io/post/jsdemobmi/</link>
       <pubDate>Sat, 17 Apr 2021 08:29:53 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/jsdemobmi/</guid>
+      <guid>https://backmountaindevil.github.io/post/jsdemobmi/</guid>
       <description>BMI BMI 指数（Body Mass Index），是国际上常用的衡量人体胖瘦程度以及是否健康的一个标准。 源代码 基于MIT协议开放的源代码位于gitee仓库K</description>
     </item>
     
     <item>
       <title>在 Linux 上使用人脸识别来登陆和认证</title>
-      <link>http://anidea.gitee.io/post/linuxhello/</link>
+      <link>https://backmountaindevil.github.io/post/linuxhello/</link>
       <pubDate>Thu, 15 Apr 2021 21:36:44 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/linuxhello/</guid>
+      <guid>https://backmountaindevil.github.io/post/linuxhello/</guid>
       <description>干啥 是这样子的，我的笔记本使用的键盘是蓝牙的，然后无论是 win 还是 arch,蓝牙功能都是在登陆进系统之后才开启，这样每次输入密码我就得把身子往前</description>
     </item>
     
     <item>
       <title>尼康胶片机Nikon F60：胶卷无法上片和引片器</title>
-      <link>http://anidea.gitee.io/post/nikonf60/</link>
+      <link>https://backmountaindevil.github.io/post/nikonf60/</link>
       <pubDate>Wed, 07 Apr 2021 19:56:39 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/nikonf60/</guid>
+      <guid>https://backmountaindevil.github.io/post/nikonf60/</guid>
       <description>突发问题 前几天出游的时候带了两卷福马的胶卷和尼康胶片机Nikon F60. 到了海风与飞沙铺面而来的沙滩上，有人在放大风筝、还有的人在拍婚纱照。此情此</description>
     </item>
     
     <item>
       <title>读记 -《习近平的七年知情岁月》、《爱的艺术》、《娱乐致死》、《人生》</title>
-      <link>http://anidea.gitee.io/post/rn2/</link>
+      <link>https://backmountaindevil.github.io/post/rn2/</link>
       <pubDate>Wed, 24 Mar 2021 19:49:08 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/rn2/</guid>
+      <guid>https://backmountaindevil.github.io/post/rn2/</guid>
       <description>习近平的七年知情岁月 作者： [中] 中央党校采访实录编辑室 按理说我是一个对政治毫无兴趣的人，只是寒假属实是在学校憋得慌，总不能一天除了睡觉吃饭就</description>
     </item>
     
     <item>
       <title>Algorithmsrank</title>
-      <link>http://anidea.gitee.io/post/algorithmsrank/</link>
+      <link>https://backmountaindevil.github.io/post/algorithmsrank/</link>
       <pubDate>Sat, 13 Mar 2021 15:39:32 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/algorithmsrank/</guid>
+      <guid>https://backmountaindevil.github.io/post/algorithmsrank/</guid>
       <description>大一期末循环必考 反正当时我很蒙蔽 题目 5名跳水高手参加10m高台跳水决赛，有好事者让5人依据实力预测比赛结果。 A选手说：B第二，我第三。 B选手</description>
     </item>
     
     <item>
       <title>JsDemoPpi</title>
-      <link>http://anidea.gitee.io/post/jsdemoppi/</link>
+      <link>https://backmountaindevil.github.io/post/jsdemoppi/</link>
       <pubDate>Mon, 01 Mar 2021 21:13:24 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/jsdemoppi/</guid>
+      <guid>https://backmountaindevil.github.io/post/jsdemoppi/</guid>
       <description>简介 一个用js写的PPI计算器。 源代码 基于MIT协议开放的源代码位于gitee仓库Kearney / JsDemo 常见显示器PPI 分辨率 尺寸（inch） PPI</description>
     </item>
     
     <item>
       <title>读记 -《活出生命的意义》、《上帝掷骰子吗》</title>
-      <link>http://anidea.gitee.io/post/rn1/</link>
+      <link>https://backmountaindevil.github.io/post/rn1/</link>
       <pubDate>Thu, 04 Feb 2021 14:14:47 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/rn1/</guid>
+      <guid>https://backmountaindevil.github.io/post/rn1/</guid>
       <description>活出生命的意义 Author: [美] 维克多 弗兰克尔 Translator: 吕娜 本书分在集中营的经历及意义疗法两部分，主要内容包括：追求意义；存在之挫折；意源性神经官能症；心理—</description>
     </item>
     
     <item>
       <title>总结我的2020</title>
-      <link>http://anidea.gitee.io/post/cls-2020/</link>
+      <link>https://backmountaindevil.github.io/post/cls-2020/</link>
       <pubDate>Thu, 04 Feb 2021 10:33:26 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/cls-2020/</guid>
+      <guid>https://backmountaindevil.github.io/post/cls-2020/</guid>
       <description>杯子 刚才发完“集天地之精华，聚日月之灵气后”，确实掏出了睡袋，当初买了个舒适温度为5的睡袋。。。现在emmm，为什么要买5的。。大冬天的我也</description>
     </item>
     
     <item>
       <title>《他乡的童年》-影评</title>
-      <link>http://anidea.gitee.io/post/vn-childhoodelse/</link>
+      <link>https://backmountaindevil.github.io/post/vn-childhoodelse/</link>
       <pubDate>Tue, 02 Feb 2021 23:41:12 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/vn-childhoodelse/</guid>
+      <guid>https://backmountaindevil.github.io/post/vn-childhoodelse/</guid>
       <description>《他乡的童年》 文末含《心灵奇旅》的剧透剧透剧透！！！ 这部片子我是去年的时候因为疫情宅着才看的，今年因为疫情还是宅着就写写啰，其实好几天前就想</description>
     </item>
     
     <item>
       <title>《小谢尔顿》感想</title>
-      <link>http://anidea.gitee.io/post/vn-youngsheldons1/</link>
+      <link>https://backmountaindevil.github.io/post/vn-youngsheldons1/</link>
       <pubDate>Sun, 24 Jan 2021 20:00:38 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/vn-youngsheldons1/</guid>
+      <guid>https://backmountaindevil.github.io/post/vn-youngsheldons1/</guid>
       <description>简介 小谢尔顿-第一季 作为爆笑喜剧《生活大爆炸》（The Big Bang Theory）的衍生剧，讲述谢尔顿小时偶的家庭温情故事，所以笑点不会很多，但是我却</description>
     </item>
     
     <item>
       <title>读记 -《学习之道》、《如何有效阅读一本书》</title>
-      <link>http://anidea.gitee.io/post/rn0/</link>
+      <link>https://backmountaindevil.github.io/post/rn0/</link>
       <pubDate>Sun, 24 Jan 2021 18:53:28 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/rn0/</guid>
+      <guid>https://backmountaindevil.github.io/post/rn0/</guid>
       <description>如何有效阅读一本书 Author: [日] 奥野宣之 Translator: 张晶晶 总结：前两章偏离主题、第三章才开始讲述为什么以及如何做读书笔记（看来我不是唯一觉得这是一本不咋的的</description>
     </item>
     
     <item>
       <title>HugoGitee</title>
-      <link>http://anidea.gitee.io/post/hugogitee/</link>
+      <link>https://backmountaindevil.github.io/post/hugogitee/</link>
       <pubDate>Tue, 08 Dec 2020 10:17:02 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/hugogitee/</guid>
+      <guid>https://backmountaindevil.github.io/post/hugogitee/</guid>
       <description>简介 配置Git和VS Code 安装Git、VS Code，注册gitee帐号，配置Git到giteessh密钥。 建立Gitee Page公开仓库 建立Pa</description>
     </item>
     
     <item>
       <title>Pyqt5</title>
-      <link>http://anidea.gitee.io/post/pyqt5/</link>
+      <link>https://backmountaindevil.github.io/post/pyqt5/</link>
       <pubDate>Thu, 03 Dec 2020 15:57:37 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/pyqt5/</guid>
+      <guid>https://backmountaindevil.github.io/post/pyqt5/</guid>
       <description>intro Python3（一下简称python）能用的跨平台GUI库无非tkinter、pyqt5。但是tkinter执行慢颜值不高呀 我的环境 deepin 20 amd64</description>
     </item>
     
     <item>
       <title>Blood</title>
-      <link>http://anidea.gitee.io/post/blood/</link>
+      <link>https://backmountaindevil.github.io/post/blood/</link>
       <pubDate>Tue, 24 Nov 2020 21:37:41 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/blood/</guid>
+      <guid>https://backmountaindevil.github.io/post/blood/</guid>
       <description>献血吗 2020年的11月21日是我第四次看着鲜血平稳的从身体里流向血包，我自己也不知道为啥没半年都要考虑一下要不要去鲜血，毕竟我还没有山东的</description>
     </item>
     
     <item>
       <title>QtOnLinux</title>
-      <link>http://anidea.gitee.io/post/qtonlinux/</link>
+      <link>https://backmountaindevil.github.io/post/qtonlinux/</link>
       <pubDate>Tue, 24 Nov 2020 11:54:39 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/qtonlinux/</guid>
+      <guid>https://backmountaindevil.github.io/post/qtonlinux/</guid>
       <description>Intro 所使用的OS是基于Debian的Deepin 20 commiunity amd64，自带gcc/g++ 8.3.0。记录安装Qt失败后成功的过程。 Install requirements gcc和g++</description>
     </item>
     
     <item>
       <title>C</title>
-      <link>http://anidea.gitee.io/post/c/</link>
+      <link>https://backmountaindevil.github.io/post/c/</link>
       <pubDate>Sat, 21 Nov 2020 16:15:36 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/c/</guid>
+      <guid>https://backmountaindevil.github.io/post/c/</guid>
       <description>Hello World 新建一个tmp.c文件，输入以下内容保存 1 2 3 4 5 6 #include &amp;lt;stdio.h&amp;gt;int main() { printf(&amp;#34;Helllo World&amp;#34;); return 0; } 然后在终端里编译该文件，执行生成的程序。后面的程序都是在Deep2</description>
     </item>
     
     <item>
       <title>TextEditorPython</title>
-      <link>http://anidea.gitee.io/post/texteditorpython/</link>
+      <link>https://backmountaindevil.github.io/post/texteditorpython/</link>
       <pubDate>Fri, 20 Nov 2020 19:31:05 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/texteditorpython/</guid>
+      <guid>https://backmountaindevil.github.io/post/texteditorpython/</guid>
       <description>Intro 用python3写一个简单的文本编辑器吧，参考Create a Simple Python Text Editor!By PumpkinSmasher，原文太久远，不适合py3，下面对py3进</description>
     </item>
     
     <item>
       <title>Osprocessthreads</title>
-      <link>http://anidea.gitee.io/post/osprocessthreads/</link>
+      <link>https://backmountaindevil.github.io/post/osprocessthreads/</link>
       <pubDate>Fri, 20 Nov 2020 08:31:57 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/osprocessthreads/</guid>
+      <guid>https://backmountaindevil.github.io/post/osprocessthreads/</guid>
       <description>进程的定义 进程控制块(Process Control Block, PCB) 三个基本状态 P37 阻塞、就绪、执行 单核CPU中n个并发进程，每个基本状态最多有几个进程。 PCB的组织方</description>
     </item>
     
     <item>
       <title>Osintro</title>
-      <link>http://anidea.gitee.io/post/osintro/</link>
+      <link>https://backmountaindevil.github.io/post/osintro/</link>
       <pubDate>Fri, 20 Nov 2020 08:27:40 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/osintro/</guid>
+      <guid>https://backmountaindevil.github.io/post/osintro/</guid>
       <description>四个基本特征 并发、共享、虚拟、异步 单批道处理系统 多批道处理系统 PIC2LCEDA 立创EDA_PCB照片生成器，作者：矛盾聚合体 使用文档请看PCB照片_附带生</description>
     </item>
     
     <item>
       <title>Pygame</title>
-      <link>http://anidea.gitee.io/post/pygame/</link>
+      <link>https://backmountaindevil.github.io/post/pygame/</link>
       <pubDate>Thu, 19 Nov 2020 06:54:17 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/pygame/</guid>
+      <guid>https://backmountaindevil.github.io/post/pygame/</guid>
       <description>Install 1 2 3 $ python3 -m pip install -U pygame --user # 检测是否正确安装，正确安装的话会运行一个游戏 $ python3 -m pygame.examples.aliens Basic 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 import pygame width = 920 # 画板宽度 height = 640 # 画</description>
     </item>
     
     <item>
       <title>GitConfigUseage</title>
-      <link>http://anidea.gitee.io/post/gitconfigusage/</link>
+      <link>https://backmountaindevil.github.io/post/gitconfigusage/</link>
       <pubDate>Mon, 16 Nov 2020 18:58:02 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/gitconfigusage/</guid>
+      <guid>https://backmountaindevil.github.io/post/gitconfigusage/</guid>
       <description>Intro 记录Git的配置过程 Down 1 sudo apt install git configSSH basic 设置用户名和邮箱，这样就可以在本地记录变化了 1 2 3 4 $ git config --global user.email &amp;#34;you@example.com&amp;#34; $ git config --global user.name &amp;#34;Your Name&amp;#34; # 查看git用户配置，看</description>
     </item>
     
     <item>
       <title>DeepinGrub</title>
-      <link>http://anidea.gitee.io/post/deepingrub/</link>
+      <link>https://backmountaindevil.github.io/post/deepingrub/</link>
       <pubDate>Mon, 16 Nov 2020 14:13:22 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/deepingrub/</guid>
+      <guid>https://backmountaindevil.github.io/post/deepingrub/</guid>
       <description>Intro 此前我打算从Win世界再次回到Linux，于是从win的磁盘管理压缩出了130G 给Ubuntu，尝试了Ubuntu的脑壳疼问题之后抛弃了U</description>
     </item>
     
     <item>
       <title>VSCodiumExtension</title>
-      <link>http://anidea.gitee.io/post/vscodiumextension/</link>
+      <link>https://backmountaindevil.github.io/post/vscodiumextension/</link>
       <pubDate>Mon, 16 Nov 2020 10:55:37 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/vscodiumextension/</guid>
+      <guid>https://backmountaindevil.github.io/post/vscodiumextension/</guid>
       <description>Intro 尝试为VS Codium开发一个完全Free的c/c++插件，或者催促microsoft发布一个free版本的。 OS: Deepin 20 如果使用VS Code的</description>
     </item>
     
     <item>
       <title>VSCodiumConfigure</title>
-      <link>http://anidea.gitee.io/post/vscodiumconfigure/</link>
+      <link>https://backmountaindevil.github.io/post/vscodiumconfigure/</link>
       <pubDate>Sun, 15 Nov 2020 21:10:21 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/vscodiumconfigure/</guid>
+      <guid>https://backmountaindevil.github.io/post/vscodiumconfigure/</guid>
       <description>Intro VS Codium 是VS Code的开源版本，没有微软的图标和用户Track功能。但是谁想被Tracked呢？？下面记录Deepin 20系统下VS Codi</description>
     </item>
     
     <item>
       <title>FsfOss</title>
-      <link>http://anidea.gitee.io/post/fsfoss/</link>
+      <link>https://backmountaindevil.github.io/post/fsfoss/</link>
       <pubDate>Sun, 15 Nov 2020 12:57:03 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/fsfoss/</guid>
+      <guid>https://backmountaindevil.github.io/post/fsfoss/</guid>
       <description>intro FSF Free software is software that gives you the user the freedom to share, study and modify it. We call this free software because the user is free. Free Software Foundation(自由软件基金会)立志于赋予用户分享、学习、修改软件的自由</description>
     </item>
     
     <item>
-      <title>Font</title>
-      <link>http://anidea.gitee.io/post/font/</link>
+      <title>把系统中的 296 款字体删除到只剩下 17 款</title>
+      <link>https://backmountaindevil.github.io/post/font/</link>
       <pubDate>Sun, 15 Nov 2020 12:27:18 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/font/</guid>
-      <description>Intro Main 免费可商用 Times New Roman 隶书 需授权 仿宋 宋体 新宋体 黑体 楷体 方正系列 华文系列 微软系列 References 360查字体 Font configuration Arch Wiki Font Manager：一个简单的 GTK+ 桌面的开源应</description>
+      <guid>https://backmountaindevil.github.io/post/font/</guid>
+      <description>Intro fc-list 可以查看本机有哪些字体，但是输出有点多，我这里将近两千行（1997）。可以用 fc-list &amp;gt;temp.txt 将输出定向到 temp.txt。可以显然看出开头的路径都是</description>
     </item>
     
     <item>
-      <title>UninstallUbuntuOnWin</title>
-      <link>http://anidea.gitee.io/post/uninstallubuntuonwin/</link>
+      <title>完全卸载 Ubuntu 操作系统的办法</title>
+      <link>https://backmountaindevil.github.io/post/uninstallubuntuonwin/</link>
       <pubDate>Sun, 15 Nov 2020 02:57:35 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/uninstallubuntuonwin/</guid>
-      <description>Intro 记录用在windows 10 OS下完全卸载Ubuntu OS的过程，win+ubuntu双系统。 How disk 打开磁盘管理，找到ubuntu所安装的磁盘，</description>
+      <guid>https://backmountaindevil.github.io/post/uninstallubuntuonwin/</guid>
+      <description>Intro 记录用在windows 10 或者 arch 下完全卸载 Ubuntu 的过程，win + ubuntu + arch 多系统。 大体思路是删除系统对于的硬盘分区，然后删除启动引导中的引导文件，然</description>
     </item>
     
     <item>
       <title>IceCat</title>
-      <link>http://anidea.gitee.io/post/icecat/</link>
+      <link>https://backmountaindevil.github.io/post/icecat/</link>
       <pubDate>Sat, 14 Nov 2020 22:45:16 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/icecat/</guid>
+      <guid>https://backmountaindevil.github.io/post/icecat/</guid>
       <description>Intro python 安装Ubuntu 20.04LTS之后，终端输入python没有进入py环境，然后用apt安装py3之后键入python还是失败，键入py</description>
     </item>
     
     <item>
       <title>WinToLinux</title>
-      <link>http://anidea.gitee.io/post/wintolinux/</link>
+      <link>https://backmountaindevil.github.io/post/wintolinux/</link>
       <pubDate>Sat, 14 Nov 2020 11:14:08 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/wintolinux/</guid>
+      <guid>https://backmountaindevil.github.io/post/wintolinux/</guid>
       <description>Introduction 计划从windows逐渐迁移到free世界 - Linux software on win 微信 腾讯会议 云盘 知云文献翻译 CAJViewer 格式工厂 μTorrent Chrome Office 7zip VS Code Hugo Git gcc/g++ Java Python Anaconda Android Studio Raspberry Pi Image</description>
     </item>
     
     <item>
       <title>Xiaoxin13ProWinUbuOS</title>
-      <link>http://anidea.gitee.io/post/xiaoxin13prowinubuos/</link>
+      <link>https://backmountaindevil.github.io/post/xiaoxin13prowinubuos/</link>
       <pubDate>Wed, 11 Nov 2020 16:48:33 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/xiaoxin13prowinubuos/</guid>
+      <guid>https://backmountaindevil.github.io/post/xiaoxin13prowinubuos/</guid>
       <description>Introduction 小新13pro锐龙版默认安装的是Windows10，作为资深搞机佬的弟弟，一直在谋划着装一个Linux系统在小新上面，常见的Linux有C</description>
     </item>
     
     <item>
       <title>UefiMake</title>
-      <link>http://anidea.gitee.io/post/uefimake/</link>
+      <link>https://backmountaindevil.github.io/post/uefimake/</link>
       <pubDate>Tue, 10 Nov 2020 22:59:36 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/uefimake/</guid>
+      <guid>https://backmountaindevil.github.io/post/uefimake/</guid>
       <description>Introduction 作为世界最大头秃大军中的一员，操作系统的安装是一项必备技能，自己亲自操刀的OS就有不少：win7、win10、Centos、Ubuntu、</description>
     </item>
     
     <item>
       <title>GNULinux</title>
-      <link>http://anidea.gitee.io/post/gnulinux/</link>
+      <link>https://backmountaindevil.github.io/post/gnulinux/</link>
       <pubDate>Tue, 10 Nov 2020 22:00:08 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/gnulinux/</guid>
+      <guid>https://backmountaindevil.github.io/post/gnulinux/</guid>
       <description>Introduction 一直在谋划着装一个Linux系统在小新上面，常见的Linux有Centos、Ubuntu、Debian等，在GNU官网还看到了完全自由的l</description>
     </item>
     
     <item>
       <title>HugoRSS</title>
-      <link>http://anidea.gitee.io/post/hugorss/</link>
+      <link>https://backmountaindevil.github.io/post/hugorss/</link>
       <pubDate>Tue, 10 Nov 2020 21:11:21 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/hugorss/</guid>
+      <guid>https://backmountaindevil.github.io/post/hugorss/</guid>
       <description>Introduction How to do References RSS是什么，RSS怎么玩，RSS原理是什么</description>
     </item>
     
     <item>
       <title>BeautifyOffice</title>
-      <link>http://anidea.gitee.io/post/beautifyoffice/</link>
+      <link>https://backmountaindevil.github.io/post/beautifyoffice/</link>
       <pubDate>Sat, 07 Nov 2020 15:17:58 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/beautifyoffice/</guid>
+      <guid>https://backmountaindevil.github.io/post/beautifyoffice/</guid>
       <description>本文以Word为例，Excel、PPT设置类似（快捷键不尽相同）。 字体 打开Word，如果是保护模式的话切换到编辑模式，然后按 Ctrl+D 打开字体对话框</description>
     </item>
     
     <item>
       <title>MIPS_Dos</title>
-      <link>http://anidea.gitee.io/post/mips_dos/</link>
+      <link>https://backmountaindevil.github.io/post/mips_dos/</link>
       <pubDate>Fri, 06 Nov 2020 14:21:37 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/mips_dos/</guid>
+      <guid>https://backmountaindevil.github.io/post/mips_dos/</guid>
       <description>功能号1 键盘输入 键盘输入的字符以ASCII码的形式放在累加器AL中，同时，显示出来。 1 2 MOV AH,01H INT 21H 功能号2 字符显示 屏幕显示存放在DL寄存器中的</description>
     </item>
     
     <item>
       <title>MakeGithubPageSafeViaHttps</title>
-      <link>http://anidea.gitee.io/post/makegithubpagesafeviahttps/</link>
+      <link>https://backmountaindevil.github.io/post/makegithubpagesafeviahttps/</link>
       <pubDate>Fri, 06 Nov 2020 11:49:57 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/makegithubpagesafeviahttps/</guid>
+      <guid>https://backmountaindevil.github.io/post/makegithubpagesafeviahttps/</guid>
       <description>Introduction Situation Github Page几乎和轻量级云服务器同时成为了我的博客网站备选，后来由于一系列原因最后还是选择了Github Page作为静态博客网站的部署之地</description>
     </item>
     
     <item>
       <title>GitSubmodule</title>
-      <link>http://anidea.gitee.io/post/gitsubmodule/</link>
+      <link>https://backmountaindevil.github.io/post/gitsubmodule/</link>
       <pubDate>Wed, 04 Nov 2020 20:45:34 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/gitsubmodule/</guid>
+      <guid>https://backmountaindevil.github.io/post/gitsubmodule/</guid>
       <description>什么是submodule gitsubmodules - Mounting one repository inside another submodule翻译过来就是“子模块”的意思。上面这句英文出自Git官网的文档中，它是这样描述git</description>
     </item>
     
     <item>
       <title>GitCloneSlowFix</title>
-      <link>http://anidea.gitee.io/post/gitcloneslowfix/</link>
+      <link>https://backmountaindevil.github.io/post/gitcloneslowfix/</link>
       <pubDate>Wed, 04 Nov 2020 10:32:34 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/gitcloneslowfix/</guid>
+      <guid>https://backmountaindevil.github.io/post/gitcloneslowfix/</guid>
       <description>What 最近重建博客网站，需要pull代码下来删除重建，谁知道git clone下来老半天都没成功，根据各大网右的描述，有说是因为防火墙卡住了，也有</description>
     </item>
     
     <item>
       <title>从Hexo到Hugo</title>
-      <link>http://anidea.gitee.io/post/%E4%BB%8Ehexo%E5%88%B0hugo/</link>
+      <link>https://backmountaindevil.github.io/post/%E4%BB%8Ehexo%E5%88%B0hugo/</link>
       <pubDate>Tue, 03 Nov 2020 22:01:31 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/%E4%BB%8Ehexo%E5%88%B0hugo/</guid>
+      <guid>https://backmountaindevil.github.io/post/%E4%BB%8Ehexo%E5%88%B0hugo/</guid>
       <description>博客网站 刚开始只是在知乎、CSDN上写帖子，后面试过微信公众号、Wordpress、云服务器等等。略懂一些写网页的知识，但是身为程序员深知重</description>
     </item>
     
     <item>
       <title>高中撸铁日记</title>
-      <link>http://anidea.gitee.io/post/%E6%92%B8%E9%93%81%E6%97%A5%E8%AE%B0/</link>
+      <link>https://backmountaindevil.github.io/post/%E6%92%B8%E9%93%81%E6%97%A5%E8%AE%B0/</link>
       <pubDate>Tue, 03 Nov 2020 22:01:31 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/%E6%92%B8%E9%93%81%E6%97%A5%E8%AE%B0/</guid>
+      <guid>https://backmountaindevil.github.io/post/%E6%92%B8%E9%93%81%E6%97%A5%E8%AE%B0/</guid>
       <description>声明 本人并非营养学和运动学的砖家，实际参考价值并不大。聊胜于无嘛。 由于微信平台的设置无法留言，想要留言的朋友可前往我的个人博客网站下方进行留</description>
     </item>
     
     <item>
       <title>WhatsGit</title>
-      <link>http://anidea.gitee.io/post/whatsgit/</link>
+      <link>https://backmountaindevil.github.io/post/whatsgit/</link>
       <pubDate>Thu, 27 Aug 2020 17:33:31 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/whatsgit/</guid>
+      <guid>https://backmountaindevil.github.io/post/whatsgit/</guid>
       <description>https://git-scm.com/book/zh/v2 Git是什么 分布式版本管理工具 怎么用Git 安装 初始化用户 1 2 git config --global user.name &amp;#34;Your Name&amp;#34; git config --global user.email &amp;#34;email@example.com&amp;#34; 创建版本库 git init 备注：不要使用Windows自带的记事本编</description>
     </item>
     
     <item>
       <title>TFT LCD ILI9341 Display_1</title>
-      <link>http://anidea.gitee.io/post/tft-lcd-ili9341-display-1/</link>
+      <link>https://backmountaindevil.github.io/post/tft-lcd-ili9341-display-1/</link>
       <pubDate>Thu, 27 Aug 2020 16:33:31 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/tft-lcd-ili9341-display-1/</guid>
+      <guid>https://backmountaindevil.github.io/post/tft-lcd-ili9341-display-1/</guid>
       <description>[TOC] 简介 由于项目需求，需要做个屏幕控制，支持按钮控制和触摸控制 一番选择思考之后选择了比较容易的Arduino Uno和2.4‘’ TFT LCD with Touch</description>
     </item>
     
     <item>
       <title>ESP8266向服务器发送数据 TCP - PHP or PYTHON</title>
-      <link>http://anidea.gitee.io/post/esp8266%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE-php-or-python/</link>
+      <link>https://backmountaindevil.github.io/post/esp8266%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE-php-or-python/</link>
       <pubDate>Mon, 22 Jun 2020 04:53:52 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/esp8266%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE-php-or-python/</guid>
+      <guid>https://backmountaindevil.github.io/post/esp8266%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE-php-or-python/</guid>
       <description>简介 ESP8266向服务器发送数据，服务器采用PHP或者PYTHON来接收处理数据 WiFiClient库用于ESP8266的TCP协议通讯 CSDN</description>
     </item>
     
     <item>
       <title>我是如何看待死亡的</title>
-      <link>http://anidea.gitee.io/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%AD%BB%E4%BA%A1%E7%9A%84/</link>
+      <link>https://backmountaindevil.github.io/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%AD%BB%E4%BA%A1%E7%9A%84/</link>
       <pubDate>Thu, 28 May 2020 12:57:03 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%AD%BB%E4%BA%A1%E7%9A%84/</guid>
+      <guid>https://backmountaindevil.github.io/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%AD%BB%E4%BA%A1%E7%9A%84/</guid>
       <description>人固有一死，或寿终正寝，或飞来横祸，或疾病缠身。目前的技术还无法让人类实现永生。死亡也是我们每个人都无法避免的坎。 大卫伊格曼在它的作品《生命</description>
     </item>
     
     <item>
       <title>致青春-从死神脚下走出的小学生</title>
-      <link>http://anidea.gitee.io/post/%E8%87%B4%E9%9D%92%E6%98%A5-%E4%BB%8E%E6%AD%BB%E7%A5%9E%E8%84%9A%E4%B8%8B%E8%B5%B0%E5%87%BA%E7%9A%84%E5%B0%8F%E5%AD%A6%E7%94%9F/</link>
+      <link>https://backmountaindevil.github.io/post/%E8%87%B4%E9%9D%92%E6%98%A5-%E4%BB%8E%E6%AD%BB%E7%A5%9E%E8%84%9A%E4%B8%8B%E8%B5%B0%E5%87%BA%E7%9A%84%E5%B0%8F%E5%AD%A6%E7%94%9F/</link>
       <pubDate>Wed, 25 Mar 2020 21:35:19 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/%E8%87%B4%E9%9D%92%E6%98%A5-%E4%BB%8E%E6%AD%BB%E7%A5%9E%E8%84%9A%E4%B8%8B%E8%B5%B0%E5%87%BA%E7%9A%84%E5%B0%8F%E5%AD%A6%E7%94%9F/</guid>
+      <guid>https://backmountaindevil.github.io/post/%E8%87%B4%E9%9D%92%E6%98%A5-%E4%BB%8E%E6%AD%BB%E7%A5%9E%E8%84%9A%E4%B8%8B%E8%B5%B0%E5%87%BA%E7%9A%84%E5%B0%8F%E5%AD%A6%E7%94%9F/</guid>
       <description>A I Warning 未满十八岁或不具有完全民事行为能力的读者请左滑退出阅读。 以下内容有些包含高危操作，危害自身安全及社会稳定，请勿模仿，如因模仿所造成的结</description>
     </item>
     

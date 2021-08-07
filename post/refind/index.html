@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/refind/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/refind/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,21 +35,21 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="rEFInd - 一款优美的多系统引导软件" />
 <meta property="og:description" content="介绍 rEFInd（一款优美的多系统引导软件）的安装和使用方法" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/refind/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/refind/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-06-03T12:04:58+08:00" />
 <meta property="article:modified_time" content="2021-06-03T12:04:58+08:00" />
 
 <meta itemprop="name" content="rEFInd - 一款优美的多系统引导软件">
 <meta itemprop="description" content="介绍 rEFInd（一款优美的多系统引导软件）的安装和使用方法"><meta itemprop="datePublished" content="2021-06-03T12:04:58+08:00" />
 <meta itemprop="dateModified" content="2021-06-03T12:04:58+08:00" />
-<meta itemprop="wordCount" content="1305">
+<meta itemprop="wordCount" content="1797">
 <meta itemprop="keywords" content="linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="rEFInd - 一款优美的多系统引导软件"/>
 <meta name="twitter:description" content="介绍 rEFInd（一款优美的多系统引导软件）的安装和使用方法"/>
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -122,8 +132,8 @@
         <div class="post-category">
             <a href="/categories/app/"> app </a>
             </div>
-          <span class="more-meta"> 约 1305 字 </span>
-          <span class="more-meta"> 预计阅读 3 分钟 </span>
+          <span class="more-meta"> 约 1797 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
         
       </div>
     </header>
@@ -144,7 +154,11 @@
     </li>
     <li><a href="#总结">总结</a>
       <ul>
-        <li><a href="#隐藏-grub-引导">隐藏 grub 引导</a></li>
+        <li><a href="#隐藏-grub-引导">隐藏 grub 引导</a>
+          <ul>
+            <li><a href="#ubuntu">ubuntu</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#参考">参考</a></li>
@@ -163,7 +177,7 @@
 <p>如果没有重启之后不是进入 rEFind 的界面，可能是 rEFInd 的启动顺序没有排在第一位，也有可能是压根没有把 rEFInd 加入启动顺序里。这两种情况都可以使用 efibootmgr 手动设置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -173,7 +187,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看启动项</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看启动项</span>
 $ sudo efibootmgr -v
 
 <span class="c1"># 删除多余的启动项 - BootNumber，引导项对应的标号，通过上一步查看</span>
@@ -207,10 +221,10 @@ dont_scan_dirs, dont_scan_files, dont_scan_volumes 设置引导器过滤那些�
 <p>这是一个过滤目录的例子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">dont_scan_dirs ESP:/EFI/Boot,/EFI/boot,EFI/ubuntu,EFI/UOS,EFI/tools
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">dont_scan_dirs ESP:/EFI/Boot,/EFI/boot,EFI/ubuntu,EFI/UOS,EFI/tools
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="主题">主题</h2>
@@ -219,9 +233,10 @@ dont_scan_dirs, dont_scan_files, dont_scan_volumes 设置引导器过滤那些�
 <h1 id="总结">总结</h1>
 <p>如果你实在闲着无聊，那就整一个吧，为了获得更好的体验，可以尝试把 os 自带的引导界面隐藏起来，这样就会只有 rEFInd 的引导界面了，没必两次引导选择。</p>
 <h2 id="隐藏-grub-引导">隐藏 grub 引导</h2>
+<p>这里是修改菜单的超时时间为 0，在 Arch 上直接设置为 0，但是在 Ubuntu 下直接设置 0 会被重置为 10（具体见参考四）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -234,10 +249,9 @@ dont_scan_dirs, dont_scan_files, dont_scan_volumes 设置引导器过滤那些�
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo nano /etc/default/grub
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo nano /etc/default/grub
 <span class="c1"># 将GRUB_TIMEOUT修改为0，-1是无限期等待（和refind有点不同哈），</span>
 <span class="c1"># 开启了启动延时是5，关闭了是1，单位是秒，</span>
 
@@ -247,10 +261,33 @@ dont_scan_dirs, dont_scan_files, dont_scan_volumes 设置引导器过滤那些�
 
 
 
-<span class="c1"># 更新 grub</span>
-sudo update-grub  <span class="c1">## [deepin]</span>
-sudo grub-mkconfig -o /boot/grub/grub.cfg   <span class="c1">## [arch ;linux]</span>
-sudo update-grub <span class="c1">## [ubuntu]</span>
+<span class="c1"># 更新 grub，以下方式选择一个更新即可</span>
+sudo update-grub  <span class="c1">## deepin 或者 ubuntu</span>
+sudo grub-mkconfig -o /boot/grub/grub.cfg   <span class="c1">## arch 或者 ubuntu</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="ubuntu">ubuntu</h3>
+<p>为了取消引导界面，ubuntu 中 timeout 设置为 0 和会被重置为 10，亲测 GRUB_RECORDFAIL_TIMEOUT=0 无效，编辑 /boot/grub/grub.cfg 中的重置语句也是无效的，因为这个文件在更新 grub 会被自动重写。下面是亲测之后得出的一个可行的办法，修改 <code>/etc/grub.d/30_os-prober</code> 中的重置部分。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo nano /etc/grub.d/30_os-prober
+<span class="c1"># set timeout=10 修改为 set timeout=0</span>
+
+sudo nano /etc/default/grub
+
+<span class="c1"># GRUB_TIMEOUT=10 修改为 GRUB_TIMEOUT=0</span>
+
+sudo update-grub
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="参考">参考</h1>
@@ -258,6 +295,17 @@ sudo update-grub <span class="c1">## [ubuntu]</span>
 <li><a href="https://blog.csdn.net/weixin_43031092/article/details/113855135">[Succeed]rEFind安装之在Deepin上的一番折腾~怀疑联想~Could not prepare Boot variable: No space left on device Kearney form An idea 2021-02-19</a>：rEFInd install &amp; beautify example. <strong>efibootmgr manage BootOrder</strong> - add fail and solution.</li>
 <li><a href="https://blog.csdn.net/weixin_43031092/article/details/113870562">rEFind配置忽略项以及主题～win/deepin/arch &ndash; update-grub：未找到命令 Kearney form An idea 2021-02-21</a>:rEFInd theme + 取消 deepin、arch 的开机引导界面</li>
 <li><a href="https://wiki.archlinux.org/title/REFInd">REFInd wiki.archlinux</a></li>
+<li><a href="https://blog.csdn.net/qq_20538071/article/details/107688351">ubuntu 修改开机等待 grub时间. Cookie_Cheng 2020-07-30</a>:看了那个文件 line 36，确实是 0 的时候会被重置为 10，怪不得我设 0 没有生效。但是修改 /etc/grub.d/30_os-prober 可不是个好主意。还有就是本来就没有 GRUB_HIDDEN_TIMEOUT
+<blockquote>
+<p>如果这个时间是0，在统一设置中，还会被 /etc/grub.d/30_os-prober 调整。修改等待时间，将GRUB_TIMEOUT改成你想要的时间，单位是秒。一定要注意注释掉GRUB_HIDDEN_TIMEOUT，不然修改不起作用</p>
+</blockquote>
+</li>
+<li><a href="https://blog.csdn.net/nicechao/article/details/102835680">ubuntu中修改grub的启动时间.刀口 2019-10-31</a>:实测无效。又发现在 /boot/grub/grub.cfg line 323 中timeout 如果是 0 就会被重置为 10
+<blockquote>
+<p>/etc/grub.d/00_header 可以看到这超时30秒是通过GRUB_RECORDFAIL_TIMEOUT这个值设置的.
+所以只需要在 /etc/default/grub 加上或修改 GRUB_RECORDFAIL_TIMEOUT=0</p>
+</blockquote>
+</li>
 </ul>
 
     </div>
@@ -312,7 +360,7 @@ sudo update-grub <span class="c1">## [ubuntu]</span>
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -330,13 +378,10 @@ sudo update-grub <span class="c1">## [ubuntu]</span>
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -350,7 +395,7 @@ sudo update-grub <span class="c1">## [ubuntu]</span>
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

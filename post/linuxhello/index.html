@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/linuxhello/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/linuxhello/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="在 Linux 上使用人脸识别来登陆和认证" />
 <meta property="og:description" content="在 Arch Linux 上使用人脸识别来解锁，如锁屏、sudo等" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/linuxhello/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/linuxhello/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-04-15T21:36:44+08:00" />
 <meta property="article:modified_time" content="2021-04-15T21:36:44+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -184,10 +194,10 @@
 <h3 id="howdy">howdy</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">yay -S howdy
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">yay -S howdy
 </code></pre></td></tr></table>
 </div>
 </div><p>21：53 -
@@ -205,7 +215,7 @@ shape_predictor_5_face_landmarks下载出错
 <p>看了一下 <code>/etc/pam.d</code> 下有39个配置文件，想认证 <code>sudo</code> 就改 <code>/etc/pam.d/sudo</code>，想做人脸图像识别登陆(KDE, GNOME)就改 <code>/etc/pam.d/system-local-login</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -214,7 +224,7 @@ shape_predictor_5_face_landmarks下载出错
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo nano /etc/pam.d/sudo
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo nano /etc/pam.d/sudo
 <span class="c1"># 在首行加入上面那行配置， Ctrl + S 保存， Ctrl + X 退出。</span>
 
 sudo nano /etc/pam.d/system-local-login
@@ -234,7 +244,7 @@ sudo nano /etc/pam.d/sddm
 <h4 id="方法一">方法一</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -245,7 +255,7 @@ sudo nano /etc/pam.d/sddm
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看本机所有摄像设备，一般列出来都是/dev/videX</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看本机所有摄像设备，一般列出来都是/dev/videX</span>
 v4l2-ctl --list-devices
 
 <span class="c1"># 逐个测试上面的结果,我上面得到的结果是 0～3，其中 1、3 测试异常退出</span>
@@ -262,17 +272,17 @@ ffplay /dev/video2
 <p><code>/dev/video0</code> 的拍摄精度（单位面积内采集的像素数量）更高一些，但是在光线不足的情况下采集到的画面暗了不少，噪点很多，丢失了不少细节。 <code>/dev/video2</code> 的精度虽然下降了一半，但是拥有红外的加持，在黑暗环境下和自然光状态下表现差不多，但是从自己的感觉上看，还是 <code>/dev/video0</code> 表现更好，虽然都是同一个摄像头，为什么加上了红外就拍摄精度下降了呢？？不能锦上添花呢？当然如果你觉得红外加持效果好，那就填上红外模式对于的 X 吧。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo howdy config
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo howdy config
 </code></pre></td></tr></table>
 </div>
 </div><p>找到并补全 <code>device_path = /dev/video0</code> ，保存 Ctrl + S ，退出 Ctrl + X。 先保存再退出。</p>
 <h3 id="添加人脸模型">添加人脸模型</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -285,7 +295,7 @@ ffplay /dev/video2
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo howdy -U kearney add
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo howdy -U kearney add
 
 <span class="c1"># 这里发生了一个错误。。。</span>
 Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
@@ -302,12 +312,12 @@ ModuleNotFoundError: No module named <span class="s1">&#39;cv2&#39;</span>
 <p>补上依赖</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">pacman -S python-opencv
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pacman -S python-opencv
 <span class="c1"># 继续添加我的面子</span>
 sudo howdy -U kearney add
 </code></pre></td></tr></table>
@@ -316,16 +326,16 @@ sudo howdy -U kearney add
 <p>重启一下先</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo howdy <span class="nb">test</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo howdy <span class="nb">test</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果出现 3 个 <code>WARN</code> 是正常的，是 GStreamer 的 warning 597、1034、2056,至于为什么可以看<a href="https://wiki.archlinux.org/index.php/Howdy">Howdy - ArchWiki</a>中的 Troubleshooting，暂时的解决办法看 wiki，添加一个环境变量 <code>OPENCV_LOG_LEVEL=ERROR</code> 。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -333,7 +343,7 @@ sudo howdy -U kearney add
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ nano ~/.bashrc
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ nano ~/.bashrc
 <span class="c1"># 在最后添加上下面这句话</span>
 <span class="nb">export</span> <span class="nv">OPENCV_LOG_LEVEL</span><span class="o">=</span>ERROR
 
@@ -345,13 +355,13 @@ $ <span class="nb">source</span> ~/.bashrc
 <h1 id="进阶">进阶</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看本机所有摄像设备</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看本机所有摄像设备</span>
 v4l2-ctl --list-devices
 <span class="c1"># 查看 /dev/video0 的可用分辨率及其对于的fps，一般来说分辨率越高，帧率越低。</span>
 v4l2-ctl -d /dev/video0 --list-formats-ext
@@ -414,7 +424,7 @@ v4l2-ctl -d /dev/video0 --list-formats-ext
 <p>举个例子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -431,7 +441,7 @@ v4l2-ctl -d /dev/video0 --list-formats-ext
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo howdy version
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo howdy version
 Howdy 2.6.1
 
 $ sudo howdy -U kearney list
@@ -516,7 +526,7 @@ $ sudo howdy disable <span class="nb">false</span>
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -534,13 +544,10 @@ $ sudo howdy disable <span class="nb">false</span>
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -554,7 +561,7 @@ $ sudo howdy disable <span class="nb">false</span>
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

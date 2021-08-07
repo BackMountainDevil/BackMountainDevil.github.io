@@ -2,81 +2,90 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>arch on 筱氚~物语</title>
-    <link>http://anidea.gitee.io/tags/arch/</link>
+    <link>https://backmountaindevil.github.io/tags/arch/</link>
     <description>Recent content in arch on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Thu, 01 Jul 2021 20:28:24 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jul 2021 15:09:44 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch 升级中的警告是什么：Possibly missing firmware for module: wd719x、aic94xx、xhci_pci</title>
+      <link>https://backmountaindevil.github.io/post/archupdatewarning/</link>
+      <pubDate>Sun, 25 Jul 2021 15:09:44 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/archupdatewarning/</guid>
+      <description>问题 今天顺手升级，仔细一看发现了三个 waning（平时懒得看的），不过更新顺利还是完成了。最后查了一波是正常 Warning，我也没有这几个硬</description>
+    </item>
+    
     <item>
       <title>将 Arch Linux 内核从 stable 更换为 LTS 的办法与案例</title>
-      <link>http://anidea.gitee.io/post/archkernel/</link>
+      <link>https://backmountaindevil.github.io/post/archkernel/</link>
       <pubDate>Thu, 01 Jul 2021 20:28:24 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/archkernel/</guid>
+      <guid>https://backmountaindevil.github.io/post/archkernel/</guid>
       <description>干啥 将 Arch Linux 内核从 stable 更换为 LTS。以此降低内核更新的频率。 Q&amp;amp;A 安装内核只需要安装内核的包吗？对应的头文件包要不要装？比如 linux-lts 与 linux-lts-</description>
     </item>
     
     <item>
       <title>设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH</title>
-      <link>http://anidea.gitee.io/post/environment_variable/</link>
+      <link>https://backmountaindevil.github.io/post/environment_variable/</link>
       <pubDate>Tue, 01 Jun 2021 20:21:28 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/environment_variable/</guid>
+      <guid>https://backmountaindevil.github.io/post/environment_variable/</guid>
       <description>环境变量 环境变量是什么？通俗的说就是变量，这些变量设置的内容可能是当前的语言、地区、shell、程序的位置、日志等级等。而比较常见的 $PATH 变量就</description>
     </item>
     
     <item>
       <title>Arch 安装旧版软件的办法（软件降级）</title>
-      <link>http://anidea.gitee.io/post/arch-downgrade/</link>
+      <link>https://backmountaindevil.github.io/post/arch-downgrade/</link>
       <pubDate>Fri, 28 May 2021 22:55:11 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/arch-downgrade/</guid>
+      <guid>https://backmountaindevil.github.io/post/arch-downgrade/</guid>
       <description>简介 介绍在 Arch Linux 安装旧版软件或者软件降级的办法 为什么 Arch 默认是滚动发行的，更新速度那就是一周更新好多次，软件版本都是最新版。但这样也会存在其弊端</description>
     </item>
     
     <item>
       <title>Arch 新手的基本知识</title>
-      <link>http://anidea.gitee.io/post/arch-begin/</link>
+      <link>https://backmountaindevil.github.io/post/arch-begin/</link>
       <pubDate>Fri, 28 May 2021 11:58:39 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/arch-begin/</guid>
+      <guid>https://backmountaindevil.github.io/post/arch-begin/</guid>
       <description>安装系统 镜像+网络安装 详细请看Arch Linux多系统安装安装记录和蓝牙、fcitx5输入法-win\deepin\arch Kearney form An idea 2021-02-21 基础配</description>
     </item>
     
     <item>
       <title>在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF</title>
-      <link>http://anidea.gitee.io/post/pandoc/</link>
+      <link>https://backmountaindevil.github.io/post/pandoc/</link>
       <pubDate>Sat, 01 May 2021 15:12:16 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/pandoc/</guid>
+      <guid>https://backmountaindevil.github.io/post/pandoc/</guid>
       <description>简介 自己平时写文档主要是用 md 写，但是甲方和乙方有时候说喜欢 pdf 或者 word. docsify 没 的自带的 pdf 转换（实际上插件可以导出），最基本的王者就是这个 pandoc 了。 pandoc 一个</description>
     </item>
     
     <item>
       <title>Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法</title>
-      <link>http://anidea.gitee.io/post/pacman/</link>
+      <link>https://backmountaindevil.github.io/post/pacman/</link>
       <pubDate>Fri, 30 Apr 2021 08:36:59 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/pacman/</guid>
+      <guid>https://backmountaindevil.github.io/post/pacman/</guid>
       <description>pacman 虽然 arch 衍生自 debian, 但是在包管理上采取了一种不太一样的工具，不是常见的 apt 而是 pacman 常用命令 指令 说明 pacman -S 软件包名 安装软件及其依赖 pacman -Rs 软件包名 卸载软件及</description>
     </item>
     
     <item>
       <title>Arch 下 VS Code, Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法</title>
-      <link>http://anidea.gitee.io/post/codeupdateerror/</link>
+      <link>https://backmountaindevil.github.io/post/codeupdateerror/</link>
       <pubDate>Thu, 29 Apr 2021 09:13:42 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/codeupdateerror/</guid>
+      <guid>https://backmountaindevil.github.io/post/codeupdateerror/</guid>
       <description>问题描述 背景 将近一个多月没有更新软件了，打开 Discover 发现六百多个没更新的，就选了几个常用的软件进行更新（fcitix5、VS Code、Ciano）</description>
     </item>
     
     <item>
       <title>用 debtap 将 deb 转换成 arch 的软件包格式，以 Raspberry Pi Imager 为例</title>
-      <link>http://anidea.gitee.io/post/debtap/</link>
+      <link>https://backmountaindevil.github.io/post/debtap/</link>
       <pubDate>Tue, 27 Apr 2021 10:59:23 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/debtap/</guid>
+      <guid>https://backmountaindevil.github.io/post/debtap/</guid>
       <description>简介 用 debtap 将 deb 软件包转换成 arch 下的软件包格式 Raspberry Pi Imager 只提供了 Ubuntu、Windows、MacOS 版本，使用 yay 下载 rpi-imager 下载多次也失败了。。。(但是</description>
     </item>
     

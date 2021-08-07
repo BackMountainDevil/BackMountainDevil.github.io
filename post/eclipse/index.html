@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/eclipse/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/eclipse/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="在 Arch 上安装 eclipse-jee 并配置 tomcat7" />
 <meta property="og:description" content="在 Arch 上安装 eclipse-jee 并配置 tomcat7，以及配置 tomcat7 服务器遇到的问题" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/eclipse/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/eclipse/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-05-24T08:27:43+08:00" />
 <meta property="article:modified_time" content="2021-05-24T08:27:43+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -173,7 +183,7 @@
 <h2 id="我的环境">我的环境</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -195,7 +205,7 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ screenfetch
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ screenfetch
                    -<span class="sb">`</span>                 
                   .o+<span class="sb">`</span>                 kearney@arch
                  <span class="sb">`</span>ooo/                 OS: Arch Linux 
@@ -220,7 +230,7 @@
 </div><h1 id="tomcat">Tomcat</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -230,7 +240,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S tomcat7
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S tomcat7
 <span class="c1"># 启动tomcat服务，网址为 http://localhost:8080/，能正常浏览表面安装成功</span>
 sudo systemctl start tomcat7
 
@@ -243,7 +253,7 @@ sudo systemctl restart tomcat7
 </div><p>修改之后的用户配置文件（tomcat-users.xml）大概涨下面这个样子，密码请自便，主要是角色上加上 manager-gui 才可以在网友管理，当然 admin-gui 是最高级的管理角色。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -252,7 +262,7 @@ sudo systemctl restart tomcat7
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
   <span class="nt">&lt;role</span> <span class="na">rolename=</span><span class="s">&#34;tomcat&#34;</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;role</span> <span class="na">rolename=</span><span class="s">&#34;role1&#34;</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;user</span> <span class="na">username=</span><span class="s">&#34;tomcat&#34;</span> <span class="na">password=</span><span class="s">&#34;121A=-1:*56&#34;</span> <span class="na">roles=</span><span class="s">&#34;tomcat&#34;</span><span class="nt">/&gt;</span>
@@ -269,29 +279,29 @@ sudo systemctl restart tomcat7
 <p>看到不少帖子写的是用 pacman 下载，尝试了一下找不到目标，看了 Arch Wiki 发现 eclipse 的包已经转移到 AUR 中了。而且细分为 6 中不同语言对于的包，下面也标注了不支持同时安装好几个不同的 eclipse，存在冲突&hellip;</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">yay -S eclipse-javascript
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">yay -S eclipse-javascript
 </code></pre></td></tr></table>
 </div>
 </div><p>但是这一下咋就把所有的都下载了呢？？？下个 java 我可以理解，但是把 cpp, php,rust 都下载了这整啥玩意哦？？？</p>
 <p>这种方式自己验证后发现太浪费时间（将近 40 mins）和流量了，把所有版本的 eclipse 都下载一遍，然后再清理，二愣子操作还是我修行不够看不懂。。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看 yay 版本</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看 yay 版本</span>
 $ yay -V
 yay v10.1.2 - libalpm v12.0.2
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -476,7 +486,7 @@ yay v10.1.2 - libalpm v12.0.2
 </span><span class="lnt">183
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装过程记录示意</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装过程记录示意</span>
 $ yay -S eclipse-javascript
 :: 正在检查冲突...
 :: 正在检查内部冲突...
@@ -665,7 +675,7 @@ $ yay -S eclipse-javascript
 <h2 id="卸载">卸载</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -676,7 +686,7 @@ $ yay -S eclipse-javascript
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ yay -Rs eclipse-javascript
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ yay -Rs eclipse-javascript
 正在检查依赖关系...
 :: wxgtk3可选依赖于webkit2gtk: <span class="k">for</span> webview support
 
@@ -692,10 +702,10 @@ $ yay -S eclipse-javascript
 <p>后面发现 java 没有了。。。回头看是上面那不小心卸载了，虽然不知道其它的是啥，但还是补上为好（我的arch前几天滚动到最新版的了，所以补救安装没有带版本号，如果你的不是最新，最好还是带上版本号）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S java-environment-common jdk-openjdk libmanette libwpe unzip webkit2gtk wpebackend-fdo xdg-dbus-proxy
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S java-environment-common jdk-openjdk libmanette libwpe unzip webkit2gtk wpebackend-fdo xdg-dbus-proxy
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="tar-安装">tar 安装</h1>
@@ -707,7 +717,7 @@ $ yay -S eclipse-javascript
 <p>下面是命令行校验方法示意</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -715,7 +725,7 @@ $ yay -S eclipse-javascript
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># md5 校验</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># md5 校验</span>
 $ md5sum eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
 8428cf7b84b2c2988678f93250fc85a6  eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
 <span class="c1"># sha1 校验</span>
@@ -726,7 +736,7 @@ a757f27a65587a8e61335d49725a672cf3e703ea  eclipse-jee-2021-03-R-linux-gtk-x86_64
 </div><h2 id="安装">安装</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -734,7 +744,7 @@ a757f27a65587a8e61335d49725a672cf3e703ea  eclipse-jee-2021-03-R-linux-gtk-x86_64
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/Downloads
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/Downloads
 sudo mv eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz /opt/
 <span class="nb">cd</span> /opt
 sudo tar -zxvf eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
@@ -745,29 +755,29 @@ sudo rm eclipse-jee-2021-03-R-linux-gtk-x86_64.tar.gz
 </div><p>然而使用 ls 命令一看压根没生成 eclipse-installer 包，直接一个 eclipse 文件夹。进去发现有一个叫 eclipse 的可执行文件，双击就打开了 eclipse-jee 版的 IDE，那问题就是缺少一个快捷启动方式了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> eclipse
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> eclipse
 ./eclipse
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="桌面快捷方式">桌面快捷方式</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /usr/share/applications/
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /usr/share/applications/
 sudo nano org.eclipse.desktop
 </code></pre></td></tr></table>
 </div>
 </div><p>往里面粘贴这些内容后保存退出 nano，这样打开菜单里的‘工具’或者‘开发’一栏就能找到它了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -778,7 +788,7 @@ sudo nano org.eclipse.desktop
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-txt" data-lang="txt">[Desktop Entry]
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt">[Desktop Entry]
 Name=Eclipse
 Comment=Eclipse IDE For JEE
 Exec=/opt/eclipse/eclipse
@@ -796,11 +806,11 @@ Keywords=eclipse;
 <p>虽然无法在 eclipse 里安装到 /opt/ 下，用 sudo 运行 eclipse 也不行，于是先安装在自己目录下，可以正常配置运行环境，然后尝试复制一份到 /opt/ 下，测试之后也是可以的。自己目录下的先留着做一个备份，过一阵子再删除也不迟。当然一直用自己目录下的也没啥问题，不一定非得移动到 /opt/ 下，个人习惯而已。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /home/kearney/app/tomcat7/
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /home/kearney/app/tomcat7/
 sudo cp -r apache-tomcat-7.0.47/ /opt/apache-tomcat-7.0.47/
 </code></pre></td></tr></table>
 </div>
@@ -867,7 +877,7 @@ sudo cp -r apache-tomcat-7.0.47/ /opt/apache-tomcat-7.0.47/
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -885,13 +895,10 @@ sudo cp -r apache-tomcat-7.0.47/ /opt/apache-tomcat-7.0.47/
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -905,7 +912,7 @@ sudo cp -r apache-tomcat-7.0.47/ /opt/apache-tomcat-7.0.47/
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

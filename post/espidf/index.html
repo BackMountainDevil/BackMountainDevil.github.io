@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/espidf/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/espidf/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="ESP IDF 开发框架构建 与 ADF 语音识别框架尝试 - esp 32s" />
 <meta property="og:description" content="ESP IDF 开发框架构建 与 ADF 语音识别框架尝试 - esp 32s" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/espidf/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/espidf/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-06-04T12:01:08+08:00" />
 <meta property="article:modified_time" content="2021-06-04T12:01:08+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -171,14 +181,14 @@
 <p>根据 <a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html#get-started-connect">ESP-IDF 文档</a> 的描述，我可以选择安装 ESP-IDF 或者插件，我这里安装的是它的 VS Code 插件，安装过程在文档里也有（选择ESPRESSIF的服务器不见得比 Github 要快，将近一个小时的下载安装。。操作系统我都能安好几个了）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ printenv <span class="p">|</span> grep IDF
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ printenv <span class="p">|</span> grep IDF
 <span class="nv">IDF_PYTHON_ENV_PATH</span><span class="o">=</span>/home/kearney/.espressif/python_env/idf4.2_py3.9_env
 <span class="nv">IDF_PATH</span><span class="o">=</span>/home/kearney/opt/esp/esp-idf/
 <span class="nv">IDF_TARGET</span><span class="o">=</span>esp32
@@ -188,14 +198,14 @@
 </div><h3 id="环境变量">环境变量</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">nano ~/.bashrc 
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nano ~/.bashrc 
 <span class="c1"># 粘贴</span>
 <span class="nb">alias</span> <span class="nv">get_idf</span><span class="o">=</span><span class="s1">&#39;. /home/kearney/opt/esp/esp-idf/export.sh&#39;</span>
 
@@ -209,13 +219,13 @@
 <h2 id="安装-esp-adf">安装 ESP-ADF</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 我更换了目录</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 我更换了目录</span>
 <span class="nb">cd</span> /home/kearney/opt/esp
 <span class="c1"># github 换成 gitee 镜像</span>
 git clone --recursive git@gitee.com:EspressifSystems/esp-adf.git
@@ -225,7 +235,7 @@ git clone --recursive git@gitee.com:EspressifSystems/esp-adf.git
 <p>下面这些步骤除了敲命令之外，IDF for VS Code 插件会方便一些，点点按钮就完事。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -242,7 +252,7 @@ git clone --recursive git@gitee.com:EspressifSystems/esp-adf.git
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 导入 IDF 环境变量，启动虚拟环境</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 导入 IDF 环境变量，启动虚拟环境</span>
 get_idf
 <span class="c1"># ADF 可以直接加入环境变量</span>
 <span class="nb">export</span> <span class="nv">ADF_PATH</span><span class="o">=</span>/home/kearney/opt/esp/esp-adf
@@ -270,7 +280,7 @@ idf.py monitor
 <p>然后 Build 的时候遇到了新的错误，这个错误暂时不知道咋解决-.- (得亏我还想整一下离线语音识别呢)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -282,7 +292,7 @@ idf.py monitor
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">/home/kearney/opt/esp/esp-adf/components/audio_stream/algorithm_stream.c:169:42: error: implicit declaration of <span class="k">function</span> <span class="s1">&#39;aec_pro_create&#39;</span><span class="p">;</span> did you mean <span class="s1">&#39;aec_create&#39;</span>? <span class="o">[</span>-Werror<span class="o">=</span>implicit-function-declaration<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">/home/kearney/opt/esp/esp-adf/components/audio_stream/algorithm_stream.c:169:42: error: implicit declaration of <span class="k">function</span> <span class="s1">&#39;aec_pro_create&#39;</span><span class="p">;</span> did you mean <span class="s1">&#39;aec_create&#39;</span>? <span class="o">[</span>-Werror<span class="o">=</span>implicit-function-declaration<span class="o">]</span>
          _success <span class="p">&amp;</span><span class="o">=</span> <span class="o">((</span>algo-&gt;aec_handle <span class="o">=</span> aec_pro_create<span class="o">(</span>AEC_FRAME_LENGTH_MS, ALGORITHM_STREAM_DEFAULT_CHANNEL, ALGORITHM_STREAM_DEFAULT_AEC_MODE<span class="o">))</span> !<span class="o">=</span> NULL<span class="o">)</span><span class="p">;</span>
                                           ^~~~~~~~~~~~~~
                                           aec_create
@@ -354,7 +364,7 @@ The terminal process <span class="s2">&#34;/bin/bash &#39;-c&#39;, &#39;cmake --
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -372,13 +382,10 @@ The terminal process <span class="s2">&#34;/bin/bash &#39;-c&#39;, &#39;cmake --
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -392,7 +399,7 @@ The terminal process <span class="s2">&#34;/bin/bash &#39;-c&#39;, &#39;cmake --
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

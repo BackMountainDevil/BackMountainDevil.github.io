@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>texteditor on 筱氚~物语</title>
-    <link>http://anidea.gitee.io/tags/texteditor/</link>
+    <link>https://backmountaindevil.github.io/tags/texteditor/</link>
     <description>Recent content in texteditor on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Thu, 29 Apr 2021 09:13:42 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/texteditor/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Apr 2021 09:13:42 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/texteditor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch 下 VS Code, Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法</title>
-      <link>http://anidea.gitee.io/post/codeupdateerror/</link>
+      <link>https://backmountaindevil.github.io/post/codeupdateerror/</link>
       <pubDate>Thu, 29 Apr 2021 09:13:42 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/codeupdateerror/</guid>
+      <guid>https://backmountaindevil.github.io/post/codeupdateerror/</guid>
       <description>问题描述 背景 将近一个多月没有更新软件了，打开 Discover 发现六百多个没更新的，就选了几个常用的软件进行更新（fcitix5、VS Code、Ciano）</description>
     </item>
     
     <item>
       <title>TextEditorPython</title>
-      <link>http://anidea.gitee.io/post/texteditorpython/</link>
+      <link>https://backmountaindevil.github.io/post/texteditorpython/</link>
       <pubDate>Fri, 20 Nov 2020 19:31:05 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/texteditorpython/</guid>
+      <guid>https://backmountaindevil.github.io/post/texteditorpython/</guid>
       <description>Intro 用python3写一个简单的文本编辑器吧，参考Create a Simple Python Text Editor!By PumpkinSmasher，原文太久远，不适合py3，下面对py3进</description>
     </item>
     

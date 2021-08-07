@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/codeupdateerror/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/codeupdateerror/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Arch 下 VS Code, Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法" />
 <meta property="og:description" content="Arch 下 VS Code、Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/codeupdateerror/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/codeupdateerror/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-04-29T09:13:42+08:00" />
 <meta property="article:modified_time" content="2021-04-29T09:13:42+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -180,11 +190,11 @@
 <p>点击启动图标啥反应也没有，没有错误提示、警告，没有闪现，啥也没有。于是乎想起了终端大法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ code
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ code
 electron11: error <span class="k">while</span> loading shared libraries: libicui18n.so.69: cannot open shared object file: No such file or directory
 </code></pre></td></tr></table>
 </div>
@@ -194,7 +204,7 @@ electron11: error <span class="k">while</span> loading shared libraries: libicui
 <h3 id="软链接大法">软链接大法</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -229,7 +239,7 @@ electron11: error <span class="k">while</span> loading shared libraries: libicui
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ whereis code
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ whereis code
 code: /usr/bin/code /usr/lib/code /usr/share/man/mann/code.n.gz
 $ which code
 /usr/bin/code
@@ -267,11 +277,11 @@ $ sudo ln -s libicui18n.so.68.2 libicui18n.so.69
 </div><p>然后启动很尴尬啊。。看来不止一个 so文件 。。。链接太多也不是个办法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ code
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ code
 electron11: error <span class="k">while</span> loading shared libraries: libicuuc.so.69: cannot open shared object file: No such file or directory
 </code></pre></td></tr></table>
 </div>
@@ -288,7 +298,7 @@ electron11: error <span class="k">while</span> loading shared libraries: libicuu
 <p>既然新版不行，那我把 code 版本降级回去，找到了一个关于 <a href="https://linux.cn/article-9730-1.html">downgrade</a> 的办法，不过尝试之后已经失效了，找不到该目标软件包。最后求助 Arch Wiki 中关于降级（<a href="https://wiki.archlinux.org/index.php/Downgrading_packages">Downgrading_packages Arch Wiki</a>）的描述</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -303,7 +313,7 @@ electron11: error <span class="k">while</span> loading shared libraries: libicuu
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> /var/cache/pacman/pkg/
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> /var/cache/pacman/pkg/
 
 <span class="c1"># 查找有几个版本</span>
 $ find ./ code* 
@@ -323,7 +333,7 @@ $ code
 <p>解决完 code 的问题之后才发现 Ciano（一款格式转换工具） 无法启动，命令行里也不支持 ciano 。。。。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -340,7 +350,7 @@ $ code
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ ciano
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ ciano
 bash: ciano：未找到命令
 $ Ciano
 bash: Ciano：未找到命令
@@ -360,7 +370,7 @@ com.github.robertsanseries.ciano: error <span class="k">while</span> loading sha
 </div><p>后来在 <code>/usr/share/applications</code> 找到其文件描述中有 <code>Exec=com.github.robertsanseries.ciano</code>， 才知道这个是应用的终端。不过这不重要，重点是升级导致库文件没及跟上导致互不相认。。。卸载重装吧</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -386,7 +396,7 @@ com.github.robertsanseries.ciano: error <span class="k">while</span> loading sha
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -Rs com.github.robertsanseries.ciano
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -Rs com.github.robertsanseries.ciano
 错误：未找到目标：com.github.robertsanseries.ciano
 <span class="c1"># 这就离谱了，包名不是这样的吗？？？</span>
 <span class="c1"># 在 Discover 中可以卸载，输入密码确认前我打算试一下ciano</span>
@@ -500,7 +510,7 @@ com.github.robertsanseries.ciano: error <span class="k">while</span> loading sha
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -518,13 +528,10 @@ com.github.robertsanseries.ciano: error <span class="k">while</span> loading sha
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -538,7 +545,7 @@ com.github.robertsanseries.ciano: error <span class="k">while</span> loading sha
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

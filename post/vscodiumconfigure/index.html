@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/vscodiumconfigure/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/vscodiumconfigure/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="VSCodiumConfigure" />
 <meta property="og:description" content="Visual Studio Codium的常用语言配置" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/vscodiumconfigure/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/vscodiumconfigure/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-11-15T21:10:21+08:00" />
 <meta property="article:modified_time" content="2020-11-15T21:10:21+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -168,16 +178,16 @@
 如果不用插件我们其实可以记事本就可以编辑文件了，比如tmp.py，然后在终端中进入该目录下输入下面的命令就可以允许这个程序</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">python</span> <span class="n">tmp</span><span class="o">.</span><span class="n">py</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">python</span> <span class="n">tmp</span><span class="o">.</span><span class="n">py</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>设置镜像源和安装格式化辅助包</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -192,7 +202,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 补上pip，pip命令调用python2的pip，pip3命令调用python3的</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 补上pip，pip命令调用python2的pip，pip3命令调用python3的</span>
 sudo apt install -y python-pip python3-pip
 
 <span class="c1"># 设置镜像源</span>
@@ -213,7 +223,7 @@ pip3 install yapf flake8
 <p>此时建立一个python工作区文件夹，新建一个py文件即可，这个工作区就可以愉快的玩耍py了，但是此时并未设置全局python环境。而且VS Codium并没有选择使用哪一个python解释器的选项，然后找到的解决办法是在.vscode/lanch.json里面加入pythonPath设置(用<code>whereis python</code>查找位置)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -229,7 +239,7 @@ pip3 install yapf flake8
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
     <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;0.2.0&#34;</span>,
     <span class="s2">&#34;configurations&#34;</span>: <span class="o">[</span>
         <span class="o">{</span>
@@ -253,7 +263,7 @@ pip3 install yapf flake8
 <p>然后在.vscode/setting.json配置yapf，设置好之后对选中的代码按下快捷键Alt+Shift+F即可自动格式化代码，我设置了却无效？？在快捷键里面查看了“格式”的相关快捷键，发现是Ctrl+K、Ctrl+F</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -264,7 +274,7 @@ pip3 install yapf flake8
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
     <span class="s2">&#34;python.linting.enabled&#34;</span>: true,
     <span class="s2">&#34;python.linting.pylintEnabled&#34;</span>: false,
     <span class="s2">&#34;python.linting.flake8Enabled&#34;</span>: true,
@@ -304,7 +314,7 @@ pip3 install yapf flake8
 文件-首选项-用户片段，为python新建全局代码片段文件，将内容替换为</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -322,7 +332,7 @@ pip3 install yapf flake8
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">{</span>
 	<span class="s2">&#34;HEADER&#34;</span>: <span class="o">{</span>
 		<span class="s2">&#34;prefix&#34;</span>: <span class="s2">&#34;header&#34;</span>,
 		<span class="s2">&#34;body&#34;</span>: <span class="o">[</span>
@@ -345,7 +355,7 @@ pip3 install yapf flake8
 <p>Deepin默认带了gcc 8.3.0，写完c程序tmp.c可以在终端里面敲入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -356,7 +366,7 @@ pip3 install yapf flake8
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 编译 C 程序</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 编译 C 程序</span>
 gcc -W  tmp.c -o tmp
 <span class="c1"># 运行程序</span>
 ./tmp
@@ -373,7 +383,7 @@ g++ -W  tmp.cpp -o tmp
 <h2 id="snippet-1">snippet</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -392,7 +402,7 @@ g++ -W  tmp.cpp -o tmp
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
 		<span class="nt">&#34;添加注释：作者和版权信息模板&#34;</span><span class="p">:</span> <span class="p">{</span>
 		<span class="nt">&#34;prefix&#34;</span><span class="p">:</span> <span class="s2">&#34;author&#34;</span><span class="p">,</span>
 		<span class="nt">&#34;body&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -476,7 +486,7 @@ g++ -W  tmp.cpp -o tmp
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -494,13 +504,10 @@ g++ -W  tmp.cpp -o tmp
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -514,7 +521,7 @@ g++ -W  tmp.cpp -o tmp
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

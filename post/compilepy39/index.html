@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/compilepy39/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/compilepy39/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="在树莓派2上非全局编译安装 python39" />
 <meta property="og:description" content="在树莓派2上非全局编译安装 python39" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/compilepy39/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/compilepy39/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-04-27T22:26:58+08:00" />
 <meta property="article:modified_time" content="2021-04-27T22:26:58+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -159,14 +169,14 @@
 <p>看了不少帖子，每个帖子说的依赖都不尽相同，如下所示（ apt-get 已被我更换为 apt），找了官方文档也没有找到 Python 编译安装的官方文档，因此这一步我啥依赖也没有安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt  update
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt  update
 sudo apt install build-essential libsqlite3-dev sqlite3 bzip2 libbz2-dev
 sudo apt install build-essential libncurses-dev libreadline-dev libsqlite3-dev libssl-dev libexpat1-dev zlib1g-dev libffi-dev
 sudo apt build-dep python
@@ -178,7 +188,7 @@ sudo apt install libffi-dev libgdbm-dev libsqlite3-dev libssl-dev zlib1g-dev
 <p>我选择的是先从<a href="https://www.python.org/ftp/python">python ftp</a>下载好 Python-3.9.2.tar.xz，然后拷贝到 SD 卡里，比 wget 快多了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -188,7 +198,7 @@ sudo apt install libffi-dev libgdbm-dev libsqlite3-dev libssl-dev zlib1g-dev
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 下载源代码压缩包</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 下载源代码压缩包</span>
 wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tar.xz
 <span class="c1"># 解压</span>
 tar xvJf Python-3.9.2.tar.xz
@@ -202,7 +212,7 @@ tar zxvf Python-3.9.2.tgz
 <p>由于想保留原来的两个 py（默认 27 和 37 ），只是尝试在自己目录下编译安装而已，因此用 <code>--prefix</code> 指定了安装目录</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -211,7 +221,7 @@ tar zxvf Python-3.9.2.tgz
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 进入解压目录</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 进入解压目录</span>
 <span class="nb">cd</span> Python-3.9.2
 
 ./configure --prefix<span class="o">=</span>/home/pi/opt/python3.9  --enable-optimizations
@@ -224,7 +234,7 @@ make -j4
 <p>编译了一个多小时，人都傻了，编译 linux 内核都比这快，刷刷的不断流出中间过程，就不能只显示warning或者error吗？后面看到了一个致命错误说编译终止，但是ta还是继续编译下去了。。。这？？</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -267,7 +277,7 @@ make -j4
 </span><span class="lnt">41
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">******************
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">******************
 /home/pi/Python-3.9.2/Modules/_ctypes/_ctypes.c:107:10: fatal error: ffi.h: 没有那个文件或目录
  <span class="c1">#include &lt;ffi.h&gt;</span>
           ^~~~~~~
@@ -313,23 +323,23 @@ make<span class="o">[</span>1<span class="o">]</span>: 离开目录“/home/pi/P
 </div><p>提示缺少OpenSSL，那就安装一个呗 - <code>sudo apt install openssl</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 继续安装</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 继续安装</span>
 make altinstall
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="path">PATH</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">nano ~/.bashrc
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nano ~/.bashrc
 <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;/home/pi/opt/python3.9/bin&#34;</span>
 <span class="nb">source</span> ~/.bashrc
 </code></pre></td></tr></table>
@@ -338,7 +348,7 @@ make altinstall
 <p>py39确实装上了。但是原本的 pip 和 python 都失效了？nano 和 ls都没有了？？</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -357,7 +367,7 @@ make altinstall
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ python3.9 -V
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ python3.9 -V
 Python 3.9.2
 $ python3 -V
 -bash: python3：未找到命令
@@ -439,7 +449,7 @@ $ ls
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -457,13 +467,10 @@ $ ls
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -477,7 +484,7 @@ $ ls
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

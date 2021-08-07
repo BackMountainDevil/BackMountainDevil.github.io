@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/gitsubmodule/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/gitsubmodule/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="GitSubmodule" />
 <meta property="og:description" content="git中submodule的介绍和案例" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/gitsubmodule/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/gitsubmodule/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-11-04T20:45:34+08:00" />
 <meta property="article:modified_time" content="2020-11-04T20:50:13+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -181,7 +191,7 @@
 <p>我在github建立了两个空仓库，主仓库main，子仓库sub</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -190,7 +200,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Bash" data-lang="Bash">$ git clone git@github.com:BackMountainDevil/main.git
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash">$ git clone git@github.com:BackMountainDevil/main.git
 $ <span class="nb">cd</span> main
 $ git submodule add git@github.com:BackMountainDevil/sub.git  public
 Cloning into <span class="s1">&#39;D:/Documents/CAU/Lion/main/public&#39;</span>...
@@ -203,7 +213,7 @@ Unable to checkout submodule <span class="s1">&#39;public&#39;</span>
 <h2 id="为sub添加内容">为sub添加内容</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -215,7 +225,7 @@ Unable to checkout submodule <span class="s1">&#39;public&#39;</span>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">cd</span> ../
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">cd</span> ../
 $ mkdir sub
 $ <span class="nb">cd</span> sub
 <span class="nb">echo</span> <span class="s2">&#34;# sub&#34;</span> &gt;&gt; README.md
@@ -232,13 +242,13 @@ git push -u origin main
 <p>下面对主仓库进行操作</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">cd</span> ../
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">cd</span> ../
 $ git clone git@github.com:BackMountainDevil/main.git
 $ <span class="nb">cd</span> main
 $ git submodule add git@github.com:BackMountainDevil/sub.git  public
@@ -247,12 +257,12 @@ $ git submodule add git@github.com:BackMountainDevil/sub.git  public
 </div><p>这个时候主仓库就会把子仓库嵌入到到main/public，并且多了一个.gitmodules文件，其内容为</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Bash" data-lang="Bash"><span class="o">[</span>submodule <span class="s2">&#34;public&#34;</span><span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="o">[</span>submodule <span class="s2">&#34;public&#34;</span><span class="o">]</span>
 	<span class="nv">path</span> <span class="o">=</span> public
 	<span class="nv">url</span> <span class="o">=</span> git@github.com:BackMountainDevil/sub.git
 </code></pre></td></tr></table>
@@ -260,12 +270,12 @@ $ git submodule add git@github.com:BackMountainDevil/sub.git  public
 </div><p>除此之外，.git/config中末尾也多出了一段配置</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Bash" data-lang="Bash"><span class="o">[</span>submodule <span class="s2">&#34;public&#34;</span><span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="o">[</span>submodule <span class="s2">&#34;public&#34;</span><span class="o">]</span>
 	<span class="nv">url</span> <span class="o">=</span> git@github.com:BackMountainDevil/sub.git
 	<span class="nv">active</span> <span class="o">=</span> <span class="nb">true</span>
 </code></pre></td></tr></table>
@@ -273,14 +283,14 @@ $ git submodule add git@github.com:BackMountainDevil/sub.git  public
 </div><p>此时我们对主仓库做一点改动，更新到github，可以从github上看到存储的public指向了对应仓库，而不是存储了sub仓库的文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">echo</span> <span class="s2">&#34;# main&#34;</span> &gt;&gt; README.md
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">echo</span> <span class="s2">&#34;# main&#34;</span> &gt;&gt; README.md
 $ git init
 $ git add README.md
 $ git commit -m <span class="s2">&#34;first commit on main&#34;</span>
@@ -290,13 +300,13 @@ $ git push
 </div><h2 id="在本地主仓库修改子仓库">在本地主仓库修改子仓库</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">cd</span> public
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">cd</span> public
 $ <span class="nb">echo</span> <span class="s2">&#34;# sub edited by main&#34;</span> &gt;&gt; README.md
 $ git commit -a -m <span class="s2">&#34;modify sub in main&#34;</span>
 $ git push
@@ -305,13 +315,13 @@ $ git push
 </div><p>push成功之后主仓库和子仓库都没有变化？？？这怎么回事？？再来一次</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Bash" data-lang="Bash"><span class="nb">echo</span> <span class="s2">&#34;# sub edited by main 2&#34;</span> &gt;&gt; README.md
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="nb">echo</span> <span class="s2">&#34;# sub edited by main 2&#34;</span> &gt;&gt; README.md
 git add .
 git commit  -m <span class="s2">&#34;modify sub in main 2&#34;</span>
 git push
@@ -323,7 +333,7 @@ git push
 <h2 id="修改主仓库和子仓库">修改主仓库和子仓库</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -334,7 +344,7 @@ git push
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Bash" data-lang="Bash"><span class="nb">echo</span> <span class="s2">&#34;# sub edited by main 3&#34;</span> &gt;&gt; README.md
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="nb">echo</span> <span class="s2">&#34;# sub edited by main 3&#34;</span> &gt;&gt; README.md
 git add .
 git commit -m <span class="s2">&#34;modify sub in main 3&#34;</span>
 
@@ -348,11 +358,11 @@ git push
 </div><p>刷新GitHub的网站，main已经更新了README.md和指向了新一版的sub，但是网页上sub还没有更新。。感觉不对劲。。又操作了一波才把sub推到GitHub上</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Bash" data-lang="Bash"><span class="nb">cd</span> public
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="nb">cd</span> public
 git push origin HEAD:main
 </code></pre></td></tr></table>
 </div>
@@ -417,7 +427,7 @@ git push origin HEAD:main
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -435,13 +445,10 @@ git push origin HEAD:main
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -455,7 +462,7 @@ git push origin HEAD:main
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

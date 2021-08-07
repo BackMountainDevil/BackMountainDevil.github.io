@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>eclipse on 筱氚~物语</title>
-    <link>http://anidea.gitee.io/tags/eclipse/</link>
+    <link>https://backmountaindevil.github.io/tags/eclipse/</link>
     <description>Recent content in eclipse on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Mon, 12 Jul 2021 12:05:03 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/eclipse/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jul 2021 12:05:03 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/eclipse/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Eclipse 设置国内镜像加快下载速度 Plugin Maven Mirror</title>
-      <link>http://anidea.gitee.io/post/eclipse-mirror/</link>
+      <link>https://backmountaindevil.github.io/post/eclipse-mirror/</link>
       <pubDate>Mon, 12 Jul 2021 12:05:03 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/eclipse-mirror/</guid>
+      <guid>https://backmountaindevil.github.io/post/eclipse-mirror/</guid>
       <description>由于一些原因，默认镜像下载速度感人，颇有愚公移山的精神，但是时间就是生命！下面是更换国内镜像走上高速的办法。 Plugin Eclipse -&amp;gt; Window -&amp;gt; Preferences -&amp;gt; Install/Update -&amp;gt; Available software Sites -&amp;gt; Add&amp;hellip; Name: utsc</description>
     </item>
     
     <item>
       <title>在 Arch 上安装 eclipse-jee 并配置 tomcat7</title>
-      <link>http://anidea.gitee.io/post/eclipse/</link>
+      <link>https://backmountaindevil.github.io/post/eclipse/</link>
       <pubDate>Mon, 24 May 2021 08:27:43 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/eclipse/</guid>
+      <guid>https://backmountaindevil.github.io/post/eclipse/</guid>
       <description>正文 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomc</description>
     </item>
     

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>树莓派摄像头无法使用，报错 No data received from sensor，原因是带电插拔摄像头引起损坏 - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="树莓派摄像头无法使用，报错 No data received from sensor，查询网络世界逐渐排查，最后发现原因是带电插拔摄像头引起损坏，错误信息：Camera control callback  cmd=0x4f525245mmal: No data received from sensor. Check all connections, including the Sunny one on the camera board" /><meta name="keywords" content="camera, raspberry" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://backmountaindevil.github.io/post/raspicam/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="树莓派摄像头无法使用，报错 No data received from sensor，原因是带电插拔摄像头引起损坏" />
+<meta property="og:description" content="树莓派摄像头无法使用，报错 No data received from sensor，查询网络世界逐渐排查，最后发现原因是带电插拔摄像头引起损坏，错误信息：Camera control callback  cmd=0x4f525245mmal: No data received from sensor. Check all connections, including the Sunny one on the camera board" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/raspicam/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-23T17:51:55+08:00" />
+<meta property="article:modified_time" content="2021-07-23T17:51:55+08:00" />
+
+<meta itemprop="name" content="树莓派摄像头无法使用，报错 No data received from sensor，原因是带电插拔摄像头引起损坏">
+<meta itemprop="description" content="树莓派摄像头无法使用，报错 No data received from sensor，查询网络世界逐渐排查，最后发现原因是带电插拔摄像头引起损坏，错误信息：Camera control callback  cmd=0x4f525245mmal: No data received from sensor. Check all connections, including the Sunny one on the camera board"><meta itemprop="datePublished" content="2021-07-23T17:51:55+08:00" />
+<meta itemprop="dateModified" content="2021-07-23T17:51:55+08:00" />
+<meta itemprop="wordCount" content="1380">
+<meta itemprop="keywords" content="raspberry," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="树莓派摄像头无法使用，报错 No data received from sensor，原因是带电插拔摄像头引起损坏"/>
+<meta name="twitter:description" content="树莓派摄像头无法使用，报错 No data received from sensor，查询网络世界逐渐排查，最后发现原因是带电插拔摄像头引起损坏，错误信息：Camera control callback  cmd=0x4f525245mmal: No data received from sensor. Check all connections, including the Sunny one on the camera board"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">树莓派摄像头无法使用，报错 No data received from sensor，原因是带电插拔摄像头引起损坏</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-23 </span>
+        <div class="post-category">
+            <a href="/categories/dev-init/"> dev-init </a>
+            </div>
+          <span class="more-meta"> 约 1380 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#摄像头错误情况">摄像头错误情况</a></li>
+    <li><a href="#排查步骤">排查步骤</a>
+      <ul>
+        <li><a href="#检测摄像头">检测摄像头</a></li>
+        <li><a href="#加载系统模块">加载系统模块</a></li>
+        <li><a href="#换个摄像头">换个摄像头</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="摄像头错误情况">摄像头错误情况</h1>
+<p>今天发现了一个程序的 bug 的大致原因，想用树莓派摄像头测试一下，结果显示我摄像头没有连接上。寻思着我也开启了哈，无论是 pi config 界面还是 sudo raspi-config 都显示我开启了，重启也无济于事。把排线重新连接也还是一样&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ raspistill -k
+Camera control callback  <span class="nv">cmd</span><span class="o">=</span>0x4f525245mmal: No data received from sensor. Check all connections, including the Sunny one on the camera board
+^Cmmal: Aborting program
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="排查步骤">排查步骤</h1>
+<ol>
+<li>使能摄像头，确认开启了摄像头的接口（第一次我就是没 enable 浪费了不少时间）</li>
+</ol>
+<blockquote>
+<p>sudo raspi-config</p>
+</blockquote>
+<ol start="2">
+<li>断电重启树莓派</li>
+<li>测试摄像头</li>
+</ol>
+<blockquote>
+<p>raspistill -k</p>
+</blockquote>
+<p>到第三步我的报错依然一样，问题完美的重现。。。</p>
+<h2 id="检测摄像头">检测摄像头</h2>
+<p><a href="https://blog.csdn.net/lynn_coder/article/details/79687939">解决新版树莓派无法开启CSI接口摄像头问题. 白学家Lynn 2018-03-25</a></p>
+<blockquote>
+<p>vcgencmd get_camera<br>
+发现support=0  确实没识别到摄像头</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ vcgencmd get_camera
+<span class="nv">supported</span><span class="o">=</span><span class="m">1</span> <span class="nv">detected</span><span class="o">=</span><span class="m">1</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>根据白的办法发现我这里检测到了摄像头！那说明连接还是可以的嘛。</p>
+<h2 id="加载系统模块">加载系统模块</h2>
+<p><a href="https://blog.csdn.net/qq_39522167/article/details/105317063">树莓派无法打开摄像头（USB和piCam均无法打开） 解决过程记录。 肥杨同学 2020-04-04</a>:错误信息不一样，最后重装了系统好了！！！！！！！</p>
+<blockquote>
+<p>利用 $ sudo raspi-config 使能摄像头。
+打开sudo nano /etc/modules在其中加入bcm2835-v4l2 注意是4L2不是1,L为小写。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 加载模块bcm2835-v4l2</span>
+sudo modprobe bcm2835-v4l2
+<span class="c1"># 重启测试摄像头，错误依旧</span>
+raspistill -k
+<span class="c1"># 不死心，在其中加入bcm2835-v4l2，最后也失败了</span>
+sudo nano /etc/modules
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="换个摄像头">换个摄像头</h2>
+<ul>
+<li>
+<p><a href="https://www.jianshu.com/p/f8b2af92ff16">树莓派摄像头烧坏后感言。刘小白DOER。2021.03.20</a>：指令不太相同但错误信息一致，</p>
+<blockquote>
+<p>运行拍照命令raspistill -o image.jpg又有错误信息：Camera control callback cmd=0x4f525245mmal: No data received from sensor. Check all connections, including the Sunny one on the camera board。我勒个去，原来是带电的时候插拔摄像头，导致管脚烧坏了，没有数据返回。</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://talk.quwj.com/topic/756">求助！树莓派4B连接官方摄像头后报错。Charrrrr • 2020-03-04</a>：两种错误推测</p>
+<blockquote>
+<p>Spoony 小组长 2020-03-04
+帮你查了一下，这个问题可能是硬件本身有问题。官方的工程师基本上建议是联系经销商退货处理。<br>
+RaspiSQH 79.05m 2020-03-04
+我的摄像头挂掉了就是这样。你是不是热插拔了。。。。。。</p>
+</blockquote>
+</li>
+</ul>
+<p>在李总的大力支持下，支持了一个摄像头，换上即可使用，看来原因很有可能是刚开始出现异常的时候带电插拔导致的烧摄像头了，最后某宝走起，中国制造真香。</p>
+<p>犯错是正常的，要发现错误原因，从而下一次再遇到类似的情形的时候，解决它。</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li>
+<p><a href="https://blog.csdn.net/lynn_coder/article/details/79687939">解决新版树莓派无法开启CSI接口摄像头问题. 白学家Lynn 2018-03-25</a>:开启摄像头，在/etc/modules-load.d中加入 bcm2835-v4l2</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/qq_39522167/article/details/105317063">树莓派无法打开摄像头（USB和piCam均无法打开） 解决过程记录。 肥杨同学 2020-04-04</a>:错误信息不一样，最后重装了系统好了！！！！！！！</p>
+<blockquote>
+<p>利用 $ sudo raspi-config 使能摄像头。
+打开sudo nano /etc/modules在其中加入bcm2835-v4l2 注意是4L2不是1,L为小写。</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://www.jianshu.com/p/f8b2af92ff16">树莓派摄像头烧坏后感言。刘小白DOER。2021.03.20</a>：指令不太相同但错误信息一致</p>
+</li>
+<li>
+<p><a href="https://talk.quwj.com/topic/756">求助！树莓派4B连接官方摄像头后报错。Charrrrr • 2020-03-04</a></p>
+</li>
+<li>
+<p><a href="https://tieba.baidu.com/p/6528558098">求助！树莓派4B使用摄像头报错</a>：相同错误，我换摄像头就好了，这个楼主没那么好运了</p>
+<blockquote>
+<p>使用vcgencmd get_camera检查摄像头连接正常（supported=1 detected=1）
+但是一用拍照指令，会在几秒的卡顿后报错（Camera control callback cmd=0×4f525245mmal: No data received from sensor. Check all connections, including the Sunny one on the camera board）
+之前的旧相机就有这个问题，换了新相机后还是这样。CSI插口没差错，排线也没插反。</p>
+</blockquote>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-07-23
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/raspberry/">raspberry</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/archupdatewarning/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Arch 升级中的警告是什么：Possibly missing firmware for module: wd719x、aic94xx、xhci_pci</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/mcureboot/">
+            <span class="next-text nav-default">ESP32 疯狂重启的原因探究</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

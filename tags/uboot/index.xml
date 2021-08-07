@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>UBoot on 筱氚~物语</title>
-    <link>http://anidea.gitee.io/tags/uboot/</link>
+    <link>https://backmountaindevil.github.io/tags/uboot/</link>
     <description>Recent content in UBoot on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 10 Nov 2020 22:59:36 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/uboot/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Nov 2020 22:59:36 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/uboot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>UefiMake</title>
-      <link>http://anidea.gitee.io/post/uefimake/</link>
+      <link>https://backmountaindevil.github.io/post/uefimake/</link>
       <pubDate>Tue, 10 Nov 2020 22:59:36 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/uefimake/</guid>
+      <guid>https://backmountaindevil.github.io/post/uefimake/</guid>
       <description>Introduction 作为世界最大头秃大军中的一员，操作系统的安装是一项必备技能，自己亲自操刀的OS就有不少：win7、win10、Centos、Ubuntu、</description>
     </item>
     

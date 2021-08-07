@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>pandoc on 筱氚~物语</title>
-    <link>http://anidea.gitee.io/tags/pandoc/</link>
+    <link>https://backmountaindevil.github.io/tags/pandoc/</link>
     <description>Recent content in pandoc on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sat, 01 May 2021 15:12:16 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/pandoc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 May 2021 15:12:16 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/pandoc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF</title>
-      <link>http://anidea.gitee.io/post/pandoc/</link>
+      <link>https://backmountaindevil.github.io/post/pandoc/</link>
       <pubDate>Sat, 01 May 2021 15:12:16 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/pandoc/</guid>
+      <guid>https://backmountaindevil.github.io/post/pandoc/</guid>
       <description>简介 自己平时写文档主要是用 md 写，但是甲方和乙方有时候说喜欢 pdf 或者 word. docsify 没 的自带的 pdf 转换（实际上插件可以导出），最基本的王者就是这个 pandoc 了。 pandoc 一个</description>
     </item>
     

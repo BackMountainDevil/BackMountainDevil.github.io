@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://anidea.gitee.io/sitemap.xml
+Sitemap: https://backmountaindevil.github.io/sitemap.xml

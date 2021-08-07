@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on 筱氚~物语</title>
-    <link>http://anidea.gitee.io/tags/python/</link>
+    <link>https://backmountaindevil.github.io/tags/python/</link>
     <description>Recent content in python on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 27 Apr 2021 22:26:58 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Apr 2021 22:26:58 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>在树莓派2上非全局编译安装 python39</title>
-      <link>http://anidea.gitee.io/post/compilepy39/</link>
+      <link>https://backmountaindevil.github.io/post/compilepy39/</link>
       <pubDate>Tue, 27 Apr 2021 22:26:58 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/compilepy39/</guid>
+      <guid>https://backmountaindevil.github.io/post/compilepy39/</guid>
       <description>简介 目地： 自定义编译安装 python39 到当前用户目录下 硬件： 树莓派2 软件： 2021-03-04-raspios-buster-armhf 时长： 将近一个半小时，一个多小时在编译 安装依赖 看了不少帖子，每个帖子说的依赖</description>
     </item>
     
     <item>
       <title>VSCodiumConfigure</title>
-      <link>http://anidea.gitee.io/post/vscodiumconfigure/</link>
+      <link>https://backmountaindevil.github.io/post/vscodiumconfigure/</link>
       <pubDate>Sun, 15 Nov 2020 21:10:21 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/vscodiumconfigure/</guid>
+      <guid>https://backmountaindevil.github.io/post/vscodiumconfigure/</guid>
       <description>Intro VS Codium 是VS Code的开源版本，没有微软的图标和用户Track功能。但是谁想被Tracked呢？？下面记录Deepin 20系统下VS Codi</description>
     </item>
     
     <item>
       <title>IceCat</title>
-      <link>http://anidea.gitee.io/post/icecat/</link>
+      <link>https://backmountaindevil.github.io/post/icecat/</link>
       <pubDate>Sat, 14 Nov 2020 22:45:16 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/icecat/</guid>
+      <guid>https://backmountaindevil.github.io/post/icecat/</guid>
       <description>Intro python 安装Ubuntu 20.04LTS之后，终端输入python没有进入py环境，然后用apt安装py3之后键入python还是失败，键入py</description>
     </item>
     

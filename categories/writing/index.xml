@@ -2,18 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Writing on 筱氚~物语</title>
-    <link>http://anidea.gitee.io/categories/writing/</link>
+    <link>https://backmountaindevil.github.io/categories/writing/</link>
     <description>Recent content in Writing on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sat, 07 Nov 2020 15:17:58 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/categories/writing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Nov 2020 12:27:18 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/categories/writing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>把系统中的 296 款字体删除到只剩下 17 款</title>
+      <link>https://backmountaindevil.github.io/post/font/</link>
+      <pubDate>Sun, 15 Nov 2020 12:27:18 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/font/</guid>
+      <description>Intro fc-list 可以查看本机有哪些字体，但是输出有点多，我这里将近两千行（1997）。可以用 fc-list &amp;gt;temp.txt 将输出定向到 temp.txt。可以显然看出开头的路径都是</description>
+    </item>
+    
     <item>
       <title>BeautifyOffice</title>
-      <link>http://anidea.gitee.io/post/beautifyoffice/</link>
+      <link>https://backmountaindevil.github.io/post/beautifyoffice/</link>
       <pubDate>Sat, 07 Nov 2020 15:17:58 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/beautifyoffice/</guid>
+      <guid>https://backmountaindevil.github.io/post/beautifyoffice/</guid>
       <description>本文以Word为例，Excel、PPT设置类似（快捷键不尽相同）。 字体 打开Word，如果是保护模式的话切换到编辑模式，然后按 Ctrl+D 打开字体对话框</description>
     </item>
     

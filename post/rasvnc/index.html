@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/rasvnc/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/rasvnc/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,21 +35,21 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer" />
 <meta property="og:description" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/rasvnc/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/rasvnc/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-07-18T10:08:46+08:00" />
 <meta property="article:modified_time" content="2021-07-18T10:08:46+08:00" />
 
 <meta itemprop="name" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer">
 <meta itemprop="description" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer"><meta itemprop="datePublished" content="2021-07-18T10:08:46+08:00" />
 <meta itemprop="dateModified" content="2021-07-18T10:08:46+08:00" />
-<meta itemprop="wordCount" content="1217">
+<meta itemprop="wordCount" content="1229">
 <meta itemprop="keywords" content="raspberry," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer"/>
 <meta name="twitter:description" content="树莓派无屏幕连接之 VNC realvnc-vnc-viewer"/>
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -122,7 +132,7 @@
         <div class="post-category">
             <a href="/categories/os/"> OS </a>
             </div>
-          <span class="more-meta"> 约 1217 字 </span>
+          <span class="more-meta"> 约 1229 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         
       </div>
@@ -163,7 +173,7 @@
 <p>由于 tightvncserver 无法跑起来我需要的程序，便被卸载了，于是试了一下原装的到底可以不可以，最后成功按照想要的样子运行起来。和上面不同的是，它更像是远程接管桌面（类似 teamviewer），所有的操作会同步到 HDMI 输出上；其次是不需要重新设置，开机自动运行，输入 IP 就能连接，tiger 还需要 ip 后面的序号。</p>
 <h2 id="安装">安装</h2>
 <p><code>yay -S realvnc-vnc-viewer</code><br>
-运行之后输入树莓派的 IP 就能愉快的玩耍了，局域网内快速获得树莓派 IP 可以参考使用  <a href="../rasip">arp-scan</a></p>
+运行之后输入树莓派的 IP 就能愉快的玩耍了，局域网内快速获得树莓派 IP 可以参考使用  <a href="../rasip">arp-scan</a> | <code>sudo arp-scan -l</code>  | 来获取树莓派 IP</p>
 <h2 id="问题之摄像头画面">问题之摄像头画面</h2>
 <p>GUI 程序成功跑起来之后，获取摄像头画面的时候却没法同步到 VNC 之后，在 HDMI 输出上却清晰可见，查了一下解决了这个问题。在 <a href="https://blog.csdn.net/qq_22945165/article/details/113541514">树莓派摄像头在桌面不显示 | 树莓派VNC摄像头实时显示。BlainWu 2021-02-02</a> 一文中，作者给出了图文并茂的答案，这里简单总结一下：</p>
 <p>VNC Connect 右上角 三条杠 的按钮，点击选择 Options，然后左边选择 Troubleshooting，然后再在右边勾选 Enable direct capture mode，右下角点击 OK（确认）即可。</p>
@@ -176,7 +186,7 @@ vncserver -kill:1</p>
 <p>我使用无论是 tigervnc 还是现在用的 real vnc viwer，屏幕设置里的分辨率调到最大也只是 800x480（还有一个是 640x480），有的时候显示不全，比如上面设置摄像头的时候，标题栏看不到（没法移动），底部的确认按钮看不到，最后还是靠 Tab 和 回车搞定的。。。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -188,7 +198,7 @@ vncserver -kill:1</p>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 不推荐使用这个办法</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 不推荐使用这个办法</span>
 $ vncserver -geometry 1280x1024
 VNC<span class="o">(</span>R<span class="o">)</span> Server 6.7.2 <span class="o">(</span>r42622<span class="o">)</span> ARMv6 <span class="o">(</span>May <span class="m">13</span> <span class="m">2020</span> 19:34:20<span class="o">)</span>
 OS: Raspbian GNU/Linux 10, Linux 5.4.79, armv7l
@@ -233,7 +243,11 @@ New desktop is raspberrypi:1 <span class="o">(</span>172.20.10.2:1<span class="o
           <a href="/tags/raspberry/">raspberry</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/mcureboot/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">ESP32 疯狂重启的原因探究</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/espplatformio/">
             <span class="next-text nav-default">PlatformIO 与 ESP 32 点灯体验</span>
             <span class="next-text nav-mobile">下一篇</span>
@@ -259,7 +273,7 @@ New desktop is raspberrypi:1 <span class="o">(</span>172.20.10.2:1<span class="o
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -277,13 +291,10 @@ New desktop is raspberrypi:1 <span class="o">(</span>172.20.10.2:1<span class="o
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -297,7 +308,7 @@ New desktop is raspberrypi:1 <span class="o">(</span>172.20.10.2:1<span class="o
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

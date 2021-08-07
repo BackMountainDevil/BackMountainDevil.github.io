@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="http://anidea.gitee.io/post/pandoc/" />
+<link rel="canonical" href="https://backmountaindevil.github.io/post/pandoc/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 
 
-<link href="/sass/main.min.32d4dc642fec98c34c80bebb9c784c50771712b4a8a25d9f4dd9cce3534b426e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF" />
 <meta property="og:description" content="用 Pandoc 将 Markdown 文档导出为 PDF，介绍了 arch 平台下 pandoc 的安装、使用、卸载" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://anidea.gitee.io/post/pandoc/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/pandoc/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-05-01T15:12:16+08:00" />
 <meta property="article:modified_time" content="2021-05-01T15:12:16+08:00" />
 
@@ -87,12 +87,21 @@
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">筱氚快更新</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -107,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -165,14 +175,14 @@
 <h2 id="安装">安装</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装pandoc</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装pandoc</span>
 sudo pacman -S pandoc
 
 <span class="c1"># 安装 texlive 和中文支持</span>
@@ -183,7 +193,7 @@ sudo pacman -S texlive-core texlive-langchinese
 <p>运行下面的指令能输出对于的版本号说明起码这个软件是装上了的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -193,7 +203,7 @@ sudo pacman -S texlive-core texlive-langchinese
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ pandoc --version
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ pandoc --version
 pandoc 2.11.4
 Compiled with pandoc-types 1.22, texmath 0.12.1.1, skylighting 0.10.3,
 citeproc 0.3.0.9, ipynb 0.1.0.1
@@ -206,7 +216,7 @@ warranty, not even <span class="k">for</span> merchantability or fitness <span c
 </div><h3 id="demo">demo</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -218,7 +228,7 @@ warranty, not even <span class="k">for</span> merchantability or fitness <span c
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ tex <span class="s1">&#39;\empty Hello world!\bye&#39;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ tex <span class="s1">&#39;\empty Hello world!\bye&#39;</span>
 This is TeX, Version 3.14159265 <span class="o">(</span>TeX Live 2020/Arch Linux<span class="o">)</span> <span class="o">(</span>preloaded <span class="nv">format</span><span class="o">=</span>tex<span class="o">)</span>
 <span class="o">[</span>1<span class="o">]</span>
 Output written on texput.dvi <span class="o">(</span><span class="m">1</span> page, <span class="m">224</span> bytes<span class="o">)</span>.
@@ -236,7 +246,7 @@ pdftex: error <span class="k">while</span> loading shared libraries: libpoppler.
 <p>quickstart.md 的内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -252,7 +262,7 @@ pdftex: error <span class="k">while</span> loading shared libraries: libpoppler.
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 快速入门</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 快速入门</span>
 
 <span class="c1">## 环境准备</span>
 
@@ -276,10 +286,10 @@ pdftex: error <span class="k">while</span> loading shared libraries: libpoppler.
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">pandoc quickstart.md -o quickstart.md.pdf --pdf-engine<span class="o">=</span>xelatex -V <span class="nv">CJKmainfont</span><span class="o">=</span><span class="s1">&#39;Sarasa UI SC&#39;</span> 
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pandoc quickstart.md -o quickstart.md.pdf --pdf-engine<span class="o">=</span>xelatex -V <span class="nv">CJKmainfont</span><span class="o">=</span><span class="s1">&#39;Sarasa UI SC&#39;</span> 
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="https://img-blog.csdnimg.cn/20210317111714686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzAzMTA5Mg==,size_16,color_FFFFFF,t_70" alt="quickstart.md 的 PDF 输出预览"></p>
@@ -287,10 +297,10 @@ pdftex: error <span class="k">while</span> loading shared libraries: libpoppler.
 <p>万一呢，目前两个月就体验了一把 PDF 输出。。。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -Rs pandoc
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -Rs pandoc
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="参考">参考</h1>
@@ -366,7 +376,7 @@ So, what I did is go to pdf-tools' directory which is path/to/.emacs.d/elpa/pdf-
       <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://anidea.gitee.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -384,13 +394,10 @@ So, what I did is go to pdf-tools' directory which is path/to/.emacs.d/elpa/pdf-
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2021
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">筱氚</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -404,7 +411,7 @@ So, what I did is go to pdf-tools' directory which is path/to/.emacs.d/elpa/pdf-
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

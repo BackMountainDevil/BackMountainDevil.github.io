@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>树莓派上开热点（AP）的三种办法实践结果 - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="背景 UC2 项目中树莓派大脑和子模块有两种方式连接方式，一种是采用 I2C 总线通过 Arduino 做主从，一种是走 WIFI 使用 MQTT 协议与子模块通信。为了减少线数，采用了后者。" /><meta name="keywords" content="raspberry pi, ap, wifi" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://backmountaindevil.github.io/post/raspiap/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="树莓派上开热点（AP）的三种办法实践结果" />
+<meta property="og:description" content="背景 UC2 项目中树莓派大脑和子模块有两种方式连接方式，一种是采用 I2C 总线通过 Arduino 做主从，一种是走 WIFI 使用 MQTT 协议与子模块通信。为了减少线数，采用了后者。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/raspiap/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-02T12:12:34+08:00" />
+<meta property="article:modified_time" content="2021-08-02T12:12:34+08:00" />
+
+<meta itemprop="name" content="树莓派上开热点（AP）的三种办法实践结果">
+<meta itemprop="description" content="背景 UC2 项目中树莓派大脑和子模块有两种方式连接方式，一种是采用 I2C 总线通过 Arduino 做主从，一种是走 WIFI 使用 MQTT 协议与子模块通信。为了减少线数，采用了后者。"><meta itemprop="datePublished" content="2021-08-02T12:12:34+08:00" />
+<meta itemprop="dateModified" content="2021-08-02T12:12:34+08:00" />
+<meta itemprop="wordCount" content="1015">
+<meta itemprop="keywords" content="raspberry," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="树莓派上开热点（AP）的三种办法实践结果"/>
+<meta name="twitter:description" content="背景 UC2 项目中树莓派大脑和子模块有两种方式连接方式，一种是采用 I2C 总线通过 Arduino 做主从，一种是走 WIFI 使用 MQTT 协议与子模块通信。为了减少线数，采用了后者。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">树莓派上开热点（AP）的三种办法实践结果</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-08-02 </span>
+        <div class="post-category">
+            <a href="/categories/dev-init/"> dev-init </a>
+            </div>
+          <span class="more-meta"> 约 1015 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a>
+      <ul>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法汇总">方法汇总</a>
+      <ul>
+        <li><a href="#rasap">rasap</a></li>
+        <li><a href="#官方文档的办法">官方文档的办法</a></li>
+        <li><a href="#create_ap">create_ap</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="背景">背景</h1>
+<p>UC2 项目中树莓派大脑和子模块有两种方式连接方式，一种是采用 I2C 总线通过 Arduino 做主从，一种是走 WIFI 使用 MQTT 协议与子模块通信。为了减少线数，采用了后者。实际调试中都是自己手机开热点给 pi、esp、pc,因为校园网不知道不知道为啥无法在一个子网中，也不能说是不在，只是无法进行内网通信。</p>
+<p>但是考虑到实际使用中，也会有不存在 wifi 网络覆盖的情况，因此需要某个设备来开启热点来搭建一个 WIFI 子网，esp32 具有这种功能，实现上也比较简单，但是为了便于管理和维护，最后我想的是让树莓派开启热点，其它设备接入它，这样子由于 AP 模式带来的功耗和发热就转移到了树莓派上。</p>
+<p>此外，树莓派的 wifi 模块是可以开热点的，但是官方系统中没有默认加入这个功能，需要自己动动那个小手。</p>
+<h2 id="总结">总结</h2>
+<p>三种方式中，有官方的也有非官方的，最后实践结果表明官方的文档比 rasap 要繁琐一点，更容易出错，create_ap 团队表示不再维护，而且实践表明在 raspi 4 上行不通，因此这里推荐使用 <a href="https://raspap.com/#quick">rasap</a></p>
+<h1 id="方法汇总">方法汇总</h1>
+<h2 id="rasap">rasap</h2>
+<p>最推荐的办法 - <a href="https://raspap.com/#quick">rasap</a>，一行代码搞定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">curl -sL https://install.raspap.com <span class="p">|</span> bash
+</code></pre></td></tr></table>
+</div>
+</div><p>回答问题不懂的就一直 Y 回车就行。装完之后需要重启，重启完之后在 pi 上打开浏览器访问 10.3.141.1:80 就能进入管理界面，初始账号密码的初始值在<a href="https://raspap.com/#quick">网页</a>中有写（admin, secret）。</p>
+<p>进去修改下 wifi 的名称和密码，重启 wifi 即可，实测就是改了好几次才连上。</p>
+<h2 id="官方文档的办法">官方文档的办法</h2>
+<p><a href="https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md">树莓派官方文档 - AP</a>，文档的办法是在 3B 上测试过的，在 4B 上我自己弄的感觉不太靠谱，偶尔靠运气能连上，大部分时候就是个摆设。。。其中有一部是设置路由转发，如果不打算给子网接入互联网的功能可以跳过那一步。</p>
+<p>在编辑 hostapd.conf 的时候需要修改国家代码为中国 -  CN，<code>country_code=CN</code>，热点名称和密码不需要加上引号。</p>
+<p>在论坛里有个案例（参考四）是由于 iptables 和 ufw 两个冲突导致无法正常使用，看了下自己的 pi 里没有这个冲突，就很迷。</p>
+<p>然后使用了这个办法之后是只有 AP 模式了，无法使用原来正常连接 wifi 的功能了，怎么还原我还没发现，瞎逆向捣鼓了一下发现行不通。</p>
+<h2 id="create_ap">create_ap</h2>
+<p>按照其<a href="https://github.com/oblique/create_ap">文档</a>进行安装即可，安装完实测如下，大致意思就是此路不通。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo create_ap wlan0 wlan0 <span class="nb">test</span> <span class="m">12345678</span>
+WARN: brmfmac driver doesn<span class="err">&#39;</span>t work properly with virtual interfaces and
+      it can cause kernel panic. For this reason we disallow virtual
+      interfaces <span class="k">for</span> your adapter.
+      For more info: https://github.com/oblique/create_ap/issues/203
+WARN: Your adapter does not fully support AP virtual interface, enabling --no-virt
+ERROR: You can not share your connection from the same interface <span class="k">if</span> you are using --no-virt option.
+</code></pre></td></tr></table>
+</div>
+</div><p>卸载办法也比较简单，当初安装是在对应目录下 <code>make install</code>，卸载就是在当初那个目录里 <code>make uninstall</code>。</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://raspap.com/#quick">rasap</a></li>
+<li><a href="https://github.com/oblique/create_ap">oblique/create_ap</a></li>
+<li><a href="https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md">树莓派官方文档 - AP</a></li>
+<li>[[SOLVED] Wifi Access Point (AP) not handing out IP addresses](<a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=315866&amp;p=">https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=315866&amp;p=</a> 1893796&amp; hilit=AP#p1893796)
+<blockquote>
+<p>$ sudo apt remove iptables-persistent
+$ sudo ufw allow bootps
+$ sudo ufw allow 53/udp
+$ sudo ufw allow 53/tcp</p>
+</blockquote>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-08-02
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/raspberry/">raspberry</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/libsvm/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"> libsvm 的 python 版使用办法</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/archupdatewarning/">
+            <span class="next-text nav-default">Arch 升级中的警告是什么：Possibly missing firmware for module: wd719x、aic94xx、xhci_pci</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

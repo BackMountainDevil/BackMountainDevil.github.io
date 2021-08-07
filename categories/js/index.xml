@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>js on 筱氚~物语</title>
-    <link>http://anidea.gitee.io/categories/js/</link>
+    <link>https://backmountaindevil.github.io/categories/js/</link>
     <description>Recent content in js on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Sat, 17 Apr 2021 08:29:53 +0800</lastBuildDate><atom:link href="http://anidea.gitee.io/categories/js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Apr 2021 08:29:53 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/categories/js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JsDemoBmi</title>
-      <link>http://anidea.gitee.io/post/jsdemobmi/</link>
+      <link>https://backmountaindevil.github.io/post/jsdemobmi/</link>
       <pubDate>Sat, 17 Apr 2021 08:29:53 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/jsdemobmi/</guid>
+      <guid>https://backmountaindevil.github.io/post/jsdemobmi/</guid>
       <description>BMI BMI 指数（Body Mass Index），是国际上常用的衡量人体胖瘦程度以及是否健康的一个标准。 源代码 基于MIT协议开放的源代码位于gitee仓库K</description>
     </item>
     
     <item>
       <title>JsDemoPpi</title>
-      <link>http://anidea.gitee.io/post/jsdemoppi/</link>
+      <link>https://backmountaindevil.github.io/post/jsdemoppi/</link>
       <pubDate>Mon, 01 Mar 2021 21:13:24 +0800</pubDate>
       
-      <guid>http://anidea.gitee.io/post/jsdemoppi/</guid>
+      <guid>https://backmountaindevil.github.io/post/jsdemoppi/</guid>
       <description>简介 一个用js写的PPI计算器。 源代码 基于MIT协议开放的源代码位于gitee仓库Kearney / JsDemo 常见显示器PPI 分辨率 尺寸（inch） PPI</description>
     </item>
     
