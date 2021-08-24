@@ -446,7 +446,7 @@
       <pubDate>Mon, 16 Nov 2020 18:58:02 +0800</pubDate>
       
       <guid>https://backmountaindevil.github.io/post/gitconfigusage/</guid>
-      <description>Intro 记录Git的配置过程 Down 1 sudo apt install git test configSSH basic 设置用户名和邮箱，这样就可以在本地记录变化了 1 2 3 4 $ git config --global user.email &amp;#34;you@example.com&amp;#34; $ git config --global user.name &amp;#34;Your Name&amp;#34; # 查看git用户配置，</description>
+      <description>Intro 记录Git的配置过程 Down 1 sudo apt install git configSSH basic 设置用户名和邮箱，这样就可以在本地记录变化了 1 2 3 4 $ git config --global user.email &amp;#34;you@example.com&amp;#34; $ git config --global user.name &amp;#34;Your Name&amp;#34; # 查看git用户配置，看</description>
     </item>
     
     <item>
