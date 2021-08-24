@@ -7,9 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Fri, 06 Aug 2021 21:56:09 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Aug 2021 20:45:01 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title> libsvm 的 python 版使用办法</title>
+      <title>Python 的版本与虚拟环境管理</title>
+      <link>https://backmountaindevil.github.io/post/pyvenv/</link>
+      <pubDate>Tue, 17 Aug 2021 20:45:01 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/pyvenv/</guid>
+      <description>虚拟环境 - virtual environment 为什么需要虚拟环境？这样做有什么好处和弊端？ 不同项目之间的包版本可能不同，需要相互隔离，互不影响，其次还需要方便二次使用，一般</description>
+    </item>
+    
+    <item>
+      <title>libsvm 的 python 版使用办法</title>
       <link>https://backmountaindevil.github.io/post/libsvm/</link>
       <pubDate>Fri, 06 Aug 2021 21:56:09 +0800</pubDate>
       

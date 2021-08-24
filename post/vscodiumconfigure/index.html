@@ -49,7 +49,7 @@
 <meta itemprop="name" content="VSCodiumConfigure">
 <meta itemprop="description" content="Visual Studio Codium的常用语言配置"><meta itemprop="datePublished" content="2020-11-15T21:10:21+08:00" />
 <meta itemprop="dateModified" content="2020-11-15T21:10:21+08:00" />
-<meta itemprop="wordCount" content="2194">
+<meta itemprop="wordCount" content="2650">
 <meta itemprop="keywords" content="python,c,c&#43;&#43;," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VSCodiumConfigure"/>
 <meta name="twitter:description" content="Visual Studio Codium的常用语言配置"/>
@@ -132,8 +132,8 @@
         <div class="post-category">
             <a href="/categories/vscodium/"> VSCodium </a>
             </div>
-          <span class="more-meta"> 约 2194 字 </span>
-          <span class="more-meta"> 预计阅读 5 分钟 </span>
+          <span class="more-meta"> 约 2650 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
         
       </div>
     </header>
@@ -144,6 +144,7 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#intro">Intro</a></li>
+    <li><a href="#code-runner">code runner</a></li>
     <li><a href="#python">python</a>
       <ul>
         <li><a href="#基本操作">基本操作</a></li>
@@ -160,6 +161,7 @@
       <ul>
         <li><a href="#gcc">gcc</a></li>
         <li><a href="#c-extend">c-extend</a></li>
+        <li><a href="#自动运行与调试">自动运行与调试</a></li>
         <li><a href="#snippet-1">snippet</a></li>
       </ul>
     </li>
@@ -172,6 +174,9 @@
       <h1 id="intro">Intro</h1>
 <p>VS Codium 是VS Code的开源版本，没有微软的图标和用户Track功能。但是谁想被Tracked呢？？下面记录Deepin 20系统下VS Codium配置不同编程语言的的过程。由于采用的是VSCodium，插件市场会滤掉那些不是free的插件，配置起来会有点找不到资料。</p>
 <p>VS Code在终端中敲code即可启动，VS Codium则是敲codium</p>
+<p>在 Arch Linux 上可以借助 AUR(<code>yay -S vscodium-bin</code>) 来快速安装 <a href="https://wiki.archlinux.org/title/Visual_Studio_Code_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">vscodium</a>，插件市场有问题的话还可以安装 vscodium-bin-marketplace 试一下，不过我卸载 code 之后直接装 codium,插件市场没问题，之前的插件也还在。</p>
+<h1 id="code-runner">code runner</h1>
+<p>这个 vs code 插件可以让人可以轻松运行大部分代码而无需单独设置环境，缺点就是无法调试，此外还需要对其进行两个设置，勾选 File Directory as Cwd 和 Run in terminal，不然运行的时候路径和输入会有问题。</p>
 <h1 id="python">python</h1>
 <h2 id="基本操作">基本操作</h2>
 <p>在Deepin中python默认是py2.7.16，还有自带的py3是py3.7.3.我这里以配置py3为例，刚开始还想配置py2和py3,run的时候二选一，然后想了想我又不用py2,除非是搞系统。但是很奇怪的是没有pip或者pip3.。
@@ -258,7 +263,7 @@ pip3 install yapf flake8
 </div><p>其中</p>
 <ul>
 <li>&ldquo;stopOnEntry&rdquo;: false	： 设置一次F5即可运行py，而不是两次</li>
-<li>&ldquo;cwd&rdquo;: &ldquo;${fileDirname}&rdquo;	： 设置在运行文件时进入对应的路径下，不然在使用相对路径的代码中就会出现路径问题，相同的问题也会出现在coderunner插件。</li>
+<li>&ldquo;cwd&rdquo;: &ldquo;${fileDirname}&rdquo;	： 设置在运行文件时进入对应的路径下，不然在使用相对路径的代码中就会出现路径问题，相同的问题也会出现在coderunner插件中</li>
 </ul>
 <p>然后在.vscode/setting.json配置yapf，设置好之后对选中的代码按下快捷键Alt+Shift+F即可自动格式化代码，我设置了却无效？？在快捷键里面查看了“格式”的相关快捷键，发现是Ctrl+K、Ctrl+F</p>
 <div class="highlight"><div class="chroma">
@@ -380,7 +385,148 @@ g++ -W  tmp.cpp -o tmp
 </div><h2 id="c-extend">c-extend</h2>
 <p>marketplace没有C/C++插件。。。然后我跑去微软C/C++ rpo发isuue请人家以后发一个version到open-vsx.org。。。现在采用的是下载插件的vsix文件，命令行安装<br>
 <code>codium --install-extension myextension.vsix</code></p>
-<h2 id="snippet-1">snippet</h2>
+<h2 id="自动运行与调试">自动运行与调试</h2>
+<p>coderunner 这里就不再赘述了，把 C/C++ 插件、gdb、gcc、g++ 安装完成之后，新建 .vscode/launch.json 和 .vscode/tesk.json。内容如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">//</span> <span class="err">.vscode/launch.json</span>
+<span class="p">{</span>
+    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;configurations&#34;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;C/C++&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;cppdbg&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="s2">&#34;launch&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;program&#34;</span><span class="p">:</span> <span class="s2">&#34;${fileDirname}/${fileBasenameNoExtension}&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="nt">&#34;stopAtEntry&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&#34;cwd&#34;</span><span class="p">:</span> <span class="s2">&#34;${workspaceFolder}&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;environment&#34;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="nt">&#34;externalConsole&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&#34;MIMode&#34;</span><span class="p">:</span> <span class="s2">&#34;gdb&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;preLaunchTask&#34;</span><span class="p">:</span> <span class="s2">&#34;compile&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;setupCommands&#34;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Enable pretty-printing for gdb&#34;</span><span class="p">,</span>
+                    <span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;-enable-pretty-printing&#34;</span><span class="p">,</span>
+                    <span class="nt">&#34;ignoreFailures&#34;</span><span class="p">:</span> <span class="kc">true</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>如果需要是 c 语言,需要将下面的 command 项由 g++ 改为 gcc</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">//</span> <span class="err">.vscode/tesk.json</span>
+<span class="p">{</span>
+    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;2.0.0&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;tasks&#34;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;compile&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;g++&#34;</span><span class="p">,</span>  <span class="err">//</span> <span class="err">c</span> <span class="err">改为</span> <span class="err">gcc</span>
+            <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&#34;-g&#34;</span><span class="p">,</span>
+                <span class="s2">&#34;${file}&#34;</span><span class="p">,</span>
+                <span class="s2">&#34;-o&#34;</span><span class="p">,</span>
+                <span class="s2">&#34;${fileDirname}/${fileBasenameNoExtension}&#34;</span>
+            <span class="p">],</span>
+            <span class="nt">&#34;problemMatcher&#34;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;cpp&#34;</span><span class="p">,</span>
+                <span class="nt">&#34;fileLocation&#34;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&#34;relative&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;${workspaceRoot}&#34;</span>
+                <span class="p">],</span>
+                <span class="nt">&#34;pattern&#34;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&#34;regexp&#34;</span><span class="p">:</span> <span class="s2">&#34;^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$&#34;</span><span class="p">,</span>
+                    <span class="nt">&#34;file&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="nt">&#34;line&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                    <span class="nt">&#34;column&#34;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="nt">&#34;severity&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                    <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="mi">5</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&#34;group&#34;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&#34;kind&#34;</span><span class="p">:</span> <span class="s2">&#34;build&#34;</span><span class="p">,</span>
+                <span class="nt">&#34;isDefault&#34;</span><span class="p">:</span> <span class="kc">true</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="snippet-1">snippet</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -430,6 +576,7 @@ g++ -W  tmp.cpp -o tmp
 <li><a href="https://www.cnblogs.com/xiaojwang/p/11331202.html">用VScode配置Python开发环境</a></li>
 <li><a href="https://blog.csdn.net/weixin_43031092/article/details/105482255?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160549311519725222419396%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=160549311519725222419396&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_blog_default-2-105482255.pc_v2_rank_blog_default&amp;utm_term=gcc&amp;spm=1018.2118.3001.4450">gcc预处理、编译、汇编、链接案例</a></li>
 <li><a href="https://www.cnblogs.com/bonelee/p/11045196.html">让 Python 代码更易维护的七种武器——代码风格（pylint、Flake8、Isort、Autopep8、Yapf、Black）测试覆盖率（Coverage）CI（JK）2018/09/29 </a></li>
+<li><a href="https://blog.csdn.net/zimuzi2019/article/details/106861692">Linux/Ubuntu中Vs Code配置C++/C环境. CS_Lee_ 2020-06-19</a></li>
 </ul>
 
     </div>

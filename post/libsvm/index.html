@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title> libsvm 的 python 版使用办法 - 筱氚~物语</title>
+  <title>libsvm 的 python 版使用办法 - 筱氚~物语</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,19 +39,19 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content=" libsvm 的 python 版使用办法" />
+<meta property="og:title" content="libsvm 的 python 版使用办法" />
 <meta property="og:description" content="记录 libsvm 的 python 使用办法。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://backmountaindevil.github.io/post/libsvm/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-08-06T21:56:09+08:00" />
 <meta property="article:modified_time" content="2021-08-06T21:56:09+08:00" />
 
-<meta itemprop="name" content=" libsvm 的 python 版使用办法">
+<meta itemprop="name" content="libsvm 的 python 版使用办法">
 <meta itemprop="description" content="记录 libsvm 的 python 使用办法。"><meta itemprop="datePublished" content="2021-08-06T21:56:09+08:00" />
 <meta itemprop="dateModified" content="2021-08-06T21:56:09+08:00" />
 <meta itemprop="wordCount" content="2374">
 <meta itemprop="keywords" content="svm," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=" libsvm 的 python 版使用办法"/>
+<meta name="twitter:title" content="libsvm 的 python 版使用办法"/>
 <meta name="twitter:description" content="记录 libsvm 的 python 使用办法。"/>
 
 <!--[if lte IE 9]>
@@ -125,7 +125,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title"> libsvm 的 python 版使用办法</h1>
+      <h1 class="post-title">libsvm 的 python 版使用办法</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2021-08-06 </span>
@@ -230,8 +230,8 @@ penalty  parameter 惩罚系数（惩罚因子） C  s</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 引入 libsvm 工具包</span>
-<span class="kn">from</span> <span class="nn">libsvm.svmutil</span> <span class="kn">import</span> <span class="n">svm_read_problem</span><span class="p">,</span> <span class="n">svm_problem</span><span class="p">,</span> <span class="n">svm_train</span><span class="p">,</span> <span class="n">svm_save_model</span><span class="p">,</span> <span class="n">svm_parameter</span><span class="p">,</span> <span class="n">svm_predict</span>
-
+<span class="kn">from</span> <span class="nn">libsvm.svmutil</span> <span class="kn">import</span> <span class="p">(</span><span class="n">svm_parameter</span><span class="p">,</span> <span class="n">svm_predict</span><span class="p">,</span> <span class="n">svm_problem</span><span class="p">,</span>
+                            <span class="n">svm_read_problem</span><span class="p">,</span> <span class="n">svm_save_model</span><span class="p">,</span> <span class="n">svm_train</span><span class="p">)</span>
 <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">svm_read_problem</span><span class="p">(</span><span class="s1">&#39;train.1&#39;</span><span class="p">)</span>  <span class="c1"># 读取训练集的数据</span>
 <span class="n">prob</span> <span class="o">=</span> <span class="n">svm_problem</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="n">param</span> <span class="o">=</span> <span class="n">svm_parameter</span><span class="p">(</span><span class="s1">&#39;-c 8.0 -g 0.00048828125&#39;</span><span class="p">)</span>  <span class="c1"># 根据之前的结果设置参数</span>
@@ -377,7 +377,11 @@ Output prediction: test.1.predict
           <a href="/tags/svm/">svm</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/pyvenv/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Python 的版本与虚拟环境管理</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/raspiap/">
             <span class="next-text nav-default">树莓派上开热点（AP）的三种办法实践结果</span>
             <span class="next-text nav-mobile">下一篇</span>
