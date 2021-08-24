@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>GitSubmodule - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="git中submodule的介绍和案例" /><meta name="keywords" content="Git" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://backmountaindevil.github.io/post/gitsubmodule/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="GitSubmodule" />
+<meta property="og:description" content="git中submodule的介绍和案例" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/gitsubmodule/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-11-04T20:45:34+08:00" />
+<meta property="article:modified_time" content="2020-11-04T20:50:13+08:00" />
+
+<meta itemprop="name" content="GitSubmodule">
+<meta itemprop="description" content="git中submodule的介绍和案例"><meta itemprop="datePublished" content="2020-11-04T20:45:34+08:00" />
+<meta itemprop="dateModified" content="2020-11-04T20:50:13+08:00" />
+<meta itemprop="wordCount" content="1631">
+<meta itemprop="keywords" content="Git," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GitSubmodule"/>
+<meta name="twitter:description" content="git中submodule的介绍和案例"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">GitSubmodule</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-04 </span>
+        <div class="post-category">
+            <a href="/categories/vcs/"> VCS </a>
+            </div>
+          <span class="more-meta"> 约 1631 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是submodule">什么是submodule</a>
+      <ul>
+        <li><a href="#特点">特点</a></li>
+      </ul>
+    </li>
+    <li><a href="#怎么用">怎么用</a></li>
+    <li><a href="#案例">案例</a>
+      <ul>
+        <li><a href="#建立空仓库">建立空仓库</a></li>
+        <li><a href="#为sub添加内容">为sub添加内容</a></li>
+        <li><a href="#为main主仓库添加submodule">为main主仓库添加submodule</a></li>
+        <li><a href="#在本地主仓库修改子仓库">在本地主仓库修改子仓库</a></li>
+        <li><a href="#修改主仓库和子仓库">修改主仓库和子仓库</a></li>
+        <li><a href="#删除子模块">删除子模块</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="什么是submodule">什么是submodule</h1>
+<blockquote>
+<p>gitsubmodules - Mounting one repository inside another</p>
+</blockquote>
+<p>submodule翻译过来就是“子模块”的意思。上面这句英文出自Git官网的文档中，它是这样描述gitsubmodules的：在一个仓库里嵌套另一个仓库。以最近我所接触的静态博客生成工具Hugo为例，整个博客工程仓库是一个仓库，主题theme中包含多个别人的主题仓库，生成的静态网站文件public又是一个网站仓库，说白了就是一个仓库中包含了别的仓库（疯狂套娃）。</p>
+<p>被嵌套的仓库又被称为subproject（子工程）</p>
+<h2 id="特点">特点</h2>
+<p>相互独立：主仓库和子仓库都有各自的git记录，克隆主仓库时不会克隆子仓库的文件，只是克隆一个快链（gitlink）
+便于维护：不需要再把子仓库的文件拷贝过来，子仓库多了还容易拷错</p>
+<h1 id="怎么用">怎么用</h1>
+<ul>
+<li><code>git submodule  add [&lt;options&gt;] [--] &lt;repository&gt; [&lt;path&gt;]</code></li>
+</ul>
+<p>在主仓库中添加子仓库到path中，不指定path的话就拷贝到当前目录。</p>
+<ul>
+<li><code>git submodule update --init --recursive</code></li>
+</ul>
+<p>拉取子仓库的代码，用在更新/拉取主仓库时未拉取子仓库<br>
+如果pull一个含有子仓库的仓库，是不会克隆子仓库的代码的，如果想连子仓库的代码也克隆，就需要加上参数<code>--recurse-submodules</code></p>
+<ul>
+<li>git clone <a href="mailto:git@gitee.com">git@gitee.com</a>:back-toy/main.git &ndash;recurse-submodules</li>
+</ul>
+<h1 id="案例">案例</h1>
+<h2 id="建立空仓库">建立空仓库</h2>
+<p>我在github建立了两个空仓库，主仓库main，子仓库sub</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash">$ git clone git@github.com:BackMountainDevil/main.git
+$ <span class="nb">cd</span> main
+$ git submodule add git@github.com:BackMountainDevil/sub.git  public
+Cloning into <span class="s1">&#39;D:/Documents/CAU/Lion/main/public&#39;</span>...
+warning: You appear to have cloned an empty repository.
+fatal: You are on a branch yet to be born
+Unable to checkout submodule <span class="s1">&#39;public&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>报错&hellip;..sub为空仓库，下面为sub仓库添加点内容,首先删除main文件夹，从头做起，然后再为sub仓库添加内容</p>
+<h2 id="为sub添加内容">为sub添加内容</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">cd</span> ../
+$ mkdir sub
+$ <span class="nb">cd</span> sub
+<span class="nb">echo</span> <span class="s2">&#34;# sub&#34;</span> &gt;&gt; README.md
+git init
+git add README.md
+git commit -m <span class="s2">&#34;first commit&#34;</span>
+git branch -M main
+git remote add origin git@github.com:BackMountainDevil/sub.git
+git push -u origin main
+</code></pre></td></tr></table>
+</div>
+</div><p>此时sub仓库已经有了main主分支（以前是master分支，2020黑人运动就改成了main），然后内容和历史也有了</p>
+<h2 id="为main主仓库添加submodule">为main主仓库添加submodule</h2>
+<p>下面对主仓库进行操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">cd</span> ../
+$ git clone git@github.com:BackMountainDevil/main.git
+$ <span class="nb">cd</span> main
+$ git submodule add git@github.com:BackMountainDevil/sub.git  public
+</code></pre></td></tr></table>
+</div>
+</div><p>这个时候主仓库就会把子仓库嵌入到到main/public，并且多了一个.gitmodules文件，其内容为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="o">[</span>submodule <span class="s2">&#34;public&#34;</span><span class="o">]</span>
+	<span class="nv">path</span> <span class="o">=</span> public
+	<span class="nv">url</span> <span class="o">=</span> git@github.com:BackMountainDevil/sub.git
+</code></pre></td></tr></table>
+</div>
+</div><p>除此之外，.git/config中末尾也多出了一段配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="o">[</span>submodule <span class="s2">&#34;public&#34;</span><span class="o">]</span>
+	<span class="nv">url</span> <span class="o">=</span> git@github.com:BackMountainDevil/sub.git
+	<span class="nv">active</span> <span class="o">=</span> <span class="nb">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>此时我们对主仓库做一点改动，更新到github，可以从github上看到存储的public指向了对应仓库，而不是存储了sub仓库的文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">echo</span> <span class="s2">&#34;# main&#34;</span> &gt;&gt; README.md
+$ git init
+$ git add README.md
+$ git commit -m <span class="s2">&#34;first commit on main&#34;</span>
+$ git push
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="在本地主仓库修改子仓库">在本地主仓库修改子仓库</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash">$ <span class="nb">cd</span> public
+$ <span class="nb">echo</span> <span class="s2">&#34;# sub edited by main&#34;</span> &gt;&gt; README.md
+$ git commit -a -m <span class="s2">&#34;modify sub in main&#34;</span>
+$ git push
+</code></pre></td></tr></table>
+</div>
+</div><p>push成功之后主仓库和子仓库都没有变化？？？这怎么回事？？再来一次</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="nb">echo</span> <span class="s2">&#34;# sub edited by main 2&#34;</span> &gt;&gt; README.md
+git add .
+git commit  -m <span class="s2">&#34;modify sub in main 2&#34;</span>
+git push
+</code></pre></td></tr></table>
+</div>
+</div><p>咋还是没变化，检查本地sub仓库的log居然是第一次commit的，但是在public下面查log却已经是第三次了，查github网站却还是显示第一次，这是为啥？？好一会才知道是网站缓存没那么快更新到。。。。等一下sub就会显示最新版本了。然而主站main指向的还是旧版的sub。
+进入main运行<code>git submodule update --init --recursive</code>之后主仓库还是没有变化。。sub仓库反倒是被回滚到了第一版。。网站上的sub也变成了第一版。。。log记录查不到第三版了。。阿这？关闭了终端就没有办法了。。还好网页迟缓找到了第三版的版本号的开头ff5c，于是通过一下命令恢复到第三版的sub
+<code>git reset --hard ff5c</code></p>
+<h2 id="修改主仓库和子仓库">修改主仓库和子仓库</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="nb">echo</span> <span class="s2">&#34;# sub edited by main 3&#34;</span> &gt;&gt; README.md
+git add .
+git commit -m <span class="s2">&#34;modify sub in main 3&#34;</span>
+
+<span class="nb">cd</span> ../
+<span class="nb">echo</span> <span class="s2">&#34;# main edited by main 1&#34;</span> &gt;&gt; README.md
+git add .
+git commit -m <span class="s2">&#34;main edited by main 1&#34;</span>
+git push
+</code></pre></td></tr></table>
+</div>
+</div><p>刷新GitHub的网站，main已经更新了README.md和指向了新一版的sub，但是网页上sub还没有更新。。感觉不对劲。。又操作了一波才把sub推到GitHub上</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="nb">cd</span> public
+git push origin HEAD:main
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="删除子模块">删除子模块</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看子模块</span>
+$ git submodule 
+ 6a5b4068fc389ba7e33e1bfec2b5b97e21ca3c01 public <span class="o">(</span>heads/main<span class="o">)</span>
+ 564697987de962672112b910422682eb6f9c26ba themes/even <span class="o">(</span>v4.1.0-3-g5646979<span class="o">)</span>
+
+<span class="c1"># 拿删除 public 作为例子</span>
+$ git submodule deinit public
+$ git rm --cached public
+$ rm -rf .git/modules/public
+$ rm -rf public
+$ nano .git/config
+$ nano .gitsubmodule
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="references">References</h1>
+<ul>
+<li><a href="https://git-scm.com/docs/gitsubmodules">gitsubmodules</a></li>
+<li><a href="https://git-scm.com/docs/git-submodule">git-submodule</a></li>
+<li><a href="https://www.jianshu.com/p/f8a55b972972/">git submodule 使用小结</a></li>
+<li><a href="https://www.adamormsby.com/posts/how-to-set-up-a-hugo-site-on-github-pages-with-submodules/">How to Set Up a Hugo Site on Github Pages - with Git Submodules!</a></li>
+<li><a href="https://goparker.com/post/2018-05-08-github-pages-and-hugo/">Using Github Pages with Hugo</a></li>
+<li><a href="https://blog.csdn.net/pcjustin/article/details/79350987">Git 如何移除 submodule.骆神 2018-02-23</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/git/">Git</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/makegithubpagesafeviahttps/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">MakeGithubPageSafeViaHttps</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/gitcloneslowfix/">
+            <span class="next-text nav-default">GitCloneSlowFix</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

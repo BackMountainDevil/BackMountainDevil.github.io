@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>将 Arch Linux 内核从 stable 更换为 LTS 的办法与案例 - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="将 Arch Linux 内核从 stable 更换为 LTS。" /><meta name="keywords" content="arch, linux, kernel" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://backmountaindevil.github.io/post/archkernel/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="将 Arch Linux 内核从 stable 更换为 LTS 的办法与案例" />
+<meta property="og:description" content="将 Arch Linux 内核从 stable 更换为 LTS。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/archkernel/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-01T20:28:24+08:00" />
+<meta property="article:modified_time" content="2021-07-01T20:28:24+08:00" />
+
+<meta itemprop="name" content="将 Arch Linux 内核从 stable 更换为 LTS 的办法与案例">
+<meta itemprop="description" content="将 Arch Linux 内核从 stable 更换为 LTS。"><meta itemprop="datePublished" content="2021-07-01T20:28:24+08:00" />
+<meta itemprop="dateModified" content="2021-07-01T20:28:24+08:00" />
+<meta itemprop="wordCount" content="1454">
+<meta itemprop="keywords" content="arch," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="将 Arch Linux 内核从 stable 更换为 LTS 的办法与案例"/>
+<meta name="twitter:description" content="将 Arch Linux 内核从 stable 更换为 LTS。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">将 Arch Linux 内核从 stable 更换为 LTS 的办法与案例</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-01 </span>
+        <div class="post-category">
+            <a href="/categories/os/"> os </a>
+            </div>
+          <span class="more-meta"> 约 1454 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#干啥">干啥</a>
+      <ul>
+        <li><a href="#qa">Q&amp;A</a></li>
+      </ul>
+    </li>
+    <li><a href="#怎么做">怎么做</a>
+      <ul>
+        <li><a href="#下载-lts-内核">下载 LTS 内核</a></li>
+        <li><a href="#更新-grub">更新 grub</a></li>
+        <li><a href="#重启界面选择-lts">重启界面选择 LTS</a></li>
+        <li><a href="#卸载不需要的内核">卸载不需要的内核</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="干啥">干啥</h1>
+<p>将 Arch Linux 内核从 stable 更换为 LTS。以此降低内核更新的频率。</p>
+<h2 id="qa">Q&amp;A</h2>
+<ol>
+<li>
+<p>安装内核只需要安装内核的包吗？对应的头文件包要不要装？比如 <code>linux-lts</code> 与 <code>linux-lts-headers</code>。</p>
+<p>在中文帖子里是两个都装，在英文帖却是只装前者。也就是说不装新内核对应的头文件包也是可以的，非必须安装。</p>
+</li>
+<li>
+<p>假设装内核和其对应的头文件包，删除旧内核的时候要不要删除其头文件包？</p>
+<p>在 <a href="https://poemdear.com/2019/03/27/arch-linux-%e6%9b%b4%e6%8d%a2%e5%88%b0%e7%a8%b3%e5%ae%9a%e7%89%88lts%e5%86%85%e6%a0%b8/">Arch Linux 更换到稳定版LTS内核。Adin</a>一文中两个都安装了，但是删除旧内核的时候并没有删除旧内核的头文件包，只删除旧内核包！！不明所以。</p>
+<p>在英文帖子里由于只安装了新内核并没有安装新内核对应的头文件包，因此也就没有卸载旧内核的头文件包。之前整deepin内核的时候用的是 purge 自动级联删除功能，也就是需要删除头文件包。</p>
+<p>由于自己无法检测当前内核使用的是哪一个头文件包，因此该问题有待继续探究。</p>
+</li>
+</ol>
+<h1 id="怎么做">怎么做</h1>
+<p>中文版、英文版资料都看了几个，发现中文版的会大多装一个<code>linux-lts-headers</code>包。这里我选择了也安装一个，但这并不是必须的，也可以不装。其次是大多数帖子是装完新内核就立马删除旧内核更新grub，这其实是不合理的，因为在没有切换到新内核之前，还不知道新内核能不能用，有没有存在不兼容问题等。因此这里我会先切换到新内核使用一阵子再对旧内核进行清理。</p>
+<p>下面是从最新的稳定版 <code>5.12.13-arch1-2</code> 切换到最新的 LTS 版 <code>5.10.47-1-lts</code> 的案例</p>
+<h2 id="下载-lts-内核">下载 LTS 内核</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ uname -a
+Linux arch 5.12.13-arch1-2 <span class="c1">#1 SMP PREEMPT Fri, 25 Jun 2021 22:56:51 +0000 x86_64 GNU/Linux</span>
+<span class="c1"># 安装最新的 LTS 内核 及其头文件</span>
+$ sudo pacman -S linux-lts linux-lts-headers
+软件包 <span class="o">(</span>2<span class="o">)</span> linux-lts-5.10.47-1  linux-lts-headers-5.10.47-1
+
+$ uname -a
+Linux arch 5.12.13-arch1-2 <span class="c1">#1 SMP PREEMPT Fri, 25 Jun 2021 22:56:51 +0000 x86_64 GNU/Linux</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="更新-grub">更新 grub</h2>
+<p>展开子菜单参考了这篇<a href="https://itsfoss.com/switch-kernels-arch-linux/">文章</a>的思路。这里我选择展开，不展开直接更新 grub 配置也是可以的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 修改 grub 配置不是必须的，下面那个才是必须的。</span>
+$ sudo nano /etc/default/grub
+<span class="c1"># 这三行是将子菜单展开，这样不用点击 advanced 进去了</span>
+<span class="nv">GRUB_DISABLE_SUBMENU</span><span class="o">=</span>y
+<span class="nv">GRUB_DEFAULT</span><span class="o">=</span>saved
+<span class="nv">GRUB_SAVEDEFAULT</span><span class="o">=</span><span class="nb">true</span>
+<span class="c1"># 等待时间我之前设置为 0s 的，0 就不显示了，这里改大一点 3s</span>
+<span class="nv">GRUB_TIMEOUT</span><span class="o">=</span><span class="m">3</span>
+
+<span class="c1"># 改完保存退出 -----------------------------------------</span>
+
+
+<span class="c1"># 更新下 grub 的配置文件，让上面的设置生效，这一步是一定要做的。</span>
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+正在生成 grub 配置文件 ...
+找到 Linux 镜像：/boot/vmlinuz-linux-lts
+找到 initrd 镜像：/boot/amd-ucode.img /boot/initramfs-linux-lts.img
+Found fallback initrd image<span class="o">(</span>s<span class="o">)</span> in /boot:  amd-ucode.img initramfs-linux-lts-fallback.img
+找到 Linux 镜像：/boot/vmlinuz-linux
+找到 initrd 镜像：/boot/amd-ucode.img /boot/initramfs-linux.img
+Found fallback initrd image<span class="o">(</span>s<span class="o">)</span> in /boot:  amd-ucode.img initramfs-linux-fallback.img
+警告： os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+Adding boot menu entry <span class="k">for</span> UEFI Firmware Settings ...
+完成
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="重启界面选择-lts">重启界面选择 LTS</h2>
+<p>从 grub 中选择 linux-lts 即可，我的第一个就是 lts 了（grub默认启动的也是第一个）。可以看出内核已经切换到 LTS 版本。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ uname -a
+Linux arch 5.10.47-1-lts <span class="c1">#1 SMP Wed, 30 Jun 2021 13:52:19 +0000 x86_64 GNU/Linux</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>tip：查看 grub 启动菜单的顺序可以用下面的命令，这样可以设置 grub 默认启动哪一个</p>
+<blockquote>
+<p>awk -F' &lsquo;$1==&ldquo;menuentry &quot; {print i++ &quot; : &quot; $2}&rsquo; /boot/grub/grub.cfg</p>
+</blockquote>
+<h2 id="卸载不需要的内核">卸载不需要的内核</h2>
+<p>这一步可以稍微延后一点，过一阵子再整。万一发现 LTS 哪里不兼容的时候，这个内核还能继续用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -R linux linux-headers
+
+<span class="c1"># 更新 Grub，这样子之后引导界面只会看到 lts 内核选项了</span>
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="参考">参考</h1>
+<p>其它中英文帖子没贴出来因为一是觉得参考意义不大，二是觉得写的质量不行。明天考试，今天写个笔记压压惊。</p>
+<ul>
+<li><a href="https://wiki.archlinux.org/title/Kernel">Kernel Arch wiki</a>：四种官方支持内核</li>
+<li><a href="https://poemdear.com/2019/03/27/arch-linux-%e6%9b%b4%e6%8d%a2%e5%88%b0%e7%a8%b3%e5%ae%9a%e7%89%88lts%e5%86%85%e6%a0%b8/">Arch Linux 更换到稳定版LTS内核 March 27, 2019 by Adin</a>:cv error;<code>-Rsdd</code> 会跳过所有依赖检查，看上去过于激进了哈，查了一下 linux、linux-lts 这些包确实都有不少依赖 -.-</li>
+<li><a href="https://unix.stackexchange.com/questions/284617/how-to-switch-arch-linux-to-lts-kernel">How to switch arch linux to lts kernel? 2015</a>: two good answers</li>
+<li><a href="https://itsfoss.com/switch-kernels-arch-linux/">Different Types of Kernel for Arch Linux and How to Use Them. October 19, 2020 By Dimitrios </a></li>
+<li><a href="https://blog.csdn.net/weixin_43031092/article/details/113729957?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162514633016780261949519%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=162514633016780261949519&amp;biz_id=0">【解决】深度操作系统Linux Deepin 20 内核5.10手动降级-附上大佬解决5.10中失去蓝牙的办法。Kearney form An idea 2021-02-06 22:08:03</a>：之前整 deepin linux 的内核更换记录</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-07-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/arch/">arch</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/dockermac/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">在 Arch Linux 上使用 Docker 运行 Mac OS - Catalina</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/mecanumwheel/">
+            <span class="next-text nav-default">麦克纳姆轮</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

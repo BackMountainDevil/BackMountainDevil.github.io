@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>libsvm 的 python 版使用办法 - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="记录 libsvm 的 python 使用办法。" /><meta name="keywords" content="svm, machine learning, libsvm" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://backmountaindevil.github.io/post/libsvm/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="libsvm 的 python 版使用办法" />
+<meta property="og:description" content="记录 libsvm 的 python 使用办法。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/libsvm/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-06T21:56:09+08:00" />
+<meta property="article:modified_time" content="2021-08-06T21:56:09+08:00" />
+
+<meta itemprop="name" content="libsvm 的 python 版使用办法">
+<meta itemprop="description" content="记录 libsvm 的 python 使用办法。"><meta itemprop="datePublished" content="2021-08-06T21:56:09+08:00" />
+<meta itemprop="dateModified" content="2021-08-06T21:56:09+08:00" />
+<meta itemprop="wordCount" content="2374">
+<meta itemprop="keywords" content="svm," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="libsvm 的 python 版使用办法"/>
+<meta name="twitter:description" content="记录 libsvm 的 python 使用办法。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">libsvm 的 python 版使用办法</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-08-06 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"> 机器学习 </a>
+            </div>
+          <span class="more-meta"> 约 2374 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a>
+      <ul>
+        <li><a href="#libsvm">libsvm</a></li>
+        <li><a href="#专有词汇表">专有词汇表</a></li>
+      </ul>
+    </li>
+    <li><a href="#一条龙">一条龙</a>
+      <ul>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#数据格式">数据格式</a></li>
+        <li><a href="#数据缩放scaling">数据缩放（Scaling）</a></li>
+        <li><a href="#核函数">核函数</a>
+          <ul>
+            <li><a href="#参数选优">参数选优</a></li>
+          </ul>
+        </li>
+        <li><a href="#分析">分析</a>
+          <ul>
+            <li><a href="#输出分析">输出分析</a></li>
+            <li><a href="#模型文件分析">模型文件分析</a></li>
+            <li><a href="#优劣分析">优劣分析</a></li>
+          </ul>
+        </li>
+        <li><a href="#卸载">卸载</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="简介">简介</h1>
+<p>记录 libsvm 的 python 使用办法。这里并不会介绍 svm 是什么以及实现原理。</p>
+<h2 id="libsvm">libsvm</h2>
+<p>在学习 SVM 的时候，代码用的是 sklearn 还是 tensorflow 的了，再次重温机器学习的时候在<a href="https://www.icourse163.org/learn/ZJU-1206573810?tid=1464846443#/learn/content?type=detail&amp;id=1243453160&amp;sm=1">支持向量机 兵王问题</a>中听说了 <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvm/">libsvm</a>，它是台湾大学的 <a href="https://www.csie.ntu.edu.tw/~cjlin/">Chih-Jen Lin</a>在 2000 年时候发布的 svm 工具包，现在（2021.8.6）最新版是 3.25 版本，提供了各大语言的版本（这老师是闲着没事干吗？是社区贡献的其它语言版本吗？还是研究生）。在其页面上还提供了<a href="https://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf">新手的入门指引（英文版）</a></p>
+<h2 id="专有词汇表">专有词汇表</h2>
+<p>SVM support vector machine 支持向量机<br>
+SVMs Support Vector Machines 支持向量机<br>
+penalty  parameter 惩罚系数（惩罚因子） C  s</p>
+<h1 id="一条龙">一条龙</h1>
+<p>根据入门指引建议的步骤（Proposed Procedure）来进行学习。而不是自己瞎选内核瞎调参数测试然后选一个好看的。。。</p>
+<h2 id="安装">安装</h2>
+<p>pip install -U libsvm-official</p>
+<h2 id="数据格式">数据格式</h2>
+<p>将数据集转换为 liibsvm 所要求的格式，它大概长这个样子</p>
+<blockquote>
+<p><code>&lt;label&gt; &lt;index1&gt;:&lt;value1&gt; &lt;index2&gt;:&lt;value2&gt; ... </code><br>
+举个例子：<code>1 1:2.617300e+01 2:5.886700e+01 3:-1.894697e-01 4:1.251225e+02</code><br>
+标签是 1,代表类别 1，有 1～4 个特征，每个特征的参数值分别是 2.617300e+01、5.886700e+01、-1.894697e-01、1.251225e+02</p>
+</blockquote>
+<p>SVM 要求数据类型为数值型，如果是非数字型，需要进行类型转换。由于这里只是试水，因此下载<a href="https://www.csie.ntu.edu.tw/~cjlin/papers/guide/data/">指引中所使用的数据集</a> - train.1、test.1（其它的也可以），因此这一步的转换就可以跳过了（下一步数据缩放也可以跳过了）。从 Table 1 可以知道第一个数据集的训练集有 3089 条数据，测试集有 4000 条数据，每条数据有 4 个特征，是一个二分类问题。上面数据中的例子就是对应训练集 train.1 的第一条数据。</p>
+<h2 id="数据缩放scaling">数据缩放（Scaling）</h2>
+<p>对数据进行简单的缩放。又称归一化。这一步在使用 SVM 前是极其重要的一步。一方面是为了避免较大数值范围内的属性支配较小数值范围内的属；；另一个方面是降低计算过程中的复杂度，因为核值通常取决于特征向量的内积。一般推荐推荐的属性范围是 [−1,+1] 或者 [0,1]，需要注意的是，训练集和测试集的缩放系数应该保持一致。</p>
+<h2 id="核函数">核函数</h2>
+<p>svm 四种核函数，一般首先考虑选取通用的 rbf 核函数（默认采用的也是它，超参数比较少）。</p>
+<h3 id="参数选优">参数选优</h3>
+<p>指引中如此说道“需要注意的是，达到高的训练精度可能是没有用的”，毕竟测试集才是考试真题嘛。之前我选参数的时候是控制变量法，之修改我需要调整的参数，其它保持不动，调整到一个较好的分数，然后再调整下一个参数，这样做的问题会有一个明显的问题，就是我选出的都是好参数值，但结果并不是很理想。</p>
+<p>那怎么去参数选优呢？手册中给出了一种可行的办法，采用交叉验证选择最佳参数 C 与 gamma 。相应的作者在<a href="http://www.csie.ntu.edu.tw/~cjlin/cgi-bin/libsvm.cgi?+http://www.csie.ntu.edu.tw/~cjlin/libsvm+tar.gz">源码</a>下的 tools 提供了相应工具 grid.py。</p>
+<p>解压源码之后需要编译一下来产生可执行文件，不然一会会报错“svm-train executable not found”。我使用的 Arch Linux 系统，进入目录下 make 一下搞定（make clean 可以卸载），然后把训练数据（train.1）拷贝到 libsvm-3.25/tools/ 下面，进入对应目录运行 <code>python grid.py  train.1</code>，之后就会自动调整参数，等一会出现结果，最后一行为 ，8.0 0.00048828125 96.8922，意识是这个程序尝试了 110 种 c 和 gama 的搭配（想起当初自己做实验一遍遍输入 c 和 g 来记录准确率），发现当 c=8.0 ， gama=0.00048828125 的时候在五折交叉校验中取得最高的准确率。对比了一下，使用默认参数的准确率只有 67%，使用上面的参数的准确率是 97%。</p>
+<p>之后就是训练模型，再用获取的模型进行测试和预测了，完整代码如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 引入 libsvm 工具包</span>
+<span class="kn">from</span> <span class="nn">libsvm.svmutil</span> <span class="kn">import</span> <span class="p">(</span><span class="n">svm_parameter</span><span class="p">,</span> <span class="n">svm_predict</span><span class="p">,</span> <span class="n">svm_problem</span><span class="p">,</span>
+                            <span class="n">svm_read_problem</span><span class="p">,</span> <span class="n">svm_save_model</span><span class="p">,</span> <span class="n">svm_train</span><span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">svm_read_problem</span><span class="p">(</span><span class="s1">&#39;train.1&#39;</span><span class="p">)</span>  <span class="c1"># 读取训练集的数据</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">svm_problem</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">param</span> <span class="o">=</span> <span class="n">svm_parameter</span><span class="p">(</span><span class="s1">&#39;-c 8.0 -g 0.00048828125&#39;</span><span class="p">)</span>  <span class="c1"># 根据之前的结果设置参数</span>
+<span class="c1"># model = svm_train(y, x)  # 使用默认参数训练集的数据训练模型</span>
+<span class="c1"># model = svm_load_model(&#39;model_svm&#39;) # 读取文件中的模型</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">svm_train</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>  <span class="c1"># 使用指定参数训练</span>
+<span class="n">svm_save_model</span><span class="p">(</span><span class="s1">&#39;model_svm&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>  <span class="c1"># 将训练好的模型保存到文件 model_svm 中</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Train:&#39;</span><span class="p">)</span>
+<span class="n">p_label</span><span class="p">,</span> <span class="n">p_acc</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">svm_predict</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="c1"># print(&#34;p_label: &#34;, p_label)   # 每个数据对应的预测类别（标签）</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;p_acc: &#34;</span><span class="p">,</span> <span class="n">p_acc</span><span class="p">)</span>  <span class="c1"># 预测的精确度，均值和回归的平方相关系数</span>
+<span class="c1"># print(&#34;p_val: &#34;, p_val)   # 在指定参数&#39;-b 1&#39;时将返回判定系数(判定的可靠程度)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test:&#39;</span><span class="p">)</span>
+<span class="n">yt</span><span class="p">,</span> <span class="n">xt</span> <span class="o">=</span> <span class="n">svm_read_problem</span><span class="p">(</span><span class="s1">&#39;test.1&#39;</span><span class="p">)</span>  <span class="c1"># 读取测试集的数据</span>
+<span class="n">p_label</span><span class="p">,</span> <span class="n">p_acc</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">svm_predict</span><span class="p">(</span><span class="n">yt</span><span class="p">,</span> <span class="n">xt</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="分析">分析</h2>
+<h3 id="输出分析">输出分析</h3>
+<p>一路走下来，结果如下所示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">optimization finished, <span class="c1">#iter = 1713 # 迭代次数</span>
+<span class="nv">nu</span> <span class="o">=</span> 0.071714 <span class="c1"># 核函数类型的参数</span>
+<span class="nv">obj</span> <span class="o">=</span> -1658.282958, <span class="nv">rho</span> <span class="o">=</span> -0.626561 <span class="c1"># 判决函数的偏置项b</span>
+<span class="nv">nSV</span> <span class="o">=</span> 326, <span class="nv">nBSV</span> <span class="o">=</span> <span class="m">198</span>
+Total <span class="nv">nSV</span> <span class="o">=</span> <span class="m">326</span> <span class="c1"># 支持向量总个数</span>
+Train:
+<span class="nv">Accuracy</span> <span class="o">=</span> 97.2483% <span class="o">(</span>3004/3089<span class="o">)</span> <span class="o">(</span>classification<span class="o">)</span> <span class="c1"># 训练集准确率</span>
+p_acc:  <span class="o">(</span>97.24830042084817, 0.02751699579151829, 0.8830128932087852<span class="o">)</span>
+Test:
+<span class="nv">Accuracy</span> <span class="o">=</span> 97% <span class="o">(</span>3880/4000<span class="o">)</span> <span class="o">(</span>classification<span class="o">)</span> <span class="c1"># 测试集准确率</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="模型文件分析">模型文件分析</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt">// file：  model_svm 
+svm_type c_svc # svm类型，默认为c_svc
+kernel_type rbf # 核函数类型，默认为 rbf 核
+gamma 0.00048828125 # rbf 核的参数 gama 的值
+nr_class 2  # 分几类
+total_sv 326  # 支持向量总个数
+rho -0.62656057185873659  # 判决函数的偏置项b
+label 1 0 # 原始文件中的类别标识
+nr_sv 197 129 # 每个类的支持向量机的数量
+SV  # 下面就是全部的支持向量和对应权重（计数格式和训练集的有点区别，而且没有标签，稍微改一下可以在训练集里找到对于的数据的标签了）
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="优劣分析">优劣分析</h3>
+<p>分析模型能只看准确率吗？媒体报到也是如此，因为门外汉也只能看到这一步，但是多高的准确率才能说明问题呢？一是打比赛看排名，二是看混淆矩阵对比瞎猜概率。</p>
+<p>准确率、召回率、ROC 等等，但是 libsvm 没有提供这个东西。。。</p>
+<h2 id="卸载">卸载</h2>
+<p>pip install -U libsvm-official</p>
+<h1 id="总结">总结</h1>
+<p>libsvm 也提供了傻瓜版的教程，让它自己调参自己画图，这个工具就是 tools 下面的 easy.py,使用它还额外需要安装 gnuplot，在 Arch 上可以快速通过 AUR （yay -S gunplot）安装。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ python easy.py train.1 test.1 
+Scaling training data...
+Cross validation...
+Best <span class="nv">c</span><span class="o">=</span>2.0, <span class="nv">g</span><span class="o">=</span>2.0 CV <span class="nv">rate</span><span class="o">=</span>96.9893
+Training...
+Output model: train.1.model
+Scaling testing data...
+Testing...
+<span class="nv">Accuracy</span> <span class="o">=</span> 96.875% <span class="o">(</span>3875/4000<span class="o">)</span> <span class="o">(</span>classification<span class="o">)</span>
+Output prediction: test.1.predict
+</code></pre></td></tr></table>
+</div>
+</div><p>通过和上面的 grid.py 得到的超参数的结果不一样，准确率略微低那么一丢丢，难道里面调用的参数选优不一样？？我又运行了几次 grid，发现得到的结果依旧是 8.0 0.00048828125 96.8922，这是为什么呢？今天到此为止吧。</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://www.icourse163.org/learn/ZJU-1206573810?tid=1464846443#/learn/content?type=detail&amp;id=1243453160&amp;sm=1">支持向量机 兵王问题</a></li>
+<li><a href="https://www.csie.ntu.edu.tw/~cjlin/libsvm/">libsvm</a></li>
+<li><a href="https://www.csie.ntu.edu.tw/~cjlin/">Chih-Jen Lin&rsquo;s Home Page</a></li>
+<li><a href="https://www.cnblogs.com/Finley/p/5329417.html">LibSVM for Python 使用。 finley。  </a>：参数中文解释</li>
+<li><a href="https://blog.csdn.net/mingtian715/article/details/53712318">LIBSVM使用指南。Timmy_Y 2016-12-17</a></li>
+<li><a href="https://www.cnblogs.com/-ldzwzj-1991/p/5897199.html">LibSVM学习详细说明。 做一个勤劳的孩子。 2016-09-22</a>：model 文件解析
+<blockquote>
+<p>tools——主要包含四个python文件，用来数据集抽样(subset)，参数优选（grid），集成测试(easy),数据检查(checkdata)；</p>
+</blockquote>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-08-06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/svm/">svm</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/pyvenv/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Python 的版本与虚拟环境管理</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/raspiap/">
+            <span class="next-text nav-default">树莓派上开热点（AP）的三种办法实践结果</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

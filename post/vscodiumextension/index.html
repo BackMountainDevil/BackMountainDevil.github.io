@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>VSCodiumExtension - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="Intro 尝试为VS Codium开发一个完全Free的c/c&#43;&#43;插件，或者催促microsoft发布一个free版本的。 OS: Deepin 20 如果使用VS Code的" /><meta name="keywords" content="Kearney, Blog, Hugo" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://backmountaindevil.github.io/post/vscodiumextension/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="VSCodiumExtension" />
+<meta property="og:description" content="Intro 尝试为VS Codium开发一个完全Free的c/c&#43;&#43;插件，或者催促microsoft发布一个free版本的。 OS: Deepin 20 如果使用VS Code的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/vscodiumextension/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-11-16T10:55:37+08:00" />
+<meta property="article:modified_time" content="2020-11-16T10:55:37+08:00" />
+
+<meta itemprop="name" content="VSCodiumExtension">
+<meta itemprop="description" content="Intro 尝试为VS Codium开发一个完全Free的c/c&#43;&#43;插件，或者催促microsoft发布一个free版本的。 OS: Deepin 20 如果使用VS Code的"><meta itemprop="datePublished" content="2020-11-16T10:55:37+08:00" />
+<meta itemprop="dateModified" content="2020-11-16T10:55:37+08:00" />
+<meta itemprop="wordCount" content="1227">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="VSCodiumExtension"/>
+<meta name="twitter:description" content="Intro 尝试为VS Codium开发一个完全Free的c/c&#43;&#43;插件，或者催促microsoft发布一个free版本的。 OS: Deepin 20 如果使用VS Code的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">VSCodiumExtension</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-16 </span>
+        <div class="post-category">
+            <a href="/categories/vscodium/"> VSCodium </a>
+            </div>
+          <span class="more-meta"> 约 1227 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#pre">pre</a>
+      <ul>
+        <li><a href="#npm">npm</a>
+          <ul>
+            <li><a href="#failure">failure</a></li>
+            <li><a href="#welldone">welldone</a></li>
+          </ul>
+        </li>
+        <li><a href="#yo">yo</a></li>
+      </ul>
+    </li>
+    <li><a href="#begin">Begin</a>
+      <ul>
+        <li><a href="#build-demo">build demo</a></li>
+        <li><a href="#run-demo">run demo</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="intro">Intro</h1>
+<p>尝试为VS Codium开发一个完全Free的c/c++插件，或者催促microsoft发布一个free版本的。
+OS: Deepin 20
+如果使用VS Code的话，下面的codium应该变成code</p>
+<h1 id="pre">pre</h1>
+<h2 id="npm">npm</h2>
+<h3 id="failure">failure</h3>
+<p>不要着急复制运行，下面出错了。只是错误记录，可以直接跳转到welldone部分</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt install npm -y
+$ sudo npm install -g yo generator-code
+<span class="c1"># 报错</span>
+npm WARN npm npm does not support Node.js v10.19.0
+npm WARN npm You should probably upgrade to a newer version of node
+npm WARN npm You can find the latest version at https://nodejs.org/
+
+$ sudo apt update
+$ sudo apt install nodejs -y
+$ sudo apt install nodejs-legacy
+
+<span class="c1">#更换淘宝镜像</span>
+$ sudo npm config <span class="nb">set</span> registry https://registry.npm.taobao.org
+<span class="c1">#安装更新版本工具N</span>
+$ sudo npm install n -g
+<span class="c1">#更新node版本</span>
+$ sudo n stable
+  installing : node-v14.15.0
+curl: <span class="o">(</span>52<span class="o">)</span> Empty reply from server
+
+  Error: download preflight failed <span class="k">for</span> <span class="s1">&#39;14.15.0&#39;</span> <span class="o">(</span>https://nodejs.org/dist/v14.15.0/node-v14.15.0-linux-x64.tar.xz<span class="o">)</span>
+sudo apt remove  nodejs
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="welldone">welldone</h3>
+<p>直接去官网下载安装最新稳定版nodejs，解压后移动到软件安装位置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo mv node-v14.15.0-linux-x64 /opt/nodejs
+<span class="c1"># 建立软链接</span>
+$ sudo ln -s /opt/nodejs/bin/npm /usr/local/bin/
+$ sudo ln -s /opt/nodejs/bin/node /usr/local/bin/
+
+<span class="c1"># 设置华为镜像</span>
+$ sudo npm config <span class="nb">set</span> registry https://registry.npm.taobao.org
+npm config <span class="nb">set</span> registry https://mirrors.huaweicloud.com/repository/npm/
+<span class="c1"># 查看镜像设置，返回https://mirrors.huaweicloud.com/repository/npm/说明配置成功</span>
+$ npm config get registry
+</code></pre></td></tr></table>
+</div>
+</div><p>此时npm和node安装完成。</p>
+<h2 id="yo">yo</h2>
+<p>安装Yeoman 和 VS Code Extension generator</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ npm install -g yo generator-code
+npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN deprecated cross-spawn-async@2.2.5: cross-spawn no longer requires a build toolchain, use it instead
+/opt/nodejs/bin/yo -&gt; /opt/nodejs/lib/node_modules/yo/lib/cli.js
+/opt/nodejs/bin/yo-complete -&gt; /opt/nodejs/lib/node_modules/yo/lib/completion/index.js
+
+&gt; ejs@2.7.4 postinstall /opt/nodejs/lib/node_modules/generator-code/node_modules/yeoman-environment/node_modules/ejs
+&gt; node ./postinstall.js
+
+Thank you <span class="k">for</span> installing EJS: built with the Jake JavaScript build tool <span class="o">(</span>https://jakejs.com/<span class="o">)</span>
+
+
+&gt; core-js@3.7.0 postinstall /opt/nodejs/lib/node_modules/yo/node_modules/core-js
+&gt; node -e <span class="s2">&#34;try{require(&#39;./postinstall&#39;)}catch(e){}&#34;</span>
+
+Thank you <span class="k">for</span> using core-js <span class="o">(</span> https://github.com/zloirock/core-js <span class="o">)</span> <span class="k">for</span> polyfilling JavaScript standard library!
+
+The project needs your help! Please consider supporting of core-js on Open Collective or Patreon: 
+&gt; https://opencollective.com/core-js 
+&gt; https://www.patreon.com/zloirock 
+
+Also, the author of core-js <span class="o">(</span> https://github.com/zloirock <span class="o">)</span> is looking <span class="k">for</span> a good job -<span class="o">)</span>
+
+
+&gt; ejs@2.7.4 postinstall /opt/nodejs/lib/node_modules/yo/node_modules/ejs
+&gt; node ./postinstall.js
+
+Thank you <span class="k">for</span> installing EJS: built with the Jake JavaScript build tool <span class="o">(</span>https://jakejs.com/<span class="o">)</span>
+
+
+&gt; spawn-sync@1.0.15 postinstall /opt/nodejs/lib/node_modules/yo/node_modules/spawn-sync
+&gt; node postinstall
+
+
+&gt; yo@3.1.1 postinstall /opt/nodejs/lib/node_modules/yo
+&gt; yodoctor
+
+
+Yeoman Doctor
+Running sanity checks on your system
+
+✔ No .bowerrc file in home directory
+✔ Global configuration file is valid
+✔ NODE_PATH matches the npm root
+✔ No .yo-rc.json file in home directory
+✔ Node.js version
+✔ npm version
+Error: Couldn<span class="s1">&#39;t find the &#39;</span>yo<span class="s1">&#39; binary. Make sure it&#39;</span>s installed and in your <span class="nv">$PATH</span>
+    at Process.ChildProcess._handle.onexit <span class="o">(</span>internal/child_process.js:269:19<span class="o">)</span>
+    at onErrorNT <span class="o">(</span>internal/child_process.js:465:16<span class="o">)</span>
+    at processTicksAndRejections <span class="o">(</span>internal/process/task_queues.js:80:21<span class="o">)</span> <span class="o">{</span>
+  errno: -2,
+  code: <span class="s1">&#39;ENOENT&#39;</span>,
+  syscall: <span class="s1">&#39;spawn yo&#39;</span>,
+  path: <span class="s1">&#39;yo&#39;</span>,
+  spawnargs: <span class="o">[</span> <span class="s1">&#39;--version&#39;</span> <span class="o">]</span>,
+  cmd: <span class="s1">&#39;yo --version&#39;</span>
+<span class="o">}</span>
+✖ yo version
+Error: Couldn<span class="s1">&#39;t find the &#39;</span>yo<span class="s1">&#39; binary. Make sure it&#39;</span>s installed and in your <span class="nv">$PATH</span>
+    at Process.ChildProcess._handle.onexit <span class="o">(</span>internal/child_process.js:269:19<span class="o">)</span>
+    at onErrorNT <span class="o">(</span>internal/child_process.js:465:16<span class="o">)</span>
+    at processTicksAndRejections <span class="o">(</span>internal/process/task_queues.js:80:21<span class="o">)</span> <span class="o">{</span>
+  errno: -2,
+  code: <span class="s1">&#39;ENOENT&#39;</span>,
+  syscall: <span class="s1">&#39;spawn yo&#39;</span>,
+  path: <span class="s1">&#39;yo&#39;</span>,
+  spawnargs: <span class="o">[</span> <span class="s1">&#39;--version&#39;</span> <span class="o">]</span>,
+  cmd: <span class="s1">&#39;yo --version&#39;</span>
+<span class="o">}</span>
+
+Found potential issues on your machine :<span class="o">(</span>
++ yo@3.1.1
++ generator-code@1.3.7
+added <span class="m">1168</span> packages from <span class="m">397</span> contributors in 213.861s
+</code></pre></td></tr></table>
+</div>
+</div><p>测试安装是否成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ yo --version
+</code></pre></td></tr></table>
+</div>
+</div><p>显示版本好就成功了，反正我的是未找到命令安装失败，怎么办怎么办？？？要不要跑去提issue，emmm想了一下还是耸了，算了，我不如地狱，谁入地狱</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ whereis yo
+yo: /opt/nodejs/bin/yo
+$ <span class="nb">cd</span> /opt/nodejs/bin/
+$ ./yo --version
+3.1.1   <span class="c1">#出现版本好说明安装是出了一点小毛病，但是安装下来了，差一个path罢了。</span>
+<span class="c1"># 建立软链接</span>
+$ sudo ln -s /opt/nodejs/bin/yo /usr/local/bin/
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="begin">Begin</h1>
+<h2 id="build-demo">build demo</h2>
+<p>建立一个文件夹当工作区</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ mkdir yo
+$ <span class="nb">cd</span> yo
+$ yo code
+
+? What <span class="nb">type</span> of extension <span class="k">do</span> you want to create? New Extension <span class="o">(</span>JavaScript<span class="o">)</span>
+? What<span class="s1">&#39;s the name of your extension? hello
+</span><span class="s1">? What&#39;</span>s the identifier of your extension? hello
+? What<span class="s1">&#39;s the description of your extension? a test to learn 
+</span><span class="s1">? Enable JavaScript type checking in &#39;</span>jsconfig.json<span class="err">&#39;</span>? Yes
+? Initialize a git repository? No
+? Which package manager to use? npm
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="run-demo">run demo</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> hello
+$ codium .
+</code></pre></td></tr></table>
+</div>
+</div><p>然后按F5，在新的Codium里面Ctrl+Shift+P输入Hello World回车就能看到右下脚弹窗显示了。</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://code.visualstudio.com/api/extension-guides/overview">Extension Guides</a></li>
+<li><a href="https://github.com/Microsoft/vscode-generator-code">Yo Code - Extension and Customization Generator</a></li>
+<li><a href="https://blog.csdn.net/weixin_43988578/article/details/104001391">VS Code插件开发-全部流程介绍（一）</a></li>
+<li><a href="https://github.com/sxei/vscode-plugin-demo">VSCode插件开发全攻略</a></li>
+<li><a href="https://www.cnblogs.com/liuqi/p/6483317.html#:~:text=%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85Nodejs%20%E6%9C%80%E7%AE%80%E5%8D%95%E6%AD%A5%E9%AA%A4.%201%E3%80%81%E5%8E%BB%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BD%E5%92%8C%E8%87%AA%E5%B7%B1%E7%B3%BB%E7%BB%9F%E5%8C%B9%E9%85%8D%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%9A.%20%E8%8B%B1%E6%96%87%E7%BD%91%E5%9D%80%EF%BC%9Ahttps%3A%2F%2Fnodejs.org%2Fen%2Fdownload%2F.%20%E4%B8%AD%E6%96%87%E7%BD%91%E5%9D%80%EF%BC%9Ahttp%3A%2F%2Fnodejs.cn%2Fdownload%2F.%20%E9%80%9A%E8%BF%87%20uname%20-a,i386%E8%A1%A8%E7%A4%BA32%E4%BD%8D%E7%B3%BB%E7%BB%9F%EF%BC%89%EF%BC%8C%E5%A6%82%E5%9B%BE.%20%E6%95%85%E4%B8%8B%E8%BD%BD%E4%B8%80%E4%B8%8B%E7%BA%A2%E8%89%B2%E6%A1%86%E4%B8%AD%E6%96%87%E4%BB%B6%20%EF%BC%8C%E7%89%88%E6%9C%AC%E4%B8%BAv6.10.0.%202%E3%80%81%E4%B8%8B%E8%BD%BD%E4%B8%8B%E6%9D%A5%E7%9A%84tar%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B9%B6%E4%B8%94%E8%A7%A3%E5%8E%8B%EF%BC%8C%E7%84%B6%E5%90%8E%E9%80%9A%E8%BF%87%E5%BB%BA%E7%AB%8B%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%8F%98%E4%B8%BA%E5%85%A8%E5%B1%80%EF%BC%9B.%201%EF%BC%89%E4%B8%8A%E4%BC%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%AF%E4%BB%A5%E6%98%AF%E8%87%AA%E5%B7%B1%E4%BB%BB%E6%84%8F%E8%B7%AF%E5%BE%84%EF%BC%8C%E7%9B%AE%E5%89%8D%E6%88%91%E7%9A%84%E6%94%BE%E7%BD%AE%E8%B7%AF%E5%BE%84%E4%B8%BA%20cd%20%2Fapp%2Fsoftware%2F.%20">在Linux系统安装Nodejs 最简单步骤</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-16
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/deepingrub/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">DeepinGrub</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/vscodiumconfigure/">
+            <span class="next-text nav-default">VSCodiumConfigure</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

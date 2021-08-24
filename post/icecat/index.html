@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>IceCat - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="Intro python 安装Ubuntu 20.04LTS之后，终端输入python没有进入py环境，然后用apt安装py3之后键入python还是失败，键入py" /><meta name="keywords" content="Ubuntu, Python, icecat" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://backmountaindevil.github.io/post/icecat/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="IceCat" />
+<meta property="og:description" content="Intro python 安装Ubuntu 20.04LTS之后，终端输入python没有进入py环境，然后用apt安装py3之后键入python还是失败，键入py" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/icecat/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-11-14T22:45:16+08:00" />
+<meta property="article:modified_time" content="2020-11-14T22:45:16+08:00" />
+
+<meta itemprop="name" content="IceCat">
+<meta itemprop="description" content="Intro python 安装Ubuntu 20.04LTS之后，终端输入python没有进入py环境，然后用apt安装py3之后键入python还是失败，键入py"><meta itemprop="datePublished" content="2020-11-14T22:45:16+08:00" />
+<meta itemprop="dateModified" content="2020-11-14T22:45:16+08:00" />
+<meta itemprop="wordCount" content="678">
+<meta itemprop="keywords" content="Ubuntu,Python,icecat," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="IceCat"/>
+<meta name="twitter:description" content="Intro python 安装Ubuntu 20.04LTS之后，终端输入python没有进入py环境，然后用apt安装py3之后键入python还是失败，键入py"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">IceCat</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-14 </span>
+        <div class="post-category">
+            <a href="/categories/os/"> OS </a>
+            </div>
+          <span class="more-meta"> 约 678 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a>
+      <ul>
+        <li><a href="#python">python</a></li>
+        <li><a href="#icecat">icecat</a></li>
+      </ul>
+    </li>
+    <li><a href="#how">How</a>
+      <ul>
+        <li><a href="#python-1">python</a></li>
+        <li><a href="#icecat-1">icecat</a>
+          <ul>
+            <li><a href="#final">final</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="intro">Intro</h1>
+<h2 id="python">python</h2>
+<p>安装Ubuntu 20.04LTS之后，终端输入python没有进入py环境，然后用apt安装py3之后键入python还是失败，键入python3才进入了python 3.8.5环境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ python
+
+Command <span class="s1">&#39;python&#39;</span> not found, did you mean:
+
+  <span class="nb">command</span> <span class="s1">&#39;python3&#39;</span> from deb python3
+  <span class="nb">command</span> <span class="s1">&#39;python&#39;</span> from deb python-is-python3
+$ python3
+Python 3.8.5 <span class="o">(</span>default, Jul <span class="m">28</span> 2020, 12:59:40<span class="o">)</span> 
+<span class="o">[</span>GCC 9.3.0<span class="o">]</span> on linux
+Type <span class="s2">&#34;help&#34;</span>, <span class="s2">&#34;copyright&#34;</span>, <span class="s2">&#34;credits&#34;</span> or <span class="s2">&#34;license&#34;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt; 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="icecat">icecat</h2>
+<p>我想用一个开源浏览器，最后选择了一个icecat，下载了tar.bz包，解压之后用./configure安装显示没有检测到python环境，于是想了一个可能是上面python的问题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">icecat-60.7.0-gnu1/icecat-60.7.0$ ./configure
+./configure: 25: exec: python: not found
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="how">How</h1>
+<h2 id="python-1">python</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查找py</span>
+$ whereis python
+python: /usr/bin/python3.8 /usr/lib/python3.8 /usr/lib/python2.7 /usr/lib/python3.9 /etc/python3.8 /usr/local/lib/python3.8 /usr/include/python3.8
+<span class="c1"># 无usr/bin/python，不需要删除</span>
+<span class="c1"># 建立软连接</span>
+$ sudo ln -s /usr/bin/python3.8 /usr/bin/python
+<span class="c1"># 把路径/usr/bin/加入环境变量PATH中</span>
+$ <span class="nv">PATH</span><span class="o">=</span>/usr/bin:<span class="nv">$PATH</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这个时候在终端敲入python就是进入py3的环境了</p>
+<h2 id="icecat-1">icecat</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">icecat-60.7.0-gnu1/icecat-60.7.0$ ./configure
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&#34;./configure.py&#34;</span>, line 16, in &lt;module&gt;
+    from mozbuild.configure import ConfigureSandbox
+  File <span class="s2">&#34;icecat-60.7.0-gnu1/icecat-60.7.0/python/mozbuild/mozbuild/configure/__init__.py&#34;</span>, line 7, in &lt;module&gt;
+    import __builtin__
+ModuleNotFoundError: No module named <span class="s1">&#39;__builtin__&#39;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>根据网上的帖子说这个模块名是py2的，因此要么装py2环境，要么改为py3对于的模块名<code>builtins</code>,我尝试改名之后出现了别的模块错误<code>NameError: name 'unicode' is not defined</code>，查了以下还是py2、3的模块命名不太一样，逐个命名也不太现实。</p>
+<h3 id="final">final</h3>
+<p>这篇<a href="https://wiki.ubuntu.com/IceCat#Installation">icecat-ubuntu wiki</a>最后一部加入默认程序我没搞明白怎么弄，最后采取<code>sudo apt-get install icecat</code>的方式居然没有这个包。。。
+劝告大家尝试安装py2作为默认python吧，我投奔Deepin了。</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://www.jianshu.com/p/9d3033d1b26f">更改Ubuntu默认Python版本方法</a></li>
+<li><a href="https://fishc.com.cn/thread-179350-1-1.html">[已解决]ModuleNotFoundError: No module named &lsquo;<strong>builtin</strong>'</a></li>
+<li><a href="https://blog.csdn.net/xy707707/article/details/80698086">NameError: name &lsquo;unicode&rsquo; is not defined</a></li>
+<li><a href="https://wiki.ubuntu.com/IceCat#Installation">icecat-ubuntu wiki</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-14
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ubuntu/">Ubuntu</a>
+          <a href="/tags/python/">Python</a>
+          <a href="/tags/icecat/">icecat</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/uninstallubuntuonwin/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">完全卸载 Ubuntu 操作系统的办法</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/wintolinux/">
+            <span class="next-text nav-default">WinToLinux</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

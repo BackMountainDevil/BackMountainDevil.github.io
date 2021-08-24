@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="在 Linux 上如何设置、查找、修改 环境变量，比如 PATH, which is not on PATH. Consider adding this directory to PATH" /><meta name="keywords" content=", PATH" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://backmountaindevil.github.io/post/environment_variable/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH" />
+<meta property="og:description" content="在 Linux 上如何设置、查找、修改 环境变量，比如 PATH, which is not on PATH. Consider adding this directory to PATH" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/environment_variable/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-01T20:21:28+08:00" />
+<meta property="article:modified_time" content="2021-06-01T20:21:28+08:00" />
+
+<meta itemprop="name" content="设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH">
+<meta itemprop="description" content="在 Linux 上如何设置、查找、修改 环境变量，比如 PATH, which is not on PATH. Consider adding this directory to PATH"><meta itemprop="datePublished" content="2021-06-01T20:21:28+08:00" />
+<meta itemprop="dateModified" content="2021-06-01T20:21:28+08:00" />
+<meta itemprop="wordCount" content="986">
+<meta itemprop="keywords" content="linux,arch," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH"/>
+<meta name="twitter:description" content="在 Linux 上如何设置、查找、修改 环境变量，比如 PATH, which is not on PATH. Consider adding this directory to PATH"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-06-01 </span>
+        <div class="post-category">
+            <a href="/categories/os/"> os </a>
+            </div>
+          <span class="more-meta"> 约 986 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#环境变量">环境变量</a></li>
+    <li><a href="#配置文件">配置文件</a></li>
+    <li><a href="#查看环境变量">查看环境变量</a>
+      <ul>
+        <li><a href="#全部变量">全部变量</a></li>
+        <li><a href="#单个变量">单个变量</a></li>
+      </ul>
+    </li>
+    <li><a href="#搜索变量">搜索变量</a></li>
+    <li><a href="#设置环境变量">设置环境变量</a>
+      <ul>
+        <li><a href="#临时性修改">临时性修改</a></li>
+        <li><a href="#永久性修改">永久性修改</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="环境变量">环境变量</h1>
+<p>环境变量是什么？通俗的说就是变量，这些变量设置的内容可能是当前的语言、地区、shell、程序的位置、日志等级等。而比较常见的 $PATH 变量就是告诉系统当我敲命令的时候，你要去哪里找这些命令对于的可执行文件，相当与windows 里的 PATH 环境变量。也就是说 PATH 只是众多环境变量中的一个而已。</p>
+<h1 id="配置文件">配置文件</h1>
+<p>下面是两个常见的环境变量的配置文件，当然还有其它，这里不作过多的深入。</p>
+<ul>
+<li><code>/etc/profile</code> 全局环境变量配置文件</li>
+<li><code>~/.bashrc</code> 用户环境变量配置文件</li>
+</ul>
+<h1 id="查看环境变量">查看环境变量</h1>
+<h2 id="全部变量">全部变量</h2>
+<p><code>printenv</code> 和 <code>export</code> 两个指令都可以查看全部环境变量，后者的输出会比较美观有序。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ printenv
+
+.......省略........
+<span class="nv">TERM_PROGRAM_VERSION</span><span class="o">=</span>1.56.2
+<span class="nv">GTK_IM_MODULE</span><span class="o">=</span>fcitx
+<span class="nv">APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL</span><span class="o">=</span><span class="nb">true</span>
+<span class="nv">LANGUAGE</span><span class="o">=</span>zh_CN:en_US
+<span class="nv">D_DISABLE_RT_SCREEN_SCALE</span><span class="o">=</span><span class="m">1</span>
+
+$ <span class="nb">export</span>
+.......省略........
+<span class="nb">declare</span> -x <span class="nv">DESKTOP_SESSION</span><span class="o">=</span><span class="s2">&#34;plasma&#34;</span>
+<span class="nb">declare</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="s2">&#34;:0&#34;</span>
+<span class="nb">declare</span> -x <span class="nv">D_DISABLE_RT_SCREEN_SCALE</span><span class="o">=</span><span class="s2">&#34;1&#34;</span>
+<span class="nb">declare</span> -x <span class="nv">GDK_BACKEND</span><span class="o">=</span><span class="s2">&#34;x11&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>输出内容太多的时候，可以加上参数 <code>| less</code>，如 <code>printenv | less</code>， <code>export | less</code>，按 下或回车显示下一行，按空格显示下一页，按 Q 退出</p>
+<h2 id="单个变量">单个变量</h2>
+<ul>
+<li><code>echo $变量名称</code></li>
+<li><code>printenv 变量名称</code></li>
+</ul>
+<p>要查看单个环境变量，如 PATH ，可以用 <code>echo $PATH</code> 或者 <code>printenv PATH</code>。注意使用 printenv 的时候没有 <code>$</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="nv">$PATH</span>
+/home/kearney/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin
+
+$ printenv GTK_IM_MODULE
+fcitx
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="搜索变量">搜索变量</h1>
+<p>有的时候设置了某个变量，但是又记不住这个变量的全名，除了查看全部变量逐个查找之外还可以搜索相似名称的变量</p>
+<ul>
+<li><code>printenv | grep [变量名]</code></li>
+<li><code>export | grep [变量名]</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ printenv <span class="p">|</span> grep LANG
+<span class="nv">LANGUAGE</span><span class="o">=</span>zh_CN:en_US
+<span class="nv">LANG</span><span class="o">=</span>zh_CN.UTF-8
+
+$ <span class="nb">export</span> <span class="p">|</span> grep SEAT
+<span class="nb">declare</span> -x <span class="nv">XDG_SEAT</span><span class="o">=</span><span class="s2">&#34;seat0&#34;</span>
+<span class="nb">declare</span> -x <span class="nv">XDG_SEAT_PATH</span><span class="o">=</span><span class="s2">&#34;/org/freedesktop/DisplayManager/Seat0&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="设置环境变量">设置环境变量</h1>
+<ul>
+<li><code>export 变量名=变量值</code></li>
+</ul>
+<p>如果变量值中含有空格，最好给变量值加上引号</p>
+<h2 id="临时性修改">临时性修改</h2>
+<p>有一次，我在使用 pacman 更新系统的时候出了不少问题，错误和警告都是中文的，搜了一下对于的错误没找到合适的解决方案。但是本着百分之九十九的问题都有人解决过了的年头，应该换成英文去搜索。这个时候就需要临时设置一下语言为英文了。当当前会话结束的时候，被修改的变量还是没修改之前的值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 中文错误提示ing</span>
+$ <span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>c
+<span class="c1"># 重现错误</span>
+<span class="c1"># 现在是英文提示</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="永久性修改">永久性修改</h2>
+<p>在安装某些软件包的时候，会出现下面这样的警告，这个时候就需要我们在变量 PATH 中加入这个值了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">WARNING: The script XXXXXX is installed in <span class="s1">&#39;/home/kearney/.local/bin&#39;</span> which is not on PATH.
+  Consider adding this directory to PATH
+</code></pre></td></tr></table>
+</div>
+</div><p>举个例子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 改全局的配置用这个</span>
+$ sudo nano /etc/profile
+
+<span class="c1"># 改个人的配置用这个</span>
+$ nano ~/.bashrc
+
+<span class="c1"># 配置文件里的注释是 # 开头的哦</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span><span class="s2">:/home/kearney/.local/bin&#34;</span>
+<span class="nb">export</span> <span class="nv">OPENCV_LOG_LEVEL</span><span class="o">=</span>ERROR
+</code></pre></td></tr></table>
+</div>
+</div><p>粘贴（Ctrl + Shift + V）完成后 Ctrl + S 保存， Ctrl + X 退出 nano。别忘了刷新一下环境变量 <code>source /etc/profile</code> 或 <code>source ~/.bashrc</code> 。或者直接开启新的会话。</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://m.linuxidc.com/Linux/2019-08/159846.htm">如何在Linux中向$PATH添加目录 - 醉落红尘</a></li>
+<li><a href="https://blog.csdn.net/DLUTBruceZhang/article/details/8811456">linux下查看和添加PATH环境变量 - BruceZhang</a></li>
+<li><a href="https://phoenixnap.com/kb/linux-set-environment-variable#:~:text=1%20To%20set%20permanent%20environment%20variables%20for%20a,changes%20are%20applied%20at%20the%20next%20logging%20in.">How to Set Environment Variables in Linux 2020</a></li>
+<li><a href="https://wiki.archlinux.org/title/Environment_variables">Environment_variables Arch Wiki</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-06-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/arch/">arch</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/refind/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">rEFInd - 一款优美的多系统引导软件</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/arch-downgrade/">
+            <span class="next-text nav-default">Arch 安装旧版软件的办法（软件降级）</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

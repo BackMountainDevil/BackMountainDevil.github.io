@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Arch 下 VS Code, Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法 - 筱氚~物语</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="筱氚" /><meta name="description" content="Arch 下 VS Code、Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法" /><meta name="keywords" content="texteditor, arch, code, update" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://backmountaindevil.github.io/post/codeupdateerror/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Arch 下 VS Code, Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法" />
+<meta property="og:description" content="Arch 下 VS Code、Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://backmountaindevil.github.io/post/codeupdateerror/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-04-29T09:13:42+08:00" />
+<meta property="article:modified_time" content="2021-04-29T09:13:42+08:00" />
+
+<meta itemprop="name" content="Arch 下 VS Code, Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法">
+<meta itemprop="description" content="Arch 下 VS Code、Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法"><meta itemprop="datePublished" content="2021-04-29T09:13:42+08:00" />
+<meta itemprop="dateModified" content="2021-04-29T09:13:42+08:00" />
+<meta itemprop="wordCount" content="2418">
+<meta itemprop="keywords" content="texteditor,arch,code," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Arch 下 VS Code, Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法"/>
+<meta name="twitter:description" content="Arch 下 VS Code、Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">筱氚快更新</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">筱氚快更新</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Arch 下 VS Code, Ciano 升级导致 lib*.so* 错误以及安装旧版（软件降级）的办法</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/vscodium/"> vscodium </a>
+            </div>
+          <span class="more-meta"> 约 2418 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题描述">问题描述</a>
+      <ul>
+        <li><a href="#背景">背景</a></li>
+        <li><a href="#错误信息">错误信息</a></li>
+        <li><a href="#问题探究">问题探究</a>
+          <ul>
+            <li><a href="#软链接大法">软链接大法</a></li>
+            <li><a href="#重装大法">重装大法</a></li>
+            <li><a href="#安装旧版大法">安装旧版大法</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#ciano">Ciano</a></li>
+    <li><a href="#软链接">软链接</a>
+      <ul>
+        <li><a href="#创建">创建</a></li>
+        <li><a href="#修改">修改</a></li>
+        <li><a href="#删除">删除</a></li>
+        <li><a href="#查找">查找</a>
+          <ul>
+            <li><a href="#全部软链接">全部软链接</a></li>
+            <li><a href="#失效软链接">失效软链接</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="问题描述">问题描述</h1>
+<h2 id="背景">背景</h2>
+<p>将近一个多月没有更新软件了，打开 Discover 发现六百多个没更新的，就选了几个常用的软件进行更新（fcitix5、VS Code、Ciano）。更新完成之后发现无法启动 VS Code，重启之后依然如此。</p>
+<ul>
+<li>code version: 1.55.2.1</li>
+<li>Ciano version：0.2.4-2, released on 2020/7/12</li>
+<li>os: Linux arch 5.11.6-arch1-1 #1 SMP PREEMPT Thu, 11 Mar 2021 13:48:23 +0000 x86_64 GNU/Linux</li>
+<li>启动方式：菜单栏或者 Task Manager</li>
+</ul>
+<h2 id="错误信息">错误信息</h2>
+<p>点击启动图标啥反应也没有，没有错误提示、警告，没有闪现，啥也没有。于是乎想起了终端大法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ code
+electron11: error <span class="k">while</span> loading shared libraries: libicui18n.so.69: cannot open shared object file: No such file or directory
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="问题探究">问题探究</h2>
+<p>这类 so 文件的问题之前也遇到过，一种是软件更新没及时更新对于的文件，第二种是依赖关系导致的暂不能更新这个文件，还有一种是压根没有这个文件。</p>
+<p>常规套路是文件没有更新，创建个软链接即可。</p>
+<h3 id="软链接大法">软链接大法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ whereis code
+code: /usr/bin/code /usr/lib/code /usr/share/man/mann/code.n.gz
+$ which code
+/usr/bin/code
+
+<span class="c1"># 看缺啥动态库，模仿别人</span>
+$ ldd /usr/bin/code
+        不是动态可执行文件
+
+$ whereis libicui18n
+libicui18n: /usr/lib/libicui18n.so
+
+$ <span class="nb">cd</span> /usr/lib
+$ whereis libicui18n.so.*
+libicui18n.so: /usr/lib/libicui18n.so.68 /usr/lib/libicui18n.so
+libicui18n.so.68: /usr/lib/libicui18n.so.68 /usr/lib/libicui18n.so.68.2
+
+<span class="c1"># 看看到底有啥，上面看不太懂</span>
+$ find /usr/lib libicui18n* 
+libicui18n.so
+libicui18n.so.68
+libicui18n.so.68.2
+
+<span class="c1"># 看看真身是谁</span>
+$ file libicui18n.so
+libicui18n.so: symbolic link to libicui18n.so.68.2
+$ file libicui18n.so.68
+libicui18n.so.68: symbolic link to libicui18n.so.68.2
+$ file libicui18n.so.68.2
+libicui18n.so.68.2: ELF 64-bit LSB shared object, x86-64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, BuildID<span class="o">[</span>sha1<span class="o">]=</span>7d9f41d382792b6d6eb0d2fd54dd0ffadf654464, stripped
+
+<span class="c1"># 上面结果显示.so，.so.68都是软链接，都指向.so.68.2</span>
+$ sudo ln -s libicui18n.so.68.2 libicui18n.so.69
+</code></pre></td></tr></table>
+</div>
+</div><p>然后启动很尴尬啊。。看来不止一个 so文件 。。。链接太多也不是个办法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ code
+electron11: error <span class="k">while</span> loading shared libraries: libicuuc.so.69: cannot open shared object file: No such file or directory
+</code></pre></td></tr></table>
+</div>
+</div><p>罢了罢了，删除刚才建立的软链接，恢复原状</p>
+<p><code>sudo rm libicui18n.so.69</code></p>
+<blockquote>
+<p><a href="https://wiki.archlinux.org/index.php/System_maintenance_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F">更新系统</a><br>
+如果进行了部分升级，二进制包因为找不到链接库而损坏，不要通过简单的符号链接进行修正。库升级 soname 是因为它们不再向前兼容。只要 pacman 可以运行，使用更新的源进行 pacman -Syu 就能修复这些问题。</p>
+</blockquote>
+<h3 id="重装大法">重装大法</h3>
+<p>后面在 Discover 卸载 code,打算重装的时候提示找不到仓库无法安装。。然后用 <code>sudo pacman -S code</code> 来安装，发现安装的还是 code-1.55.2-1 ，运行还是会存在上面遇到的问题。最后用 <code>sudo pacman -Rs code</code> 卸载了 electron11-11.4.3-2  code-1.55.2-1，好奇怪。。上次我打算卸载atom 的时候提示我 electron 冲突无法卸载。这次顺手（<code>sudo pacman -Rs atom</code>）把 atom （apm-2.6.1-2  electron6-6.1.12-5  ripgrep-12.1.1-1  atom-1.55.0-1
+）也卸载了。</p>
+<h3 id="安装旧版大法">安装旧版大法</h3>
+<p>既然新版不行，那我把 code 版本降级回去，找到了一个关于 <a href="https://linux.cn/article-9730-1.html">downgrade</a> 的办法，不过尝试之后已经失效了，找不到该目标软件包。最后求助 Arch Wiki 中关于降级（<a href="https://wiki.archlinux.org/index.php/Downgrading_packages">Downgrading_packages Arch Wiki</a>）的描述</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> /var/cache/pacman/pkg/
+
+<span class="c1"># 查找有几个版本</span>
+$ find ./ code* 
+code-1.53.2-1-x86_64.pkg.tar.zst
+code-1.54.2-1-x86_64.pkg.tar.zst
+code-1.55.2-1-x86_64.pkg.tar.zst
+
+<span class="c1"># 选择54版</span>
+$ sudo pacman -U /var/cache/pacman/pkg/code-1.54.2-1-x86_64.pkg.tar.zst
+
+<span class="c1"># 启动测试</span>
+$ code
+</code></pre></td></tr></table>
+</div>
+</div><p>启动成功，发现 code 插件都还在，卸载的时候没有自动卸载对应的插件</p>
+<h1 id="ciano">Ciano</h1>
+<p>解决完 code 的问题之后才发现 Ciano（一款格式转换工具） 无法启动，命令行里也不支持 ciano 。。。。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ ciano
+bash: ciano：未找到命令
+$ Ciano
+bash: Ciano：未找到命令
+$ whereis ciano
+ciano: /usr/share/ciano
+<span class="c1"># 打开之后发现是个图片文件夹</span>
+
+$ <span class="nb">cd</span> /usr/bin
+$ find ./ *ciano*
+com.github.robertsanseries.ciano
+
+<span class="c1"># 从终端启动 ciano </span>
+$ com.github.robertsanseries.ciano
+com.github.robertsanseries.ciano: error <span class="k">while</span> loading shared libraries: libgranite.so.6: cannot open shared object file: No such file or directory
+</code></pre></td></tr></table>
+</div>
+</div><p>后来在 <code>/usr/share/applications</code> 找到其文件描述中有 <code>Exec=com.github.robertsanseries.ciano</code>， 才知道这个是应用的终端。不过这不重要，重点是升级导致库文件没及跟上导致互不相认。。。卸载重装吧</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -Rs com.github.robertsanseries.ciano
+错误：未找到目标：com.github.robertsanseries.ciano
+<span class="c1"># 这就离谱了，包名不是这样的吗？？？</span>
+<span class="c1"># 在 Discover 中可以卸载，输入密码确认前我打算试一下ciano</span>
+
+$ sudo pacman -Rs ciano
+正在检查依赖关系...
+软件包 <span class="o">(</span>3<span class="o">)</span> granite-5.5.0-1  libgee-0.20.3-2  ciano-0.2.4-2
+全部移去体积：  3.39 MiB
+<span class="c1"># 佛了，包名和终端启动名还不一样哈。。。</span>
+
+$ <span class="nb">cd</span> /var/cache/pacman/pkg/
+
+<span class="c1"># 查找有几个版本，用 find /var/cache/pacman/pkg/ *ciano* 查找不到的原因我还不知道。。</span>
+$ find ./ *ciano* 
+ciano-0.2.4-1-x86_64.pkg.tar.zst
+ciano-0.2.4-2-x86_64.pkg.tar.zst
+
+<span class="c1"># 选择54版</span>
+$ sudo pacman -U /var/cache/pacman/pkg/ciano-0.2.4-1-x86_64.pkg.tar.zst
+
+<span class="c1"># 启动测试</span>
+$ com.github.robertsanseries.ciano
+com.github.robertsanseries.ciano: error <span class="k">while</span> loading shared libraries: libgranite.so.5: cannot open shared object file: No such file or directory
+</code></pre></td></tr></table>
+</div>
+</div><p>我佛慈悲。。。看来版本不够低，看了 Discoer 中关于 Ciano 的评论中 Stark 说这个项目死了两年，到 <a href="https://github.com/robertsanseries/ciano/releases">ciano - github/release</a>看了下确实 0.2.1 到 0.2.2 之间跨越了两年，但在 2020 生到了 0.2.4, 2021 还没有新版（有在维护），release 中也没有 最近版本的 deb 可以装（只有个 0.1.4）。。源码编译安装吗？？下次一定</p>
+<p>软件更新日至可以在 pacman 日志文件（<code>/var/log/pacman.log</code>）中进行查找，我搜了下 ciano 发现我最早安装这个软件是在 2021-03-01，版本是 0.2.4-1，那为什么我重装回这个版本却无法使用了呢？再次看<a href="https://wiki.archlinux.org/index.php/System_maintenance_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F">更新系统 Arch Wiki</a>中的描述才知道我这样的行为属于部分更新，然而 arch 对部分更新的支持性是不太友好的。</p>
+<h1 id="软链接">软链接</h1>
+<p>类似 windwos 下的快捷方式</p>
+<h2 id="创建">创建</h2>
+<p><code>ln -s 源文件名 软链接文件名</code></p>
+<h2 id="修改">修改</h2>
+<p><code>ln –snf 新源文件名 软链接文件名</code></p>
+<h2 id="删除">删除</h2>
+<p><code>rm 软链接文件名</code></p>
+<h2 id="查找">查找</h2>
+<h3 id="全部软链接">全部软链接</h3>
+<p><code>ls -alR | grep ^l</code></p>
+<h3 id="失效软链接">失效软链接</h3>
+<p>原文件已经被删除了，但是软链接还在</p>
+<p><code>find . -xtype l</code></p>
+<h1 id="总结">总结</h1>
+<p>用 where 查找是在 linux 每日自动生成的数据库里查找，有时候心文件还来不及收录进数据库，知道在哪一个地方用 find 查找会更好</p>
+<p>打算更新 Discover 中六百多个更新的时候提示 <code>Dependency resolution failed libcap=2.48</code>。。。。之前只有几个更新的时候打算更新，也是遇到类似的问题，一直没有更新积累到现在有六百多个更新。。。悄咪咪只更新了几个软件还无法使用。。。啊这</p>
+<p>所幸这次安装旧版的 code 解决了，但是这还是不可理喻，不更新系统的前提下更新软件居然不可用。。。</p>
+<p>得思考下解决这些依赖问题然后全盘升级了。</p>
+<h1 id="参考">参考</h1>
+<p><a href="https://blog.csdn.net/weixin_43031092/article/details/114584385">Arch Linux上使用 pandoc 将 markdown 转为 pdf 以及如何查看本机的中文字体 fc-list :lang=zh Kearney form An idea 2021-03-17</a>:之前在这里遇到过 so 文件的类似问题，软链接治标不治本，后面通过升级解决的</p>
+<blockquote>
+<p>pdftex: error while loading shared libraries: libpoppler.so.108: cannot open shared object file</p>
+</blockquote>
+<p><a href="https://blog.csdn.net/weixin_43336281/article/details/107561560">uwsgi: error while loading shared libraries: libicui18n.so.58: cannot open shared object file Alex 007 2020-07-24</a></p>
+<p><a href="https://blog.csdn.net/menghefang/article/details/88624161">Linux建立软链接、硬链接 menghefang 2019-03-17</a></p>
+<p><a href="https://tenglog.com/posts/linux-find-all-broken-symlinks.html">Linux查找文件系统中的失效链接 Zombie&rsquo;s blog 2018-12-27</a>：三种find查找，一种（| xargs rm -rf）删除</p>
+<p><a href="https://blog.csdn.net/chenghuikai/article/details/50961622">Linux删除软链接 linux凯 2016-03-23 </a></p>
+<p><a href="https://wiki.archlinux.org/index.php/Downgrading_packages">Downgrading_packages Arch Wiki</a>：亲测有效</p>
+<p><a href="https://linux.cn/article-9730-1.html">downgrade 如何在 Arch Linux 中降级软件包 作者： Sk 译者： LCTT MjSeven| 2018-06-0</a>：测试结果显示该软件没了。。后面从<a href="https://aur.archlinux.org/packages/downgrader-git/">downgrader-git</a>看到这是一个 AUR 中的包，下载方式应该是借助其它 AUR helper 来下载，比如 <code>yay -S downgrade</code>，文中的方式可能是以前的下载方式吧。</p>
+<p><a href="https://wiki.archlinux.org/index.php/System_maintenance_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F">更新系统 Arch Wiki</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">筱氚</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-04-29
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/texteditor/">texteditor</a>
+          <a href="/tags/arch/">arch</a>
+          <a href="/tags/code/">code</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/pacman/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Arch Pacman &amp; Yay 介绍&#43;基本使用 &amp; 更新中无法满足依赖关系的解决办法</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/compilepy39/">
+            <span class="next-text nav-default">在树莓派2上非全局编译安装 python39</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:kearneyyi@cau.edu.cn" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/13488147/kearney" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/BackMountainDevil" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/an-yi-20-66" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://space.bilibili.com/129086835" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://backmountaindevil.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>筱氚</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
