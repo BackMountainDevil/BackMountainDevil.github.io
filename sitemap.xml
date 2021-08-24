@@ -1,921 +1,660 @@
-<?xml-stylesheet type="text/xsl" href="https://backmountaindevil.github.io/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://backmountaindevil.github.io/categories/</loc>
     <lastmod>2021-08-24T10:15:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/docker/</loc>
     <lastmod>2021-08-24T10:15:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/</loc>
     <lastmod>2021-08-24T10:15:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/python/</loc>
     <lastmod>2021-08-24T10:15:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/pyvenv/</loc>
     <lastmod>2021-08-24T10:15:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/</loc>
     <lastmod>2021-08-24T10:15:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/</loc>
     <lastmod>2021-08-24T10:15:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/libsvm/</loc>
     <lastmod>2021-08-06T21:56:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/svm/</loc>
     <lastmod>2021-08-06T21:56:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2021-08-06T21:56:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/dev-init/</loc>
     <lastmod>2021-08-02T12:12:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/raspberry/</loc>
     <lastmod>2021-08-02T12:12:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/raspiap/</loc>
     <lastmod>2021-08-02T12:12:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/arch/</loc>
     <lastmod>2021-07-25T15:09:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/archupdatewarning/</loc>
     <lastmod>2021-07-25T15:09:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/os/</loc>
     <lastmod>2021-07-25T15:09:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/raspicam/</loc>
     <lastmod>2021-07-23T17:51:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/esp/</loc>
     <lastmod>2021-07-18T23:08:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/mcureboot/</loc>
     <lastmod>2021-07-18T23:08:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/rasvnc/</loc>
     <lastmod>2021-07-18T10:08:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/espplatformio/</loc>
     <lastmod>2021-07-17T18:31:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/rasip/</loc>
     <lastmod>2021-07-16T23:23:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/eclipse/</loc>
     <lastmod>2021-07-12T12:05:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/eclipse-mirror/</loc>
     <lastmod>2021-07-12T12:05:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/dockermac/</loc>
     <lastmod>2021-07-02T19:13:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/archkernel/</loc>
     <lastmod>2021-07-01T20:28:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/maker/</loc>
     <lastmod>2021-06-07T23:20:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/mecanumwheel/</loc>
     <lastmod>2021-06-07T23:20:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/espidf/</loc>
     <lastmod>2021-06-04T12:01:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/app/</loc>
     <lastmod>2021-06-03T12:04:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/linux/</loc>
     <lastmod>2021-06-03T12:04:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/refind/</loc>
     <lastmod>2021-06-03T12:04:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/environment_variable/</loc>
     <lastmod>2021-06-01T20:21:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/arch-downgrade/</loc>
     <lastmod>2021-05-28T22:55:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/arch-begin/</loc>
     <lastmod>2021-05-28T11:58:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/eclipse/</loc>
     <lastmod>2021-05-24T08:27:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/app/</loc>
     <lastmod>2021-05-01T15:31:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/blog/</loc>
     <lastmod>2021-05-01T15:31:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/htglocker/</loc>
     <lastmod>2021-05-01T15:31:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/pandoc/</loc>
     <lastmod>2021-05-01T15:12:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/pandoc/</loc>
     <lastmod>2021-05-01T15:12:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/pacman/</loc>
     <lastmod>2021-04-30T08:36:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/codeupdateerror/</loc>
     <lastmod>2021-04-29T09:13:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/code/</loc>
     <lastmod>2021-04-29T09:13:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/texteditor/</loc>
     <lastmod>2021-04-29T09:13:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/vscodium/</loc>
     <lastmod>2021-04-29T09:13:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/compile/</loc>
     <lastmod>2021-04-27T22:26:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/python/</loc>
     <lastmod>2021-04-27T22:26:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/compilepy39/</loc>
     <lastmod>2021-04-27T22:26:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/rbpnoscreen/</loc>
     <lastmod>2021-04-27T18:43:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/raspberrypi/</loc>
     <lastmod>2021-04-27T11:21:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/debtap/</loc>
     <lastmod>2021-04-27T10:59:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/reading/</loc>
     <lastmod>2021-04-18T15:18:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/reading-notes/</loc>
     <lastmod>2021-04-18T15:18:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/rn3/</loc>
     <lastmod>2021-04-18T15:18:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/demo/</loc>
     <lastmod>2021-04-17T08:29:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/js/</loc>
     <lastmod>2021-04-17T08:29:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/jsdemobmi/</loc>
     <lastmod>2021-04-17T08:29:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/linuxhello/</loc>
     <lastmod>2021-04-15T21:36:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/camera/</loc>
     <lastmod>2021-04-07T19:56:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/nikonf60/</loc>
     <lastmod>2021-04-07T19:56:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/rn2/</loc>
     <lastmod>2021-03-24T19:49:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/algorithms/</loc>
     <lastmod>2021-03-13T15:39:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/algorithmsrank/</loc>
     <lastmod>2021-03-13T15:39:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/c/</loc>
     <lastmod>2021-03-13T15:39:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/math/</loc>
     <lastmod>2021-03-13T15:39:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/jsdemoppi/</loc>
     <lastmod>2021-03-01T21:13:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/rn1/</loc>
     <lastmod>2021-02-04T14:14:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/conclusion/</loc>
     <lastmod>2021-02-04T10:33:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/cls-2020/</loc>
     <lastmod>2021-02-04T10:33:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/video/</loc>
     <lastmod>2021-02-02T23:41:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/video-notes/</loc>
     <lastmod>2021-02-02T23:41:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/vn-childhoodelse/</loc>
     <lastmod>2021-02-02T23:41:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/vn-youngsheldons1/</loc>
     <lastmod>2021-01-24T20:00:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/rn0/</loc>
     <lastmod>2021-01-24T18:53:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/hugogitee/</loc>
     <lastmod>2020-12-08T10:17:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/pyqt5/</loc>
     <lastmod>2020-12-03T15:57:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/blood/</loc>
     <lastmod>2020-11-24T21:37:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/c&#43;&#43;/</loc>
     <lastmod>2020-11-24T11:54:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/gui/</loc>
     <lastmod>2020-11-24T11:54:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/qt/</loc>
     <lastmod>2020-11-24T11:54:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/qtonlinux/</loc>
     <lastmod>2020-11-24T11:54:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/c/</loc>
     <lastmod>2020-11-21T16:15:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/c/</loc>
     <lastmod>2020-11-21T16:15:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/texteditorpython/</loc>
     <lastmod>2020-11-20T19:31:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/osprocessthreads/</loc>
     <lastmod>2020-11-20T08:31:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/osintro/</loc>
     <lastmod>2020-11-20T08:27:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/pygame/</loc>
     <lastmod>2020-11-19T06:54:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/git/</loc>
     <lastmod>2020-11-16T18:58:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/gitconfigusage/</loc>
     <lastmod>2020-11-16T18:58:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/vcs/</loc>
     <lastmod>2020-11-16T18:58:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/deepin/</loc>
     <lastmod>2020-11-16T14:13:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/deepingrub/</loc>
     <lastmod>2020-11-16T14:13:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/vscodiumextension/</loc>
     <lastmod>2020-11-16T10:55:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/vscodiumconfigure/</loc>
     <lastmod>2020-11-15T21:10:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/foss/</loc>
     <lastmod>2020-11-15T12:57:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/fsf/</loc>
     <lastmod>2020-11-15T12:57:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/fsfoss/</loc>
     <lastmod>2020-11-15T12:57:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/oss/</loc>
     <lastmod>2020-11-15T12:57:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/writing/</loc>
     <lastmod>2020-11-15T12:27:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/font/</loc>
     <lastmod>2020-11-15T12:27:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/ubuntu/</loc>
     <lastmod>2020-11-15T02:57:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/uninstallubuntuonwin/</loc>
     <lastmod>2020-11-15T02:57:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/icecat/</loc>
     <lastmod>2020-11-14T22:45:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/icecat/</loc>
     <lastmod>2020-11-14T22:45:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/wintolinux/</loc>
     <lastmod>2020-11-14T11:14:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/xiaoxin13prowinubuos/</loc>
     <lastmod>2020-11-11T16:48:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/uboot/</loc>
     <lastmod>2020-11-10T22:59:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/uefimake/</loc>
     <lastmod>2020-11-10T22:59:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/gnulinux/</loc>
     <lastmod>2020-11-10T22:00:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/hugo/</loc>
     <lastmod>2020-11-10T21:11:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/hugorss/</loc>
     <lastmod>2020-11-10T21:11:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/beautifyoffice/</loc>
     <lastmod>2020-11-07T15:17:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/office/</loc>
     <lastmod>2020-11-07T15:17:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/mips/</loc>
     <lastmod>2020-11-06T14:21:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/mips/</loc>
     <lastmod>2020-11-06T14:21:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/mips_dos/</loc>
     <lastmod>2020-11-06T14:21:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/github/</loc>
     <lastmod>2020-11-06T11:49:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/makegithubpagesafeviahttps/</loc>
     <lastmod>2020-11-06T11:49:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/gitsubmodule/</loc>
     <lastmod>2020-11-04T20:50:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/gitcloneslowfix/</loc>
     <lastmod>2020-11-04T11:19:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/exercise/</loc>
     <lastmod>2020-11-04T11:19:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/%E4%BB%8Ehexo%E5%88%B0hugo/</loc>
     <lastmod>2020-11-04T11:19:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/%E6%92%B8%E9%93%81%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2020-11-04T11:19:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/whatsgit/</loc>
     <lastmod>2020-08-27T18:33:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/tags/mcu/</loc>
     <lastmod>2020-08-27T19:33:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/tft-lcd-ili9341-display-1/</loc>
     <lastmod>2020-08-27T19:33:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/esp8266%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE-php-or-python/</loc>
     <lastmod>2020-06-22T04:53:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%AD%BB%E4%BA%A1%E7%9A%84/</loc>
     <lastmod>2020-05-29T12:57:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/categories/%E7%AD%B1%E8%AF%B4/</loc>
     <lastmod>2020-05-29T12:57:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://backmountaindevil.github.io/post/%E8%87%B4%E9%9D%92%E6%98%A5-%E4%BB%8E%E6%AD%BB%E7%A5%9E%E8%84%9A%E4%B8%8B%E8%B5%B0%E5%87%BA%E7%9A%84%E5%B0%8F%E5%AD%A6%E7%94%9F/</loc>
     <lastmod>2020-03-25T21:37:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
-  
 </urlset>
