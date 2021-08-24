@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 17 Aug 2021 20:45:01 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Aug 2021 16:36:20 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>https://backmountaindevil.github.io/categories/blog/</link>
+      <pubDate>Tue, 24 Aug 2021 16:36:20 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/categories/blog/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>python</title>
       <link>https://backmountaindevil.github.io/categories/python/</link>
@@ -59,15 +68,6 @@
       <pubDate>Thu, 03 Jun 2021 12:04:58 +0800</pubDate>
       
       <guid>https://backmountaindevil.github.io/categories/app/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>https://backmountaindevil.github.io/categories/blog/</link>
-      <pubDate>Sat, 01 May 2021 15:31:48 +0800</pubDate>
-      
-      <guid>https://backmountaindevil.github.io/categories/blog/</guid>
       <description></description>
     </item>
     

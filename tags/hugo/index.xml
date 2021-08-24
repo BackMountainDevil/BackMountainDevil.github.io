@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on 筱氚~物语</title>
+    <title>hugo on 筱氚~物语</title>
     <link>https://backmountaindevil.github.io/tags/hugo/</link>
-    <description>Recent content in Hugo on 筱氚~物语</description>
+    <description>Recent content in hugo on 筱氚~物语</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>筱氚</copyright>
-    <lastBuildDate>Tue, 10 Nov 2020 21:11:21 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Aug 2021 16:36:20 +0800</lastBuildDate><atom:link href="https://backmountaindevil.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Github Action 自动部署 Hugo 博客</title>
+      <link>https://backmountaindevil.github.io/post/github_action/</link>
+      <pubDate>Tue, 24 Aug 2021 16:36:20 +0800</pubDate>
+      
+      <guid>https://backmountaindevil.github.io/post/github_action/</guid>
+      <description>干啥 每次 Hugo 生成完静态网页文件之后，需要分别 push 两次（源码和网页），听说 Github 有了自动化集成方案 Action 来减少一些工作。查了一下，现在是可以只需要 push 源码，</description>
+    </item>
+    
     <item>
       <title>HugoRSS</title>
       <link>https://backmountaindevil.github.io/post/hugorss/</link>
