@@ -1,5 +1,5 @@
 ---
-title: "JsDemoBmi"
+title: "利用javascript进行计算 BMI"
 date: 2021-04-17T08:29:53+08:00
 lastmod: 2021-04-17T08:29:53+08:00
 keywords: ['javascript', 'bmi', 'js']

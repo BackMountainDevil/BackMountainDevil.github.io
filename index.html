@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
   <meta charset="UTF-8">
-  <title>物语</title>
+  <title>筱易物语</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="./static/vue.css">
+  <meta name="author" content="Kearney" />
+  <meta name="description" content="筱易的博客网站" />
+  <meta name="keywords" content="Kearney, Blog, '筱易', '博客'" />
+  <meta property="og:title" content="筱易物语" />
+  <meta property="og:description" content="筱易在写博客 ing" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://backmountaindevil.github.io/" />
+  <link rel="stylesheet" href="/static/vue.css">
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
   <style type="text/css">
     body {
@@ -20,21 +27,29 @@
   <script>
     if (typeof navigator.serviceWorker !== 'undefined') {
       navigator.serviceWorker.register('sw.js')
+      console.log("PWA Mode")
     }
+    console.log("Online Mode")
 
     window.$docsify = {
       el: '#app',
       search: {
         placeholder: '搜索',
-        noData: '找不到结果'
+        noData: '好像没有结果哦'
       },
       auto2top: true,
       loadSidebar: true,
       maxLevel: 4,
       subMaxLevel: 2,
-      name: '物语'
+      name: '筱易物语'
     }
   </script>
+  <!-- For local dev -->
+  <!-- <script src="/static/docsify@4.js"></script>
+  <script src="/static/search.min.js"></script>
+  <script src="/static/docsify-copy-code.min.js"></script> -->
+  
+  <!-- For Internet -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>

@@ -1,0 +1,8 @@
+- [Python 的版本与虚拟环境管理，以 pyenv、pipenv、venv 为例](/code/python/pyenv.md)
+- [python 使用 xgettext 与 locale 做国家化与本土化的示例](/code/python/i18n.md)
+- [用python3写一个简单的文本编辑器](/code/python/TextEditorPython.md)
+- [Pyqt5](/code/python/pyqt5.md)
+- [Pygame](/code/python/pygame.md)
+- [在树莓派2上非全局编译安装 python39](/code/python/compilepy39.md)
+- [](/code/python/.md)
+- [](/code/python/.md)

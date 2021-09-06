@@ -1,0 +1,4 @@
+- [C 的十分钟入门](/code/cpp/c.md)
+- [美观带颜色的控制台菜单](/code/cpp/consoleMenu.md)
+- [](/code/cpp/.md)
+- [](/code/cpp/.md)

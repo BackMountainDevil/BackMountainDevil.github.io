@@ -1,5 +1,5 @@
 ---
-title: "JsDemoPpi"
+title: "利用javascript进行计算PPI"
 date: 2021-03-01T21:13:24+08:00
 lastmod: 2021-03-01T21:13:24+08:00
 keywords: ['javascript', 'ppi']
