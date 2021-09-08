@@ -197,11 +197,23 @@ $ sudo cp -r /var/lib/bluetooth/28:CD:C4:BA:BB:2C/ /run/media/kearney/Debian/var
 
 ![鼠标更新之后的配置](https://img-blog.csdnimg.cn/82dfb50329b543f9b4b042f9af0cefa6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAS2Vhcm5leSBmb3JtIEFuIGlkZWE=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
+## 开机自启
+
+linux 的蓝牙默认是登陆后在启动服务的，也就是在输入密码的时候你还是得用电脑的键盘（如笔记本键盘），蓝牙键盘是暂时不能使用的，为了让在登陆的时候也能使用蓝牙键盘，如 [Bluetooth - ArchWiKi](https://wiki.archlinux.org/title/Bluetooth) 中 Auto power-on after boot 小节说的一样
+
+```bash
+sudo nano /etc/bluetooth/main.conf
+# ctrl + w 启动搜索 AutoEnable
+# 去掉 AutoEnable 前面的井号，把它的值改为 true
+```
+
 # 总结
 
 在最后的步骤 “用 root 权限修改 linux 的蓝牙配置信息” 中，其实可以用 root 账户登陆桌面，操作就会是图形化操作，当然也可以在管理员用户下用 `su root` 切换到 root 账户，这样不需要记录本机 ID 和 Linux 蓝牙 ID,因为可以用 tab 自动补全，但想了一下能用 sudo 解决的话，就先用着吧见仁见智。
 
 平实主要是用 Manjaro, Debian 没法用 AUR,下载了也涉及依赖问题，社区推的 DUR 还不成熟，先留着，之后估计会砍掉 Debian 装 BSD 玩一下。
+
+上面用 pstool 的办法看起来似乎没有 chntpw 那么方便，有空再翻译一下 Arch wiki。
 
 # 参考
 
@@ -215,6 +227,7 @@ $ sudo cp -r /var/lib/bluetooth/28:CD:C4:BA:BB:2C/ /run/media/kearney/Debian/var
   ERAND（Windows）—<转DEC>—Rand（linux）—<HEX直接带入>—RAND(MacOS)  
   EDIV(Windows)—<转DEC>—EDIV(Linux)—<HEX反转>—EDIV（MacOS）  
   有CSRK的可以参考一下http://bbs.pcbeta.com/forum.php?mod=viewthread&tid=1839501
+- [Bluetooth - ArchWiKi](https://wiki.archlinux.org/title/Bluetooth):Dual boot pairing 中提供了另外一种办法（chntpw），以及开机自启动蓝牙
 - [Bluetooth mouse (简体中文) - ArchWiKi 2020-08-04 双系统鼠标配对问题](https://wiki.archlinux.org/index.php/Bluetooth_mouse_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 - [Bluetooth Pairing on Dual Boot of Windows & Linux Mint/Ubuntu - Stop having to Pair Devices。 Asked 5 years](https://unix.stackexchange.com/questions/255509/bluetooth-pairing-on-dual-boot-of-windows-linux-mint-ubuntu-stop-having-to-p):还是linkkey.。。不过里面有一个可以不使用pstool的办法
 - [Dual Boot Bluetooth LE (low energy) device pairing。Asked 3 years](https://unix.stackexchange.com/questions/402488/dual-boot-bluetooth-le-low-energy-device-pairing/413831#413831)
