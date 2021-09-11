@@ -86,6 +86,13 @@ https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials
 lesson 1-6 done, 7-11 to be done
 https://github.com/s-matyukevich/raspberry-pi-os
 
+## freeNOS
+FreeNOS (Free Niek's Operating System) is an experimental microkernel based operating system for learning purposes written in C++. You may use the code as you wish under the terms of the GPLv3. 
+
+http://www.freenos.org/index.html
+
+https://github.com/nieklinnenbank/FreeNOS
+
 ## else
 
 
