@@ -4,5 +4,5 @@
 - [Pyqt5](/code/python/pyqt5.md)
 - [Pygame](/code/python/pygame.md)
 - [在树莓派2上非全局编译安装 python39](/code/python/compilepy39.md)
-- [](/code/python/.md)
+- [miniconda](/code/python/conda.md)
 - [](/code/python/.md)

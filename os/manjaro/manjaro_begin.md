@@ -156,7 +156,24 @@ cat /etc/shells
 https://www.jianshu.com/p/a891af6f87e0
 
 
+# boot slow
 
+启动时间分析
+
+```bash
+$ systemd-analyze
+Startup finished in 2.615s (firmware) + 1.263s (loader) + 2.822s (kernel) + 1.274s (userspace) = 7.975s 
+graphical.target reached after 793ms in userspace
+```
+
+systemctl disable --now lvm2-monitor.service
+systemctl mask lvm2-monitor.service
+
+https://forum.manjaro.org/t/manjaro-booting-is-very-slow-40sec/32489/4
+
+# grub
+
+grub-mkconfig -o /boot/grub/grub.cfg
 - []()
 - []()
 - []()
