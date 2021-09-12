@@ -5,4 +5,5 @@
 - [Pygame](/code/python/pygame.md)
 - [在树莓派2上非全局编译安装 python39](/code/python/compilepy39.md)
 - [miniconda](/code/python/conda.md)
+- [kivy（2.0.0） Camera 摄像头案例运行异常的解决办法](/code/python/kivy-camera.md)
 - [](/code/python/.md)
