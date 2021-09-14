@@ -2,13 +2,18 @@
 
 博客地址： [Github Page](https://backmountaindevil.github.io/) 
 
+**个人其它站点**
 
-- python 3  
-    `python -m http.server 3000`
+- [Github](https://github.com/BackMountainDevil)
+- [CSDN](https://blog.csdn.net/weixin_43031092)
+- [ZhiHu](https://www.zhihu.com/people/an-yi-20-66)
+- [Bilibili](https://space.bilibili.com/129086835)
+- [stack-overflow](https://stackoverflow.com/users/13488147/kearney)
 
-**转载与授权**
 
-非商业转载请标注作者与来源，商业转载需授权。
+**LICENSE**
+
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
 
 有任何问题可以到 [Repo](https://github.com/BackMountainDevil/BackMountainDevil.github.io) 中发 issue 留言；当然也可以选择发 [E-mail](mailto:kearneyback@gmail.com)。
 
