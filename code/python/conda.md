@@ -48,7 +48,7 @@ conda remove --name env_name --all
 
 1. zsh: command not found: conda
 
- conda 安装的时候默认把环境变量加入到 bash 中，没有加入到 zsh 中，因此需要在 zsh 加入 conda 的环境变量。常见的[回答](https://stackoverflow.com/questions/31615322/zsh-conda-pip-installs-command-not-found)会告诉你在 `~/.zshrc` 中加入 `export PATH="pathtoconda/bin:$PATH"`，这种办法或许可以解决这个问题，确实是把 conda 加入环境变量，问题在于加了多少？不确定以及不知道；[回答](https://stackoverflow.com/questions/35246386/conda-command-not-found#:~:text=If%20you%27re%20using%20zsh%20and%20it%20has%20not,then%20reopen%20the%20terminal.%20conda%20command%20should%20work.)里还有更离谱的，直接在 `~/.zshrc` 中加入 `source ~/.bash_profile` 导入全部 bash 中的环境变量。本着求知的精神，正常操作不是应该把 conda 在 .bashrc 加入的设置复制到 .zshrc 中吗？我想应该是这样的，stof 中也有持这种看法的回答。  
+conda 安装的时候默认把环境变量加入到 bash 中，没有加入到 zsh 中，因此需要在 zsh 加入 conda 的环境变量。常见的[回答](https://stackoverflow.com/questions/31615322/zsh-conda-pip-installs-command-not-found)会告诉你在 `~/.zshrc` 中加入 `export PATH="pathtoconda/bin:$PATH"`，这种办法或许可以解决这个问题，确实是把 conda 加入环境变量，问题在于加了多少？不确定以及不知道；[回答](https://stackoverflow.com/questions/35246386/conda-command-not-found#:~:text=If%20you%27re%20using%20zsh%20and%20it%20has%20not,then%20reopen%20the%20terminal.%20conda%20command%20should%20work.)里还有更离谱的，直接在 `~/.zshrc` 中加入 `source ~/.bash_profile` 导入全部 bash 中的环境变量。本着求知的精神，正常操作不是应该把 conda 在 .bashrc 加入的设置复制到 .zshrc 中吗？我想应该是这样的，stof 中也有持这种看法的回答。  
 
 在我的 .bashrc 中搜索 conda,关于它的就这么一行 `[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh`。复制到 .zshrc 末尾后该问题就解决了。随后我的疑惑来了，这行语句和答案中的大多数修改 PATH 都不太一样，我怀疑是 AUR 打包着的手笔，于是我[下载](https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/)了旧版和新版的两个安装脚本（ Miniconda-1.6.0-Linux-x86_64.sh， Miniconda3-py39_4.9.2-Linux-x86_64.sh）
 
@@ -146,3 +146,17 @@ fi # !BATCH
 里面似乎没有直接修改 .bashrc，我能直接在 bash 里直接使用 conda 完全是因为那一行 `[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh`。把这一行复制到 .zshrc 之后在 zsh 中也能使用 conda 了。但是通过观察上面的安装脚本可以知道有两个东西 `conda init zsh` 和 `conda init`，分别在 bash 中使用这两个命令，就会自动修改 bash 和 zsh 的配置，这个时候删除之前复制到 zshrc 中那一行也没有关系了。
 
 总结一下，在 zsh 中输入 bash 切换到 bash,这样就可以启动 conda 了，此时键入 `conda init zsh` 就会自动配置 zsh 了，这个问题就这么解决啦。
+
+2. conda install xxpkg 报错 EnvironmentNotWritableError: The current user does not have write permissions to the target environment.
+
+这个问题很显然就是当前用户没有对应的写[权限等级](https://www.runoob.com/linux/linux-comm-chmod.html)（写、读、执行）。一种办法是在指令前面加 sudo； 还有一种办法就是给当前用户加权，这个报错后面会给出对应的路径，如 ` environment location: /opt/miniconda3`，这个时候就可以修改用户对这个目录的操作权限。
+
+```bash
+$ ls -ld /opt/miniconda3
+drwxr-xr-x 16 root root 4096  9月 14 07:33 /opt/miniconda
+# d 代表文件夹，rwx 代表文件夹所有者（root）具有三种权限，r-x 表示文件所有者所在的组（root）的其它组员的权限只有读、执行，后一个 r-x 代表其它用户的权限也只有读、执行。
+# 下面是给其它用户添加写权限
+$ sudo chmod o+w -R /opt/miniconda3
+```
+
+两个方法都可以使用，二选一就行，在弄清楚为什么是 755 之前，我还是选择 sudo 办法
