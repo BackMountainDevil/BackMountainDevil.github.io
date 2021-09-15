@@ -160,3 +160,7 @@ $ sudo chmod o+w -R /opt/miniconda3
 ```
 
 两个方法都可以使用，二选一就行，在弄清楚为什么是 755 之前，我还是选择 sudo 办法
+
+3. VS Code 终端总是自动默认启动 conda base 环境，Konsole 也是如此。
+
+我不想打开终端就默认进入 conda 的虚拟环境，因为有的项目有自己的 venv 虚拟环境，当 IDE 使用终端调试的时候，尽管配置了 venv 虚拟环境，还是会发现 conda base 环境也被激活了，这个时候要关闭 conda 自启功能，只需要敲入 conda config --set auto_activate_base false 即可。
