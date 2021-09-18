@@ -5,8 +5,8 @@ time: 2021-09-18
 参见 [pypi 镜像使用帮助 - TUNA](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)
 
 ```bash
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U # 使用 tuna 镜像更新到最新版的 pip，非必须步骤
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-pip config set install.trusted-host https://pypi.tuna.tsinghua.edu.cn
 ```
 
 查看 pip 的设置，对比一下设置前后的区别看看
