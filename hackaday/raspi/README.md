@@ -1,4 +1,4 @@
-- [树莓派入门第一步 - 装系统并配置镜像、SSH](/hackaday/raspi/raspberrypi.md)
+- [树莓派入门第一步 - 装系统并配置镜像、SSH、VNC，以树莓派 4B 为例](/hackaday/raspi/raspberrypi.md)
 - [树莓派无显示屏入门的方法总结](/hackaday/raspi/TFT-LCD-ILI9341-Display-1.md)
 - [树莓派无屏幕连接之 VNC realvnc-vnc-viewer](/hackaday/raspi/raspi向服务器发送数据-PHP-or-PYTHON.md)
 - [树莓派摄像头无法使用，报错 No data received from sensor，原因是带电插拔摄像头引起损坏](/hackaday/raspi/raspiCam.md)

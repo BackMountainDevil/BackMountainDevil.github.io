@@ -1,13 +1,7 @@
----
-title: "树莓派入门第一步 - 装系统并配置镜像、SSH"
-date: 2021-04-27T11:21:15+08:00
-lastmod: 2021-09-17T11:21:15+08:00
-keywords: ['linux', 'raspberry']
-description: "树莓派入门第一步 - 装系统并配置镜像、SSH，第二版"
-tags: ['raspberry']
-categories: [OS]
-author: "筱氚"
----
+# 树莓派入门第一步 - 装系统并配置镜像、SSH、VNC，以树莓派 4B 为例
+date: 2021-04-27  
+lastmod: 2021-09-17
+
 # 简介
 
 树莓派入门第一步 - 装系统并配置镜像、SSH
