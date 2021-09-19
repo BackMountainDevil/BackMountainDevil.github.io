@@ -64,7 +64,7 @@ network={
 
 ## ssh
 
-用文件管理器打开刚才已经烧录好的 sd 卡，默认打开的位置是 /boot ，直接在里面新建一个空白文本文件，名称为 ssh （小写无扩展名）。这样做的目的是让其开机后开启 ssh 服务，这个服务允许我们远程连接树莓派.
+根据 [Pi Documention](https://www.raspberrypi.org/documentation/computers/configuration.html#ssh-or-ssh-txt) 的描述，用文件管理器打开刚才已经烧录好的 sd 卡，默认打开的位置是 /boot ，直接在里面新建一个文本文件，名称为 ssh （或者 ssh.txt）。这样做的目的是让其开机后开启 ssh 服务（默认是关闭状态），这个服务允许我们远程连接树莓派，文件里面的内容不重要，因此一般为空。
 
 
 ## 开机初始化设置
