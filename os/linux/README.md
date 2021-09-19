@@ -1,16 +1,15 @@
 # OS
 
-- [多系统下的蓝牙设备共用配对问题之 IRK、LTK、EDIV、ERAND.以 Manjaro、Debian、Windows10 为例](os/linux/bluetooth.md)
-- [设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH](os/linux/environment_variable.md)
-- [GNULinux](os/linux/GNULinux.md)
-- [在 Linux 上使用人脸识别来登陆和认证](os/linux/linuxhello.md)
-- [Phone](os/linux/os+phone.md)
-- [rEFInd - 一款优美的多系统引导软件](os/linux/rEFInd.md)
-- [UefiMake - Ventory](os/linux/.UefiMakemd)
-- [UefiMake - Ventory](os/linux/.md)
-- [WinToLinux](os/linux/WinToLinux.md)
-- [](os/linux/.md)
-
+- [多系统下的蓝牙设备共用配对问题之 IRK、LTK、EDIV、ERAND.以 Manjaro、Debian、Windows10 为例](/os/linux/bluetooth.md)
+- [设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH](/os/linux/environment_variable.md)
+- [GNULinux](/os/linux/GNULinux.md)
+- [在 Linux 上使用人脸识别来登陆和认证](/os/linux/linuxhello.md)
+- [Phone](/os/linux/os+phone.md)
+- [rEFInd - 一款优美的多系统引导软件](/os/linux/rEFInd.md)
+- [UefiMake - Ventory](/os/linux/UefiMakemd.md)
+- [WinToLinux](/os/linux/WinToLinux.md)
+- [GNU 的神器 screen（程序后台运行 vs nohup）附带串口通信功能](/os/linux/screen.md)
+- [](/os/linux/.md)
 
 ## Arch
 
