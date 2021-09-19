@@ -55,8 +55,8 @@ ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
  
 network={
-  ssid="wifi名称"
-  psk="wifi密码"
+  ssid="Kearney"
+  psk="asdcxz321.."
   key_mgmt=WPA-PSK
   priority=1
 }
@@ -162,6 +162,10 @@ ssh pi@ip
 2. VNC viewer 连接显示黑屏，提示 cannot currently show the desktop
 
 ssh 能正常使用，vnc viewer 无法显示的情况下，根据[树莓派入门操作及VNC显示 cannot currently show the desktop 解决方法.Jacen_L 2020-06-05](https://blog.csdn.net/LlHilo/article/details/106577069)和亲身测试表明，进入 ssh 用 sudo raspi-config 设置一下分辨率(Display Options - Resolution)，我将其设置为 640x480 重启后 vnc 就可以了。 
+
+3. 如何开启串口调试功能？
+
+ssh 登陆之后 sudo raspi-config 进入 Interface 中 开启 Serial Port。树莓派 HDMI、音频接口这一边面向自己，针脚在远离自己的一面，左上角第一排针脚从左到有依次是2、4、6、8...我们需要的有 6-GND,8-TX,10-RX,14-GND，UART 接线时注意 rx接tx、tx接rx。用串口调试工具登陆即可，和 ssh 差不多一样的效果，但是不是靠无线。
 
 # 相关参考
 
