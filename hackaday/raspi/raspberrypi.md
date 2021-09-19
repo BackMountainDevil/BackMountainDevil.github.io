@@ -1,6 +1,6 @@
 # 树莓派入门第一步 - 装系统并配置镜像、SSH、VNC，以树莓派 4B 为例
 date: 2021-04-27  
-lastmod: 2021-09-17
+lastmod: 2021-09-19
 
 # 简介
 
@@ -167,8 +167,12 @@ ssh 能正常使用，vnc viewer 无法显示的情况下，根据[树莓派入�
 
 ssh 登陆之后 sudo raspi-config 进入 Interface 中 开启 Serial Port。树莓派 HDMI、音频接口这一边面向自己，针脚在远离自己的一面，左上角第一排针脚从左到有依次是2、4、6、8...我们需要的有 6-GND,8-TX,10-RX,14-GND，UART 接线时注意 rx接tx、tx接rx。用串口调试工具登陆即可，和 ssh 差不多一样的效果，但是不是靠无线。
 
+串口调试工具大部分都会推荐 putty,但是我会推荐 Arduino,没错，就是 uno 开发用的 ardunio，插上了就可以直接打开串口，串口自己列出来可以选，波特率也很好修改。反倒是 putty 串口都不懂自己列出来（有点追求），不过 arduino 非真交互式串口调试有缺点：不方便文本编辑、键位组合啥的。也就自行车。
+
+下面推荐 gnu 的 [screen](https://wiki.archlinux.org/title/GNU_Screen),连接在 /dev/ttyUSB0 串口的树莓派的用例 screen /dev/ttyUSB0 115200，更多使用办法参考[这](/os/linux/screen.md)
+
 # 相关参考
 
 - [零基础学树莓派Raspberry Pi - 基于Pi 2 Imager -从清华镜走起到设置镜像源后远程连接桌面。Kearney form An idea 2020-10-22](https://blog.csdn.net/weixin_43031092/article/details/109136614)：一年前写的 v0，有 LED 状态解读，使用 windows 自带的远程桌面进行连接
-
 - [Raspbian Repository Mirrors](http://www.raspbian.org/RaspbianMirrors)：从这里可以查阅世界上所有的树莓派软件仓库镜像站点
+- [The config.txt file. Pi Documention](https://www.raspberrypi.org/documentation/computers/config_txt.html):默认波特率 115200
