@@ -1,13 +1,6 @@
----
-title: "树莓派上开热点（AP）的三种办法实践结果"
-date: 2021-08-02T12:12:34+08:00
-lastmod: 2021-08-02T12:12:34+08:00
-keywords: ['raspberry pi', 'ap', 'wifi']
-description: ""
-tags: ['raspberry']
-categories: [dev-init]
-author: "筱氚"
----
+# 树莓派上开热点（AP）的三种办法实践结果
+- date: 2021-08-02
+- lastmod: 2021-09-19
 # 背景
 UC2 项目中树莓派大脑和子模块有两种方式连接方式，一种是采用 I2C 总线通过 Arduino 做主从，一种是走 WIFI 使用 MQTT 协议与子模块通信。为了减少线数，采用了后者。实际调试中都是自己手机开热点给 pi、esp、pc,因为校园网不知道不知道为啥无法在一个子网中，也不能说是不在，只是无法进行内网通信。
 
@@ -16,50 +9,87 @@ UC2 项目中树莓派大脑和子模块有两种方式连接方式，一种是�
 此外，树莓派的 wifi 模块是可以开热点的，但是官方系统中没有默认加入这个功能，需要自己动动那个小手。
 
 ## 总结
-三种方式中，有官方的也有非官方的，最后实践结果表明官方的文档比 rasap 要繁琐一点，更容易出错，create_ap 团队表示不再维护，而且实践表明在 raspi 4 上行不通，因此这里推荐使用 [rasap](https://raspap.com/#quick)
+三种方式中，有官方的也有非官方的，最后实践结果表明官方的文档更简单可靠些。create_ap 表示不再维护，当然可以选择它的后继者（尚未常识）。
 
 # 方法汇总
+## 官方文档的办法
+[树莓派官方文档 - Setting up a Routed Wireless Access Point](https://www.raspberrypi.org/documentation/computers/configuration.html#setting-up-a-routed-wireless-access-point)，文档的办法是在 3B 上测试过的，在 4B 上自己测试成功。
+
+在编辑 hostapd.conf 的时候需要修改国家代码为中国（CN），默认是 GB，`country_code=CN`，热点名称（ssid）和密码（wpa_passphrase）修改的时候不需要加上引号。
+
+然后使用了这个办法之后是只有 AP 模式了，无法使用原来正常连接 wifi 的功能了，怎么还原我还没发现，瞎逆向捣鼓了一下发现行不通。但是网线接口还是可以使用的，当然 USB 共享网络也行。
+
 ## rasap
-最推荐的办法 - [rasap](https://raspap.com/#quick)，一行代码搞定。
+[rasap](https://raspap.com/#quick)，最简可以一行代码搞定。唯一的问题是下载需要科学一般的网速，第二次我整了将近三天重装了好几次。比官方那个办法的好处是有网页可以进行设置，缺点是要下载很多其它组件。
 
 ```bash
+# 更新 os
+sudo apt-get update
+sudo apt-get full-upgrade
+sudo reboot
+# 设置 wifi 地区。Localisation Options - WLAN Country - CN China （中国）
+sudo raspi-config
+# 安装，将会从 gitub 下载安装脚本，此处应该打上科学四个字，脚本下载到本地再允许速度也不会上涨，因为脚本也会从 github 上下载不少的东西，这个办法极其考验科学的网速
 curl -sL https://install.raspap.com | bash
 ```
 
-回答问题不懂的就一直 Y 回车就行。装完之后需要重启，重启完之后在 pi 上打开浏览器访问 10.3.141.1:80 就能进入管理界面，初始账号密码的初始值在[网页](https://raspap.com/#quick)中有写（admin, secret）。
+回答问题不懂的就一直 Y 回车就行。装完之后需要重启。之后树莓派就自带热点光环（AP 模式）
 
+      树莓派 IP 地址: 10.3.141.1
+      管理员用户名: admin
+      管理员密码: secret
+      DHCP 子网 IP 段: 10.3.141.50 — 10.3.141.255
+      WiFi 热点名称（SSID）: raspi-webgui
+      WiFi 密码: ChangeMe
+
+重启完之后在 pi 上打开浏览器访问 10.3.141.1:80 就能进入管理界面，初始账号密码的初始值在[网页](https://raspap.com/#quick)中有写（admin, secret）。
 
 进去修改下 wifi 的名称和密码，重启 wifi 即可，实测就是改了好几次才连上。
 
-## 官方文档的办法
-[树莓派官方文档 - AP](https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md)，文档的办法是在 3B 上测试过的，在 4B 上我自己弄的感觉不太靠谱，偶尔靠运气能连上，大部分时候就是个摆设。。。其中有一部是设置路由转发，如果不打算给子网接入互联网的功能可以跳过那一步。
 
-在编辑 hostapd.conf 的时候需要修改国家代码为中国 -  CN，`country_code=CN`，热点名称和密码不需要加上引号。
 
-在论坛里有个案例（参考四）是由于 iptables 和 ufw 两个冲突导致无法正常使用，看了下自己的 pi 里没有这个冲突，就很迷。
-
-然后使用了这个办法之后是只有 AP 模式了，无法使用原来正常连接 wifi 的功能了，怎么还原我还没发现，瞎逆向捣鼓了一下发现行不通。
 
 ## create_ap
 按照其[文档](https://github.com/oblique/create_ap)进行安装即可，安装完实测如下，大致意思就是此路不通。
+文档中的 README.md 表明其已经不再维护了，可以看看其 fork 出的两个分支，gui 界面那个也有 cli 版本
+
+创建办法提示我不能 wifi 和 热点模式共用，然而我在图形界面右键断开我的 wifi，这娃就会自己去连接没有密码的校园 wifi。。。按照 [How to connect and disconnect to a network manually in terminal? 2011](https://askubuntu.com/questions/16584/how-to-connect-and-disconnect-to-a-network-manually-in-terminal/16588#16588?newreg=703745661aba401084b71d852ee5b7da) 给出的删除连接的办法，捣鼓了许久没有成功（nmcli 需要下载 sudo apt install networkd-manager）
 
 ```bash
+$ git clone https://github.com/oblique/create_ap      # github，下载慢的话用下一个
+$ git clone https://gitee.com/mirrors_oblique/create_ap.git # gitee 镜像
+$ cd create_ap
+$ sudo make install # 安装
 $ sudo create_ap wlan0 wlan0 test 12345678
-WARN: brmfmac driver doesn't work properly with virtual interfaces and
+WARN: brmfmac driver does not work properly with virtual interfaces and
       it can cause kernel panic. For this reason we disallow virtual
       interfaces for your adapter.
       For more info: https://github.com/oblique/create_ap/issues/203
 WARN: Your adapter does not fully support AP virtual interface, enabling --no-virt
 ERROR: You can not share your connection from the same interface if you are using --no-virt option.
+
+$ sudo create_ap --no-virt wlan0 eth0 pi raspberry
+WARN: brmfmac driver does not work properly with virtual interfaces and
+      it can cause kernel panic. For this reason we disallow virtual
+      interfaces for your adapter.
+      For more info: https://github.com/oblique/create_ap/issues/203
+ERROR: hostapd not found.
 ```
 卸载办法也比较简单，当初安装是在对应目录下 `make install`，卸载就是在当初那个目录里 `make uninstall`。
+
+# 相关指令
+
+- rfkill list
+- rfkill unblock all    # 解除所有设备的软硬锁
+- ifconfig -a
+- sudo ifconfig wlan0 up # off->down,on->up 
+- sudo iwconfig wlan0 mode ad-hoc # 没看到参数的ap模式
+- iwlist scan     # 扫描 
+- iwlist wlan0 scan # 扫描 wifi
+- iwconfig wlan0 essid NAME key PASSWORD # 连接wifi.替换 名称Name 密码 Password
+- wpa_supplicant
 
 # 参考
 - [rasap](https://raspap.com/#quick)
 - [oblique/create_ap](https://github.com/oblique/create_ap)
-- [树莓派官方文档 - AP](https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md)
-- [[SOLVED] Wifi Access Point (AP) not handing out IP addresses](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=315866&p= 1893796& hilit=AP#p1893796)
-   > $ sudo apt remove iptables-persistent
-    $ sudo ufw allow bootps
-    $ sudo ufw allow 53/udp
-    $ sudo ufw allow 53/tcp
+- [树莓派官方文档 - Setting up a Routed Wireless Access Point](https://www.raspberrypi.org/documentation/computers/configuration.html#setting-up-a-routed-wireless-access-point)
