@@ -1,7 +1,7 @@
 # App
 # VS Codium
 
-- [Visual Studio Codium的常用语言配置](/code/app/VSCodiumConfigure.md)
+- [VS Codium的常用语言配置](/code/app/VSCodiumConfigure.md)
 
 # Eclipse
 
