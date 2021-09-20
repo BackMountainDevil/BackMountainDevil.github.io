@@ -1,13 +1,7 @@
----
-title: "Pygame"
-date: 2020-11-19T06:54:17+08:00
-lastmod: 2020-11-19T06:54:17+08:00
-keywords: []
-description: ""
-tags: []
-categories: [Blog]
-author: "筱氚"
----
+# Pygame
+- date: 2020-11-19
+- lastmod: 2020-11-19
+
 # Install
 ```bash
 $ python3 -m pip install -U pygame --user

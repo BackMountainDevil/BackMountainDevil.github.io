@@ -1,13 +1,6 @@
----
-title: "Python 的版本与虚拟环境管理"
-date: 2021-08-17T20:45:01+08:00
-lastmod: 2021-08-24T10:15:53+08:00
-keywords: ['docker', 'pipenv', 'venv', 'poetry']
-description: "Python 的版本与虚拟环境管理，以 pyenv、pipenv、venv 为例"
-tags: [docker]
-categories: [python]
-author: "筱氚"
----
+# Python 的版本与虚拟环境管理
+- date: 2021-08-17
+- lastmod: 2021-08-24
 
 # 虚拟环境 - virtual environment
 

@@ -1,13 +1,7 @@
----
-title: "TextEditorPython"
-date: 2020-11-20T19:31:05+08:00
-lastmod: 2020-11-20T19:31:05+08:00
-keywords: ['TextEditor', 'Python', 'tkinter']
-description: "用python3写一个简单的文本编辑器"
-tags: ['TextEditor']
-categories: [Python]
-author: "筱氚"
----
+# TextEditorPython
+- date: 2020-11-20
+- lastmod: 2020-11-20
+
 # Intro
 用python3写一个简单的文本编辑器吧，参考[Create a Simple Python Text Editor!By PumpkinSmasher](https://www.instructables.com/Create-a-Simple-Python-Text-Editor/)，原文太久远，不适合py3，下面对py3进行了一丢更改
 ## 开发环境

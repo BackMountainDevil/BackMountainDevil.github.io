@@ -1,5 +1,6 @@
 # pip 设置国内镜像提高下载速度
-time: 2021-09-18
+- date: 2021-09-18
+- lastmod: 2021-09-18
 
 设置 pip 镜像会加快 python 包的下载速度。pip 与 pip3 都有的，将下面的 pip 换为 pip3 在复制粘贴一遍即可。
 参见 [pypi 镜像使用帮助 - TUNA](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)

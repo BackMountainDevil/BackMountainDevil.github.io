@@ -1,4 +1,6 @@
 # miniconda3 的安装和使用 'zsh: command not found: conda'
+- date: 2021-09-11
+- lastmod: 2021-09-15
 
 python 中管理虚拟环境可以使用其自带的 venv,而管理不同版本的 python 环境的时候就可以使用 conda。conda 又有 anaconda 和 miniconda 两种，后者相对请量化一点。
 
