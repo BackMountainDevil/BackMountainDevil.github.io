@@ -55,8 +55,8 @@ ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
  
 network={
-  ssid="Kearney"
-  psk="asdcxz321.."
+  ssid="wifi名称"
+  psk="wifi密码"
   key_mgmt=WPA-PSK
   priority=1
 }
