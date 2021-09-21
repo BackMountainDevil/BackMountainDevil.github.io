@@ -8,6 +8,7 @@
 - [ESP32 疯狂重启的原因探究](/hackaday/esp32/mcureboot.md)
 - [PlatformIO 与 ESP 32 点灯体验](/hackaday/esp32/espPlatformIO.md)
 - [解决ESP32 驱动 28BYJ-48 步进电机反向不转之震动的问题](/hackaday/esp32/stepmotor28BYJ.md)
+- [为 Esp32 Cam 配置 Arduino 开发环境并人脸识别测试](/hackaday/esp32/esp32cam.md)
 - [](/hackaday/esp32/.md)
 
 # ESP 8266
