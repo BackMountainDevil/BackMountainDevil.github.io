@@ -11,7 +11,7 @@
 # Else
 
 - [在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF](/code/app/pandoc.md)
-- [Mqtt mosquitto fontgoogle](/code/app/mqtt.md)
+- [fontgoogle 加载速度慢的解决办法](/code/app/fontgoogle.md)
 - [MIPS_Dos](/code/app/MIPS_Dos.md)
 - [markdown](/code/app/markdown.md)
 - [HTG Locker && locker.bat 分析 与 80 G的数据恢复记录](/code/app/htglocker.md)
