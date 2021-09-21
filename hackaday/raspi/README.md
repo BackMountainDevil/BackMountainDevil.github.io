@@ -5,4 +5,5 @@
 - [树莓派上开热点（AP）的三种办法实践结果](/hackaday/raspi/raspiAp.md)
 - [使用 arp-scan 快速扫描局域网 IP -> raspberry pi ssh vnc](/hackaday/raspi/rasip.md)
 - [添加开机自动启动任务](/hackaday/raspi/autostart.md)
+- [树莓派 4B 安装 opencv-python 的正解](/hackaday/raspi/opencv-python.md)
 - [](/hackaday/raspi/.md)
