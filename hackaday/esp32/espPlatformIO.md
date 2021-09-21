@@ -1,13 +1,7 @@
----
-title: "PlatformIO 与 ESP 32 点灯体验"
-date: 2021-07-17T18:31:55+08:00
-lastmod: 2021-07-17T18:31:55+08:00
-keywords: ['esp', 'esp32', 'platformIO']
-description: "在 VS Code 中使用 PlatformIO 与 ESP32 进行开发"
-tags: [esp]
-categories: [dev-init]
-author: "筱氚"
----
+# PlatformIO 与 ESP 32 点灯体验
+- date: 2021-07-17
+- lastmod: 2021-07-17
+
 # 背景
 去年学会了 Arduino 写 ESP 8266+32，后面有看到了 PlatforrmIO，于是那时候立马跃跃欲试，就有了[用PlatformIO开发Esp8266/32](https://blog.csdn.net/weixin_43031092/article/details/109233133)这篇文章，不过由于大部分学习资料（案例、文档、手册、博客）都是使用 Arduino，代码不兼容的我就很少使用了。然后今年在某个项目里神奇的发现，这伙人一个用 Arduino，另一个用 PlatformIO，各自不相同的终端使得这两相安无事，而我自己一个人就同时得整明白这两玩意了...
 

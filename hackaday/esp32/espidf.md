@@ -1,13 +1,7 @@
----
-title: "ESP IDF 开发框架构建 与 ADF 语音识别框架尝试 - esp 32s"
-date: 2021-06-04T12:01:08+08:00
-lastmod: 2021-06-04T12:01:08+08:00
-keywords: ['esp', 'idf', 'adf', '语音识别']
-description: "ESP IDF 开发框架构建 与 ADF 语音识别框架尝试 - esp 32s"
-tags: [esp]
-categories: [dev-init]
-author: "筱氚"
----
+# ESP IDF 开发框架构建 与 ADF 语音识别框架尝试 - esp 32s
+- date: 2021-06-04
+- lastmod: 2021-06-04
+
 # ESP-ADF
 [ESP32 语音框架开发文档](https://docs.espressif.com/projects/esp-adf/en/latest/get-started/index.html#step-1-set-up-esp-idf)
 

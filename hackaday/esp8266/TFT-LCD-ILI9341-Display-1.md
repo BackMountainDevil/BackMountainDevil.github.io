@@ -1,14 +1,6 @@
----
-title: "TFT LCD ILI9341 Display_1"
-date: 2020-08-27T16:33:31+08:00
-lastmod: 2020-08-27T19:33:31+08:00
-keywords: ['MCU']
-description: ""
-tags: ['MCU']
-categories: []
-author: "筱氚"
----
-[TOC]
+# TFT LCD ILI9341 Display_1
+- date: 2020-08-27
+- lastmod: 2020-08-27
 
 
 

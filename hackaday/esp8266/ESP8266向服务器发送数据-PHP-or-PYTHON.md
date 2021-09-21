@@ -1,13 +1,7 @@
----
-title: "ESP8266向服务器发送数据 TCP - PHP or PYTHON"
-date: 2020-06-22T04:53:52+08:00
-lastmod: 2020-06-22T04:53:52+08:00
-keywords: []
-description: ""
-tags: []
-categories: []
-author: "筱氚"
----
+# ESP8266向服务器发送数据 TCP - PHP or PYTHON
+- date: 2020-06-22
+- lastmod: 2020-06-22
+
 # 简介
 
 ESP8266向服务器发送数据，服务器采用PHP或者PYTHON来接收处理数据
