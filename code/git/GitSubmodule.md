@@ -1,13 +1,7 @@
----
-title: "GitSubmodule"
-date: 2020-11-04T20:45:34+08:00
-lastmod: 2020-11-04T20:50:13+08:00
-keywords: [Git]
-description: "git中submodule的介绍和案例"
-tags: [Git]
-categories: [VCS]
-author: "筱氚"
----
+# GitSubmodule
+- date: 2020-11-04
+- lastmod: 2020-11-04
+
 # 什么是submodule
 > gitsubmodules - Mounting one repository inside another
 

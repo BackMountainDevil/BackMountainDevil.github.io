@@ -1,13 +1,7 @@
----
-title: "Eclipse 设置国内镜像加快下载速度 Plugin Maven Mirror"
+# Eclipse 设置国内镜像加快下载速度 Plugin Maven Mirror
 date: 2021-07-12T12:05:03+08:00
-lastmod: 2021-07-12T12:05:03+08:00
-keywords: ['eclipse', 'mirror', 'maven', 'plugin']
-description: "在 eclipse配置镜像站点加快 软件下载速度 和 Maven 同步速度"
-tags: [eclipse]
-categories: [dev-init]
-author: "筱氚"
----
+lastmod: 2021-07-12
+
 由于一些原因，默认镜像下载速度感人，颇有愚公移山的精神，但是时间就是生命！下面是更换国内镜像走上高速的办法。
 
 # Plugin

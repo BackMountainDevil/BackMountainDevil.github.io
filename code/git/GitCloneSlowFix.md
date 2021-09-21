@@ -1,13 +1,6 @@
----
-title: "GitCloneSlowFix"
-date: 2020-11-04T10:32:34+08:00
-lastmod: 2020-11-04T11:19:13+08:00
-keywords: [Git]
-description: "用绑定IP的办法加快git速度，不在pull到一半就暂停啦"
-tags: [Git]
-categories: [VCS]
-author: "筱氚"
----
+# GitCloneSlowFix
+- date: 2020-11-04
+- lastmod: 2020-11-04
 
 # What
 最近重建博客网站，需要pull代码下来删除重建，谁知道git clone下来老半天都没成功，根据各大网右的描述，有说是因为防火墙卡住了，也有说是github.global.ssl.fastly.net域名被限制了，无论是啥，大神们的方案都是找到域名对应的IP并绑定。

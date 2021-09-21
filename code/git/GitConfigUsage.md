@@ -1,13 +1,7 @@
----
-title: "GitConfigUseage"
-date: 2020-11-16T18:58:02+08:00
-lastmod: 2020-11-16T18:58:02+08:00
-keywords: ['git']
-description: ""
-tags: ['git']
-categories: ['VCS']
-author: "筱氚"
----
+# GitConfigUseage
+date: 2020-11-16
+lastmod: 2020-11-16
+
 # Intro
 记录Git的配置过程
 # Down

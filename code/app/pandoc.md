@@ -1,13 +1,7 @@
----
-title: "在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF"
-date: 2021-05-01T15:12:16+08:00
-lastmod: 2021-05-01T15:12:16+08:00
-keywords: ['pandoc', 'markdown', 'pdf']
-description: "用 Pandoc 将 Markdown 文档导出为 PDF，介绍了 arch 平台下 pandoc 的安装、使用、卸载"
-tags: ['pandoc', 'arch']
-categories: ['app']
-author: "筱氚"
----
+# 在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF
+date: 2021-05-01
+lastmod: 2021-05-01
+
 # 简介
 
 自己平时写文档主要是用 md 写，但是甲方和乙方有时候说喜欢 pdf 或者 word. docsify 没 的自带的 pdf 转换（实际上插件可以导出），最基本的王者就是这个 pandoc 了。

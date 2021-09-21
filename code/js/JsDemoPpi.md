@@ -1,13 +1,7 @@
----
-title: "利用javascript进行计算PPI"
-date: 2021-03-01T21:13:24+08:00
-lastmod: 2021-03-01T21:13:24+08:00
-keywords: ['javascript', 'ppi']
-description: "利用javascript进行计算PPI"
-tags: ['demo']
-categories: ['js']
-author: "筱氚"
----
+# 利用javascript进行计算PPI
+- date: 2021-03-01T
+- lastmod: 2021-03-01
+
 # 简介
 
 一个用js写的PPI计算器。

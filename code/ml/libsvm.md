@@ -1,13 +1,7 @@
----
-title: "libsvm 的 python 版使用办法"
-date: 2021-08-06T21:56:09+08:00
-lastmod: 2021-08-06T21:56:09+08:00
-keywords: ['svm', 'machine learning', 'libsvm']
-description: "记录 libsvm 的 python 使用办法。"
-tags: ['svm']
-categories: [机器学习]
-author: "筱氚"
---- 
+# libsvm 的 python 版使用办法
+- date: 2021-08-06
+- lastmod: 2021-08-06
+
 # 简介
 记录 libsvm 的 python 使用办法。这里并不会介绍 svm 是什么以及实现原理。
 

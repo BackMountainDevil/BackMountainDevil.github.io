@@ -1,16 +1,9 @@
----
-title: "WhatsGit"
-date: 2020-08-27T17:33:31+08:00
-lastmod: 2020-08-27T18:33:31+08:00
-keywords: ['Git']
-description: ""
-tags: ['Git']
-categories: [VCS]
-author: "筱氚"
----
-https://git-scm.com/book/zh/v2
+# WhatsGit
+- date: 2020-08-27
+- lastmod: 2020-08-27
 
 # Git是什么
+[Git Book](https://git-scm.com/book/zh/v2)
 
 分布式版本管理工具
 

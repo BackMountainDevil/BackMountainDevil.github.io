@@ -1,13 +1,7 @@
----
-title: "MIPS_Dos"
-date: 2020-11-06T14:21:37+08:00
-lastmod: 2020-11-06T14:21:37+08:00
-keywords: [MIPS, DOS]
-description: ""
-tags: [MIPS]
-categories: [MIPS]
-author: "筱氚"
----
+# MIPS_Dos
+date: 2020-11-06
+lastmod: 2020-11-06
+
 # 功能号1 键盘输入
 键盘输入的字符以ASCII码的形式放在累加器AL中，同时，显示出来。
 ```bash

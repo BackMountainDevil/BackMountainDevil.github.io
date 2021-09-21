@@ -1,13 +1,7 @@
----
-title: "HTG Locker && locker.bat 分析 与 80 G的数据恢复记录"
-date: 2021-05-01T15:31:48+08:00
-lastmod: 2021-05-01T15:31:48+08:00
-keywords: ['数据恢复', 'HTG Locker', 'R-Studio', 'DiskGenius']
-description: "HTG Locker && locker.bat 分析 与 80 G的数据恢复记录，介绍数据恢复软件：Recuva、DiskGenius、R-Studio"
-tags: ['app']
-categories: [Blog]
-author: "筱氚"
----
+# HTG Locker && locker.bat 分析 与 80 G的数据恢复记录
+date: 2021-05-01
+lastmod: 2021-05-01
+
 # 简介
 
 好些年前不晓得在哪里看到一个简单粗暴的‘加密’批处理程序，然后如法炮制使用了三年多。。然后某天数据都不见了（不一定是该程序的问题，有可能是硬盘被我折腾出毛病了），恢复过程后面会说

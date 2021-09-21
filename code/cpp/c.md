@@ -1,13 +1,7 @@
----
-title: "C"
-date: 2020-11-21T16:15:36+08:00
-lastmod: 2020-11-21T16:15:36+08:00
-keywords: []
-description: ""
-tags: []
-categories: [C]
-author: "筱氚"
----
+# C
+date: 2020-11-21
+lastmod: 2020-11-21
+
 # Hello World
 新建一个tmp.c文件，输入以下内容保存
 ```c

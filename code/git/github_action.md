@@ -1,13 +1,7 @@
----
-title: "使用 Github Action 自动部署 Hugo 博客"
-date: 2021-08-24T16:36:20+08:00
-lastmod: 2021-08-24T16:36:20+08:00
-keywords: ['Github Action', 'hugo']
-description: "简单的说，懒人大法，用 github action 省去一次生成和 push。"
-tags: ['hugo']
-categories: [Blog]
-author: "筱氚"
----
+# 使用 Github Action 自动部署 Hugo 博客
+date: 2021-08-24
+lastmod: 2021-08-24
+
 # 干啥
 每次 Hugo 生成完静态网页文件之后，需要分别 push 两次（源码和网页），听说 Github 有了自动化集成方案 Action 来减少一些工作。查了一下，现在是可以只需要 push 源码，剩下的静态网站生成和更新 Github Page 交给 Action。简单的说，懒人大法，用 github action 省去一次生成和 push。
 

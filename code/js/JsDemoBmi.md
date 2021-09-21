@@ -1,13 +1,7 @@
----
-title: "利用javascript进行计算 BMI"
-date: 2021-04-17T08:29:53+08:00
-lastmod: 2021-04-17T08:29:53+08:00
-keywords: ['javascript', 'bmi', 'js']
-description: "利用javascript进行计算 BMI"
-tags: ['demo']
-categories: ['js']
-author: "筱氚"
----
+# 利用javascript进行计算 BMI
+- date: 2021-04-17T
+- lastmod: 2021-04-17
+
 # BMI
 
 [BMI 指数（Body Mass Index），是国际上常用的衡量人体胖瘦程度以及是否健康的一个标准。](https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E4%BD%93%E9%87%8D/1694152)

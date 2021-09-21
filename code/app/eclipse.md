@@ -1,13 +1,7 @@
----
-title: "在 Arch 上安装 eclipse-jee 并配置 tomcat7"
-date: 2021-05-24T08:27:43+08:00
-lastmod: 2021-05-24T08:27:43+08:00
-keywords: ['eclipse', 'tomcat']
-description: "在 Arch 上安装 eclipse-jee 并配置 tomcat7，以及配置 tomcat7 服务器遇到的问题"
-tags: [eclipse]
-categories: [dev-init]
-author: "筱氚"
----
+# 在 Arch 上安装 eclipse-jee 并配置 tomcat7
+- date: 2021-05-24T08:27:43+08:00
+- lastmod: 2021-05-24
+
 # 正文
 
 软件工程需要用 jsp 开发写网站，老师 PPT 要求装 SVN、Tomcat、MyEclipse。SVN 是集中式的版本控制器，我打算用 Git 替代它，Tomcat 据说可以用 Nginx 替代，后面再尝试; MyEclipse 破解版网上好多，但是想用个 Eclipse,于是查一下 Arch Linux 上安装开发 jsp 的 Eclipse，整了老半天终于装上了，装上了还发现新建工程里面没有我要的 动态网站工程(Dynamic Web Project)，整了不少镜像和插件还是没得。最后又查了查才知道动态网站工程开发应该装 eclipse-jee，而不是 eclipse-jsp。
