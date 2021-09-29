@@ -44,6 +44,8 @@ remove letter=J
 
 在 linux 下由于会直接挂载 EFI 分区，因此可以在 Arch 中直接删除其对于 efi 文件
 ```bash
+# 此项操作具有误删的可能性，建议登陆 root GUI界面操作，务必确保文件路径
+# 在 manjaro 下发现路径不尽相同，因此需要注意路径。rm -r /boot/efi/EFI/debian
 sudo rm -fr /boot/EFI/ubuntu
 ```
 
