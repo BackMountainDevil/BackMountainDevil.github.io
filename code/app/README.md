@@ -22,7 +22,7 @@
 # Git
 
 - [Git 是什么](/code/git/WhatsGit.md)
-- [配置 git](/code/git/GitConfigUsage.md)
+- [Git 的初始化配置](/code/git/GitConfigUsage.md)
 - [git中submodule的介绍和案例](/code/git/GitSubmodule.md)
 - [加快 git clone 速度，不在pull到一半就暂停啦](/code/git/GitCloneSlowFix.md)
 - [使用 Github Action 自动部署 Hugo 博客](/code/git/github_action.md)

@@ -1,25 +1,31 @@
-# GitConfigUseage
+# Git 的初始化配置
 date: 2020-11-16
-lastmod: 2020-11-16
+lastmod: 2021-10-3
 
-# Intro
-记录Git的配置过程
-# Down
+# 安装
+
+Linux 发行版可以直接通过包管理器进行安装，windows 一般需要[手动下载安装包进行安装](https://mirrors.tuna.tsinghua.edu.cn/github-release/git-for-windows/git/Git%20for%20Windows%202.33.0%282%29/)
+
 ```bash
-sudo apt install git
+$ sudo apt install git
 ```
 
-# configSSH
-## basic
+# SSH 配置
+## 全局用户配置
+
 设置用户名和邮箱，这样就可以在本地记录变化了
+
 ```bash
 $ git config --global user.email "you@example.com"
 $ git config --global user.name "Your Name"
 # 查看git用户配置，看下有没有打错
 $ git config --global  --list
 ```
-## SSH 
-现在Github、Gitee都支持SSH，GPG这里就不说了，反正把本地代码push到远程仓库需要靠SSH来确认身份。
+
+## 生成 SSH 密钥
+
+现在Github、Gitee都支持SSH，GPG这里就不说了，反正把本地代码 push 到远程仓库大都需要靠 SSH 来确认身份，也可以使用 HTTPS 进行 pull、push，不过 gitee 的 https 方式每次都要输入用户名和密码，使用 ssh 可以省略这个过程。
+
 ```bash
 $ cd ~/.ssh
 # 没有那个文件说明还没有配置过
@@ -33,15 +39,21 @@ $ ssh-keygen -t rsa -C "$(git config user.email)"
 # 查看公钥
 $ cat ~/.ssh/id_rsa.pub 
 ```
-然后将显示出的公钥（ssh-rsa开头的）复制后添加到Gituhub的SSH and GPG keys里面即可。
-### Test
+
+然后将显示出的公钥（ssh-rsa开头的）复制后添加到 Gituhub 的SSH and GPG keys 里面即可。
+
+### 测试
+
 测试下能否正常通过ssh协议握手，回车后会看到yes/no，输入yes继续回车即可
+
 ```bash
 $ ssh -T git@github.com
 // 国内码云则用下面的进行测试
 $ ssh -T gitee@gitee.com
 ```
+
 成功的样子
+
 ```bash
 The authenticity of host gitee.com  can not  be established.
 Are you sure you want to continue connecting (yes/no)? yes
@@ -50,13 +62,16 @@ Hi Kearney! You have successfully authenticated, but GITEE.COM does not provide 
 # 或者是这样子
 Hi BackMountainDevil! You have successfully authenticated, but GitHub does not provide shell access.
 ```
+
 失败的模样，还没有添加ssh公钥
+
 ```bash
 git@github.com: Permission denied (publickey).
 ```
 
 # 指令
 ## 基本指令
+
 ```bash
 # 新建仓库
 git init
@@ -88,6 +103,16 @@ git clone Rpo_Url --depth=1
 ```bash
 # 将本地的 tag 同步到远程仓库，单 push 不会同步 tag
 git push --tags
+```
+
+# FAQ
+
+1. 将代码同步到 gitee 要求输入密码和用户名进行权限认证
+
+看一下仓库的远程 url，gitee 下的 https 方式每次都需要输入用户名和密码，将仓库的远程地址修改为 ssh 即可。
+
+```bash
+$ git remote set-url origin git@gitee.com:Username/Reponame.git
 ```
 
 # References
