@@ -24,7 +24,7 @@ $ git config --global  --list
 
 ## 生成 SSH 密钥
 
-现在Github、Gitee都支持SSH，GPG这里就不说了，反正把本地代码 push 到远程仓库大都需要靠 SSH 来确认身份，也可以使用 HTTPS 进行 pull、push，不过 gitee 的 https 方式每次都要输入用户名和密码，使用 ssh 可以省略这个过程。
+现在Github、Gitee都支持SSH，GPG这里就不说了，反正把本地代码 push 到远程仓库大都需要靠 SSH 来确认身份，也可以使用 HTTPS 进行 pull、push，不过 https 方式每次都要输入用户名和密码，使用 ssh 可以省略这个过程。
 
 ```bash
 $ cd ~/.ssh
@@ -107,9 +107,9 @@ git push --tags
 
 # FAQ
 
-1. 将代码同步到 gitee 要求输入密码和用户名进行权限认证
+1. 将代码同步到 gitee/github 要求输入密码和用户名进行权限认证
 
-看一下仓库的远程 url，gitee 下的 https 方式每次都需要输入用户名和密码，将仓库的远程地址修改为 ssh 即可。
+看一下仓库的远程 url， https 方式每次都需要输入用户名和密码，将仓库的远程地址修改为 ssh 即可。
 
 ```bash
 $ git remote set-url origin git@gitee.com:Username/Reponame.git
