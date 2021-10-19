@@ -63,10 +63,15 @@ IDF_TOOLS_INSTALL_CMD=/opt/esp-idf/install.sh
 待完善（此部分真板测试未通过）
 
 ```bash
-# 我更换了目录
-cd /home/kearney/opt/esp
-# github 换成 gitee 镜像
-git clone --recursive git@gitee.com:EspressifSystems/esp-adf.git
+# 切换目录
+$ cd /opt
+# 两种拉取办法，第二个可以节约主模块拉取的时间。
+$ sudo git clone --recursive https://github.com/espressif/esp-adf.git
+# 主模块从 github 换成 gitee 镜像，子模块还是会从 github 拉取，子模块里面包含 idf？？离谱了
+$ sudo git clone --recursive https://gitee.com/EspressifSystems/esp-adf.git
+
+$ export ADF_PATH=/opt/esp-adf
+$ printenv ADF_PATH
 ```
 
 # 使用
