@@ -114,6 +114,11 @@ the scott CPU from "But How Do It Know?" by J. Clark Scott
 https://github.com/djhworld/simple-computer
 
 
+使用c++编写操作系统 2021-02-17 https://www.bilibili.com/video/BV1RX4y157CM/ https://github.com/luliyucoordinate/myos
+
+
+Source codes for the "Write your own Operating System" video-series on YouTube https://github.com/AlgorithMan-de/wyoos
+
 
 # OS 分类
 
