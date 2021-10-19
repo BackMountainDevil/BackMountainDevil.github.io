@@ -1,6 +1,6 @@
 # Git 的初始化配置
-date: 2020-11-16
-lastmod: 2021-10-3
+- date: 2020-11-16
+- lastmod: 2021-10-19
 
 # 安装
 
@@ -29,18 +29,20 @@ $ git config --global  --list
 ```bash
 $ cd ~/.ssh
 # 没有那个文件说明还没有配置过
-$ ssh-keygen -t rsa -C "$(git config user.email)"
-# 参数 -t rsa 表示使用 rsa 算法进行加密, -C 表示邮箱，这里使用 git 的配置邮箱，可替换具体的邮箱
+$ ssh-keygen -t ed25519 -C "$(git config user.email)"
+# 参数 -t ed25519 表示使用 ed25519 算法进行加密, -C 表示邮箱，这里使用 git 的配置邮箱，可替换具体的邮箱
 # 三次回车
     # 确认秘钥的保存路径（如果不需要改路径则直接回车）；如果已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
     # 创建密码（如果不需要密码则直接回车）； 
     # 确认密码；
-# 在 ~/.ssh（默认路径）下有两个文件：id_rsa(私钥)和id_rsa.pub(公钥)
+# 在 ~/.ssh（默认路径）下有两个文件：id_ed25519(私钥)和id_ed25519.pub(公钥)
 # 查看公钥
-$ cat ~/.ssh/id_rsa.pub 
+$ cat ~/.ssh/id_ed25519.pub
 ```
 
-然后将显示出的公钥（ssh-rsa开头的）复制后添加到 Gituhub 的SSH and GPG keys 里面即可。
+然后将显示出的公钥（ssh-ed25519开头的）复制后添加到 Gituhub 的 SSH and GPG keys 里面即可。
+
+gitee 要求使用 ed25519 加密算法，经测试已经不支持 rsa ；github 仍旧支持 rsa，鉴于时代发展的方向，这里推荐使用 ed25519。
 
 ### 测试
 
@@ -48,8 +50,8 @@ $ cat ~/.ssh/id_rsa.pub
 
 ```bash
 $ ssh -T git@github.com
-// 国内码云则用下面的进行测试
-$ ssh -T gitee@gitee.com
+# 国内码云则用下面的进行测试
+$ ssh -T git@gitee.com
 ```
 
 成功的样子
@@ -119,3 +121,5 @@ $ git remote set-url origin git@gitee.com:Username/Reponame.git
 
 - [git](https://git-scm.com/)
 - [清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/)
+- [RSA，DSA，ECDSA，EdDSA和Ed25519的区别. Librarookie.  2021-10-10](https://www.cnblogs.com/cure/p/15389876.html)
+> 优先选择ed25519，否则选择rsa 
