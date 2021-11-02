@@ -1,6 +1,6 @@
 # 在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF
-date: 2021-05-01
-lastmod: 2021-05-01
+- date: 2021-05-01
+- lastmod: 2021-05-01
 
 # 简介
 
