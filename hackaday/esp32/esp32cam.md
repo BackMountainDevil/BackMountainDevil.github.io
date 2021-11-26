@@ -1,6 +1,6 @@
 # 为 Esp32 Cam 配置 Arduino 开发环境并人脸识别测试
 - date: 2021-06-04
-- lastmod: 2021-06-04
+- lastmod: 2021-11-26
 
 买回来一个OV7076.。。。找帖子发现到了。。但是太复杂。。。。于是找到一个简单的 ESP32 Cam，当时觉得这牛逼啊，还简单容易上手
 
@@ -14,13 +14,13 @@
 
 # 经典示例
 
-打开 Arduino,菜单栏–>文件–> 示例–> ESP32 Camera–>  CameraWebServer
+打开 Arduino，菜单栏–>文件–> 示例–> ESP32 –> Camera–>  CameraWebServer
 
-wifi名称和密码改为自己知道密码的那个
+wifi名称和密码改为自己知道密码的那个(这里我设置为手机热点的帐号密码)
 
 ![wifi帐号密码的代码位置L18～L19](https://img-blog.csdnimg.cn/2020062521105639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzAzMTA5Mg==,size_16,color_FFFFFF,t_70)
 
-代码中的摄像头模块默认选择是第一种摄像头模块，由于自己也不知道哪个对应哪一个，不过呢，这里我板子上印的是安可信，所以我在这里选择第五个，大部人也是第五个，注意把默认的第一个注释掉（前面加两繁写刚），然后取消自己模块前面的注释。。。。（我就是没取消第一个折腾了好久才发现的。。）
+代码中的摄像头模块默认选择是第一种摄像头模块，由于自己也不知道哪个对应哪一个，不过呢，这里我板子上印的是安可信，所以我在这里选择 CAMERA_MODEL_AI_THINKER，注意把默认的第一个注释掉（在前面加两反斜杠 //），然后删除自己模块前面的注释。。。。（我就是没取消第一个折腾了好久才发现的。。）
 
 ![默认的镜头选择代码](https://img-blog.csdnimg.cn/20200625211121861.png)
 如下图所示
@@ -54,6 +54,8 @@ wifi名称和密码改为自己知道密码的那个
 `172.20.10.14:81`则表示访问。。。我发现无法访问404
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200625213113154.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzAzMTA5Mg==,size_16,color_FFFFFF,t_70)
+
+![实际观察效果（配合foldscope）](https://img-blog.csdnimg.cn/6740330e9c2b4d6d88ab324b17261c11.jpg?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAS2Vhcm5leSBmb3JtIEFuIGlkZWE=,size_12,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
 点击Start Stream就能看到实时图像了，开启选项Face Dection和Face Recognition就可以玩耍人脸识别了（识别的分辨率不高，这个价格还要什么自行车）
 
