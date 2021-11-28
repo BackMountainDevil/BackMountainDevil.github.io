@@ -1,3 +1,4 @@
 - [麦克纳姆轮](/hackaday/thing/Mecanumwheel.md)
 - [Mqtt 协议与 mosquitto paho-mqtt 代码案例](/hackaday/thing/mqtt.md)
+- [显微镜的原理](/hackaday/thing/microscope.md)
 - [](/hackaday/thing/.md)
