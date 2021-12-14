@@ -10,4 +10,5 @@
 - [我是如何看待死亡的](/wuyu/artical/我是如何看待死亡的.md)
 - [从Hexo到Hugo](/wuyu/artical/从Hexo到Hugo.md)
 - [免费托管了近 40w 个静态网站的 neocities](/wuyu/artical/neocities.md)
+- [在滑雪中爱上下雪天-北京云佛](/wuyu/artical/ski.md)
 - [](/wuyu/artical/.md)
