@@ -16,7 +16,7 @@
 - [markdown](/code/app/markdown.md)
 - [HTG Locker && locker.bat 分析 与 80 G的数据恢复记录](/code/app/htglocker.md)
 - [App](/code/app/app.md)
-- [](/code/app/.md)
+- [CentOS 6.8 下 phpvod 搭建记录（ php52 的编译安装）](/code/app/phpvod.md)
 - [](/code/app/.md)
 
 # Git
