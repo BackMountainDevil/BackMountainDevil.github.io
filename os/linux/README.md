@@ -10,6 +10,7 @@
 - [UefiMake - Ventory](/os/linux/UefiMakemd.md)
 - [WinToLinux](/os/linux/WinToLinux.md)
 - [GNU 的神器 screen（程序后台运行 vs nohup）附带串口通信功能](/os/linux/screen.md)
+- [KDE 桌面不完全卡死的解决记录](/os/linux/stuckqB.md)
 - [](/os/linux/.md)
 
 ## Arch
