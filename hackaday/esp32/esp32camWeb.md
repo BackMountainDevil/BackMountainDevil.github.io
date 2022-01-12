@@ -43,7 +43,3 @@
 - [Editing the ESP32-CAM Camera Web Server HTML. April 25, 2019 Robot Zero One](https://robotzero.one/esp32-cam-custom-html/):[CyberChef](https://gchq.github.io/CyberChef/)
 - [技术宅物语 / ESP32-CAM-WEB摄像头](https://gitee.com/the-story-of-technology-house/esp32-cam-web-camera)
 - [安信可ESP32-CAM摄像头开发demo--局域网拍照、实时视频、人脸识别.安信可科技. 2020-08-14](https://aithinker.blog.csdn.net/article/details/108000974)
-- []()
-- []()
-- []()
-- []()
