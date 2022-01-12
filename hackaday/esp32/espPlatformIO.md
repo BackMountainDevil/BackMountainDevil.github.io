@@ -16,7 +16,7 @@
 
 第一次用这个 Board 需要从 github 下载些东西，换上教育网络下载了十分钟左右吧。之后就会打开对应的项目。
 
-![初次创建 esp32项目示意图](/images/espPlatformIO/esp32-project.jpg)
+![初次创建 esp32项目示意图](../../static/images/espPlatformIO/esp32-project.jpg)
 
 ## Error：'Arduino.h' file not found
 终端中显示了一个错误，然而啥也没动呢，只是刚建立了一个空项目而已，错误显示是 `'Arduino.h' file not found`，搜索了一番在 [‘Arduino.h’ file not found. 2019](https://community.platformio.org/t/arduino-h-file-not-found/11236)
@@ -60,7 +60,7 @@ void loop()
 
 点击左下角的勾勾编译通过，点击它旁边的箭头即可上传，上传成功后点它旁边的插头打开串口监视器，就能看到上面的经典 - 世界，我来了，你好呀！
 
-![串口监视器显示 hello world](/images/espPlatformIO/serial-hello.jpg)
+![串口监视器显示 hello world](../../static/images/espPlatformIO/serial-hello.jpg)
 
 # Q&A
 1. 选择 ESP32 对应的 Board 的时候，不同的 Board 之间到底通用不通用？就好像水果姐的 Adafruit ESP32 Feather 和 Espressif ESP32 Dev Module，毕竟水果姐的那个板子和手上的看起来差别不大。
