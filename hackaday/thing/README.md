@@ -2,4 +2,5 @@
 - [Mqtt 协议与 mosquitto paho-mqtt 代码案例](/hackaday/thing/mqtt.md)
 - [显微镜的原理](/hackaday/thing/microscope.md)
 - [小米便携鼠标的滚轮问题](/hackaday/thing/mi-mouse.md)
+- [从自行车尾灯的平行线到鲍威尔透镜 - 一字直线发生器](/hackaday/thing/ledLaser.md)
 - [](/hackaday/thing/.md)
