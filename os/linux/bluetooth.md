@@ -1,4 +1,7 @@
-# 多系统下的蓝牙设备共用配对问题之 IRK、LTK、EDIV、ERAND.以 Manjaro、Debian、Windows10 为例
+# 多系统下的蓝牙设备共用配对问题之 LTK、EDIV、ERAND.以 Manjaro、Debian、Windows10 为例
+- date: 2020-09-6
+- lastmod: 2022-01-25
+
 # 简介
 
 多系统下的蓝牙设备配对问题的解决办法，以 Windows 10 + Manjaro + Debian 为例。尤其适合双（多）系统下的蓝牙设备不支持多配对的时候（有的蓝牙设备是可以进行多主机配对的），同理适合 win + linux 双系统的用户，mac 同理（本人暂无法验证，见参考中大佬的解决办法）。
@@ -9,7 +12,7 @@
 
 1. linux 下进行蓝牙配对
 2. windwnows 下进行蓝牙配对
-3. 用 PStool导出 windows 的蓝牙配置信息
+3. 用 PStool/chntpw 导出 windows 的蓝牙配置信息
 4. 用 sudo 修改 linux 的蓝牙配置信息
 
 # 实操
@@ -38,7 +41,7 @@ Linux 蓝牙 ID：D1
 ![蓝牙属性获取-硬件-属性-事件-信息](https://img-blog.csdnimg.cn/9643f7f0fbf842ceaa38de75cb00690a.jpg?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAS2Vhcm5leSBmb3JtIEFuIGlkZWE=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
 
-暂时我们记录的信息如下所示：
+这里需要记住哪一个地址对应哪一个设备，因为在提取信息的时候没法从信息里知道其对应设备的名称（这一点 Linux 做的比较好，配置信息里有设备名称）。暂时我们记录的信息如下所示：
 
 ```
 设备名称：鼠标 MiMouse
@@ -50,9 +53,9 @@ Linux 蓝牙 ID：D1
 win 设备 ID：d118ff200048
 ```
 
-## 用 PStool导出 windows 的蓝牙配置信息
+## 用 PStool 导出 windows 的蓝牙配置信息
 
-从 [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) 官网下载其压缩包，提取其中的 `PsExec64.exe` 到 `c://windows/system32`，然后鼠标右键菜单标志（默认菜单栏最左边），选择以管理员身份打开 powershell，输入`psexec64.exe -si regedit` 后回车会打开注册表编辑器。（32位PC就提取PsExec.exe，powershell的命令改为`psexec.exe -si regedit`）。
+本文不阐述 chntpw 的办法。从 [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) 官网下载其压缩包，提取其中的 `PsExec64.exe` 到 `c://windows/system32`，然后鼠标右键菜单标志（默认菜单栏最左边），选择以管理员身份打开 powershell，输入`psexec64.exe -si regedit` 后回车会打开注册表编辑器。（32位PC就提取PsExec.exe，powershell的命令改为`psexec.exe -si regedit`）。
 
 在注册表上方的地址栏粘贴下面一行后回车转到蓝牙配置： `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\BTHPORT\Parameters\Keys\` 
 
@@ -66,9 +69,9 @@ win 设备 ID：d118ff200048
 
 ![复制 ERand 的十进制数据示意图，勾选十进制基数后复制](https://img-blog.csdnimg.cn/20210329131517432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzAzMTA5Mg==,size_16,color_FFFFFF,t_70)
 
-选中一个蓝牙设备的文件夹，右键导出，保存为 txt 文件，名称为这个设备的 ID，我们需要复制并记录其中的 IRK 和 LTK。之后获取 EDIV 和 ERAND 的十进制数值，数值在右侧可以看到，但不可以复制。复制的解决办法是右键这个参数的名称，点击修改，然后在弹出的窗口显示的是十六进制，在其右侧勾选十进制就会自动转换为十进制，复制保存下来。
+选中一个蓝牙设备的文件夹，右键导出，保存为 txt 文件，名称为这个设备的 ID，我们需要复制并记录其中的 LTK。之后获取 EDIV 和 ERAND 的十进制数值，数值在右侧可以看到，但不可以复制。复制的解决办法是右键这个参数的名称，点击修改，然后在弹出的窗口显示的是十六进制，在其右侧勾选十进制就会自动转换为十进制，复制保存下来。
 
-复制 IRK 和 LTK 的时候需要注意两侧的不需要复制，只需要复制中间的就行，复制得到的结果和注册表中右侧显示的应该是一样的。
+复制 LTK 的时候需要注意两侧的不需要复制，只需要复制中间的就行，复制得到的结果和注册表中右侧显示的应该是一样的。
 
 ![导出示意图，注意保存类型为 txt](https://img-blog.csdnimg.cn/2021032913121865.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzAzMTA5Mg==,size_16,color_FFFFFF,t_70)
 
@@ -81,7 +84,6 @@ win 设备 ID：d118ff200048
 设备名称：鼠标 MiMouse
 Linux 蓝牙 ID：EB
 win 设备 ID：e35d79da5272
-IRK：24 8c 97 e7 8c 9f c7 ba - 5a 52 4a cf 20 c6 86 93
 LTK：04 29 6f 8e 03 bb 5c 13 - f1 4c 6d ba fe 45 d8 a4
 EDIV：33544
 ERAND：8341617009900789008
@@ -89,7 +91,6 @@ ERAND：8341617009900789008
 设备名称：键盘 KB
 Linux 蓝牙 ID：D1
 win 设备 ID：d118ff200048
-IRK：11 02 77 86 cb 19 27 1e - f3 18 c0 8f 44 56 55 33
 LTK：0f d1 d2 cf 06 33 24 d1 - 47 4e a5 71 e3 3a 09 2d
 EDIV：12016
 ERAND：12806037061999603757
@@ -107,7 +108,6 @@ Linux 下的配置格式和刚才获取的有一丢丢差距，大小写和空�
 设备名称：鼠标 MiMouse
 Linux 蓝牙 ID：EB
 win 设备 ID：EB:FE:DC:C0:E6:CE
-IRK：248C97E78C9FC7BA5A524ACF20C68693
 LTK：04296F8E03BB5C13F14C6DBAFE45D8A4
 EDIV：33544
 ERAND：8341617009900789008
@@ -115,7 +115,6 @@ ERAND：8341617009900789008
 设备名称：键盘 KB
 Linux 蓝牙 ID：D1
 win 设备 ID：D1:18:FF:20:00:48
-IRK：11027786CB19271EF318C08F44565533
 LTK：0FD1D2CF063324D1474EA571E33A092D
 EDIV：12016
 ERAND：12806037061999603757
@@ -143,7 +142,6 @@ cache  D1:17:FF:20:00:48  EB:FE:DC:C0:E6:CE  settings
 设备名称：鼠标 MiMouse
 Linux 蓝牙 ID：EB:FE:DC:C0:E6:CE
 win 设备 ID：E3:5D:79:DA:52:72
-IRK：248C97E78C9FC7BA5A524ACF20C68693
 LTK：04296F8E03BB5C13F14C6DBAFE45D8A4
 EDIV：33544
 ERAND：8341617009900789008
@@ -151,7 +149,6 @@ ERAND：8341617009900789008
 设备名称：键盘 KB
 Linux 蓝牙 ID：D1:17:FF:20:00:48
 win 设备 ID：D1:18:FF:20:00:48
-IRK：11027786CB19271EF318C08F44565533
 LTK：0FD1D2CF063324D1474EA571E33A092D
 EDIV：12016
 ERAND：12806037061999603757
@@ -161,7 +158,6 @@ ERAND：12806037061999603757
 
 | win| linux | 备注 |
 |--|--|--|
-| IRK | IdentityResolvingKey |转大写，去掉空格、短线 |
 | LTK | LongTermKey |转大写，去掉空格、短线 |
 | EDIV  | LTK.EDiv  |十进制 |
 | ERand  | LTK.Rand |十进制 |
