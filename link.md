@@ -8,3 +8,4 @@
 ## 友链博客
 
 - [李山文的博客](https://lishanwen.cn/)
+- [点墨阁](https://blog.zzy-ac.top/)
