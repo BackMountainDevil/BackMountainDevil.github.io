@@ -14,8 +14,10 @@ AUR 中有 esp-idf 的包可以直接一键安装，不过包里面是会从 git
 在[esp-idf 的代码库](https://github.com/espressif/esp-idf)的 release 中给出了两种比较便捷的办法，一种是直接克隆最近一个稳定版，一个是下载[压缩包（v4.4）](https://dl.espressif.com/github_assets/espressif/esp-idf/releases/download/v4.4/esp-idf-v4.4.zip).折腾了那么多次，压缩包是最方便的办法。
 
 ```bash
-# 切换目录，之后会安装到 /opt/esp，推荐下载压缩包解压(我也使用这招)，因为 clone 容易在最后出 bug
+# 切换目录，之后会安装到 /opt/esp，用户需要拥有对该目录的读写权限。不懂就换到用户目录下，如 ～/opt/esp
+sudo chown -hR /opt/esp
 cd /opt/esp
+# 推荐下载压缩包解压(我也使用这招)，因为 clone 容易在最后出 bug
 # github 的方法比较方便，但是需要科学能力，以下针对的是 v4.4 版本的
 git clone -b v4.4 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.4
 
@@ -97,6 +99,8 @@ idf.py -p /dev/ttyUSB0 flash
 # 启动串口监视器，正确退出组合按键是 Ctrl+]
 idf.py monitor
 ```
+
+最后两部可以凑起来一起整 idf.py -p PORT flash monitor，实际上测试过不指明端口也是可以的 idf.py flash monitor
 
 运行结果案例，大概十秒之后会重启并重复这一过程
 
