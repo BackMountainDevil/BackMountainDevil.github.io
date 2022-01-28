@@ -1,10 +1,12 @@
 # 为 Esp32 配置 Arduino 开发环境并测试
 - date: 2021-02-02
-- lastmod: 2021-09-21
+- lastmod: 2022-01-28
 
 # 简介
 
 最近Raspberry 推出了新款双核单片机Pico，大家一片欢呼。然而乐鑫早年的 Esp 32 不仅双核、还拥有板载蓝牙、WIFI技术，价格还低于 Pico，早已兼容 Arduino、Micropython。下面介绍如何在 Arduino 上配置 Esp 32开发板。开始之前首先安装 Arduino 最新版（[Arduino Download](https://www.arduino.cc/en/software)），这个我想大家都懂，不懂留言哈。想配置 PlatformIO 的可以看[PlatformIO 与 ESP 32 点灯体验.Kearney form An idea. 2021-07-17](https://blog.csdn.net/weixin_43031092/article/details/118861747)
+
+不过需要注意的是，这种方式目前还没有支持全部芯片的全部功能，有些可能还没有支持，具体支持情况请查阅[ESP32 Arduino Core’s documentation -> Libraries -> Supported Peripherals](https://docs.espressif.com/projects/arduino-esp32/en/latest/libraries.html)
 
 # 常规配置办法
 ## 附加开发板地址
