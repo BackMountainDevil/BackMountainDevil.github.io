@@ -1,6 +1,6 @@
-# ESP IDF 开发框架构建 与 ADF 语音识别框架尝试 - esp 32s
+# ESP IDF 开发框架构建尝试 - esp32
 - date: 2021-06-04
-- lastmod: 2021-06-04
+- lastmod: 2022-01-28
 
 # ESP IDF
 AUR 中有 esp-idf 的包可以直接一键安装，不过包里面是会从 github 中进行下载，所以没有科学超能力的用户使用还是会安装失败。
@@ -9,14 +9,28 @@ AUR 中有 esp-idf 的包可以直接一键安装，不过包里面是会从 git
 根据[ vscode-esp-idf-extension/docs/tutorial/install.md ](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md)所描述，我这里又是 Arch Linux,因此需要先安装 python 3.5+, pip, git, camke, Ninja-build。这些东东具体如何安装这里不做叙述，因系统而异。比如我的是 `sudo pacman -S --needed gcc git make flex bison gperf python-pip cmake ninja ccache dfu-util libusb`。
 
 ## 安装 ESP-IDF
-根据 [ESP-IDF 文档](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html#get-started-connect) 的描述，我可以选择安装 ESP-IDF 或者插件，我这里安装的是它的 VS Code 插件，安装过程在文档里也有（选择ESPRESSIF的服务器不见得比 Github 要快，将近一个小时的下载安装。。操作系统我都能安好几个了）
+根据 [ESP-IDF 文档](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html#get-started-connect) 的描述，我可以选择安装 ESP-IDF 或者插件，我这里安装的是命令行版本的，插件版安装过程在文档里有，不过插件初始化配置速度靠运气了（选择ESPRESSIF的服务器不见得比 Github 要快，将近一个小时的下载安装。。操作系统我都能安好几个了）。
+
+在[esp-idf 的代码库](https://github.com/espressif/esp-idf)的 release 中给出了两种比较便捷的办法，一种是直接克隆最近一个稳定版，一个是下载[压缩包（v4.4）](https://dl.espressif.com/github_assets/espressif/esp-idf/releases/download/v4.4/esp-idf-v4.4.zip).折腾了那么多次，压缩包是最方便的办法。
 
 ```bash
-# 切换目录，之后会安装到 /opt/esp-idf，其实可以直接下载最新版的 zip 包，但是这样不方便使用 git 进行版本升级
-$ cd /opt
-# github 的方法比较方便，但是需要科学能力
-# $ git clone --recursive https://github.com/espressif/esp-idf.git
+# 切换目录，之后会安装到 /opt/esp，推荐下载压缩包解压(我也使用这招)，因为 clone 容易在最后出 bug
+cd /opt/esp
+# github 的方法比较方便，但是需要科学能力，以下针对的是 v4.4 版本的
+git clone -b v4.4 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.4
 
+cd esp-idf-v4.4/  # 进入目录
+
+./install.sh  # 开始安装
+```
+
+下一步是设置[环境变量](#环境变量)
+
+### gitee 笨办法安装 esp-idf
+
+这个很久之前的了。作为一个记录吧，现在有压缩包直接下载方便多了。这里应该用不上了。主要是有些子模块在 github 上，所以蛮头疼的。
+
+```bash
 # 这里使用 gitee 镜像的办法，由于子模块的问题会需要多几步
 $ sudo git clone https://gitee.com/EspressifSystems/esp-gitee-tools.git
 $ sudo git clone https://gitee.com/EspressifSystems/esp-idf.git #  --recursive 在 gitee 需要验证
@@ -41,88 +55,57 @@ Installing tools: xtensa-esp32-elf, xtensa-esp32s2-elf, xtensa-esp32s3-elf, risc
 
 ```bash
 $ nano ~/.bashrc 
-# 粘贴
-alias get_idf='. /opt/esp-idf/export.sh'
+# 在最后粘贴
+$ alias get_idf='. /opt/esp/esp-idf-v4.4/export.sh'
 
-$ source ~/.bashrc 
+$ source ~/.bashrc
 $ get_idf
-$ printenv | grep IDF
-IDF_PYTHON_ENV_PATH=/home/kearney/.espressif/python_env/idf4.3_py3.9_env
-IDF_PATH=/opt/esp-idf
-IDF_TOOLS_EXPORT_CMD=/opt/esp-idf/export.sh
-IDF_TOOLS_INSTALL_CMD=/opt/esp-idf/install.sh
+
+Done! You can now compile ESP-IDF projects.
+Go to the project directory and run:
+
+  idf.py build
 ```
 
 > 现在您可以在任何终端窗口中运行 get_idf 来设置或刷新 esp-idf 环境。  
 这里不建议您直接将 export.sh 添加到 shell 的配置文件。因为这会导致在每个终端会话中都激活 IDF 虚拟环境（包括无需使用 IDF 的情况），从而破坏使用虚拟环境的目的，并可能影响其他软件的使用。
-
-# ESP-ADF
-
-[ESP32 语音框架开发文档](https://docs.espressif.com/projects/esp-adf/en/latest/get-started/index.html#step-1-set-up-esp-idf)
-
-待完善（此部分真板测试未通过）
-
-```bash
-# 切换目录
-$ cd /opt
-# 两种拉取办法，第二个可以节约主模块拉取的时间。
-$ sudo git clone --recursive https://github.com/espressif/esp-adf.git
-# 主模块从 github 换成 gitee 镜像，子模块还是会从 github 拉取，子模块里面包含 idf？？离谱了
-$ sudo git clone --recursive https://gitee.com/EspressifSystems/esp-adf.git
-
-$ export ADF_PATH=/opt/esp-adf
-$ printenv ADF_PATH
-```
-
-# 使用
-
-下面这些步骤除了敲命令之外，IDF for VS Code 插件会方便一些，点点按钮就完事。
-
-```bash
-# 导入 IDF 环境变量，启动虚拟环境
-get_idf
-# ADF 可以直接加入环境变量
-export ADF_PATH=/home/kearney/opt/esp/esp-adf
-
-# 连接开发板
-# 设置“目标”芯片，清除并初始化项目之前的编译和配置（如有）
-idf.py set-target esp32
-# 配置
-idf.py menuconfig
-# 编译工程
-idf.py build
-# 烧录到设备，DevPort 替换为实际的端口标识
-idf.py -p DevPort flash
-idf.py monitor
-```
-
 ## 设置默认开发板
 
 为了避免每次打开工程都要敲 `idf.py set-target esp32`，[这里](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-guides/build-system.html#selecting-idf-target)提供了一些办法，设置环境变量 `export IDF_TARGET=esp32`。或者设置 CMake 变量。对于特定项目，可以把 `CONFIG_IDF_TARGE`T 的值加入项目里的配置文件 `sdkconfig.defaults`。
 
 但是我手头上都是 esp32 的板子，那还是设置环境变量舒服些。
 
-# Demo
-## IDF
-在 IDF 安装目录中有配套案例（example），拷贝一个 helloworld 出来整进 esp32s 开发板里，一气呵成。
-## ADF
-同样的 ADF 也有配套案例，我拷贝一个简单的 声音检测 vad 出来，无法进入配置界面（menuconfig）...提示找不到啥文件，缺啥模块，根据错误提示去 IDF/ADF 的 github 仓库找，整下来放到对应位置，这下子终于可以进入蓝白的配置界面了。
+> alias get_idf='export IDF_TARGET=esp32 && . /opt/esp/esp-idf-v4.4/export.sh'
 
-然后 Build 的时候遇到了新的错误，这个错误暂时不知道咋解决-.- (得亏我还想整一下离线语音识别呢)
+# 使用
+
+在 IDF 安装目录中有配套案例（example），拷贝一个 helloworld 出来试试
+
 ```bash
-/home/kearney/opt/esp/esp-adf/components/audio_stream/algorithm_stream.c:169:42: error: implicit declaration of function 'aec_pro_create'; did you mean 'aec_create'? [-Werror=implicit-function-declaration]
-         _success &= ((algo->aec_handle = aec_pro_create(AEC_FRAME_LENGTH_MS, ALGORITHM_STREAM_DEFAULT_CHANNEL, ALGORITHM_STREAM_DEFAULT_AEC_MODE)) != NULL);
-                                          ^~~~~~~~~~~~~~
-                                          aec_create
-/home/kearney/opt/esp/esp-adf/components/audio_stream/algorithm_stream.c:169:40: warning: assignment to 'void *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-         _success &= ((algo->aec_handle = aec_pro_create(AEC_FRAME_LENGTH_MS, ALGORITHM_STREAM_DEFAULT_CHANNEL, ALGORITHM_STREAM_DEFAULT_AEC_MODE)) != NULL);
-                                        ^
-cc1: some warnings being treated as errors
-ninja: build stopped: subcommand failed.
-The terminal process "/bin/bash '-c', 'cmake --build .'" failed to launch (exit code: 1).
+# 导入 IDF 环境变量，启动虚拟环境
+get_idf
+# 连接开发板
+# 设置“目标”芯片，清除并初始化项目之前的编译和配置（如有）,
+# 芯片组有 esp32,esp32s2,esp32s3,esp32c3 (idf.py --list-targets)
+idf.py set-target esp32
+# 配置，正常情况下会启动一个蓝白界面进行操作，否则就是安装出了问题
+idf.py menuconfig
+# 编译工程
+idf.py build
+# 烧录到设备，/dev/ttyUSB0 替换为实际的端口标识，如 /dev/ttyUSB1, COM1
+idf.py -p /dev/ttyUSB0 flash
+# 启动串口监视器，正确退出组合按键是 Ctrl+]
+idf.py monitor
 ```
 
-期待这块 ESP-32S 配上 INMP441 全向麦克风能跑起来，不想辜负黄花907第一次开光。
+运行结果案例，大概十秒之后会重启并重复这一过程
+
+```bash
+Hello world!
+This is esp32 chip with 2 CPU core(s), WiFi/BT/BLE, silicon revision 1, 2MB external flash
+Minimum free heap size: 291424 bytes
+```
+
 
 # FAQ
 
