@@ -10,7 +10,7 @@
 
 # 常规配置办法
 ## 附加开发板地址
-打开 Arduino，从菜单栏中这样选择：`“文件”–>“首选项”–>附加开发板管理器网址`，加入这个地址 https://dl.espressif.com/dl/package_esp32_index.json ，点击好保存即可。从其它地方还看到这个地址https://git.oschina.net/dfrobot/FireBeetle-ESP32/raw/master/package_esp32_index.json，这其实是DFRobot的镜像，但是版本低了点（具体可以把网址粘贴到浏览器查看内容进行对比）。
+打开 Arduino，从菜单栏中这样选择：`“文件”–>“首选项”–>附加开发板管理器网址`，加入这个地址 https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json ，点击好保存即可。从其它地方还看到这些地址https://dl.espressif.com/dl/package_esp32_index.json, https://git.oschina.net/dfrobot/FireBeetle-ESP32/raw/master/package_esp32_index.json，这其实是乐鑫和DFRobot的镜像，但是版本低了点（具体可以把网址粘贴到浏览器查看内容进行对比）。
 
 ## 添加开发板
 
@@ -84,7 +84,7 @@ cd tools
 
 
 # 参考
-
+- [Arduino ESP32 官方核心文档](https://docs.espressif.com/projects/arduino-esp32/en/latest/)
 - [Arduino搭建ESP32开发环境路上遇到的天坑-Github-记录-教程 - Kearney](https://blog.csdn.net/weixin_43031092/article/details/106860485)
 - [Installation instructions for Debian / Ubuntu OS - Espressif Systems / arduino-esp32 ](https://gitee.com/espressif-systems/arduino-esp32/blob/master/docs/arduino-ide/debian_ubuntu.md)
 - [ESP32-CAM摄像头-Arduino IDE-网页展示-人脸识别-之七次失败后的成功记录 - Kearney](https://blog.csdn.net/weixin_43031092/article/details/106962217?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161224981316780265457517%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=161224981316780265457517&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-2-106962217.pc_v2_rank_blog_default&utm_term=esp32&spm=1018.2226.3001.4450)
