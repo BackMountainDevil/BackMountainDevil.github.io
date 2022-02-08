@@ -38,6 +38,8 @@ python3自行查找安装办法，git可以参考这个： [Git for windows安�
 
 ### 动手
 
+注意：此方案的仓库长时间未同步，这个更像官方多一点 https://gitee.com/EspressifSystems/arduino-esp32
+
 确保你已经安装了较新版的Arduino。然后确保它没有被打开。
 找到Arduino安装路径。进入hardware目录，打开终端，粘贴下面的命令回车
 以下方法在Linux Deein测试成功，在win下有所不同，参考下面一点点的
