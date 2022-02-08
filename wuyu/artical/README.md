@@ -11,4 +11,5 @@
 - [从Hexo到Hugo](/wuyu/artical/从Hexo到Hugo.md)
 - [免费托管了近 40w 个静态网站的 neocities](/wuyu/artical/neocities.md)
 - [在滑雪中爱上下雪天-北京云佛](/wuyu/artical/ski.md)
+- [《菊与刀》 - 二战后期美国对日本的分析](/wuyu/artical/rn4.md)
 - [](/wuyu/artical/.md)
