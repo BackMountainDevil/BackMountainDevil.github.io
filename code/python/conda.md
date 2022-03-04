@@ -21,6 +21,7 @@ $ conda config --set show_channel_urls yes
 
 # 常见使用办法
 
+```
 升级 conda: conda update conda
 查看已安装的软件包：conda list
 安装软件包：conda install python=3.6.8
@@ -28,12 +29,14 @@ $ conda config --set show_channel_urls yes
 清理无用的包: conda clean -p 
 清理tar包: conda clean -t
 清理所有安装包及cache: conda clean -y --all
+```
 
 ## 虚拟环境
 
 创建虚拟环境：  
-conda create –n env_name python=3.6.8
-env_name为你虚拟环境的名字，python=3.6.8是指定虚拟环境中python的版本，如果不指定，则默认是安装Miniconda时的版本。
+conda create -n env_name python=3.6.8
+
+env_name为你虚拟环境的名字，python=3.6.8是指定虚拟环境中python的版本，如果不指定，则默认是安装Miniconda时的版本。报错请检查是否输入的是中文的短线（-）
 
 激活虚拟环境：  
 conda activate env_name
@@ -166,3 +169,14 @@ $ sudo chmod o+w -R /opt/miniconda3
 3. VS Code 终端总是自动默认启动 conda base 环境，Konsole 也是如此。
 
 我不想打开终端就默认进入 conda 的虚拟环境，因为有的项目有自己的 venv 虚拟环境，当 IDE 使用终端调试的时候，尽管配置了 venv 虚拟环境，还是会发现 conda base 环境也被激活了，这个时候要关闭 conda 自启功能，只需要敲入 conda config --set auto_activate_base false 即可。
+
+4. 创建虚拟环境报错 CondaValueError: The target prefix is the base prefix. Aborting.
+
+```bash
+$ conda create –n fast python=3.8
+
+CondaValueError: The target prefix is the base prefix. Aborting.
+```
+
+结论：把 - 换成英文的 -，如果是中文的短线会引发这个错误
+- [在linux服务器上使用conda创建虚拟环境时报错：CondaValueError: The target prefix is the base prefix. Aborting. A Duter. 2021-04-15](https://blog.csdn.net/qq_42710637/article/details/115719035)
