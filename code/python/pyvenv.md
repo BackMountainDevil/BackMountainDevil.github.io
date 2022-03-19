@@ -117,6 +117,7 @@ pip uninstall pipenv
 1. 导出依赖包不会加入 pypi 的 url（待改进）
 2. 无法区分生产包和开发包
 3. 需要自行导出依赖包以便重建
+4. 不同平台的激活指令有所区别，powershell 是 <venv>\Scripts\Activate.ps1。更多请看[venv 文档](https://docs.python.org/zh-cn/3/library/venv.html)
 
 ```bash
 mkdir weqq  # 假设项目叫做 weqq
@@ -141,6 +142,8 @@ rm -r env
 `pip install -r requirements.txt`
 
 需要注意的是，当虚拟环境所在的路径发生变化（如上级目录更名），需要重建虚拟环境，否则激活虚拟环境后会出现异常情况（如终端显示了虚拟环境名在前，但是 pip 依旧是全局的），这种情况的原因是虚拟环境中写了初始路径（如 env/bin/activate 中的 VIRTUAL_ENV），这个问题同样也会出现在 pipenv 中
+
+通常来说，在 windows 执行自己的脚本是默认禁止的，根据[Win10 pipenv无法加载文件Scripts\Activate.ps1](https://blog.csdn.net/weixin_43031092/article/details/113412866)的结果，打开 pwoershell，输入 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned 即可。
 
 ### bug
 
