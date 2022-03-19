@@ -1,3 +1,4 @@
+- [python 安装到入门（解决 pip 缺失、python 弹出 MicrosoftStore）](/code/python/install.md)
 - [Python 的版本与虚拟环境管理，以 pyenv、pipenv、venv 为例](/code/python/pyenv.md)
 - [miniconda3 的安装和使用 'zsh: command not found: conda'](/code/python/conda.md)
 - [miniconda3 安装 jupyter-lab](/code/python/jupyter.md)
