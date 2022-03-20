@@ -46,3 +46,7 @@
 
 - [解决Deepin启动时无法进入系统出现grub>的问题](/os/deepin/DeepinGrub.md)
 - [在deepin 20 linux OS 下安装Qt](/os/deepin/QtOnLinux.md)
+
+## Windows
+
+- [windows 终端无法加载文件 Scripts\Activate.ps1，因为在此系统上禁止运行脚本-更改执行策略](/os/windwos/executionpolicy.md)
