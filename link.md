@@ -9,3 +9,4 @@
 
 - [李山文的博客](https://lishanwen.cn/)
 - [点墨阁](https://blog.zzy-ac.top/)
+- [孟诗远 - 程序员，爱好计算机、文学、心理学](https://blog.mxslly.com/)
