@@ -33,7 +33,7 @@
 
 ## Manjaro
 
-- [manjaro_begin](/os/manjaro/manjaro_begin.md)
+- [Manjaro 入门](/os/manjaro/manjaro_begin.md)
 - [](/os/manjaro/.md)
 
 ## Debian
