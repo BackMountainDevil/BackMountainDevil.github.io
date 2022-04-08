@@ -13,6 +13,10 @@
 - [KDE 桌面不完全卡死的解决记录](/os/linux/stuckqB.md)
 - [](/os/linux/.md)
 
+## KDE
+
+- [修复 KDE Plasma 下 Meta/win 键无法打开菜单/程序启动器的问题](/os/kde/meta.md)
+
 ## Arch
 
 - [Arch 新手的基本知识](/os/arch/arch-begin.md)
