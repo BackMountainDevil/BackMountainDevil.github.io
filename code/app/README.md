@@ -11,6 +11,7 @@
 # Else
 
 - [手动安装 VirtualBox 增强扩展包及 USB 设备无法识别的问题](/code/app/vbExtendFail.md)
+- [docker 的入门笔记](/code/app/docker.md)
 - [在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF](/code/app/pandoc.md)
 - [fontgoogle 加载速度慢的解决办法](/code/app/fontgoogle.md)
 - [MIPS_Dos](/code/app/MIPS_Dos.md)
@@ -18,7 +19,7 @@
 - [HTG Locker && locker.bat 分析 与 80 G的数据恢复记录](/code/app/htglocker.md)
 - [App](/code/app/app.md)
 - [CentOS 6.8 下 phpvod 搭建记录（ php52 的编译安装）](/code/app/phpvod.md)
-- [](/code/app/.md)
+
 
 # Git
 
