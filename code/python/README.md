@@ -1,4 +1,5 @@
 - [python 安装到入门（解决 pip 缺失、python 弹出 MicrosoftStore）](/code/python/install.md)
+- [pip 设置国内镜像提高下载速度](/code/python/pip.md)
 - [Python 的版本与虚拟环境管理，以 pyenv、pipenv、venv 为例](/code/python/pyenv.md)
 - [miniconda3 的安装和使用 'zsh: command not found: conda'](/code/python/conda.md)
 - [miniconda3 安装 jupyter-lab](/code/python/jupyter.md)
@@ -9,4 +10,3 @@
 - [Pygame](/code/python/pygame.md)
 - [在树莓派2上非全局编译安装 python39](/code/python/compilepy39.md)
 - [kivy（2.0.0） Camera 摄像头案例运行异常的解决办法](/code/python/kivy-camera.md)
-- [](/code/python/.md)
