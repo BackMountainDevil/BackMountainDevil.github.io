@@ -12,7 +12,7 @@
 - [WinToLinux](/os/linux/WinToLinux.md)
 - [GNU 的神器 screen（程序后台运行 vs nohup）附带串口通信功能](/os/linux/screen.md)
 - [KDE 桌面不完全卡死的解决记录](/os/linux/stuckqB.md)
-- [](/os/linux/.md)
+- [windwos11 覆盖了 manjaro linux 的启动引导 grub](/os/linux/grubFix.md)
 
 ## KDE
 
