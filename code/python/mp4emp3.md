@@ -1,6 +1,6 @@
 # 借助 ffmpeg 从视频中批量提取音频后做字幕
 - date: 2022-04-27
-- lastmod: 2022-05-05
+- lastmod: 2022-05-06
 
 ## 前言
 
@@ -62,7 +62,7 @@ ffmpeg -i music.mp3 -ss 02:00:00 -acodec copy -copyts musicp2.mp3
 如将 input.srt 的时间轴统一后移 2h（7200s），保存为 output.srt
 python main.py -i input.srt -o output.srt -t 7200
 
-修改序号的话将 L86 替换为  srt_strs.append(int(rlines[i].strip())+行号偏移量)。假设后移 911 行就是： srt_strs.append(int(rlines[i].strip())+911)
+修改序号的话修改 L57 parse(self, item_strs, lineOffset=0) 的第二个参数的值
 """
 import os
 import sys
@@ -113,10 +113,12 @@ class srt_sub_imp(subtitle_imp):  # 子类
     def __init__(self):
         super().__init__()
 
-    def parse(self, item_strs):
-        """解析时间"""
+    def parse(self, item_strs, lineOffset=0):
+        """解析一小段字幕序列
+        item_strs:一段字幕序列，比如 ['0', '00:00:03,540 --> 00:00:05,670', '哦\nOh,\n']
+        lineOffset:字幕序号偏移量（通常用在文件合并中），默认不偏移；比如 425"""
         srt_item = subtitle_item()
-        srt_item.index = int(item_strs[0])
+        srt_item.index = int(item_strs[0]) + lineOffset
         srt_item.text = item_strs[2]
 
         time_strs = item_strs[1].split("-->")
@@ -135,31 +137,26 @@ class srt_sub_imp(subtitle_imp):  # 子类
             rlines[0] = data[3:].decode(encoding="utf-8")
         i = 0
         while i < len(rlines):
-            line = rlines[i].strip()  # 不懂干啥？后面都没用 line
             if rlines[i].strip() == "":
                 i += 1
                 continue
 
             srt_strs = []
-
-            srt_strs.append(
-                rlines[i].strip()
-            )  # 序号, srt_strs.append(int(rlines[i].strip())+行号偏移量)
+            srt_strs.append(rlines[i].strip())  # 序号
             i += 1
             srt_strs.append(rlines[i].strip())  # 时间
             i += 1
 
             text_str = ""  # 字幕所含的文字
-
             try:
-                """这个异常我也没调明白，调试中 i 明显没溢出，但是愣是报错溢出"""
+                """这个异常在最后一行报错溢出 list index out of range，原因如下帖子的第二个
+                https://blog.csdn.net/qq_43082153/article/details/108579168"""
                 while rlines[i].strip() != "":
                     text_str = text_str + rlines[i]
                     i += 1
             except Exception as e:
                 print("Exception: ", e)
-
-            srt_strs.append(text_str)  # 一小段字幕（对应三行）
+            srt_strs.append(text_str)  # 一小段字幕（对应三行或者四行[双语]）
 
             self._subItems.append(self.parse(srt_strs))
 
