@@ -12,6 +12,7 @@
 
 - [手动安装 VirtualBox 增强扩展包及 USB 设备无法识别的问题](/code/app/vbExtendFail.md)
 - [docker 的入门笔记](/code/app/docker.md)
+- [ffmpeg 基本命令](/code/app/ffmpeg.md)
 - [在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF](/code/app/pandoc.md)
 - [fontgoogle 加载速度慢的解决办法](/code/app/fontgoogle.md)
 - [MIPS_Dos](/code/app/MIPS_Dos.md)
