@@ -13,4 +13,5 @@
 - [在滑雪中爱上下雪天-北京云佛](/wuyu/artical/ski.md)
 - [《菊与刀》 - 二战后期美国对日本的分析](/wuyu/artical/rn4.md)
 - [医保那些事](/wuyu/artical/NHSA.md)
+- [高考完时十八岁的时候，我去献血了](/wuyu/artical/blood.md)
 - [](/wuyu/artical/.md)
