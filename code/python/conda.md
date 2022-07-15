@@ -1,6 +1,6 @@
 # miniconda3 的安装和使用 'zsh: command not found: conda'
 - date: 2021-09-11
-- lastmod: 2021-09-15
+- lastmod: 2022-07-15
 
 python 中管理虚拟环境可以使用其自带的 venv,而管理不同版本的 python 环境的时候就可以使用 conda。conda 又有 anaconda 和 miniconda 两种，后者相对请量化一点。
 
@@ -180,3 +180,187 @@ CondaValueError: The target prefix is the base prefix. Aborting.
 
 结论：把 - 换成英文的 -，如果是中文的短线会引发这个错误
 - [在linux服务器上使用conda创建虚拟环境时报错：CondaValueError: The target prefix is the base prefix. Aborting. A Duter. 2021-04-15](https://blog.csdn.net/qq_42710637/article/details/115719035)
+
+5. 如何清空base环境的其它包（重置）？
+
+    pip 没有向 pacman 那样的依赖清楚，pip安装一个包会把依赖包也安装上，但是移除的时候并不会清理没有被其它包依赖的包。如果不是base环境的话，可以直接整个环境都移除，[python - 如何从 Anaconda 的 Base 环境中删除不需要的 python 包 ](https://www.coder.work/article/3156577)中提到的`conda install --rev 1`说是可能引起问题，我尝试新装一个环境（miniconda 4.12.0-1 py3.8.13），通过pip freeze查看，结果txt里边是 “certifi @ file:///opt/conda/conda-bld/certifi_1655968806487/work/certifi“，然而我的目录是 /opt/miniconda3,压根没有/opt/conda/，以为是freeze的尖括号写的太近了，又加了空格再试以便还是一样。用 conda list --revisions 得到我的base环境只有 2022-04-21 09:03:40  (rev 0)。。。然而我在好几个不同时间段都用pip装过包（black、jupyterlab），尬住了，可能这也是miniconda的一个bug吧。
+
+    ```bash
+    $ conda create -n py38 python=3.8
+    Collecting package metadata (current_repodata.json): done
+    Solving environment: done
+
+    ## Package Plan ##
+
+    environment location: /home/kearney/.conda/envs/py38
+
+    added / updated specs:
+        - python=3.8
+
+    The following packages will be downloaded:
+
+    _libgcc_mutex      anaconda/pkgs/main/linux-64::_libgcc_mutex-0.1-main
+    _openmp_mutex      anaconda/pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu
+    ca-certificates    anaconda/pkgs/main/linux-64::ca-certificates-2022.4.26-h06a4308_0
+    certifi            anaconda/pkgs/main/linux-64::certifi-2022.6.15-py38h06a4308_0
+    ld_impl_linux-64   anaconda/pkgs/main/linux-64::ld_impl_linux-64-2.38-h1181459_1
+    libffi             anaconda/pkgs/main/linux-64::libffi-3.3-he6710b0_2
+    libgcc-ng          anaconda/pkgs/main/linux-64::libgcc-ng-11.2.0-h1234567_1
+    libgomp            anaconda/pkgs/main/linux-64::libgomp-11.2.0-h1234567_1
+    libstdcxx-ng       anaconda/pkgs/main/linux-64::libstdcxx-ng-11.2.0-h1234567_1
+    ncurses            anaconda/pkgs/main/linux-64::ncurses-6.3-h5eee18b_3
+    openssl            anaconda/pkgs/main/linux-64::openssl-1.1.1q-h7f8727e_0
+    pip                anaconda/pkgs/main/linux-64::pip-22.1.2-py38h06a4308_0
+    python             anaconda/pkgs/main/linux-64::python-3.8.13-h12debd9_0
+    readline           anaconda/pkgs/main/linux-64::readline-8.1.2-h7f8727e_1
+    setuptools         anaconda/pkgs/main/linux-64::setuptools-61.2.0-py38h06a4308_0
+    sqlite             anaconda/pkgs/main/linux-64::sqlite-3.38.5-hc218d9a_0
+    tk                 anaconda/pkgs/main/linux-64::tk-8.6.12-h1ccaba5_0
+    wheel              anaconda/pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0
+    xz                 anaconda/pkgs/main/linux-64::xz-5.2.5-h7f8727e_1
+    zlib               anaconda/pkgs/main/linux-64::zlib-1.2.12-h7f8727e_2
+
+    # To deactivate an active environment, use
+    #
+    #     $ conda deactivate
+
+    $ conda activate py38
+    (py38) $ pip list
+    Package    Version
+    ---------- ---------
+    certifi    2022.6.15
+    pip        22.1.2
+    setuptools 61.2.0
+    wheel      0.37.1
+    (py38) $ pip freeze>py38initial.txt
+    (py38) $ pip freeze > py38initial.txt
+    ```
+
+    但是在base下 `(base) [kearney@xx cs61a2022]$ pip freeze>re.txt` 得到的txt就有东西，看来可以通过这个文件把多于的包清理掉，需要注意要删掉txt里的certifi
+    ```
+    anyio @ file:///tmp/build/80754af9/anyio_1617783277988/work/dist
+    argon2-cffi @ file:///tmp/build/80754af9/argon2-cffi_1613037499734/work
+    astor==0.8.1
+    async-generator @ file:///home/ktietz/src/ci/async_generator_1611927993394/work
+    attrs @ file:///tmp/build/80754af9/attrs_1620827162558/work
+    Babel @ file:///tmp/build/80754af9/babel_1620871417480/work
+    backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
+    backports.entry-points-selectable==1.1.1
+    bce-python-sdk==0.8.64
+    black==21.12b0
+    bleach @ file:///tmp/build/80754af9/bleach_1628110601003/work
+    brotlipy==0.7.0
+    certifi==2021.10.8
+    cffi @ file:///opt/conda/conda-bld/cffi_1642701102775/work
+    cfgv==3.3.1
+    charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+    click==8.1.3
+    colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
+    colorlog==6.6.0
+    conda==4.12.0
+    conda-content-trust @ file:///tmp/build/80754af9/conda-content-trust_1617045594566/work
+    conda-package-handling @ file:///tmp/build/80754af9/conda-package-handling_1649105784853/work
+    contextlib2==21.6.0
+    cryptography @ file:///tmp/build/80754af9/cryptography_1639414572950/work
+    debugpy @ file:///tmp/build/80754af9/debugpy_1637091799509/work
+    decorator @ file:///tmp/build/80754af9/decorator_1632776554403/work
+    defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
+    dill==0.3.4
+    distlib==0.3.4
+    easydict==1.9
+    entrypoints==0.3
+    execnet==1.9.0
+    filelock==3.4.0
+    flake8==4.0.1
+    future==0.18.2
+    gunicorn==20.1.0
+    h5py==3.6.0
+    identify==2.4.0
+    idna @ file:///tmp/build/80754af9/idna_1637925883363/work
+    importlib-metadata @ file:///tmp/build/80754af9/importlib-metadata_1631916692253/work
+    iniconfig==1.1.1
+    ipykernel==6.5.1
+    ipython @ file:///tmp/build/80754af9/ipython_1635944169458/work
+    ipython-genutils @ file:///tmp/build/80754af9/ipython_genutils_1606773439826/work
+    itsdangerous==2.0.1
+    jedi @ file:///tmp/build/80754af9/jedi_1611333729159/work
+    jieba==0.42.1
+    Jinja2 @ file:///tmp/build/80754af9/jinja2_1635780242639/work
+    json5 @ file:///tmp/build/80754af9/json5_1624432770122/work
+    jsonschema @ file:///Users/ktietz/demo/mc3/conda-bld/jsonschema_1630511932244/work
+    jupyter-client @ file:///tmp/build/80754af9/jupyter_client_1637148478538/work
+    jupyter-core @ file:///tmp/build/80754af9/jupyter_core_1636537028672/work
+    jupyter-server @ file:///tmp/build/80754af9/jupyter_server_1616084066671/work
+    jupyterlab @ file:///home/conda/feedstock_root/build_artifacts/jupyterlab_1637169796215/work
+    jupyterlab-pygments @ file:///tmp/build/80754af9/jupyterlab_pygments_1601490720602/work
+    jupyterlab-server @ file:///tmp/build/80754af9/jupyterlab_server_1633419203660/work
+    MarkupSafe @ file:///tmp/build/80754af9/markupsafe_1621523467000/work
+    matplotlib-inline @ file:///tmp/build/80754af9/matplotlib-inline_1628242447089/work
+    mccabe==0.6.1
+    mistune @ file:///tmp/build/80754af9/mistune_1607364877025/work
+    mock==4.0.3
+    multiprocess==0.70.12.2
+    mypy-extensions==0.4.3
+    nbclassic @ file:///tmp/build/80754af9/nbclassic_1616085367084/work
+    nbclient @ file:///tmp/build/80754af9/nbclient_1614364831625/work
+    nbconvert @ file:///tmp/build/80754af9/nbconvert_1624472883256/work
+    nbformat @ file:///tmp/build/80754af9/nbformat_1617383369282/work
+    nest-asyncio @ file:///tmp/build/80754af9/nest-asyncio_1613680548246/work
+    nodeenv==1.6.0
+    notebook @ file:///tmp/build/80754af9/notebook_1637161762562/work
+    onnx==1.9.0
+    packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
+    pandocfilters @ file:///tmp/build/80754af9/pandocfilters_1605120906940/work
+    parso @ file:///tmp/build/80754af9/parso_1617223946239/work
+    path==16.2.0
+    path.py==12.5.0
+    pathspec==0.9.0
+    pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
+    pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
+    platformdirs==2.4.0
+    pluggy==1.0.0
+    pre-commit==2.16.0
+    prometheus-client @ file:///tmp/build/80754af9/prometheus_client_1637050397234/work
+    prompt-toolkit @ file:///tmp/build/80754af9/prompt-toolkit_1633440160888/work
+    protobuf==3.19.1
+    ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
+    py==1.11.0
+    pycodestyle==2.8.0
+    pycosat==0.6.3
+    pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+    pycryptodome==3.12.0
+    pyflakes==2.4.0
+    Pygments @ file:///tmp/build/80754af9/pygments_1629234116488/work
+    pyOpenSSL @ file:///opt/conda/conda-bld/pyopenssl_1643788558760/work
+    pyparsing @ file:///tmp/build/80754af9/pyparsing_1635766073266/work
+    pyrsistent @ file:///tmp/build/80754af9/pyrsistent_1636110951836/work
+    PySocks @ file:///tmp/build/80754af9/pysocks_1605305812635/work
+    pytest==6.2.5
+    pytest-shutil==1.7.0
+    python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+    pytz==2021.3
+    pyzmq @ file:///tmp/build/80754af9/pyzmq_1628275385016/work
+    rarfile==4.0
+    requests @ file:///opt/conda/conda-bld/requests_1641824580448/work
+    ruamel-yaml-conda @ file:///tmp/build/80754af9/ruamel_yaml_1616016711199/work
+    Send2Trash @ file:///tmp/build/80754af9/send2trash_1632406701022/work
+    seqeval==1.2.2
+    shellcheck-py==0.8.0.2
+    six @ file:///tmp/build/80754af9/six_1644875935023/work
+    sniffio @ file:///tmp/build/80754af9/sniffio_1614030464178/work
+    termcolor==1.1.0
+    terminado==0.9.4
+    testpath @ file:///tmp/build/80754af9/testpath_1624638946665/work
+    toml==0.10.2
+    tomli==1.2.3
+    tornado @ file:///tmp/build/80754af9/tornado_1606942317143/work
+    tqdm @ file:///opt/conda/conda-bld/tqdm_1647339053476/work
+    traitlets @ file:///tmp/build/80754af9/traitlets_1636710298902/work
+    typing_extensions==4.0.1
+    urllib3 @ file:///opt/conda/conda-bld/urllib3_1643638302206/work
+    virtualenv==20.10.0
+    wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
+    webencodings==0.5.1
+    Werkzeug==2.0.2
+    zipp @ file:///tmp/build/80754af9/zipp_1633618647012/work
+    ```
