@@ -236,7 +236,7 @@ CondaValueError: The target prefix is the base prefix. Aborting.
     (py38) $ pip freeze > py38initial.txt
     ```
 
-    但是在base下 `(base) [kearney@xx cs61a2022]$ pip freeze>re.txt` 得到的txt就有东西，看来可以通过这个文件把多于的包清理掉，需要注意要删掉txt里的certifi
+    但是在base下 `(base) [kearney@xx cs61a2022]$ pip freeze>re.txt` 得到的txt就有东西，看来可以通过这个文件把多于的包清理掉，删掉txt里的certifi之后进行实践，pip uninstall -r re.txt，回复一堆y之后黄色警告接着红色错误，光敲y没注意卸载的啥，最后把conda移除了，conda都没法用了，卸载重装miniconda
     ```
     anyio @ file:///tmp/build/80754af9/anyio_1617783277988/work/dist
     argon2-cffi @ file:///tmp/build/80754af9/argon2-cffi_1613037499734/work
