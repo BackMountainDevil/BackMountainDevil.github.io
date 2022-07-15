@@ -184,6 +184,8 @@ CondaValueError: The target prefix is the base prefix. Aborting.
 5. 如何清空base环境的其它包（重置）？
 
     pip 没有向 pacman 那样的依赖清楚，pip安装一个包会把依赖包也安装上，但是移除的时候并不会清理没有被其它包依赖的包。如果不是base环境的话，可以直接整个环境都移除，[python - 如何从 Anaconda 的 Base 环境中删除不需要的 python 包 ](https://www.coder.work/article/3156577)中提到的`conda install --rev 1`说是可能引起问题，我尝试新装一个环境（miniconda 4.12.0-1 py3.8.13），通过pip freeze查看，结果txt里边是 “certifi @ file:///opt/conda/conda-bld/certifi_1655968806487/work/certifi“，然而我的目录是 /opt/miniconda3,压根没有/opt/conda/，以为是freeze的尖括号写的太近了，又加了空格再试以便还是一样。用 conda list --revisions 得到我的base环境只有 2022-04-21 09:03:40  (rev 0)。。。然而我在好几个不同时间段都用pip装过包（black、jupyterlab），尬住了，可能这也是miniconda的一个bug吧。
+    <details>
+    <summary>bash operate</summary>
 
     ```bash
     $ conda create -n py38 python=3.8
@@ -235,8 +237,13 @@ CondaValueError: The target prefix is the base prefix. Aborting.
     (py38) $ pip freeze>py38initial.txt
     (py38) $ pip freeze > py38initial.txt
     ```
+    </details>
 
     但是在base下 `(base) [kearney@xx cs61a2022]$ pip freeze>re.txt` 得到的txt就有东西，看来可以通过这个文件把多于的包清理掉，删掉txt里的certifi之后进行实践，pip uninstall -r re.txt，回复一堆y之后黄色警告接着红色错误，光敲y没注意卸载的啥，最后把conda移除了，conda都没法用了，卸载重装miniconda
+
+    <details>
+    <summary>装了很多包的 base re.txt</summary>
+
     ```
     anyio @ file:///tmp/build/80754af9/anyio_1617783277988/work/dist
     argon2-cffi @ file:///tmp/build/80754af9/argon2-cffi_1613037499734/work
@@ -364,3 +371,31 @@ CondaValueError: The target prefix is the base prefix. Aborting.
     Werkzeug==2.0.2
     zipp @ file:///tmp/build/80754af9/zipp_1633618647012/work
     ```
+    </details>
+
+    折腾了好一会装回了miniconda3,还是base下freeze得到的txt，看来复原base的时候要从txt中剔除掉19个包，不单单是剔除certifi
+    <details>
+    <summary>base原状的re.txt</summary>
+
+    ```
+    brotlipy==0.7.0
+    certifi==2021.10.8
+    cffi @ file:///opt/conda/conda-bld/cffi_1642701102775/work
+    charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+    colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
+    conda==4.12.0
+    conda-content-trust @ file:///tmp/build/80754af9/conda-content-trust_1617045594566/work
+    conda-package-handling @ file:///tmp/build/80754af9/conda-package-handling_1649105784853/work
+    cryptography @ file:///tmp/build/80754af9/cryptography_1639414572950/work
+    idna @ file:///tmp/build/80754af9/idna_1637925883363/work
+    pycosat==0.6.3
+    pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+    pyOpenSSL @ file:///opt/conda/conda-bld/pyopenssl_1643788558760/work
+    PySocks @ file:///tmp/build/80754af9/pysocks_1605305812635/work
+    requests @ file:///opt/conda/conda-bld/requests_1641824580448/work
+    ruamel-yaml-conda @ file:///tmp/build/80754af9/ruamel_yaml_1616016711199/work
+    six @ file:///tmp/build/80754af9/six_1644875935023/work
+    tqdm @ file:///opt/conda/conda-bld/tqdm_1647339053476/work
+    urllib3 @ file:///opt/conda/conda-bld/urllib3_1643638302206/work
+    ```
+    </details>
