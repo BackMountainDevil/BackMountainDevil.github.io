@@ -1,12 +1,14 @@
 # windwos11 覆盖了 manjaro linux 的启动引导 grub
 - date: 2022-04-28
-- lastmod: 2022-04-28
+- lastmod: 2022-07-28
 
 # 问题为什么发生
 
 以往整 linux 我都是双系统或者虚拟机，但是后来觉得可以不再使 windows 了，就完全把 windows 删除了。有啥跑不起来的软件整 wine 或者 虚拟机，但是直到更新 BIOS，wine 或者 虚拟机都没有办法，想着旧版 BIOS 也行，但是直到最近联想爆出 BIOS 存在重大隐患紧急更新了一批 BIOS，到驱动页面真的发现了新版的 BIOS，没想到啥好办法，只好装个 windows。
 
 双系统中一般都推荐先装 windows 再装 linux，因为顺序反过来的话 windows 会覆盖掉 linux 的启动引导，就很恶心，而 linux 不会覆盖其它系统的启动引导，检测到其它系统会将其添加到启动选项里边。
+
+第二次修改是因为更新BIOS（F0CN36WW），联想太恶了，更新个BIOS把grub替换为win专属，上次是更BIOS是因为存在重大安全漏洞，这次不知道是发生了啥，还好我带的U盘里有 manjaro live。这次在`pacman -Syu grub`出了点问题，镜像更新也存在问题，直接跳过实测影响不大，然后可以开机进入manjaro,进入系统后再运行`sudo update-grub`把win11扫出来。
 
 # 怎么办
 
