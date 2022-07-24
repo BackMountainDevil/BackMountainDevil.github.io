@@ -81,3 +81,8 @@ systemctl mask lvm2-monitor.service
 [AMD 安装 Manjaro KDE 驱动安装后续及BackLight:ACPI故障解决. grsharp. 2020-04-24](https://blog.csdn.net/grsharp/article/details/105735792)
 > boot启动显示错误信息Failed to start Load/Save Screen Backlight Brightness of backlight:acpi_video0，虽然不影响正常体验（其实系统使用了systemd-backlight@backlight:amdgpu_b10来补充了)所以让报错消失的办法直接屏蔽该服务：
 sudo systemctl mask systemd-backlight@backlight:acpi_video0
+
+# pamac 显示无法锁定数据库 unable to lock database
+
+[Pamac update: unable to lock database, Failed to synchronize databases ](https://forum.manjaro.org/t/pamac-update-unable-to-lock-database-failed-to-synchronize-databases/114762)
+> pamac update --force-refresh
