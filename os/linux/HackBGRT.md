@@ -1,10 +1,12 @@
-# HackBGRT 更改开机logo
+# HackBGRT 更改开机logo以及如何修复
 - date: 2022-07-26
-- lastmod: 2022-07-26
+- lastmod: 2022-08-03
 
 # 摘要
 
 想要更改联想小新13 pro ARE 2020的开机logo，联想电脑管家有这个功能，但是一旦卸载了管家这个功能就失效了（ex）。后来看到HackBGRT，问了下支持linux的，实操一下不太成功，开启debug修正了一下稍微成功了一次就失败了，windows还得修复，还好manjaro还可以正常启动。
+
+如果是Lenovo电脑可以尝试参考末尾的LogoDiy，问了下原理是通过dnSpy逆向，测试简单有效
 
 - Device: Lenovo XiaoXinPro-13ARE 2020
 - BIOS: F0CN36WW
@@ -87,6 +89,41 @@ Boot0002* HackBGRT      HD(1,GPT,171ffb3e-6c37-4801-8b11-3ba3cea2e27a,0x800,0x82
 
 然而还是那个logo，看了下debug输出怀疑是配置文件的路径配置错了，将boot的值修改为`\EFI\Manjaro\grubx64.efi`，将image的值修改为`n=1,path=\EFI\HackBGRT\splash.bmp`（照抄文件提示）。启动之后有那么一次显示了HackBGRT的图像，之后就还是exlogo,启动manjrao倒是一切正常，把HackBGRT启动项删除，文件夹删除，然而win还是进不去，至于如何修复win11的boot,想着用winPE，但是手头上没有，也很少用win，不着急。洗完澡想着如果把 hackBGRT正确安装的话，win是不是还可以正常启动呢？试了一下，添加启动项的方式这次也把路径修改了（`sudo efibootmgr -c -w -L "HackBGRT" -d /dev/nvme0n1 -p 1 -l "/EFI/HackBGRT/bootx64.efi"`），manjrao启动的时候确实把exlogo替换掉了，但是win还是不能启动，这下子连提示也没有了。
 
+从逻辑上来说，win启动项是没有问题的，它只是按照我设置的进行操作罢了，一进入win就会进入hackBGRT的引导，而这个引导的目标又被我改成manjaro,所以进入win就会跳到manjaro,从manjaro的grub2界面进入win也是会跳转到manjaro，死循环了属实是，那么问题就是如何把win的启动项修改回win，查了下大多是bcdedit、bcdedit之类的，当然最简单粗暴的办法是重装，在官网上免费下载到win11的系统安装包和刚开始安装时一样就行了，但是这样会覆盖安装C盘的软件，虽然没啥，不过CSGO在D盘，在不得不重装之前尝试下其它办法，在参考[Windows 11 UEFI引导修复详细教程](https://www.disktool.cn/content-center/repair-windows-11-uefi-bootloader-2111.html)的方法一和方法二通过diskpart和bcdboot进行尝试起初不太成功，最后也是通过这个办法修复的
+
+### 启动修复 失败
+
+通过系统安装包的修复计算机中自带的启动修复功能，检测修复后还是启动manjaro,多次尝试该办法均以失败告终。
+
+### bcdboot 成功
+
+此办法起初失败有几个原因，EFI分区默认不分配驱动器号导致不知道是哪个盘符（要使用assign先分配）、拒绝访问和复制失败（路径有误）
+
+```bash
+> diskpart
+DISKPART> list disk
+DISKPART> select disk 0
+DISKPART> list vol  # 此时显示EFI分区大小260M，卷号为3,标签是SYSTEM_DRV,格式为FAT32,没有分配驱动器号
+DISKPART> select volume 3 # 根据上一步的结果判断EFI分区的卷号
+DISKPART> assign letter=z # 分配驱动器号为 z
+DISKPART> exit  # 推出 diskpart
+
+> cd/d Z:\EFI\Microsoft\Boot\ 
+
+> bootrec/fixboot
+拒绝访问
+> ren BCD BCD.bak
+> bcdboot C:\Windows /1 zh-cn /s x: /f ALL (请根据自己的设置更改内容)
+尝试复制启动文件失败
+> bootrec /rebuildbcd
+在所有磁盘上扫描 Windows 安装。。。
+已标识的 Windows 安装总数:1
+[1] E:\Windows
+是否要将安装添加到启动列表？是Y否N全部A:A
+```
+
+添加之后启动的还是manjaro，刚开始以为这个办法只是把原启动项复制加入BIOS,后来添加成功才知道这个是用唯一的win引导覆盖旧的win引导。上面拒绝访问那里查了下有的解决方案要进入系统里打开服务项注册表进行操作的然而我都进不去系统好吧，然后想着要不运行安装时的exe进行卸载好了，又得知切换目录cd显示文件列表dir运行exe是start,然而运行exe时显示错误提示为并行配置有误，既然不能运行安装的exe进行卸载，那能不能直接删除efi呢，通过dir发现efi分区和linux下的efi是一样的东西，把东西删除还要修改启动项的，然后切换目录后dir发现该C盘并非是我安装win的系统盘，而是我的U盘，通过遍历字母表发现装有系统的C盘被分配到了E盘（写记录的时候才发现上面扫描出来的结果也提示了这一点），然后一句指令就搞定了 `bcdboot E:\Windows`，之后正常进入了win,连manjaro都没有显示，正当我以为要给manjaro重做grub引导时，进入BIOS的启动项设置里看到manjaro还在，把ta的顺序上升到win之前就搞定了。
+
 # 参考
 - [超简单方法修改笔记本开机logo，三分钟搞定！iamjpw 2020-05-16](https://post.smzdm.com/p/apz3vw07/):HackBGRT 
   > 安装完重启发现开机先显示默认logo，再显示自定义logo：这个可能属于安装不完全
@@ -94,3 +131,5 @@ Boot0002* HackBGRT      HD(1,GPT,171ffb3e-6c37-4801-8b11-3ba3cea2e27a,0x800,0x82
   > CTRL+F 搜索GUID 7BB28B99-61BB-11D5-9A5D-0090273FC14D.没有搜索到，那么这个方法就不能用
 - [Step to UEFI (137） 通过 BGRT 取得当前系统的 LOGO ziv2013发布于 2018 年 1 月 15 日](https://www.lab-z.com/stu137/):以防万一，把这个代码备份到[gitee](https://gitee.com/anidea/find-bgrt)了
   > BIOS解压自己的Logo在内存中，然后通过ACPI Table将这个Logo传递给Windows.具体的Table就是 Boot Graphics Resource Table。在 ACPI 6.1的5.2.22有专门的介绍。
+- [ BIOS Boot-Logo - Howto: create your own BIOS boot logo](https://www.biosflash.com/e/bios-boot-logo.htm):CBROM v2.15 暂未尝试
+- [Customize Lenovo PC boot logo (screen) without installing "Lenovo PC Manager".](https://github.com/Coxxs/LogoDiy/):测试有效

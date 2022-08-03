@@ -14,7 +14,7 @@
 - [KDE 桌面不完全卡死的解决记录](/os/linux/stuckqB.md)
 - [linux 下无法在 ntfs 分区写入文件、保存修改。显示“只读文件系统”](/os/linux/ntfsReadOnly.md)
 - [windwos11 覆盖了 manjaro linux 的启动引导 grub](/os/linux/grubFix.md)
-- [HackBGRT 更改开机logo](/os/linux/HackBGRT.md)
+- [HackBGRT 更改开机logo以及如何修复](/os/linux/HackBGRT.md)
 
 ## KDE
 
