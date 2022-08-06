@@ -1,6 +1,6 @@
 # 手动安装 VirtualBox 增强扩展包及 USB 设备无法识别的问题
 - date: 2022-03-19
-- lastmod: 2022-03-19
+- lastmod: 2022-08-06
 
 ## 从 VB 设置里下载增强包
 
@@ -57,3 +57,20 @@ $ VBoxManage list extpacks
 
 [Virtualbox USB Devices Aren’t Recognized?](https://forum.manjaro.org/t/virtualbox-usb-devices-arent-recognized/57361/3)：总之是将当前用户加入 vboxusers 用户组，命令好像在不同系统不太一样，比如[VirtualBox中没有可用的USB设备](https://qastack.cn/superuser/956622/no-usb-devices-available-in-virtualbox)是 sudo adduser $USER vboxusers
 > sudo gpasswd -a $USER vboxusers
+
+### USB 控制器导致的无法开机
+
+启动win11虚拟机报错显示，已经确定BIOS中开启虚拟化功能了，错误原因如下
+
+```
+不能为虚拟电脑 win11 打开一个新任务.
+
+The VM session was aborted.
+
+返回 代码: NS_ERROR_FAILURE (0x80004005)
+组件: SessionMachine
+界面: ISession {c0447716-ff5a-4795-b57a-ecd5fffa18a4}
+```
+
+搜索有restart vb的，但是测试发现不存在该重启脚本，在论坛[VirtualBox Is Aborting](https://forum.manjaro.org/t/virtualbox-is-aborting/102451/3)中提到，测试后成功开启
+  >  one probable cause is because you have the extension pack enabled because you use usb3 controller.Disable usb2 and usb3 in the vm properties and try again.
