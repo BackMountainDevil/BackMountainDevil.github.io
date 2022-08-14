@@ -57,3 +57,4 @@
 ## Windows
 
 - [windows 终端无法加载文件 Scripts\Activate.ps1，因为在此系统上禁止运行脚本-更改执行策略](/os/windwos/executionpolicy.md)
+- [windows 计算文件哈希值](/os/windwos/hash.md)
