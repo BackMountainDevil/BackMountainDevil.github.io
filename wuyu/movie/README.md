@@ -1,4 +1,4 @@
 - [《他乡的童年》-影评](/wuyu/movie/vn-ChildhoodElse.md)
 - [《小谢尔顿》感想](/wuyu/movie/vn-youngsheldonS1.md)
-- [](/wuyu/movie/.md)
+- [寄生虫](/wuyu/movie/jishengchong.md)
 - [](/wuyu/movie/.md)
