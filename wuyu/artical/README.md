@@ -16,4 +16,4 @@
 - [高考完时十八岁的时候，我去献血了](/wuyu/artical/blood.md)
 - [兴坪纪事](/wuyu/artical/xingping.md)
 - [消灭蚊子的方法](/wuyu/artical/wenzi.md)
-- [](/wuyu/artical/.md)
+- [如何认识一个人的基本情况](/wuyu/artical/beidiao.md)
