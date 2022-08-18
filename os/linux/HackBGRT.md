@@ -1,6 +1,6 @@
 # HackBGRT 更改开机logo以及如何修复
 - date: 2022-07-26
-- lastmod: 2022-08-03
+- lastmod: 2022-08-18
 
 # 摘要
 
@@ -133,3 +133,5 @@ DISKPART> exit  # 推出 diskpart
   > BIOS解压自己的Logo在内存中，然后通过ACPI Table将这个Logo传递给Windows.具体的Table就是 Boot Graphics Resource Table。在 ACPI 6.1的5.2.22有专门的介绍。
 - [ BIOS Boot-Logo - Howto: create your own BIOS boot logo](https://www.biosflash.com/e/bios-boot-logo.htm):CBROM v2.15 暂未尝试
 - [Customize Lenovo PC boot logo (screen) without installing "Lenovo PC Manager".](https://github.com/Coxxs/LogoDiy/):测试有效
+- [对AMI BIOS固件修改开机图片（两种方法） 作者: 孟诗远 时间: 2018-09-07](https://blog.mxslly.com/archives/34.html): 解压 BIOS.zip, 用 ChangeLogo.exe 或者 UEFITool.exe 替换图片。
+- [LongSoft/UEFITool](https://github.com/LongSoft/UEFITool):支持 win/linux/mac
