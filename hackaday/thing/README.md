@@ -4,3 +4,4 @@
 - [小米便携鼠标的滚轮问题](/hackaday/thing/mi-mouse.md)
 - [从自行车尾灯的平行线到鲍威尔透镜 - 一字直线发生器](/hackaday/thing/ledLaser.md)
 - [SIM 手里的电话卡](/hackaday/thing/sim.md)
+- [iphone4 A1394 esim](/hackaday/thing/iphoneA1349.md)
