@@ -59,3 +59,4 @@
 - [windows 终端无法加载文件 Scripts\Activate.ps1，因为在此系统上禁止运行脚本-更改执行策略](/os/windwos/executionpolicy.md)
 - [windows 计算文件哈希值](/os/windwos/hash.md)
 - [解决windows终端里运行python或python3会自动弹出MicrosoftStore的两种办法](/os/windwos/pythonStore.md)
+- [流氓软件与流氓系统的清理故事](/os/windwos/liumang.md)
