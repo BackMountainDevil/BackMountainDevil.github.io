@@ -14,6 +14,7 @@
 - [docker 的入门笔记](/code/app/docker.md)
 - [ffmpeg 基本命令](/code/app/ffmpeg.md)
 - [知乎备份计划](/code/app/zhihuBackup.md)
+- [linux 下的按键精灵 xdotool](/code/app/xdotool.md)
 - [在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF](/code/app/pandoc.md)
 - [fontgoogle 加载速度慢的解决办法](/code/app/fontgoogle.md)
 - [MIPS_Dos](/code/app/MIPS_Dos.md)
