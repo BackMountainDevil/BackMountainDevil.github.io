@@ -1,1 +1,2 @@
 - [安卓运行旧版微信](/os/android/wechat.md)
+- [adb 安卓调试工具](/os/android/adb.md)
