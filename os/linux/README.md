@@ -41,7 +41,7 @@
 
 ## Debian
 
-- [debian_begin](/os/debian/debian_begin.md)
+- [debian 零基础安装与配置](/os/debian/debian_begin.md)
 
 ## Ubuntu
 
