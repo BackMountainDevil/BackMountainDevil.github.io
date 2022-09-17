@@ -9,7 +9,7 @@
 - [Phone](/os/linux/os+phone.md)
 - [rEFInd - 一款优美的多系统引导软件](/os/linux/rEFInd.md)
 - [UefiMake - Ventory](/os/linux/UefiMakemd.md)
-- [WinToLinux](/os/linux/WinToLinux.md)
+- [从 windows 开始拥抱 linux](/os/linux/winToLinux.md)
 - [GNU 的神器 screen（程序后台运行 vs nohup）附带串口通信功能](/os/linux/screen.md)
 - [KDE 桌面不完全卡死的解决记录](/os/linux/stuckqB.md)
 - [linux 下无法在 ntfs 分区写入文件、保存修改。显示“只读文件系统”](/os/linux/ntfsReadOnly.md)
