@@ -36,7 +36,7 @@
 
 ## Manjaro
 
-- [Manjaro 入门](/os/manjaro/manjaro_begin.md)
+- [Manjaro 安装系统与配置](/os/manjaro/manjaro_begin.md)
 - [](/os/manjaro/.md)
 
 ## Debian
