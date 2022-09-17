@@ -1,19 +1,16 @@
----
-title: "从Hexo到Hugo"
-date: 2020-11-03T22:01:31+08:00
-lastmod: 2020-11-04T11:19:13+08:00
-keywords: [Hugo, Github Page, Hexo]
-description: "使用Hugo重新建立我的博客网站"
-tags: [Hugo]
-categories: [Blog]
-author: "筱氚"
----
+# 从Hexo到Hugo
+- date: 2020-11-03
+- lastmod: 2022-09-17
+
 # 博客网站
 刚开始只是在知乎、CSDN上写帖子，后面试过微信公众号、Wordpress、云服务器等等。略懂一些写网页的知识，但是身为程序员深知重复造轮子的无用，于是找了些其它办法 - 静态网站生成器，配合Github Page简直爽歪歪（后来国内也出了Gitte Page）。
 在知乎上搜一搜静态网站生成工具就能查到不少帖子，大致都包含Jekyll、Hugo、Hexo、VuePress等。这里以Windows10配置Hugo到Github Page为例作为记录。
 ## Hexo
 Hexo是我一个尝试的静态网页生成方案，第一次配置的时候还是花了不少时间的，后面加上域名更加爽歪歪。虽然用的时候文章分类还是个问题，但一直没太在意，后来换电脑之后尝试恢复hexo失败了。。。。重建一个也行，但是我想试一下其它的静态网页方案。
 Hexo最方便的就是更换主题，下载更改配置即可，也支持很多插件扩展。唯一的难受之处就是我如何把CSDN上的帖子都一次性转到里面呢？？
+
+发现一个管理文件的好办法：[使用子文件夹管理 Hexo 文章且不改变文章永久链接 2019-10-13 ](https://prinsss.github.io/hexo-posts-in-subfolder/)
+
 ## Hugo
 > There is lots of talk about “Hugo being written in Go”, but you don’t need to install Go to enjoy Hugo. Just grab a precompiled binary!
 
