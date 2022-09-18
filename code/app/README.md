@@ -39,4 +39,4 @@
 - [利用javascript进行计算 BMI](/code/js/JsDemoBmi.md)
 - [利用javascript进行计算PPI](/code/js/JsDemoPpi.md)
 - [electron 快速启动](/code/js/electron.md)
-- [](/code/js/.md)
+- [油猴脚本](/code/js/monkey.md)
