@@ -1,7 +1,7 @@
 # OS
 
 - [多系统下的蓝牙设备共用配对问题之 LTK、EDIV、ERAND.以 Manjaro、Debian、Windows10 为例](/os/linux/bluetooth.md)
-- [设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH](/os/linux/environment_variable.md)
+- [设置环境变量PATH 之 which is not on PATH.  Consider adding this directory to PATH](/os/linux/environment_variable.md)
 - [wine 基础知识：让 windows 软件在 linux 上跑起来](/os/linux/wine.md)
 - [GNULinux](/os/linux/GNULinux.md)
 - [在 Linux 上使用人脸识别来登陆和认证](/os/linux/linuxhello.md)

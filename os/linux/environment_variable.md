@@ -1,14 +1,7 @@
----
-title: "设置环境变量和PATH，以 Arch Linux 为例. 多见于 which is not on PATH.  Consider adding this directory to PATH"
-date: 2021-06-01T20:21:28+08:00
-lastmod: 2021-06-01T20:21:28+08:00
-keywords: [['linux', 'arch'], 'PATH']
-description: "在 Linux 上如何设置、查找、修改 环境变量，比如 PATH, which is not on PATH.
-  Consider adding this directory to PATH"
-tags: ['linux', 'arch']
-categories: [os]
-author: "筱氚"
----
+# 设置环境变量PATH 之 which is not on PATH.  Consider adding this directory to PATH
+- date: 2021-06-01
+- lastmod: 2022-09-19
+
 # 环境变量
 
 环境变量是什么？通俗的说就是变量，这些变量设置的内容可能是当前的语言、地区、shell、程序的位置、日志等级等。而比较常见的 $PATH 变量就是告诉系统当我敲命令的时候，你要去哪里找这些命令对于的可执行文件，相当与windows 里的 PATH 环境变量。也就是说 PATH 只是众多环境变量中的一个而已。
@@ -16,8 +9,11 @@ author: "筱氚"
 # 配置文件
 
 下面是两个常见的环境变量的配置文件，当然还有其它，这里不作过多的深入。
+
+Arch Wiki在[Environment_variables](https://wiki.archlinux.org/title/Environment_variables)中提示说这两配置文件（~/.bashrc、 ~/.pam_environment）多多少少存在点问题，不建议继续使用
+
 -  `/etc/profile` 全局环境变量配置文件
--  `~/.bashrc` 用户环境变量配置文件
+-  `~/.bash_profile` 用户环境变量配置文件
 
 # 查看环境变量
 ## 全部变量
@@ -117,9 +113,25 @@ export OPENCV_LOG_LEVEL=ERROR
 
 粘贴（Ctrl + Shift + V）完成后 Ctrl + S 保存， Ctrl + X 退出 nano。别忘了刷新一下环境变量 `source /etc/profile` 或 `source ~/.bashrc` 。或者直接开启新的会话。
 
+再举个例子，为了配置 fcitx5 中文输入法的用户环境变量，不要忘记了每一行前面都加一个 export
+
+```
+#
+# ~/.bash_profile
+#
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+# fcitx5
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
+```
+
 # References
 
 - [如何在Linux中向$PATH添加目录 - 醉落红尘](https://m.linuxidc.com/Linux/2019-08/159846.htm)
 - [linux下查看和添加PATH环境变量 - BruceZhang](https://blog.csdn.net/DLUTBruceZhang/article/details/8811456)
 - [How to Set Environment Variables in Linux 2020](https://phoenixnap.com/kb/linux-set-environment-variable#:~:text=1%20To%20set%20permanent%20environment%20variables%20for%20a,changes%20are%20applied%20at%20the%20next%20logging%20in.)
-- [Environment_variables Arch Wiki](https://wiki.archlinux.org/title/Environment_variables)
+
