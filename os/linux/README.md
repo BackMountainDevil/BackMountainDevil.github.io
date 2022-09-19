@@ -15,6 +15,7 @@
 - [linux 下无法在 ntfs 分区写入文件、保存修改。显示“只读文件系统”](/os/linux/ntfsReadOnly.md)
 - [windwos11 覆盖了 manjaro linux 的启动引导 grub](/os/linux/grubFix.md)
 - [HackBGRT 更改开机logo以及如何修复](/os/linux/HackBGRT.md)
+- [efibootmgr 管理启动项](/os/linux/efibootmgr.md)
 
 ## KDE
 
