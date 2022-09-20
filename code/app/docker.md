@@ -1,6 +1,6 @@
 # docker 的入门笔记
 - date: 2022-04-13
-- lastmod: 2022-04-13
+- lastmod: 2022-09-19
 
 # 前言
 
@@ -25,13 +25,26 @@
 # 安装与基础配置
 
 ```bash
-install docker  # 
+sudo pacman install docker  # 
+sudo usermod -a -G docker $USER # 将当前用户加入 docker 用户组，此操作的风险 wiki 中已经明确标红指示出来了。然后注销重新登录，但是我测试得重启才行
 systemctl enable docker # 设置开启自启动 docker 服务，禁止就 enable 换成 disable
-
-sudo usermod -a -G docker $USER # 将当前用户加入 docker 用户组，此操作的风险 wiki 中已经明确标红指示出来了
 ```
 
 如果不想开启启动 docker 服务，比如我一般不这么设置，需要时再用下面这句 `systemctl start docker` 启动 docker 服务
+
+## web 管理 portainer
+
+docker 有很多第三方 web 管理界面，这里选择的是 portainer。安装的时候我首先到 pamac 查找了一下发现都是 AUR 的，想着哪里不太对劲就stw发现有人是通过 docker 去安装的。
+
+```bash
+docker pull portainer/portainer
+docker run -d -p 9000:9000 -v "/var/run/docker.sock:/var/run/docker.sock" --restart=always --name portainer portainer/portainer
+```
+
+浏览器打开 http://localhost:9000 后创建管理员账号密码 然后选择 Docker(默认选择是k8s)，这样就可以通过 web 管理 docker 了
+
+- [Docker内运行ROS(melodic版本)以及使用Rviz 冷色调的夏天 2022-02-07](https://blog.csdn.net/qq_40695642/article/details/117607446):通过docker 安装 portainer 测试成功
+- [Docker可视化工具——Portainer全解 网久软件 2021-08-25](https://zhuanlan.zhihu.com/p/403285855)：安装指令稍微不一样，但都是通过docker来安装
 
 # 常见操作
 
@@ -60,6 +73,8 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 -v 将文件/目录映射（挂载）到容器中，类似与共享文件。如  -v ${PWD}:/root/code 就是把用户当前所在目录（$PWD）挂载到容器的 /root/code 目录下，对 /root/code 的操作会同步修改到当前用户目录下的文件
 
 --rm 指定容器停止后自动删除容器(不支持以docker run -d启动的容器)
+
+--restart=always 设置在docker启动时，自动启动该容器，比如宕机重启docker,让容器也自动启动
 
 # 示例
 
@@ -98,6 +113,18 @@ REPOSITORY                  TAG       IMAGE ID       CREATED        SIZE
 archlinux                   latest    503d83557caa   4 days ago     386MB
 iyuucn/iyuuplus             latest    6e59662bbf01   6 months ago   57.6MB
 dinghao188/rcore-tutorial   latest    e342c22ef6be   7 months ago   1.17GB
+```
+
+# Q&A
+
+1. sock: connect: permission denied.
+
+用户不在 docker 用户组中或者未使用 sudo，我已经把自己加入到 docker 组中了，已经注销又重新登录然后重启 docker 服务，还是会这样，重试两次之后我就重启了，重启大法解决问题了
+```bash
+$ docker run -it --rm archlinux bash -c "echo hello world"
+docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.
+$ groups $USER
+wheel lp sys network power docker kearney
 ```
 
 # 参考
