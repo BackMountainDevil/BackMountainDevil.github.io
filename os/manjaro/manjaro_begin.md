@@ -1,6 +1,6 @@
 # Manjaro 安装系统与配置
 - date: 2021-09-05
-- lastmod: 2022-09-17
+- lastmod: 2022-09-20
 
 # 安装系统
 
@@ -13,7 +13,7 @@ pamac 具有Alpm、AUR、Flatpak和Snap支持的软件包管理器
 
 分区这回我把 /home 和 / 分开装，这样重装系统还可以保留 /home 下的文件
 
-Mnajaro 安装后的用户账户类型是管理员，而 Debian 安装后则的用户账户类型是标准。
+Mnajaro 安装后的用户账户类型是管理员，而 Debian 安装后则的用户账户类型是标准。这样默认用户可以使用sudo，并且挂载硬盘不需要再次输入密码，感觉上是标准类型会更加安全，不过现在习惯了管理员模式，这个账户类型可以一键修改。
 
 <details>
 <summary>System Info</summary>
@@ -227,14 +227,14 @@ sudo pacman -Rs xdg-user-dirs-gtk
 
 不得不说 deian 默认配置好了中文输入法真舒服，manjaro 虽然安装选择了区域，但也只是做了语言包的下载替换没有整对于的输入法。
 
-中文 wiki 里是这么做的，编辑 `~/.bash_profile` 文件，写入下面的内容，但是我测试感觉还是无法在 dolphin、kwrite、wps、konsole 中输入中文，在 firefox、codium 中是可以的
+中文 wiki 里是这么做的，编辑 `~/.bash_profile` 文件，写入下面的内容
 
 ```bash
-GTK_IM_MODULE DEFAULT=fcitx
-QT_IM_MODULE  DEFAULT=fcitx
-XMODIFIERS    DEFAULT=@im=fcitx
-INPUT_METHOD  DEFAULT=fcitx
-SDL_IM_MODULE DEFAULT=fcitx
+export GTK_IM_MODULE DEFAULT=fcitx
+export QT_IM_MODULE  DEFAULT=fcitx
+export XMODIFIERS    DEFAULT=@im=fcitx
+export INPUT_METHOD  DEFAULT=fcitx
+export SDL_IM_MODULE DEFAULT=fcitx
 ```
 
 # FAQ
@@ -253,9 +253,25 @@ sudo systemctl mask systemd-backlight@backlight:acpi_video0
 
 搜索不存在、Tab补全、关机等操作 突然B一声，心脏都吓到了，参考 [PC speaker](https://wiki.archlinux.org/title/PC_speaker)关闭就行，如KDE在设置-个性化/无障碍辅助-声音提示 取消启用
 
+[ 如何使用Manjaro（Arch）禁用Lenovo P1 gen 2上的“哔”声？由 小码哥发布于 2019-12-12 ](https://mlog.club/article/2071667)
+>   当我关闭笔记本电脑时，它会发出哔声。
+    锁定屏幕时会发出哔声。
+    如果未使用计算结果，则会定期发出哔声。
+- [manjaro kde 去除警告音 EricDD 2018.10.23](https://www.jianshu.com/p/0d1d884e40ba)
+> 关闭
+  xset b off
+  开启
+  xset b on
+
+我已经通过系统设置关闭了无障碍辅助的声音，但是重启和关机会有Bee一声，如果没有登录进系统就关机就没有Bee声，最后还是使用了 xset b off。经过测试关闭警告音之后关机还是有一声Bee。
+
 ## 开机启动时间分析与优化
 
-https://forum.manjaro.org/t/manjaro-booting-is-very-slow-40sec/32489/4
+[Manjaro booting is very slow (40sec)](https://forum.manjaro.org/t/manjaro-booting-is-very-slow-40sec/32489/4)
+> Wollie 20 年 10 月
+  As long as you have no encrypted partition you could stop/disable/mask
+
+因为我没有加密分区，那我也可以关闭这个 lvm2-monitor 服务
 
 ```bash
 systemd-analyze	# 开机时间总览
@@ -263,6 +279,13 @@ systemd-analyze blame # 开机时间细节
 systemctl disable --now lvm2-monitor.service	# 关闭该服务
 systemctl mask lvm2-monitor.service
 ```
+
+我的开机时间总揽如下：
+
+    Startup finished in 2.590s (firmware) + 1.178s (loader) + 2.933s (kernel) + 1.576s (userspace) = 8.278s 
+    graphical.target reached after 1.538s in userspace.
+
+- ["systemctl mask"和"systemctl disable"有什么区别？stpice 2020-02-29 ](https://blog.csdn.net/stpice/article/details/104569146):mask之后该服务无法被启动，需要unmask解除屏蔽
 
 ## konsole 改 zsh 为 bash
 
