@@ -1,13 +1,7 @@
----
-title: "Arch Pacman & Yay 介绍+基本使用 & 更新中无法满足依赖关系的解决办法"
-date: 2021-04-30T08:36:59+08:00
-lastmod: 2021-04-30T08:36:59+08:00
-keywords: ['arch', 'linux', 'pacman', 'yay', 'wine']
-description: "简要介绍 Arch 中 Pacman & Yay 的常用方法 以及 部分更新 中无法满足依赖关系的解决办法，如 installing libcap (2.49-1) breaks dependency 'libcap=2.48' required by lib32-libcap, 安装 libjpeg-turbo (2.1.0-1) 破坏依赖 'libjpeg-turbo=2.0.6' （lib32-libjpeg-turbo 需要）"
-tags: ['arch', 'linux']
-categories: ['os']
-author: "筱氚"
----
+# Arch Pacman & Yay 介绍+基本使用 & 更新中无法满足依赖关系的解决办法
+- date: 2021-04-30
+- lastmod: 2022-09-21
+
 # pacman
 
 虽然 arch 衍生自 debian, 但是在包管理上采取了一种不太一样的工具，不是常见的 apt 而是 pacman
@@ -19,7 +13,7 @@ author: "筱氚"
 |   pacman -S 软件包名    |   安装软件及其依赖    |
 |   pacman -Rs 软件包名   |   卸载软件及其依赖    |
 |   pacman -R 软件包名    |   仅卸载该软件，保留其依赖（不推荐）    |
-|   pacman pacman -Syu    |   更新整个系统和软件    |
+|   pacman -Syu    |   更新整个系统和软件    |
 |   paccache -r    |   删除不使用的包，但保留最近的三个版本    |
 |   pacman -Sc    |   删除 pacman 缓存的软件包和无用的软件库（旧版安装包和已经安装过的安装包）    |
 |   pacman -Scc    |   删除缓存中的全部文件，一个不留，谨慎操作！！！   |
