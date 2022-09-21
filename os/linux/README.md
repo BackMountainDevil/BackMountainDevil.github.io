@@ -38,7 +38,7 @@
 ## Manjaro
 
 - [Manjaro 安装系统与配置](/os/manjaro/manjaro_begin.md)
-- [](/os/manjaro/.md)
+- [pamac 安装 ros-noetic-desktop-full(AUR) 失败后如何清理残留的问题](/os/manjaro/ros-noetic.md)
 
 ## Debian
 
