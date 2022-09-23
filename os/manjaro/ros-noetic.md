@@ -1,6 +1,6 @@
 # pamac 安装 ros-noetic-desktop-full(AUR) 失败后如何清理残留的问题
 - date: 2022-09-21
-- lastmod: 2022-09-21
+- lastmod: 2022-09-23
 
 ros-noetic-desktop-full 安装了将近半个月，网络问题中间某些包就会下载失败，前几天是包都装的差不多了，但是装着装着把我电脑搞黑屏了，重新尝试安装又黑屏了，怕了怕了。于是想着怎么卸载的问题。
 
@@ -653,3 +653,8 @@ done < $file
 ```
 
 本来想用 py 写的，想了一下可能不太优雅，换种方式写，现学先写 sh。最后发issue得到恢复是 manjaro 不咋的兼容 AUR 了，作者说不少 manjaro 跑向了 EndeavourOS。其中有我一个。
+
+# 参考
+[Pacman option to assume "yes" to every question? 2013](https://unix.stackexchange.com/questions/52277/pacman-option-to-assume-yes-to-every-question)
+> yes | LC_ALL=en_US.UTF-8 pacman [...]   
+    (echo "1 2 6-5"; echo "3 4 8"; yes J) | sudo pacman -S kf5 kf5aids
