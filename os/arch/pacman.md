@@ -1,6 +1,6 @@
 # Arch Pacman & Yay 介绍+基本使用 & 更新中无法满足依赖关系的解决办法
 - date: 2021-04-30
-- lastmod: 2022-09-21
+- lastmod: 2022-09-23
 
 # pacman
 
@@ -51,8 +51,6 @@ $ sudo reflector -c China -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 
 ```bash
 sudo pacman -S yay
-# 添加 TUNA 镜像 https://mirrors6.tuna.tsinghua.edu.cn/help/AUR/
-yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 ```
 
 ### 使用
