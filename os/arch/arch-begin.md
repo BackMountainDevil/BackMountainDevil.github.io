@@ -1,13 +1,7 @@
----
-title: "Arch 新手的基本知识"
-date: 2021-05-28T11:58:39+08:00
-lastmod: 2021-05-28T11:58:39+08:00
-keywords: ['linux', 'arch', 'green hand']
-description: "向 Arch 入门用户介绍系统安装和基本配置，也有进阶的人脸识别认证和软件安装等"
-tags: ['linux', 'arch']
-categories: [os]
-author: "筱氚"
----
+# Arch 新手的基本知识
+- date: 2021-05-28
+- lastmod: 2022-09-23
+
 # 安装系统
 ## 镜像+网络安装
 
@@ -62,7 +56,7 @@ AutoEnable=true
 
 ## AUR - yay
 
-see [Arch Pacman & Yay & 更新中无法满足依赖关系的解决办法](https://backmountaindevil.github.io/post/pacman/#aur-helper) 中关于 yay 的安装和使用部分
+see [Arch Pacman & Yay & 更新中无法满足依赖关系的解决办法](https://backmountaindevil.github.io/#/os/arch/pacman) 中关于 yay 的安装和使用部分
 
 # 参考
 
@@ -70,14 +64,11 @@ see [Arch Pacman & Yay & 更新中无法满足依赖关系的解决办法](https
 
 [双系统蓝牙键盘的共享配对解决办法的简要步骤：win + arch～IRK、LTK、ERand、EDIV Kearney form An idea 2021-03-29](https://blog.csdn.net/weixin_43031092/article/details/115298442)
 
-[在 Arch Linux 上使用人脸识别(howdy)来登陆和认证 ](https://backmountaindevil.github.io/post/linuxhello/)
+[在 Arch Linux 上使用人脸识别(howdy)来登陆和认证 ](https://backmountaindevil.github.io/#/os/linux/linuxhello)
 
-[](https://unix.stackexchange.com/questions/197212/turn-on-bluetooth-on-login-screen)
+[Turn on bluetooth on login screen 2015](https://unix.stackexchange.com/questions/197212/turn-on-bluetooth-on-login-screen)
 
 [Bluetooth - Auto power-on after boot Arch Wiki](https://wiki.archlinux.org/title/Bluetooth)
 
-[Arch Pacman & Yay & 更新中无法满足依赖关系的解决办法](https://backmountaindevil.github.io/post/pacman/#aur-helper)
-
-[]()
 
 # End
