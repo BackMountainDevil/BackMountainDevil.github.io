@@ -117,6 +117,14 @@ git push --tags
 $ git remote set-url origin git@gitee.com:Username/Reponame.git
 ```
 
+2. WARNING:UNPROTECTED PRIVATE KEY FILE!
+
+一般还会有 `Permissions 0644 for '/～/.ssh/id_rsa' are too open.It is required that your private key files are NOT accessible by others.Load key "/~/.ssh/id_rsa": bad permissions
+xxx Permission denied (publickey).`
+
+[It is required that your private key files are NOT accessible by others. IBLiplus.于 2019-10-08](https://blog.csdn.net/ibliplus/article/details/102405792)：确认了一下，生成的ed25519私钥默认权限是 600，公钥是 644.但也存在 [700](https://www.jianshu.com/p/d79d0cde061b)
+> chmod 600 ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
+
 # References
 
 - [git](https://git-scm.com/)
