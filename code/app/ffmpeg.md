@@ -1,6 +1,6 @@
 # ffmpeg 基本命令
 - date: 2022-07-02
-- lastmod: 2022-07-02
+- lastmod: 2022-10-02
 
 ## 常用命令
 
@@ -136,6 +136,7 @@ ffmpeg -i input -vcodec libx264 -preset veryslow -qp 0 output.mkv
 3种模式默认单遍编码
 
 VBR(Variable Bit Rate/动态比特率) 例子
+  veryslow 是真的非常非常慢
 
 ```shell
 ffmpeg -i input -vcodec libx264 -preset veryslow output
@@ -147,13 +148,11 @@ ABR(Average Bit Rate/平均比特率) 例子
 ffmpeg -i input -vcodec libx264 -preset veryslow -b:v 3000k output
 ```
 
-CBR(Constant Bit Rate/恒定比特率) 例子
+CBR(Constant Bit Rate/恒定比特率) 例子，将码率压缩到 4M的案例，一个 12Mpbs 的片源想压到 3Mbps，最后压得 2.5
 
 ```shell
-... -b:v 4000k -minrate 4000k -maxrate 4000k -bufsize 1835k ...
+ffmpeg -i input.mp4 -vcodec libx265 -b:v 4000k  -maxrate 4500k -bufsize 4000k  -acodec copy  output.mp4
 ```
-
-
 
 ### 合并,提取音视频
 
@@ -272,8 +271,7 @@ gdigrab ：ffmpeg中的一个组件。
 ffmpeg -re i rec.mp4 按照网站要求编码 -f flv "你的rtmp地址/你的直播码"
 ```
 
-
-
 ## 参考
 - [【FFmpeg 分P教学】转码、压制、录屏、裁切、合并、提取 … 统统不是问题。](https://www.bilibili.com/video/av40146374)
 - [ffprobe输入与输出信息详解 HugoforAndroid 于 2020-06-04](https://blog.csdn.net/lipengshiwo/article/details/106552579)
+- [ffmpeg：码率控制模式、编码方式. ETalien_ 于 2020-03-08](https://blog.csdn.net/ETalien_/article/details/102931065)
