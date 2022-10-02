@@ -1,6 +1,6 @@
 # Arch Pacman & Yay 介绍+基本使用 & 更新中无法满足依赖关系的解决办法
 - date: 2021-04-30
-- lastmod: 2022-09-23
+- lastmod: 2022-10-02
 
 # pacman
 
@@ -18,9 +18,11 @@
 |   pacman -Sc    |   删除 pacman 缓存的软件包和无用的软件库（旧版安装包和已经安装过的安装包）    |
 |   pacman -Scc    |   删除缓存中的全部文件，一个不留，谨慎操作！！！   |
 
-非 root 用户的管理员需要在前面加上 sudo; 如何将 deb 包转换为 arch 使用的包格式，请参考 [debtap](./debtap.md)。
+非 root 用户的管理员需要在前面加上 sudo; 如何将 deb 包转换为 arch 使用的包格式，请参考 [debtap](/os/arch/debtap.md)。
 
 由于 pacman 的设计上不会自动移除旧的和未安装版本的软件包，所以 `/var/cache/pacman/pkg/` 中积累的软件包数量会越来越多，占用存储空间越来越大（半年多积累了18 G），因此需要自己清理这些缓存（paccache -r）。但是我懒的自己去做这件事情，开启每周自动清理功能即可 `sudo systemctl enable paccache.timer`。
+
+一年多使用下来，感觉保留安装包没太大用处，于是就参照wiki将保留版本设置为 0，还有一个是可以在 /etc/pacman.conf 中设置 CacheDir 的路径，默认是  /var/cache/pacman/pkg/，我改成了 /tmp/pacman/，这样下载软件包的时候就不会读写到硬盘而是读写到内存中，需要注意的是内存可利用空间，我 16G 内存能够给用户自行操作的起码有个 6 G，因此保持一周更新一次的速度，内存还是可以接纳的，不过这个办法有个不足之处在于由于不存在 /tmp/pacman/ 文件夹，所以 pacman 在创建的时候会警告一次，当然，解决办法就是在更新前新建该文件夹。
 
 ## 仓库
 
@@ -77,6 +79,8 @@ yay -S lantern
 yay -Rs wechat-uos
 yay -Rs google-chrome
 ```
+
+和 pacman 一样，也可以将软件包缓存目录设置为内存，在 ~/.config/yay/config.json 文件中，buildDir 默认为 "~/.cache/yay"，将其修改为 "/tmp/yay" 便可达到目的
 
 临时解决方案
 
