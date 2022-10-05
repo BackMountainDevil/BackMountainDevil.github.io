@@ -1,6 +1,6 @@
 # 多系统下的蓝牙设备共用配对问题之 LTK、EDIV、ERAND.以 Manjaro、Debian、Windows10 为例
 - date: 2020-09-6
-- lastmod: 2022-01-25
+- lastmod: 2022-10-05
 
 # 简介
 
@@ -53,9 +53,9 @@ Linux 蓝牙 ID：D1
 win 设备 ID：d118ff200048
 ```
 
-## 用 PStool 导出 windows 的蓝牙配置信息
+## 方法一：用 PStool 导出 windows 的蓝牙配置信息
 
-本文不阐述 chntpw 的办法。从 [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) 官网下载其压缩包，提取其中的 `PsExec64.exe` 到 `c://windows/system32`，然后鼠标右键菜单标志（默认菜单栏最左边），选择以管理员身份打开 powershell，输入`psexec64.exe -si regedit` 后回车会打开注册表编辑器。（32位PC就提取PsExec.exe，powershell的命令改为`psexec.exe -si regedit`）。
+从 [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) 官网下载其压缩包，提取其中的 `PsExec64.exe` 到 `c://windows/system32`，然后鼠标右键菜单标志（默认菜单栏最左边），选择以管理员身份打开 powershell，输入`psexec64.exe -si regedit` 后回车会打开注册表编辑器。（32位PC就提取PsExec.exe，powershell的命令改为`psexec.exe -si regedit`）。
 
 在注册表上方的地址栏粘贴下面一行后回车转到蓝牙配置： `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\BTHPORT\Parameters\Keys\` 
 
@@ -119,6 +119,65 @@ LTK：0FD1D2CF063324D1474EA571E33A092D
 EDIV：12016
 ERAND：12806037061999603757
 ```
+
+## 方法二：在 linux 上用 chntpw 导出 windows 的蓝牙配置信息
+
+如果已使用方法一，可以跳过本小节。首先挂载 C 盘，找到 C 盘下的路径 `Windows/System32/config/`。需要安装软件包 chntpw。此次无法通过 mac 查看设备名称，因此前面在 win 配对的时候就需要记录下设备对应的大概 mac 地址了。
+
+只需要使用 hex 读取 LTK、ERand，EDIV 在 ls 的时候就可以读取到十进制数据，用 hex 读 EDIV 的话，还得先反转再转换成十进制（不反转直接进制转换出来是不对的，尝试了疯狂断连）
+
+```bash
+# 切换路径，此步骤每个人路径大多不同
+$ cd /run/media/kearney/C/Windows/System32/config/
+# 使用 chntpyw 读取注册表
+$ chntpw -e SYSTEM
+> ls
+  <ControlSet001>
+> cd ControlSet001\Services\BTHPORT\Parameters\Keys
+> ls
+  <28cdc4babb2c>
+
+> cd 28cdc4babb2c
+> ls
+  <d132ff200048>
+  <fae0e5592901>
+> cd d132ff200048
+> ls
+    16  3 REG_BINARY         <LTK>
+     8  b REG_QWORD          <ERand>
+     4  4 REG_DWORD          <EDIV>                 55245 [0xd7cd]
+     
+> hex LTK
+:00000  32 28 41 A7 3C D9 66 06 20 E2 50 D5 AE 6B 3E FF 2(A.<.f. .P..k>.
+> hex IRK
+:00000  A4 D4 B0 77 37 46 A7 DF 0C CF C0 91 67 51 36 85 ...w7F......gQ6.
+> hex ERand
+:00000  BE 58 C3 26 99 F9 DF 1D                         .X.&....
+
+> cd ..
+> cd fae0e5592901
+  size     type              value name             [value if type DWORD]
+    16  3 REG_BINARY         <LTK>
+     8  b REG_QWORD          <ERand>
+     4  4 REG_DWORD          <EDIV>                 41045 [0xa055]
+> hex LTK
+:00000  77 F7 F7 D1 38 6E 07 17 95 89 A2 00 2D D8 44 97 w...8n......-.D.
+> hex ERand
+:00000  86 C2 7B D2 B7 F7 AE 7B                         ..{....{
+```
+
+LTK、ERand 转换的 py3 代码，发现 wiki 上显示的代码有点问题，再深入发现是文档渲染的问题，然而找了下格式帮助文档也没有找到正确的格式，就先在 discussion 里提出了。
+
+```python
+# LTK 去除空格
+>>> '77 F7 F7 D1 38 6E 07 17 95 89 A2 00 2D D8 44 97'.replace(' ', '')
+# ERand 反转 去空格 换进制
+>>> ERand='86 C2 7B D2 B7 F7 AE 7B'
+>>> ERand=list(reversed(ERand.strip().split()))
+>>> int("".join(ERand), 16)
+```
+
+后面的步骤一致，改 LongTermKey 下的 LTK ERand Eiv，然后修改路径为新 mac 地址即可。键盘、鼠标测试通过。
 
 ## 用 root 权限修改 linux 的蓝牙配置信息
 
