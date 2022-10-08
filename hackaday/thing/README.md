@@ -6,3 +6,4 @@
 - [SIM 手里的电话卡](/hackaday/thing/sim.md)
 - [iphone4 A1394 esim](/hackaday/thing/iphoneA1349.md)
 - [变声器与声音模仿“造假”](/hackaday/thing/voiceChange.md)
+- [小米路由器Pro R3p 刷机 Breed Padavan](/hackaday/thing/xmr3pOpenwrt.md)
