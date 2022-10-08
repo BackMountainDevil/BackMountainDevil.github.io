@@ -18,4 +18,4 @@
 - [消灭蚊子的方法](/wuyu/artical/wenzi.md)
 - [如何认识一个人的基本情况](/wuyu/artical/beidiao.md)
 - [智商税与?骗](/wuyu/artical/zhishangshui.md)
-
+- [鼻托眼镜的安全问题](/wuyu/artical/glasseshurt.md)
