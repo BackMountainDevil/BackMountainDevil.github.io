@@ -496,6 +496,8 @@ Connection to 192.168.31.1 closed.
 
 我是网线连接上级路由和小米路由，本想着是把 v6 下方，这样子连接 r3p 的设备也有 v6 地址，按照贴吧的进行设置后发现只能路由器有 v6,没法下播，要么就是 r3p 也没有 v6。最后就让 r3p 自己有 v6 就行，能挂 bt 也算达成目的了
 
+在 高级设置-系统管理-服务-其它服务中，可以选择开启natp66来进行v6转发
+
 - [老毛子PADAVAN固件IPV6设置&上海联通获取PD前缀让局域网设备获取全球唯一IPV6地址 admin 10月 12, 2021](https://www.huntersong.com/index.php/2021/10/12/156/):pppoe-nd-01与pppoe-pd-01模式.NAPT66
 - [[AC2100(RM2100)] 开启IPv6及老毛子padavan开启IPV6设置 xcl52130 2020-11-17](https://www.right.com.cn/FORUM/thread-4059321-1-1.html)
 - [h大老毛子ipv6的wan口地址获取不到 p86391753 2019-2-28 ](https://www.right.com.cn/forum/thread-473835-1-1.html)
@@ -580,9 +582,53 @@ rm: can't stat '/mnt/transmission/transmission.log': Input/output error
 
 看样子硬盘多少出了点问题，等新硬盘到手把这个盘里的资料挪走先再格式化修复成 ext4,现在还是ntfs
 
+用U盘试验一下，第一次下载目录自动识别到 u 盘，然后下载错误，啥提示也没有，第二次下载保存目录直接出bug,显示undefined。
+
+```bash
+# cat transmission/transmission.log
+Unable to create session lock file (89): Function not implemented (session-id.c:96)
+```
+
 #### sambda
 
 - [老毛子/潘多拉/Padavan路由固件设置smb/samba indEmpire 2019.08.26](https://www.jianshu.com/p/f1e928ea826d)：无法进行分组权限管理
+
+#### opkg
+
+```bash
+# opkg.sh
+ERROR! Directory "/opt" not mounted!
+# mount /media/___е_U__/opt /opt
+# opkg.sh
+# opkg install iperf
+Package iperf (2.1.3-1) installed in root is up to date.
+Configuring entware-opt.
+ln: /opt/sbin/ifconfig: Operation not permitted
+ln: /opt/sbin/route: Operation not permitted
+ln: /opt/bin/netstat: Operation not permitted
+ln: /opt/bin/sh: Operation not permitted
+ln: /opt/bin/ash: Operation not permitted
+Collected errors:
+ * pkg_run_script: package "entware-opt" postinst script returned status 1.
+ * opkg_configure: entware-opt.postinst returned 1.
+# ls -g /opt
+drwxrwxrwx    2 root          4096 Oct  9 20:31 bin
+drwxrwxrwx    4 root          4096 Oct  9 20:27 etc
+drwxrwxrwx    2 root          4096 Mar 19  2021 home
+drwxrwxrwx    3 root          4096 Mar 19  2021 lib
+drwxrwxrwx    2 root          4096 Oct  9 20:27 root
+drwxrwxrwx    2 root          4096 Oct  9 20:28 sbin
+drwxrwxrwx    4 root          4096 Mar 19  2021 share
+drwxrwxrwx    2 root          4096 Oct  9 20:44 tmp
+drwxrwxrwx    4 root          4096 Mar 19  2021 usr
+drwxrwxrwx    6 root          4096 Mar 19  2021 var
+# su
+su: unknown user root
+# whoami
+admin
+```
+
+查了下 padavan 以及梅林的 faq 中也没有类似的问题，暂时找不到解决办法
 
 # 相关阅读
 
@@ -644,3 +690,14 @@ rm: can't stat '/mnt/transmission/transmission.log': Input/output error
 > lsof -n | grep delete  kill -9 pid
 
 [ [lsof]lsof查看哪些设备/文件被占用或者打开](https://www.cnblogs.com/aaronLinux/p/8191510.html)
+
+[hiboy-padavan使用opkg安装tmux教程 书三四 2021-10-07](https://zhuanlan.zhihu.com/p/418199351)
+> 安装okpg: opkg.sh升级opkg: opkg update
+
+[新路由3老毛子Padavan固件opkg命令-sh: opkg: Permission denied无法使用解决方法,Padavan固件opkg.sh无法使用](https://ssrvps.org/archives/5033)
+> 能解决问题就是看到日志中一直在提示下载 opt.gz文件，但是分区/opt空间不足，一直报错
+
+[ Unable to create session lock file: Invalid argument (session-id.c:96) #1391 9 Aug 2020](https://github.com/transmission/transmission/issues/1391)
+> Fixed by #2629.
+
+[ build: use -DHAVE_FLOCK in the macOS Xcode build #2629 15 Feb 2022](https://github.com/transmission/transmission/pull/2629):半年前解决的问题，现在还存在，可能是现在我用的版本太旧了
