@@ -1,6 +1,6 @@
 # 小米路由器Pro R3p 刷机 Breed Padavan
 - date: 2022-10-08
-- lastmod: 2022-10-08
+- lastmod: 2022-10-09
 
 一般过程：
 
@@ -479,12 +479,110 @@ Connection to 192.168.31.1 closed.
 
 安装了 breed 后，进入 breed 控制台把潘多拉固件上传即可完成安装。然后连接网络（有线可，无线默认wifi是PDCN,密码1234567890）进入管理页面：http://192.168.123.1/，默认账号：admin，默认密码：admin。（刷机不恢复默认值）
 
-#一键自动更新固件脚本
-wget --no-check-certificate -O- https://opt.cn2qq.com/opt-script/up.sh > /tmp/up.sh && bash < /tmp/up.sh &
-
 [7620老毛子Padavan固件 恩山无线论坛](https://www.right.com.cn/forum/thread-161324-1-1.html) [Padavan固件下载](http://opt.cn2qq.com/padavan/)
 
 [PandoraBox下载地址，含pb-boot](http://downloads.pangubox.com:6380/)
+
+### 搞事情
+#### ssh
+
+高级设置 - 系统管理 - 服务 - 启用 ssh 服务。可以选择密码或者公钥来进行登陆认证
+
+#### FTP
+
+能够管理用户权限（读/写/禁止），测试了下 sata2usb3.0 通过 5G wifi 传输速度是 40M，还行，比我 bt 下载快多了。
+
+#### ipv6
+
+我是网线连接上级路由和小米路由，本想着是把 v6 下方，这样子连接 r3p 的设备也有 v6 地址，按照贴吧的进行设置后发现只能路由器有 v6,没法下播，要么就是 r3p 也没有 v6。最后就让 r3p 自己有 v6 就行，能挂 bt 也算达成目的了
+
+- [老毛子PADAVAN固件IPV6设置&上海联通获取PD前缀让局域网设备获取全球唯一IPV6地址 admin 10月 12, 2021](https://www.huntersong.com/index.php/2021/10/12/156/):pppoe-nd-01与pppoe-pd-01模式.NAPT66
+- [[AC2100(RM2100)] 开启IPv6及老毛子padavan开启IPV6设置 xcl52130 2020-11-17](https://www.right.com.cn/FORUM/thread-4059321-1-1.html)
+- [h大老毛子ipv6的wan口地址获取不到 p86391753 2019-2-28 ](https://www.right.com.cn/forum/thread-473835-1-1.html)
+
+#### bt 下载
+
+transmission：首先在硬盘新建一个文件夹 transmission，然后到 “USB 应用程序 - 其他设置 - 磁力链接 Transmission”进行开启，然后控制面板在9091端口
+
+```bash
+# transmission.sh restart
+Stopping Transmission:..[  OK  ]
+Starting Transmission:.sed: can't move '/mnt/transmission/config/settings.jsonPJwZCh' to '/mnt/transmission/config/settings.json': Permission denied
+sed: /mnt/transmission/config/settings.json: Input/output error
+[FAILED]
+
+权限不足，那就手动重命名，发现两个都是空文件夹，直接删除
+# ls
+ls: ./settings.json.tmp.FR7eFB: Input/output error
+app                  etc                  settings.json28vRZi  stats.json
+bin                  o_p_t.img            settings.jsontKY8FC
+# rm settings.json28vRZi/ -r
+# rm settings.jsontKY8FC/ -r
+
+# transmission.sh restart
+Starting Transmission:.mv: can't stat '/mnt/transmission/config/settings.json': Input/output error
+chown: /mnt/transmission/config/settings.json.tmp.FR7eFB: Input/output error
+sed: /mnt/transmission/config/settings.json: Input/output error
+sed: /mnt/transmission/config/settings.json: Input/output error
+[FAILED]
+```
+
+硬盘没有问题啊，ntfs 2T 还能通过 FTP 拷贝影片呢
+
+```bash
+# df -h
+Filesystem                Size      Used Available Use% Mounted on
+/dev/sda1                 1.8T      1.6T    242.0G  87% /media/P300
+/dev/sda1                 1.8T      1.6T    242.0G  87% /opt
+# cd /
+[MI-R3P-breed /]# cd /mnt/transmission
+[MI-R3P-breed /media/P300/transmission]# pwd
+/mnt/transmission
+```
+
+已在 usb 应用中关闭 ftp、transmission，网络地图中的 usb 硬盘取消挂载好几次都没有效果，一会变成未挂载，但是硬盘还在转（正常情况下硬盘取消挂载状态是会停止转的）
+
+```bash
+# fsck
+-sh: fsck: not found
+# debugfs
+-sh: debugfs: not found
+# fuser -m /dev/sda1
+1 421 423 561 563 649 654 671 678 684 686 706 4077 10462 10531 10638 16724 16793 18639 18751 20559 20592 27614
+# fuser -km /dev/sda1
+Connection to 192.168.123.1 closed by remote host.
+Connection to 192.168.123.1 closed.
+```
+
+emm ssh 断开了，管理控制界面也挂掉了。。看来是这个 k 参数删除了太多重要进程，重启路由器吧
+
+```bash
+# lsof -n | grep delete 
+# transmission.sh start -h
+Starting Transmission:./media/P300/
+mkdir: can't create directory '/mnt/transmission/downloads': File exists
+sed: can't move '/mnt/transmission/config/settings.jsonROHY0O' to '/mnt/transmission/config/settings.json': Permission denied
+sed: /mnt/transmission/config/settings.json: Input/output error
+Couldn't (re)open log file "/mnt/transmission/transmission.log": Is a directory
+[FAILED]
+# ls /mnt/transmission/config
+ls: /mnt/transmission/config/settings.json.tmp.FR7eFB: Input/output error
+app         bin         etc         o_p_t.img   stats.json
+# lsof -n | grep delete 
+# ls /mnt/transmission -ag
+lrwxrwxrwx    1 root            25 Oct  9 15:58 /mnt/transmission -> /media/P300//transmission
+# rmdir /mnt/transmission/transmission.log
+rmdir: '/mnt/transmission/transmission.log': Not a directory
+# rm /mnt/transmission/transmission.log -r
+rm: can't stat '/mnt/transmission/transmission.log': Input/output error
+# transmission.sh stop
+```
+
+看样子硬盘多少出了点问题，等新硬盘到手把这个盘里的资料挪走先再格式化修复成 ext4,现在还是ntfs
+
+#### sambda
+
+- [老毛子/潘多拉/Padavan路由固件设置smb/samba indEmpire 2019.08.26](https://www.jianshu.com/p/f1e928ea826d)：无法进行分组权限管理
 
 # 相关阅读
 
@@ -522,3 +620,27 @@ wget --no-check-certificate -O- https://opt.cn2qq.com/opt-script/up.sh > /tmp/up
 	kernel0.bin文件下载：
 	链接：https://pan.baidu.com/s/1uJWBxTMTHGK1B4eKeTqj-A
 	提取码：uu6i
+
+[在小米路由器mini上安装Transmission挂BT/PT 帥氣的胖紙鍋 2016-01-26](https://blog.csdn.net/xiaopang1122/article/details/50586858):opkg
+
+[cygnus-x1 	08-15-2006 03:55 PM Cannot stat Input/Output error](https://www.linuxquestions.org/questions/linux-general-1/cannot-stat-input-output-error-474166-print/):debugfs
+
+[ls 命令出现 Input/output error 解决思路 LowCoder 2020-03-11 ](https://blog.csdn.net/qq_37797316/article/details/104789367)
+
+    ```bash
+    解决办法思路：
+    1.lsof、fuser命令查找出还在损坏磁盘进行读写的进程，全部杀掉
+    2.umount -l 卸载磁盘
+    3.xfs_repair修复磁盘
+    ```
+
+[Linux 强制卸载硬盘 (Device is busy)](https://www.cnblogs.com/flyingicedragon/p/15136383.html)
+> fuser -m -k -i -v /mnt/hdd0
+
+[lsof查看占用高_lsof解决磁盘占用过高，查询却无大文件处理一例！时常抠脚的隔壁老 2021-01-16](https://blog.csdn.net/weixin_33921444/article/details/112998678)
+> “就是在Linux的文件系统中删除一个文件，系统并不会真的立刻把这个文件丢弃掉，而只是把它从文件的目录系统中移除， 只有确保所有使用这个文件的程序全部都退出后，才会真的把文件彻底删除掉。”
+
+[linux磁盘或内存被占用问题——lsof -n | grep delete的使用 飞天小老头 2021-03-25](https://blog.csdn.net/AnameJL/article/details/115204592)
+> lsof -n | grep delete  kill -9 pid
+
+[ [lsof]lsof查看哪些设备/文件被占用或者打开](https://www.cnblogs.com/aaronLinux/p/8191510.html)
