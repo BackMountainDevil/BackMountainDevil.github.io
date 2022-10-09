@@ -483,6 +483,9 @@ Connection to 192.168.31.1 closed.
 
 [PandoraBox下载地址，含pb-boot](http://downloads.pangubox.com:6380/)
 
+[中国科学技术大学测速网站](https://test.ustc.edu.cn/)
+> MI R3P Padavan 3.4.3.9-099_22-10-1 2022-10-09 16:12:29    下载51.63 Mbps	上传56.23 Mbps
+
 ### 搞事情
 #### ssh
 
