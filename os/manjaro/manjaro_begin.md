@@ -1,6 +1,6 @@
 # Manjaro 安装系统与配置
 - date: 2021-09-05
-- lastmod: 2022-09-20
+- lastmod: 2022-10-11
 
 # 安装系统
 
@@ -306,6 +306,18 @@ tab 补全：zsh 会在列出来的可选名称自动遍历替换，而 bash 只
 
 VS Codium 在终端+的下拉箭头很容易选择zsh,有的时候会显示图标乱码，说明字体包不全或者设置不对，但是 konsole zsh在同一目录下显示正常，说明字体包齐全，是 codium zsh 配置字体样式的问题，在 editor font family 最前加入 Hack 还是不太行。
 
+
+## liveCD USB password
+
+虽然一般用不上，但是有一次我安装系统时还是修复grub时不小心锁屏了，不知道密码就有点尬
+
+[Default username password for Manjaro ISO Live CD / DVD / USB 2020](https://archived.forum.manjaro.org/t/default-username-password-for-manjaro-iso-live-cd-dvd-usb/117438)
+
+    username: manjaro
+    password: manjaro
+
+    username: root
+    password: manjaro
 
 # Refer
 
