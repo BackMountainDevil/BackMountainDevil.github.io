@@ -1,6 +1,6 @@
 # EndeavourOS 初体验
 - date: 2022-09-23
-- lastmod: 2022-09-23
+- lastmod: 2022-10-12
 
 ## 设置
 ### grub
@@ -23,11 +23,15 @@ EndeavourOS 并不会主动探测 windows，有点离谱，参考[Grub dual boot
 
 参照 arch 时进行安装配置，结果任务栏出现了输入法图标，也有拼音输入，就是没法输入，后面桌面换到 kde 直接就能输入了。。。
 
+第二次给在台式机上装 endeavour 的时候，屏幕是 1080p,这就好办了，尝试下安装时看起来美爆的 xfce,但是在这个输入法问题还在，通过`fcitx5-diagnose`和环境变量之间的不断设置重启，发现 xfce 下的输入法环境变量要设置在 `~/.xprofile`，而在 kde 下 `~/.bash_profile` 设置是可以的。
+
 ### 蜂鸣器
 
 1. 在浏览器（如firefox）中查找不到对应词汇时会发出 bee 声音
 2. 虚拟终端（ctrl+alt+F2）中无输入时按下 Backspace、Delete
 3. 重启/关机
+
+台式机整 BIOS 老是 bee,开盖直接拔掉喇叭输出，接耳机使或者装个蓝牙网卡连蓝牙耳机。
 
 xset b off 试验过重启后失效
 
