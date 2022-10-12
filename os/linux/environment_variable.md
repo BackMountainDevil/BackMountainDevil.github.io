@@ -1,6 +1,6 @@
 # 设置环境变量PATH 之 which is not on PATH.  Consider adding this directory to PATH
 - date: 2021-06-01
-- lastmod: 2022-09-19
+- lastmod: 2022-10-12
 
 # 环境变量
 
@@ -104,14 +104,14 @@ WARNING: The script XXXXXX is installed in '/home/kearney/.local/bin' which is n
 $ sudo nano /etc/profile
 
 # 改个人的配置用这个
-$ nano ~/.bashrc
+$ nano ~/.bash_profile
 
 # 配置文件里的注释是 # 开头的哦
 export PATH="${PATH}:/home/kearney/.local/bin"
 export OPENCV_LOG_LEVEL=ERROR
 ```
 
-粘贴（Ctrl + Shift + V）完成后 Ctrl + S 保存， Ctrl + X 退出 nano。别忘了刷新一下环境变量 `source /etc/profile` 或 `source ~/.bashrc` 。或者直接开启新的会话。
+粘贴（Ctrl + Shift + V）完成后 Ctrl + S 保存， Ctrl + X 退出 nano。别忘了刷新一下环境变量 `source /etc/profile` 或 `source ~/.bash_profile` 。或者直接开启新的会话。
 
 再举个例子，为了配置 fcitx5 中文输入法的用户环境变量，不要忘记了每一行前面都加一个 export
 
