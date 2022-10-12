@@ -1,6 +1,6 @@
 # Arch Pacman & Yay 介绍+基本使用 & 更新中无法满足依赖关系的解决办法
 - date: 2021-04-30
-- lastmod: 2022-10-02
+- lastmod: 2022-10-12
 
 # pacman
 
@@ -80,7 +80,7 @@ yay -Rs wechat-uos
 yay -Rs google-chrome
 ```
 
-和 pacman 一样，也可以将软件包缓存目录设置为内存，在 ~/.config/yay/config.json 文件中，buildDir 默认为 "~/.cache/yay"，将其修改为 "/tmp/yay" 便可达到目的
+和 pacman 一样，也可以将软件包缓存目录设置为内存，在 `~/.config/yay/config.json` 文件中，buildDir 默认为 `~/.cache/yay`，将其修改为 `/tmp/yay` 便可达到目的
 
 临时解决方案
 
