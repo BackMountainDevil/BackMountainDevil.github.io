@@ -1,6 +1,6 @@
 # Arch 新手的基本知识
 - date: 2021-05-28
-- lastmod: 2022-09-23
+- lastmod: 2022-10-12
 
 # 安装系统
 ## 镜像+网络安装
@@ -16,14 +16,15 @@
 ```bash
 sudo pacman -S fcitx5-im fcitx5-chinese-addons
 
-# 修改配置
-nano ~/.pam_environment
+# 修改用户环境变量
+nano ~/.bash_profile
 
 # 粘贴进下面的内容，保存退出
-GTK_IM_MODULE DEFAULT=fcitx
-QT_IM_MODULE  DEFAULT=fcitx
-XMODIFIERS    DEFAULT=\@im=fcitx
-SDL_IM_MODULE DEFAULT=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
 ```
 
 ## 蓝牙
