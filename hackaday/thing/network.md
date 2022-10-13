@@ -1,6 +1,6 @@
 # 小型内部网络 软路由
 - date: 2022-10-09
-- lastmod: 2022-10-10
+- lastmod: 2022-10-13
 
 # 路由器
 
@@ -120,3 +120,103 @@ WikipediA:刷openwrt 主要多播，梯子 ，广告过滤，应用过滤，音�
 
 - [使用iPerf进行网络吞吐量测试 2019-10-28 胡齐](https://cloud.tencent.com/developer/article/1528627) 
 
+	```bash
+	# TCP客户端和服务器
+	iperf -s # 服务端
+	iperf -c ip # 客户端
+
+	# UDP客户端和服务器
+	iperf -s -u
+	perf -c ip -u
+
+	# 双向测试
+	iperf -c ip -d
+	```
+
+<details>
+<summary>学校校园网测试</summary>
+
+一台笔记本(RTL8822CE)连接校园网 wifi,一台台式机(RTL8111/8168/8411)网线连接校园网，双方防火墙测试时关闭。ip 信息已经剔除。可以 ping 通，但是服务端开启 web 服务端，客户端无法访问。TCP 双向可以有 25Mbps，UDP 只有 1Mbps？台式机从学校网信中心下载正版软件的速度有 50Mbps
+
+```bash
+$ ping ip
+PING ip (ip) 56(84) 字节的数据。
+64 字节，来自 ip: icmp_seq=1 ttl=63 时间=6.64 毫秒
+64 字节，来自 ip: icmp_seq=2 ttl=63 时间=1.69 毫秒
+64 字节，来自 ip: icmp_seq=3 ttl=63 时间=10.3 毫秒
+64 字节，来自 ip: icmp_seq=4 ttl=63 时间=8.63 毫秒
+64 字节，来自 ip: icmp_seq=5 ttl=63 时间=8.42 毫秒
+64 字节，来自 ip: icmp_seq=6 ttl=63 时间=4.37 毫秒
+64 字节，来自 ip: icmp_seq=7 ttl=63 时间=2.95 毫秒
+64 字节，来自 ip: icmp_seq=8 ttl=63 时间=3.74 毫秒
+--- ip ping 统计 ---
+已发送 8 个包， 已接收 8 个包, 0% packet loss, time 7012ms
+rtt min/avg/max/mdev = 1.686/5.846/10.348/2.905 ms
+
+$ curl ip:8000
+curl: (7) Failed to connect to ip port 8000 after 2 ms: 没有到主机的路由
+
+$ wget ip:8000
+--2022-10-13 14:46:42--  http://ip:8000/
+正在连接 ip:8000... 失败：没有到主机的路由。
+
+$ iperf -c ip
+------------------------------------------------------------
+Client connecting to ip, TCP port 5001
+TCP window size: 16.0 KByte (default)
+------------------------------------------------------------
+[  1] local ip2 port 35130 connected with ip port 5001 (icwnd/mss/irtt=14/1448/1808)
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-11.2220 sec  35.3 MBytes  26.4 Mbits/sec
+
+$ iperf -c ip -d
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size:  128 KByte (default)
+------------------------------------------------------------
+------------------------------------------------------------
+Client connecting to ip, TCP port 5001
+TCP window size: 16.0 KByte (default)
+------------------------------------------------------------
+[  1] local ip2 port 44440 connected with ip port 5001 (icwnd/mss/irtt=14/1448/5753)
+[  2] local ip2 port 5001 connected with ip port 49212
+[ ID] Interval       Transfer     Bandwidth
+[  2] 0.0000-10.8547 sec  30.9 MBytes  23.9 Mbits/sec
+[  1] 0.0000-10.9577 sec  33.6 MBytes  25.7 Mbits/sec
+
+$ iperf -c ip -u
+------------------------------------------------------------
+Client connecting to ip, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  1] local ip2 port 60674 connected with ip port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-10.0156 sec  1.25 MBytes  1.05 Mbits/sec
+[  1] Sent 896 datagrams
+[  1] Server Report:
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  1] 0.0000-10.0169 sec  1.20 MBytes  1.01 Mbits/sec   3.381 ms 38/895 (4.2%)
+
+$ iperf -c ip -u -d
+------------------------------------------------------------
+Server listening on UDP port 5001
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+------------------------------------------------------------
+Client connecting to ip, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  2] local ip2 port 5001 connected with ip port 57740
+[  1] local ip2 port 37823 connected with ip port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-10.0153 sec  1.25 MBytes  1.05 Mbits/sec
+[  1] Sent 896 datagrams
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  2] 0.0000-10.0182 sec  1.24 MBytes  1.04 Mbits/sec   0.810 ms 6/894 (0.67%)
+[  1] Server Report:
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  1] 0.0000-10.0200 sec  1.25 MBytes  1.05 Mbits/sec   3.613 ms 0/895 (0%)
+```
+</details>
