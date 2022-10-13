@@ -1,6 +1,6 @@
 # EndeavourOS 初体验
 - date: 2022-09-23
-- lastmod: 2022-10-12
+- lastmod: 2022-10-13
 
 ## 设置
 ### grub
@@ -49,6 +49,10 @@ xset b off 试验过重启后失效
 [How to disable beep tone in xfce when the delete button is pressed? 2015](https://unix.stackexchange.com/questions/214607/how-to-disable-beep-tone-in-xfce-when-the-delete-button-is-pressed)
 
      uncommenting set bell-style none (reload command: bind -f ~/.inputrc)? If yes, then try one of the mentioned methods. E.g. by unloading pcspkr module: rmmod pcspkr or by xset b off
+
+### xfce 快捷键
+
+在 xfce 默认设置下，按 win 键（Super、Meta）是没法打开菜单栏的，锁屏快捷键也不一样。我以为是键盘有问题，然后到 设置-窗口管理器-键盘 找一个空的位置试验了下发现按下 win 键得到的是 Super L。我以为是键盘的问题，然后在论坛里搜索了一下，看到一个 [Using Windows (Super L) key for Whisker menu AND tiling shortcuts](https://forum.endeavouros.com/t/using-windows-super-l-key-for-whisker-menu-and-tiling-shortcuts/27784)，里边提到了 设置-键盘-应用程序快捷键 ，`xfce4-popup-whiskermenu` 指的就是弹出菜单栏，默认快捷键是 super+space ，锁屏默认是 Ctrl+Alt+L. 我把菜单栏设置为 super 的时候，按下 super+E 就有点问题了，我想要出现文件管理器，但是现在却会同时出现菜单栏并且聚焦在菜单栏，那还是使用默认快捷键吧。
 
 # 系统维护
 
