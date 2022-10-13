@@ -1,6 +1,6 @@
 # Arch 新手的基本知识
 - date: 2021-05-28
-- lastmod: 2022-10-12
+- lastmod: 2022-10-13
 
 # 安装系统
 ## 镜像+网络安装
@@ -46,6 +46,18 @@ AutoEnable=true
 实际上到第二步`自动开启蓝牙服务`就可以满足基本使用了，登陆成功才能使用蓝牙键盘鼠标。但是如果是蓝牙键盘输入密码的话，那就需要第三步了，不然在登陆的时候无法使用蓝牙键盘，还要身子前倾多尴尬。
 
 # 进阶配置
+## 中文社区
+
+中文社区仓库的相关的软件包可以到[同步镜像](https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/)中查看，anbox、android、adobe...
+
+- [Arch Linux 中文社区仓库](https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/)：修改完文件之后安装  archlinuxcn-keyring 再安装 archlinuxcn-mirrorlist-git
+
+    使用方法：在 /etc/pacman.conf 文件末尾添加以下两行（或者从后边的链接中选择一个镜像）：
+
+        [archlinuxcn]
+        Server = https://repo.archlinuxcn.org/$arch
+
+    之后安装 archlinuxcn-keyring 包以导入 GPG key。安装 archlinuxcn-mirrorlist-git 包可以获得一份镜像列表，以便在 pacman.conf 中直接引入。
 
 ## 人脸识别 - howdy
 
