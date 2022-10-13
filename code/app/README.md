@@ -16,6 +16,7 @@
 - [知乎备份计划](/code/app/zhihuBackup.md)
 - [linux 下的按键精灵 xdotool](/code/app/xdotool.md)
 - [P2P 技术/下载 与 qBitTorrent Transmission](/code/app/bt.md)
+- [局域网传输文件与文件同步 ftp rsync](/code/app/sync.md)
 - [Firefox 下网页无法正常显示探究过程 UserAgent AdBlock](/code/app/userAgent.md)
 - [在 Arch 上用 Pandoc 将 Markdown 文档导出为 PDF](/code/app/pandoc.md)
 - [fontgoogle 加载速度慢的解决办法](/code/app/fontgoogle.md)
