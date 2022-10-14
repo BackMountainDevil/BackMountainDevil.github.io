@@ -1,6 +1,6 @@
 # Arch 新手的基本知识
 - date: 2021-05-28
-- lastmod: 2022-10-13
+- lastmod: 2022-10-14
 
 # 安装系统
 ## 镜像+网络安装
@@ -55,7 +55,7 @@ AutoEnable=true
     使用方法：在 /etc/pacman.conf 文件末尾添加以下两行（或者从后边的链接中选择一个镜像）：
 
         [archlinuxcn]
-        Server = https://repo.archlinuxcn.org/$arch
+        Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
     之后安装 archlinuxcn-keyring 包以导入 GPG key。安装 archlinuxcn-mirrorlist-git 包可以获得一份镜像列表，以便在 pacman.conf 中直接引入。
 
