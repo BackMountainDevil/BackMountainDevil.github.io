@@ -1,6 +1,6 @@
 # P2P 技术/下载 与 qBitTorrent Transmission
 - date: 2022-09-18
-- lastmod: 2022-10-13
+- lastmod: 2022-10-14
 
 P2P 技术可以用来高速分享文件。优点是可以提高下载速度、节省服务器带宽、避免单点故障。BitTorrent 则是建立在该技术上的应用软件，称之为 BitTorrent 客户端。客户端有很多，具有图形界面的有 Transmission、qBittorrent、没有图形化界面只有控制台界面的有 aria2、Transmission CLI（更多请查阅[BitTorrent_clients](https://wiki.archlinux.org/title/List_of_applications/Internet#BitTorrent_clients)）
 
@@ -30,3 +30,5 @@ bt 软件该有的基本功能都有。下载种子或磁力链接、做种、�
 ## Transmission
 
 bt 软件该有的基本功能都有。下载种子或磁力链接、做种、黑名单、web 端管理。常用在 openwrt 中的轻量化 bt 客户端，功能相对简洁。支持一次添加多个种子。不支持一次添加多个磁链、不支持部分下载。
+
+使用该软件的时候需要注意将配置保存到硬盘上，因为默认是保存在内容中，重启之后都会丢失，比如说做种列表重启就没了，需要重新添加种子然后校验。
