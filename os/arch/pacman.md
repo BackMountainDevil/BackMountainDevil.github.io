@@ -1,6 +1,6 @@
 # Arch Pacman & Yay 介绍+基本使用 & 更新中无法满足依赖关系的解决办法
 - date: 2021-04-30
-- lastmod: 2022-10-12
+- lastmod: 2022-10-14
 
 # pacman
 
@@ -73,7 +73,7 @@ yay -S wechat-uos
 yay -S google-chrome
 # 安装 WPS 中文简体版
 yay -S wps-office-cn wps-office-mui-zh-cn ttf-wps-fonts 
-# 安装 科学上网 的工具
+# 安装 科学上网 的工具  lantern holytech firefox->hoxx su.ygjzjg.com
 yay -S lantern
 # 哪天不开心就卸载
 yay -Rs wechat-uos

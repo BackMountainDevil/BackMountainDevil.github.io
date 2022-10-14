@@ -15,6 +15,7 @@
 - [医保那些事](/wuyu/artical/NHSA.md)
 - [高考完时十八岁的时候，我去献血了](/wuyu/artical/blood.md)
 - [兴坪纪事](/wuyu/artical/xingping.md)
+- [兴坪纪事2 阳朔的大理 与 Central Perk](/wuyu/artical/xingping2.md)
 - [消灭蚊子的方法](/wuyu/artical/wenzi.md)
 - [如何认识一个人的基本情况](/wuyu/artical/beidiao.md)
 - [智商税与?骗](/wuyu/artical/zhishangshui.md)

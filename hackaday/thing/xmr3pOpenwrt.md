@@ -1,6 +1,6 @@
 # 小米路由器Pro R3p 刷机 Breed Padavan
 - date: 2022-10-08
-- lastmod: 2022-10-09
+- lastmod: 2022-10-14
 
 一般过程：
 
@@ -323,10 +323,17 @@ Writing from breed-mt7621-xiaomi-r3g-r3p.bin to Bootloader ...
 
 经历了五次失败，决定今天直接刷 openwrt,反正不是镁光的闪存。然而当我刷完 ow，路由器重启后，热点没看到，插网线（今天刚到）没有出现 ow 的界面，ip 也不通，于是按住 reset 断电重启重置，这回 ip ping 通了，打开却是 breed 的界面。
 
-当终端输出Rebooting ... 5-10s后，将路由器断电重启，等到路由器出现蓝色灯闪烁时，即可进入到breed的管理页面。
+当终端输出Rebooting ... 5-10s后，将路由器断电重启，等到路由器出现蓝色灯闪烁时，在浏览器输入 192.168.1.1 后回车，即可进入breed的管理页面。选择固件更新时，可以更新 Bootloader、固件、EEPROM，不过固件备份只支持备份EEPROM和编程器固件。（ps,，为了避免变砖，请勿更新编程器固件）
 
-    breed管理页面
-    在浏览器输入192.168.1.1，即可进入breed的管理页面
+Breed 更新 Bootloader 有大小限制，超过 512 KB 会提示错误。
+
+当刷入固件之后，再输入这个网址不能进入 breed 了，需要按住 reset 断电重启重置后才能由该网址进入 breed。至于如何卸载 breed 恢复官方固件，在 Powersee 的视频里说的是 由 breed 刷 pb-boot 的 bootloader,然后按住 reset 断电重启进入 pb-boot(192.168.1.1), 选择官方引导，然后将官方开发板固件拷贝 u 盘，重命名，按住 reset 断电重启刷回官方开发固件的（和开头的刷 rom-dev 一样）。
+
+## pb-boot
+
+在 Breed 更新 Bootloader 时，上传 pb-boot 固件，更新后断电，按住 reset 重启，5s 后松开，在浏览器输入 192.168.1.1 后回车，即可进入 pb-boot 的管理页面（页面显示的是 PandoraBox）。
+
+这里的选择固件可以是 bootloader. 奇怪的是我上传自己备份的 kernel0.bin、openwrt 下载的 kernel0.bin（和我备份的校验是一样的）、Powersee 提供的 kernel0.bin（和我的校验不一样，但是 Powersee 的闪存和我的是一样的）。总是就是刷了 kernel0, u盘格式化 fat32 复制好 miwifi.bin，断电reset之后也还是 pb-boot。反倒是现在可以在 pb-boot 和 breed 之前反复横跳。然后又根据 pb、breed 的文件大小，我尝试把dd备份时一些体积相似的 bin 也刷过但也无疾而终
 
 ### 相关阅读
 
@@ -398,8 +405,23 @@ Writing from breed-mt7621-xiaomi-r3g-r3p.bin to Bootloader ...
     scp: Connection closed
     ```
 
+[小米路由器3刷机教程：刷入潘多拉 和 刷回官方。2020-02-04 蚣蛭艾闽蛛也艾髭鼬](https://www.bilibili.com/read/cv4570903/)
+
+    刷回官方
+    将小米路由器官方固件重命名为miwifi.bin放入fat32格式的u盘
+
+    还是需要进入pb-boot界面，在这里刷入Kernel0（潘多拉官方有备份，也可以是个人备份的），系统自动重启后指示灯会闪灭一次，指示灯蓝色闪过后变为黄色常亮，此时断电。或者干脆重启后多喝杯茶，再断电
+
+    路由器断电状态下，将u盘插入usb接口
+
+    长按重置按钮，通电开机，直至指示灯黄色快速闪烁。
+
+    几分钟后你就可以在手机上看到那个消失很久的wifi名称 作者：蚣蛭艾闽蛛也艾髭鼬 https://www.bilibili.com/read/cv4570903/ 出处：bilibili
+
 # 刷固件
 ## openwrt
+
+由 breed 引导刷 openwrt 有不少麻烦，还容易变砖，先刷回官方开发固件
 
 ```bash
 cd /extdisks/sda1 #(can be different if you remove and reinsert the usb stick)
@@ -459,7 +481,7 @@ Connection to 192.168.31.1 closed.
 ```
 </details>
 
-刷完 ow 固件后很尴尬，用朋友的电脑插上网线发现重置之后是 breed 的引导，ow 没刷上。
+第一次刷ow,是刷完 breed 多次失败后直接刷 ow,刷完 ow 固件后很尴尬，用朋友的电脑插上网线发现重置之后是 breed 的引导，ow 没刷上。
 
 - [OpenWRT (LEDE) 镜像使用帮助](https://mirror.tuna.tsinghua.edu.cn/help/openwrt/)
 > sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
@@ -478,6 +500,8 @@ Connection to 192.168.31.1 closed.
 ## Padavan
 
 安装了 breed 后，进入 breed 控制台把潘多拉固件上传即可完成安装。然后连接网络（有线可，无线默认wifi是PDCN,密码1234567890）进入管理页面：http://192.168.123.1/，默认账号：admin，默认密码：admin。（刷机不恢复默认值）
+
+我第二次刷 Padavan 的时候密码就不是默认值了，而是我上一次刷机存的密码，尽管我已经把引导反复刷了好几次
 
 [7620老毛子Padavan固件 恩山无线论坛](https://www.right.com.cn/forum/thread-161324-1-1.html) [Padavan固件下载](http://opt.cn2qq.com/padavan/)
 
@@ -632,6 +656,22 @@ admin
 ```
 
 查了下 padavan 以及梅林的 faq 中也没有类似的问题，暂时找不到解决办法
+
+# 刷回官方
+
+到底是把 kernel0 刷入bootloader，还是刷入 Firmware_Stub
+
+```bash
+mtd_write unlock Bootloader
+mtd_write write pb-boot-xiaomi3-20190317-61b6d33.img Bootloader
+```
+
+[ [小米其它型号路由器] 小米路由器3从第三方固件刷回官方固件 醉老仙 2020-5-8](https://www.right.com.cn/forum/thread-4023509-1-1.html)
+> 当前为pandorabox、X-wrt、openwrt刷回官方，uboot为pb-oot  
+    进入pb-boot刷官方固件包  
+    完成后执行U盘刷机  
+    下载官方固件，放在u盘根目录，命名为miwifi.bin
+    路由器断电，插入U盘，插电，按住reset，等待指示橙色慢闪后松开
 
 # 相关阅读
 
