@@ -510,6 +510,110 @@ Connection to 192.168.31.1 closed.
 [中国科学技术大学测速网站](https://test.ustc.edu.cn/)
 > MI R3P Padavan 3.4.3.9-099_22-10-1 2022-10-09 16:12:29    下载51.63 Mbps	上传56.23 Mbps
 
+<details>
+<summary>内网测试</summary>
+
+一台笔记本(RTL8822CE)连接路由器 5G wifi, 作为 iperf 的服务端。一台台式机(RTL8111/8168/8411)通过一米超五类网线连接路由器，双方防火墙测试时关闭。ip 信息已经剔除。可以 ping 通，服务端开启 web 服务端，客户端可以访问。TCP 双向可以有 220～500Mbps，UDP 只有 1Mbps。看来路由器默认封杀 UDP，但是封杀的话不就是没有速度了嘛
+
+```bash
+$ ping ip
+PING ip (ip) 56(84) 字节的数据。
+64 字节，来自 ip: icmp_seq=1 ttl=64 时间=78.2 毫秒
+64 字节，来自 ip: icmp_seq=2 ttl=64 时间=101 毫秒
+64 字节，来自 ip: icmp_seq=3 ttl=64 时间=21.8 毫秒
+64 字节，来自 ip: icmp_seq=4 ttl=64 时间=43.2 毫秒
+64 字节，来自 ip: icmp_seq=5 ttl=64 时间=14.5 毫秒
+64 字节，来自 ip: icmp_seq=6 ttl=64 时间=88.0 毫秒
+64 字节，来自 ip: icmp_seq=7 ttl=64 时间=107 毫秒
+64 字节，来自 ip: icmp_seq=8 ttl=64 时间=30.2 毫秒
+64 字节，来自 ip: icmp_seq=9 ttl=64 时间=9.19 毫秒
+64 字节，来自 ip: icmp_seq=10 ttl=64 时间=74.8 毫秒
+64 字节，来自 ip: icmp_seq=11 ttl=64 时间=97.4 毫秒
+^C
+--- ip ping 统计 ---
+已发送 11 个包， 已接收 11 个包, 0% packet loss, time 10016ms
+rtt min/avg/max/mdev = 9.185/60.511/107.441/35.596 ms
+
+$ curl ip:8000
+.....
+  <!-- For Internet -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script> -->
+</body>
+
+$ wget ip:8000
+--2022-10-14 21:39:22--  http://ip:8000/
+正在连接 ip:8000... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：1886 (1.8K) [text/html]
+正在保存至: “index.html.1”
+
+index.html.1                                    100%[=====================================================================================================>]   1.84K  --.-KB/s  用时 0s      
+
+2022-10-14 21:39:22 (76.3 MB/s) - 已保存 “index.html.1” [1886/1886])
+
+$ iperf -c ip
+------------------------------------------------------------
+Client connecting to ip, TCP port 5001
+TCP window size: 16.0 KByte (default)
+------------------------------------------------------------
+[  1] local ip2 port 41804 connected with ip port 5001 (icwnd/mss/irtt=14/1448/55286)
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-10.0532 sec   666 MBytes   556 Mbits/sec
+
+$ iperf -c ip -d
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size:  128 KByte (default)
+------------------------------------------------------------
+------------------------------------------------------------
+Client connecting to ip, TCP port 5001
+TCP window size: 16.0 KByte (default)
+------------------------------------------------------------
+[  1] local ip2 port 48748 connected with ip port 5001 (icwnd/mss/irtt=14/1448/3630)
+[  2] local ip2 port 5001 connected with ip port 56066
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-10.0614 sec   422 MBytes   351 Mbits/sec
+[  2] 0.0000-10.0662 sec   268 MBytes   223 Mbits/sec
+
+$ iperf -c ip -u
+-----------------------------------------------------------
+Client connecting to ip, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  1] local ip2 port 49869 connected with ip port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-10.0154 sec  1.25 MBytes  1.05 Mbits/sec
+[  1] Sent 896 datagrams
+[  1] Server Report:
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  1] 0.0000-9.9964 sec  1.25 MBytes  1.05 Mbits/sec   0.585 ms 0/895 (0%)
+
+$ iperf -c ip -u -d
+------------------------------------------------------------
+Server listening on UDP port 5001
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+------------------------------------------------------------
+Client connecting to ip, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  1] local ip2 port 42857 connected with ip port 5001
+[  2] local ip2 port 5001 connected with ip port 53089
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-10.0155 sec  1.25 MBytes  1.05 Mbits/sec
+[  1] Sent 896 datagrams
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  2] 0.0000-10.0155 sec  1.25 MBytes  1.05 Mbits/sec   0.103 ms 0/894 (0%)
+[  1] Server Report:
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  1] 0.0000-9.9944 sec  1.25 MBytes  1.05 Mbits/sec   0.460 ms 0/895 (0%)
+```
+</details>
+
 ### 搞事情
 #### ssh
 
