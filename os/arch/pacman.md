@@ -91,6 +91,10 @@ Running installation script...
 /home/kearney/.lantern/bin/lantern: error while loading shared libraries: libpcap.so.0.8: cannot open shared object file: No such file or directory
 $ cd /usr/lib
 $ sudo ln -s libpcap.so.1.10.1 libpcap.so.0.8
+
+# 那想卸载了怎么办
+$ sudo unlink /usr/lib/libpcap.so.0.8   # 删除软链接
+$ yay -Rs lantern # 卸载
 ```
 
 # deb
