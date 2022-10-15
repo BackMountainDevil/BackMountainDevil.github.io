@@ -823,7 +823,12 @@ mtd10: 0ff80000 00020000 "ALL"
 
 Bootloader。无论是刷 breed 还是 pb-boot，刷的都是 Bootloader 分区
 
-2. eeprom 对于 mtd 中哪一个分区
+2. eeprom 对应 mtd 中哪一个分区
+
+[请教EEPROM是哪个分区 李丑男 2017-12-13](https://www.right.com.cn/FORUM/thread-264540-1-1.html)
+> di0506 2017-12-13 Factory分区就是EEPROM
+
+但是我把从 breed 备份出来的 eeprom 和我用 dd 备份出来的 Factory 进行 md5 校验，两者不一样。
 
 # 相关阅读
 
