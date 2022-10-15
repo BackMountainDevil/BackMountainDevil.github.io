@@ -793,6 +793,31 @@ mtd_write write pb-boot-xiaomi3-20190317-61b6d33.img Bootloader
 > 进入breed控制台 -> 更新固件 -> 常规固件，勾选Bootloader选择下载好的小米原厂Bootloader，点击上传按钮  
 > 进入breed控制台 -> 更新固件 -> 常规固件，选择之前下载好的小米原厂固件，点击上传按钮
 
+看了不少阅读材料之后发现原厂的 kernel0 带了一个功能就是从 u 盘恢复，于是在 breed 刷了 padavan 后开ssh，想把之间备份的 kernel0 刷回去，刷着返回 `Could not open MTD device: kernel0` 才发现刷了 padavan 之后 mtd 分区表和原厂的不一样了。kernel0 的 erasesize 和 原厂kernel0 一样，但是 size 不一样，这下我就不敢继续刷了
+
+```bash
+# uname -a
+Linux MI-R3P-breed 3.4.113 #2 SMP Mon Oct 3 14:07:10 CST 2022 mips GNU/Linux
+
+# mtd_write unlock kernel0
+# mtd_write write kernel0ow.bin kernel0
+Could not open MTD device: kernel0
+
+# cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00040000 00020000 "Bootloader"
+mtd1: 00080000 00020000 "CFG_Bdata"
+mtd2: 00040000 00020000 "Factory"
+mtd3: 00500000 00020000 "Reserved"
+mtd4: 00180000 00020000 "Kernel"
+mtd5: 01680000 00020000 "RootFS"
+mtd6: 00080000 00020000 "Config"
+mtd7: 00400000 00020000 "Storage"
+mtd8: 0dd00000 00020000 "RWFS"
+mtd9: 01800000 00020000 "Firmware_Stub"
+mtd10: 0ff80000 00020000 "ALL"
+```
+
 # Q&A
 1. 刷引导时在刷哪一个分区
 
