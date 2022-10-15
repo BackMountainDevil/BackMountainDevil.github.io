@@ -789,7 +789,7 @@ mtd_write write pb-boot-xiaomi3-20190317-61b6d33.img Bootloader
     下载官方固件，放在u盘根目录，命名为miwifi.bin
     路由器断电，插入U盘，插电，按住reset，等待指示橙色慢闪后松开
 
-[小米路由器R3G刷回原厂固件  2022-05-24 奔跑的咸鱼](https://zhuanlan.zhihu.com/p/392456500):512KB 的bl。刷完原厂bl之后还有breed？原厂bl不会覆盖掉breed吗？
+[小米路由器R3G刷回原厂固件  2022-05-24 奔跑的咸鱼](https://zhuanlan.zhihu.com/p/392456500):512KB 的bl。刷完原厂bl之后还有breed？原厂bl不会覆盖掉breed吗？实验结果表面到刷原厂固件的时候，breed 无法识别固件类型，没法更新固件。原厂 bootloader 和 eeprom 都可以更新。
 > 进入breed控制台 -> 更新固件 -> 常规固件，勾选Bootloader选择下载好的小米原厂Bootloader，点击上传按钮  
 > 进入breed控制台 -> 更新固件 -> 常规固件，选择之前下载好的小米原厂固件，点击上传按钮
 
@@ -816,6 +816,17 @@ mtd7: 00400000 00020000 "Storage"
 mtd8: 0dd00000 00020000 "RWFS"
 mtd9: 01800000 00020000 "Firmware_Stub"
 mtd10: 0ff80000 00020000 "ALL"
+```
+
+按住reset断电重启发现没出现 breed，好几次都不行，还好 padavan 还在，就通过 ssh 再次刷入 breed 。这下子就又可以进入 breed 了。
+
+```bash
+# mtd_write unlock Bootloader
+Unlocking 'Bootloader' ...
+
+# mtd_write write breed-mt7621-xiaomi-r3g-r3p.bin Bootloader
+Unlocking 'Bootloader' ...
+Writing from 'breed-mt7621-xiaomi-r3g-r3p.bin' to MTD 'Bootloader' ...  [ok]
 ```
 
 # Q&A
