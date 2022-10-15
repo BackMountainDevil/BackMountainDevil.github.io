@@ -941,3 +941,7 @@ Bootloader。无论是刷 breed 还是 pb-boot，刷的都是 Bootloader 分区
 [ [PRO(R3P)] 小米路由器R3P拆机_NAND改SPI(内含高清图慎入)   2018-11-13  zyguowei](https://www.right.com.cn/forum/thread-355307-1-19.html)
 
 [ [PRO(R3P)] 【20220701：每周六更新】固件发布 R3P OP (小米路由 3 Pro)  2020-8-28 然后七年](https://www.right.com.cn/forum/thread-4049182-1-20.html)
+
+[ 【教程】亲测小米路由器3成功从padavan刷回原厂固件   ago 2017-5-30 ](https://www.right.com.cn/forum/thread-216748-1-28.html)：原厂固件自带usb恢复功能
+> [PROMETHEUS 俄罗斯作品](http://prometheus.freize.net/)：Xiaomi MI-MINI, MI-NANO, MI-3  ASUS...代码也不是很长
+> 原理是修改数据强制 UBoot 进入恢复模式（小米官方固件自带的功能），然后插 U 盘就可以恢复了。
