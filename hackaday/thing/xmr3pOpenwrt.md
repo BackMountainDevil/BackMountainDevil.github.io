@@ -775,21 +775,6 @@ admin
 
 # 刷回官方
 
-到底是把 kernel0 刷入bootloader，还是刷入 Firmware_Stub
-
-```bash
-mtd_write unlock Bootloader
-mtd_write write pb-boot-xiaomi3-20190317-61b6d33.img Bootloader
-```
-
-[ [小米其它型号路由器] 小米路由器3从第三方固件刷回官方固件 醉老仙 2020-5-8](https://www.right.com.cn/forum/thread-4023509-1-1.html)
-> 当前为pandorabox、X-wrt、openwrt刷回官方，uboot为pb-oot  
-    进入pb-boot刷官方固件包  
-    完成后执行U盘刷机  
-    下载官方固件，放在u盘根目录，命名为miwifi.bin
-    路由器断电，插入U盘，插电，按住reset，等待指示橙色慢闪后松开
-
-
 看了不少阅读材料之后发现原厂的 kernel0 带了一个功能就是从 u 盘恢复，于是在 breed 刷了 padavan 后开ssh，想把之间备份的 kernel0 刷回去，刷着返回 `Could not open MTD device: kernel0` 才发现刷了 padavan 之后 mtd 分区表和原厂的不一样了。kernel0 的 erasesize 和 原厂kernel0 一样，但是 size 不一样，这下我就不敢继续刷了
 
 ```bash
@@ -824,7 +809,24 @@ Unlocking 'Bootloader' ...
 # mtd_write write breed-mt7621-xiaomi-r3g-r3p.bin Bootloader
 Unlocking 'Bootloader' ...
 Writing from 'breed-mt7621-xiaomi-r3g-r3p.bin' to MTD 'Bootloader' ...  [ok]
+
+# mtd_write write pb-boot-xiaomi_r3p-20190317-61b6d33.img Bootloader
+Unlocking 'Bootloader' ...
+Writing from 'pb-boot-xiaomi_r3p-20190317-61b6d33.img' to MTD 'Bootloader' ...  [ok]
+
+## padavan 双清 启用ssh 开启UART以防万一
+# nvram set boot_wait=on
+# nvram set uart_en=1
+# nvram commit
+
+## 进入 pb-boot 刷官方开发固件，黄灯 -> 红灯闪烁。u 盘断电reset重启，黄灯闪烁，还是 pb-boot. padavan 已不见，切换为稳定版固件也是。刷kernel0再刷固件也是。
+## 刷会 breed 后刷 padavan 开 ssh 开 uart 使用全备份进行恢复
+# mtd_write write ALL.bin ALL
+Unlocking 'ALL' ...
+Writing from 'ALL.bin' to MTD 'ALL' ...  [ok]
 ```
+
+u 盘断电reset重启熟悉的官方回来了，MAC、SN 和标签上都是一样的
 
 # Q&A
 1. 刷引导时在刷哪一个分区
@@ -981,3 +983,10 @@ Bootloader。无论是刷 breed 还是 pb-boot，刷的都是 Bootloader 分区
 [小米路由器R3G刷回原厂固件  2022-05-24 奔跑的咸鱼](https://zhuanlan.zhihu.com/p/392456500):512KB 的bl。刷完原厂bl之后还有breed？原厂bl不会覆盖掉breed吗？实验结果表面到刷原厂固件的时候，breed 无法识别固件类型，没法更新固件。原厂 bootloader 和 eeprom 都可以更新。
 > 进入breed控制台 -> 更新固件 -> 常规固件，勾选Bootloader选择下载好的小米原厂Bootloader，点击上传按钮  
 > 进入breed控制台 -> 更新固件 -> 常规固件，选择之前下载好的小米原厂固件，点击上传按钮
+
+[ [小米其它型号路由器] 小米路由器3从第三方固件刷回官方固件 醉老仙 2020-5-8](https://www.right.com.cn/forum/thread-4023509-1-1.html)：试验了下好像不太行，可能是型号问题
+> 当前为pandorabox、X-wrt、openwrt刷回官方，uboot为pb-oot  
+    进入pb-boot刷官方固件包  
+    完成后执行U盘刷机  
+    下载官方固件，放在u盘根目录，命名为miwifi.bin
+    路由器断电，插入U盘，插电，按住reset，等待指示橙色慢闪后松开
