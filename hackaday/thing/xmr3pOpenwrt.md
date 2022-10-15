@@ -453,7 +453,6 @@ reboot
 <details>
 <summary>实操</summary>
 
-
 ```bash
 # cd /extdisks/sda1
 root@XiaoQiang:/extdisks/sda1# ls
@@ -494,6 +493,8 @@ Connection to 192.168.31.1 closed.
 </details>
 
 第一次刷ow,是刷完 breed 多次失败后直接刷 ow,刷完 ow 固件后很尴尬，用朋友的电脑插上网线发现重置之后是 breed 的引导，ow 没刷上。
+
+刷回官方时候再刷 openwrt 一气呵成，看回简书上的帖子进入 192.168.1.1，root 密码是啥，不知道啊，我以为我蒙root对了，结果是输入啥都可以，没有密码。默认也不开启 wifi，也没有中文语言可选。开 ssh 更新镜像 更新系统 配置无线热点。
 
 - [OpenWRT (LEDE) 镜像使用帮助](https://mirror.tuna.tsinghua.edu.cn/help/openwrt/)
 > sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
