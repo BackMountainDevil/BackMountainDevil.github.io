@@ -841,6 +841,12 @@ Bootloader。无论是刷 breed 还是 pb-boot，刷的都是 Bootloader 分区
 
 但是我把从 breed 备份出来的 eeprom 和我用 dd 备份出来的 Factory 进行 md5 校验，两者不一样。
 
+3. 双清是什么意思？
+
+[ [PRO(R3P)] 小米路由器Pro 超频1200Mhz Padavan固件 酸奶+多拨+流控  2022-3-9 无量天尊](https://www.right.com.cn/forum/thread-8193640-1-25.html)：这样可以重置 padavan 的默认密码。因此在 padavan的基础上刷机，还是双清吧。
+> 刷完重启后记得双清
+> 系统管理-配置管理，路由器设置-恢复出厂模式，路由器内部存储-恢复出厂模式
+
 # 相关阅读
 
 [ 小米R3P刷入魔改版Breed并刷入Lean最新源码固件教程 wifi之路 • 2020年12月9日](https://www.wifilu.com/262.html)：其外部链接解释了r3p的breed固件来源
