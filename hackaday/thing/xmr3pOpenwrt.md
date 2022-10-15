@@ -789,9 +789,6 @@ mtd_write write pb-boot-xiaomi3-20190317-61b6d33.img Bootloader
     下载官方固件，放在u盘根目录，命名为miwifi.bin
     路由器断电，插入U盘，插电，按住reset，等待指示橙色慢闪后松开
 
-[小米路由器R3G刷回原厂固件  2022-05-24 奔跑的咸鱼](https://zhuanlan.zhihu.com/p/392456500):512KB 的bl。刷完原厂bl之后还有breed？原厂bl不会覆盖掉breed吗？实验结果表面到刷原厂固件的时候，breed 无法识别固件类型，没法更新固件。原厂 bootloader 和 eeprom 都可以更新。
-> 进入breed控制台 -> 更新固件 -> 常规固件，勾选Bootloader选择下载好的小米原厂Bootloader，点击上传按钮  
-> 进入breed控制台 -> 更新固件 -> 常规固件，选择之前下载好的小米原厂固件，点击上传按钮
 
 看了不少阅读材料之后发现原厂的 kernel0 带了一个功能就是从 u 盘恢复，于是在 breed 刷了 padavan 后开ssh，想把之间备份的 kernel0 刷回去，刷着返回 `Could not open MTD device: kernel0` 才发现刷了 padavan 之后 mtd 分区表和原厂的不一样了。kernel0 的 erasesize 和 原厂kernel0 一样，但是 size 不一样，这下我就不敢继续刷了
 
@@ -846,6 +843,41 @@ Bootloader。无论是刷 breed 还是 pb-boot，刷的都是 Bootloader 分区
 [ [PRO(R3P)] 小米路由器Pro 超频1200Mhz Padavan固件 酸奶+多拨+流控  2022-3-9 无量天尊](https://www.right.com.cn/forum/thread-8193640-1-25.html)：这样可以重置 padavan 的默认密码。因此在 padavan的基础上刷机，还是双清吧。
 > 刷完重启后记得双清
 > 系统管理-配置管理，路由器设置-恢复出厂模式，路由器内部存储-恢复出厂模式
+
+4. 如何开启 UART/TTL？
+
+[ 小米路由4 拆机 ttl进入shell dawnsky  2019-8-23](https://www.right.com.cn/FORUM/thread-919862-1-1.html)
+
+	通过u-boot修改参数
+	MT7621 # setenv uart_en 1
+	MT7621 # setenv ssh_en 1
+	MT7621 # setenv telnet_en 1
+	MT7621 # saveenv
+	MT7621 # boot
+
+[ 小米路由器3 U-Boot TTL 恢复及一些注意事项   ysc3839 2018-3-5 ](https://www.right.com.cn/forum/thread-308330-1-1.html)
+
+	官方/Padavan 固件下执行(boot_wait 开启后会在 Please choose the operation: 这里等待 5 秒):
+    nvram set boot_wait=on
+    nvram set uart_en=1
+    nvram commit
+
+	OpenWRT 固件下执行:
+    fw_setenv boot_wait on
+    fw_setenv uart_en 1
+
+	小米官方固件的恢复模式
+	许多教程会讲到小米路由器的恢复模式。就是路由器红灯闪烁的时候，插入 U 盘按 Reset 键可以恢复官方固件。我以前曾认为这是 U-Boot 提供的功能，但是通过 TTL 输出的信息来看这是官方固件内核中 initramfs 的功能。
+	也就是说，如果没有官方固件的内核的话，就没有这个功能了。这也是为什么 OpenWRT 和 Padavan 都不修改 kernel0，因为这样可以直接进入官方固件的恢复模式，然后刷回官方固件。
+	同时也意味着，用上面 U-Boot 的方法刷入的话，不会包含官方内核，也就无法使用这个功能了。
+	也因为有这个功能，如果你一开始备份了官方固件中每个 mtd 的数据，那 U-Boot 刷入 mtd8 或 mtd9 就可以进入恢复模式了。
+	进入恢复模式还有个条件: nvram 中 flag_try_sys1_failed flag_try_sys2_failed 的值都为 1。
+	在前面提到的提示选择操作的时候，选择 4，然后执行:
+
+    setenv flag_try_sys1_failed 1
+    setenv flag_try_sys2_failed 1
+    saveenv
+	
 
 # 相关阅读
 
@@ -945,3 +977,7 @@ Bootloader。无论是刷 breed 还是 pb-boot，刷的都是 Bootloader 分区
 [ 【教程】亲测小米路由器3成功从padavan刷回原厂固件   ago 2017-5-30 ](https://www.right.com.cn/forum/thread-216748-1-28.html)：原厂固件自带usb恢复功能
 > [PROMETHEUS 俄罗斯作品](http://prometheus.freize.net/)：Xiaomi MI-MINI, MI-NANO, MI-3  ASUS...代码也不是很长
 > 原理是修改数据强制 UBoot 进入恢复模式（小米官方固件自带的功能），然后插 U 盘就可以恢复了。
+
+[小米路由器R3G刷回原厂固件  2022-05-24 奔跑的咸鱼](https://zhuanlan.zhihu.com/p/392456500):512KB 的bl。刷完原厂bl之后还有breed？原厂bl不会覆盖掉breed吗？实验结果表面到刷原厂固件的时候，breed 无法识别固件类型，没法更新固件。原厂 bootloader 和 eeprom 都可以更新。
+> 进入breed控制台 -> 更新固件 -> 常规固件，勾选Bootloader选择下载好的小米原厂Bootloader，点击上传按钮  
+> 进入breed控制台 -> 更新固件 -> 常规固件，选择之前下载好的小米原厂固件，点击上传按钮
