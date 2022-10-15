@@ -1,6 +1,6 @@
 # 小米路由器Pro R3p 刷机 Breed Padavan
 - date: 2022-10-08
-- lastmod: 2022-10-14
+- lastmod: 2022-10-15
 
 一般过程：
 
@@ -277,15 +277,23 @@ mtd0.bak   mtd1.bak   mtd10.bak  mtd11.bak  mtd12.bak  mtd2.bak   mtd3.bak   mtd
 </details>
 
 [ [AC2100(RM2100)] 适配RM2100的pb-boot正式版（大雕）  2020-5-26 BI4TMS](https://www.right.com.cn/forum/thread-4032659-1-1.html)
+	
 	想要备份路由原厂分区的，可以先在电脑以管理员权限运行/rm2100中的 ftpdmin.exe，之后回到telnet命令行
 	例如：想备份mtd1分区，就在命令行输入
 	./busybox nanddump -f mtd1.bak /dev/mtd1	# 备份到文件
 	./busybox ftpput 192.168.31.177 mtd1.bak ./mtd1.bak	# 
 	备存文件存在你rm2100文件所在的硬盘根目录。不想备份也可以，我给的文件中有mtd1和eeprom的备份。
 
+	注意：保险起见，暂时不要通过pb-boot"固件更新"功能直接刷回官方boot，官方的u-boot有毒!!!刷错锁了串口即使能开机也只能编程器!!!
+
 [小米路由器刷入Padavan系统 程屁凹 2018.11.04](https://www.jianshu.com/p/e49f4e19396a)：官刷ssh、breed、Padavan，14个dd备份命令
 
 [nanddump读出nandflash包括坏块 bewinged 2017-11-23](https://blog.csdn.net/zengzhihao/article/details/78617296)
+
+[How is erasing MTD with "dd if=/dev/zero" different from "flash_eraseall"? 2016-4-4](https://unix.stackexchange.com/questions/274217/how-is-erasing-mtd-with-dd-if-dev-zero-different-from-flash-eraseall):MTD 设备不该使用 dd
+
+[MTD - openwrt doc](https://openwrt.org/docs/techref/mtd)
+> The differences between dd and mtd are … TODO 
 
 # 刷引导
 ## breed
@@ -372,13 +380,17 @@ Breed 更新 Bootloader 有大小限制，超过 512 KB 会提示错误。
 
 [ [R3G] 小米路由器R3G用Breed安装原生OpenWrt详解   MIRROR-D	 2019-9-8](https://www.right.com.cn/forum/thread-987254-1-1.html)
 
-[小米路由器R3P从潘多拉刷回官方，小白帖 2019-7-30](https://www.right.com.cn/forum/thread-845287-1-1.html)
+[小米路由器R3P从潘多拉刷回官方，小白帖 2019-7-30 wanghucehng](https://www.right.com.cn/forum/thread-845287-1-1.html)：kernel0.bin 和 powersee 中一致，与我和openwrt不一致（md5sum）
+	电脑浏览器进192.168.1.1，上传kernel0，点恢复固件，
+	等一会儿，大概30秒吧，断电，上U盘【u盘根目录放入miwifi.bin这个文件，这个文件是带uboot的】，
+	上电，大概5秒【反正就是大概吧，不用那么精确，我都反复刷了好几次】按下reset按钮，指示灯变为黄色闪烁状态后松开reset键；
+	好像是等个一两分钟，黄灯变蓝【那个灯我觉得真的不是蓝色，不过大家都那么说的，那就是蓝色吧】就OK，
 
     fyi2000 2020-4-24
 	老毛子已经可以支持R3P，强烈建议刷老毛子，如果要刷回官方，可参考我的签名8楼
 	pb-boot不能直接刷老毛子，必须先刷潘多拉或OpenWrt，再以 mtd 命令刷老毛子，或是按照以下方法制作兼容pb-boot的固件，老毛子不支持RootFS以后分区有坏块，所以建议先检查闪存有无坏块以及坏块的位置
 
-[ [PRO(R3P)] 6月4日-小米路由器PRO(R3P)刷入PandoraBox 19.02，测试完美，稳定 laomao9000 2019-6-4](https://www.right.com.cn/forum/thread-701501-1-1.html):12+2 个dd备份指令
+[ [PRO(R3P)] 6月4日-小米路由器PRO(R3P)刷入PandoraBox 19.02，测试完美，稳定 laomao9000 2019-6-4](https://www.right.com.cn/forum/thread-701501-1-1.html):12+2 个dd备份指令。官方开发板刷openwrt以及ow刷回官方的办法
 > 务必用这个PB BOOT，可以支持镁光Miron Nand和EMST NAND，其他breed会变砖！！！
 	
 [教你简单的方法给路由器刷入不死breed u-boot 只需这三条命令 MT7620 2019-06-11 机电烧卖 ](https://www.bilibili.com/video/BV1K4411K7YQ)
@@ -777,6 +789,17 @@ mtd_write write pb-boot-xiaomi3-20190317-61b6d33.img Bootloader
     下载官方固件，放在u盘根目录，命名为miwifi.bin
     路由器断电，插入U盘，插电，按住reset，等待指示橙色慢闪后松开
 
+[小米路由器R3G刷回原厂固件  2022-05-24 奔跑的咸鱼](https://zhuanlan.zhihu.com/p/392456500):512KB 的bl。刷完原厂bl之后还有breed？原厂bl不会覆盖掉breed吗？
+> 进入breed控制台 -> 更新固件 -> 常规固件，勾选Bootloader选择下载好的小米原厂Bootloader，点击上传按钮  
+> 进入breed控制台 -> 更新固件 -> 常规固件，选择之前下载好的小米原厂固件，点击上传按钮
+
+# Q&A
+1. 刷引导时在刷哪一个分区
+
+Bootloader。无论是刷 breed 还是 pb-boot，刷的都是 Bootloader 分区
+
+2. eeprom 对于 mtd 中哪一个分区
+
 # 相关阅读
 
 [ 小米R3P刷入魔改版Breed并刷入Lean最新源码固件教程 wifi之路 • 2020年12月9日](https://www.wifilu.com/262.html)：其外部链接解释了r3p的breed固件来源
@@ -848,3 +871,26 @@ mtd_write write pb-boot-xiaomi3-20190317-61b6d33.img Bootloader
 > Fixed by #2629.
 
 [ build: use -DHAVE_FLOCK in the macOS Xcode build #2629 15 Feb 2022](https://github.com/transmission/transmission/pull/2629):半年前解决的问题，现在还存在，可能是现在我用的版本太旧了
+
+[ [PRO(R3P)] 小米PRO普通版，现在刷什么固件最稳定？黄先生的账号 2022-10-14 ](https://www.right.com.cn/forum/thread-8258252-1-1.html)
+> [ [PRO(R3P)] 【2022-06-11】R3P 闭源无线+SDK硬件加速驱动+多拨 Openwrt，pb boot直刷   2022-6-11 237176253](https://www.right.com.cn/FORUM/thread-8238333-1-1.html)
+>> 固件源码https://github.com/padavanonly/immortalwrt
+
+[ [PRO(R3P)] 6月4日-小米路由器PRO(R3P)刷入PandoraBox 19.02，测试完美，稳定  2019-6-4 22:16  laomao9000](https://www.right.com.cn/forum/thread-701501-1-14.html)
+
+[ [PRO(R3P)] R3P-自编译openwrt R22.5.5 -6.10 一条寂寞的鱼 	2022-6-10](https://www.right.com.cn/forum/thread-8238195-1-2.html)
+> https://github.com/coolsnowwolf/lede
+
+[ [PRO(R3P)] R3P支持PB-boot的基于4.4内核padavan来啦~ ](https://www.right.com.cn/forum/thread-8224616-1-8.html):8258252 提到 4.4 upnp有问题，打不开
+
+[ [PRO(R3P)] 小米路由器pro r3p 最全最新openwrt固件及全套插件库 2021/7/3  openwrtr3p ](https://www.right.com.cn/forum/thread-4615447-1-12.html)
+> https://github.com/coolsnowwolf/lede  
+> 包含openwrt所有插件300M.无法识别USB 如U盘 硬盘 是不是没有安装 kmod-usb-storage   kmod-usb-storage-extras
+
+[ [PRO(R3P)] 小米R3P 魔改Breed 多种内存频率 PandoraBox lyh802 2021-10-21 22:44](https://www.right.com.cn/forum/thread-6331347-1-12.html)
+
+[pangubox r3p 的备份 2018](http://downloads.pangubox.com:6380/%E5%88%B7%E6%9C%BA%E8%AF%B4%E6%98%8E/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8Pro/xiaomi-pro/)
+
+[ [PRO(R3P)] 小米路由器R3P拆机_NAND改SPI(内含高清图慎入)   2018-11-13  zyguowei](https://www.right.com.cn/forum/thread-355307-1-19.html)
+
+[ [PRO(R3P)] 【20220701：每周六更新】固件发布 R3P OP (小米路由 3 Pro)  2020-8-28 然后七年](https://www.right.com.cn/forum/thread-4049182-1-20.html)
