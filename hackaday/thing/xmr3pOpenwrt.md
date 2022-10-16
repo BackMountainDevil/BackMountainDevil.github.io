@@ -496,6 +496,61 @@ Connection to 192.168.31.1 closed.
 
 刷回官方时候再刷 openwrt 一气呵成，看回简书上的帖子进入 192.168.1.1，root 密码是啥，不知道啊，我以为我蒙root对了，结果是输入啥都可以，没有密码。默认也不开启 wifi，也没有中文语言可选。开 ssh 更新镜像 更新系统 配置无线热点。
 
+### 网速测试
+
+和 padavan 的测试结果不分伯仲
+
+[中国科学技术大学测速网站](https://test.ustc.edu.cn/)
+> MI R3P Padavan 3.4.3.9-099_22-10-1 2022-10-09 16:12:29    下载51.82 Mbps	上传55.30 Mbps
+
+<details>
+<summary>内网测试</summary>
+
+一台笔记本(RTL8822CE)连接路由器 5G wifi, 作为 iperf 的服务端。一台台式机(RTL8111/8168/8411)通过一米超五类网线连接路由器，双方防火墙测试时关闭。ip 信息已经剔除。可以 ping 通。TCP 双向可以有 230～560Mbps，UDP 只有 1Mbps。
+
+```bash
+$ ping ip
+PING ip (ip) 56(84) 字节的数据。
+64 字节，来自 ip: icmp_seq=1 ttl=64 时间=19.7 毫秒
+64 字节，来自 ip: icmp_seq=2 ttl=64 时间=4.85 毫秒
+64 字节，来自 ip: icmp_seq=3 ttl=64 时间=126 毫秒
+64 字节，来自 ip: icmp_seq=4 ttl=64 时间=148 毫秒
+64 字节，来自 ip: icmp_seq=5 ttl=64 时间=172 毫秒
+64 字节，来自 ip: icmp_seq=6 ttl=64 时间=54.3 毫秒
+64 字节，来自 ip: icmp_seq=7 ttl=64 时间=4.47 毫秒
+64 字节，来自 ip: icmp_seq=8 ttl=64 时间=36.5 毫秒
+^C
+--- ip ping 统计 ---
+已发送 8 个包， 已接收 8 个包, 0% packet loss, time 7007ms
+rtt min/avg/max/mdev = 4.466/70.718/171.855/63.314 ms
+
+$ iperf -c ip
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-10.0589 sec   672 MBytes   561 Mbits/sec
+
+$ iperf -c ip -d
+[ ID] Interval       Transfer     Bandwidth
+[  2] 0.0000-10.0477 sec   394 MBytes   329 Mbits/sec
+[  1] 0.0000-10.0991 sec   286 MBytes   237 Mbits/sec
+
+$ iperf -c ip -u
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-10.0155 sec  1.25 MBytes  1.05 Mbits/sec
+[  1] Server Report:
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  1] 0.0000-9.9865 sec  1.25 MBytes  1.05 Mbits/sec   0.339 ms 0/895 (0%)
+
+$ iperf -c ip -u -d
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-10.0153 sec  1.25 MBytes  1.05 Mbits/sec
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  2] 0.0000-10.0152 sec  1.25 MBytes  1.05 Mbits/sec   0.052 ms 0/894 (0%)
+[  1] Server Report:
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  1] 0.0000-9.9977 sec  1.25 MBytes  1.05 Mbits/sec   0.277 ms 0/895 (0%)
+```
+</details>
+
 ## Padavan
 
 安装了 breed 后，进入 breed 控制台把潘多拉固件上传即可完成安装。然后连接网络（有线可，无线默认wifi是PDCN,密码1234567890）进入管理页面：http://192.168.123.1/，默认账号：admin，默认密码：admin。（刷机不恢复默认值）
