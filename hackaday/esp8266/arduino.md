@@ -1,6 +1,6 @@
 # 为 Esp8266 配置 Arduino 开发环境并测试 WiFi
 - date: 2020-04-16
-- lastmod: 2021-09-21
+- lastmod: 2022-10-16
 
 # 安装驱动
 
@@ -12,7 +12,7 @@
 # Arduino 附加开发板
 
 1. 打开arduino，菜单栏-文件-首选项，在“附加开发板管理器网址”中粘贴这个网址
-http://arduino.esp8266.com/stable/package_esp8266com_index.json ，点击好。
+https://arduino.esp8266.com/stable/package_esp8266com_index.json ，点击好。
 2. 菜单栏-工具-开发版-开发版管理器，搜索 ESP8266 ，只出现一个结果，选择最新版安装即可，亲测安装较慢。。。。
 3. 菜单栏-工具-开发版，选择 NodeMCU 1.0
 4. 选择端口，在 windows菜单 中搜素设备管理器，进入设备管理器之后，查看端口，一搬也就几个端口，看看那个名称对应你的芯片就在 arduino 的菜单栏-工具-端口，选择对应的端口
