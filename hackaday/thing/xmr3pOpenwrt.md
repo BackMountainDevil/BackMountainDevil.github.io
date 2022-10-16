@@ -1,6 +1,6 @@
-# 小米路由器Pro R3p 刷机 Breed Padavan
+# 小米路由器Pro R3p 刷机 Breed Padavan OpenWrt
 - date: 2022-10-08
-- lastmod: 2022-10-15
+- lastmod: 2022-10-16
 
 一般过程：
 
@@ -495,20 +495,6 @@ Connection to 192.168.31.1 closed.
 第一次刷ow,是刷完 breed 多次失败后直接刷 ow,刷完 ow 固件后很尴尬，用朋友的电脑插上网线发现重置之后是 breed 的引导，ow 没刷上。
 
 刷回官方时候再刷 openwrt 一气呵成，看回简书上的帖子进入 192.168.1.1，root 密码是啥，不知道啊，我以为我蒙root对了，结果是输入啥都可以，没有密码。默认也不开启 wifi，也没有中文语言可选。开 ssh 更新镜像 更新系统 配置无线热点。
-
-- [OpenWRT (LEDE) 镜像使用帮助](https://mirror.tuna.tsinghua.edu.cn/help/openwrt/)
-> sed -i 's_downloads.openwrt.org_mirrors.tuna.tsinghua.edu.cn/openwrt_' /etc/opkg/distfeeds.conf
-
-- [OpenWrt有哪些实用的插件？](https://www.zhihu.com/question/29637794):上网行为管理、广告净化、下载
-
-[openwrt下实现校园网的web认证 a1094174619 2018-10-16](https://blog.csdn.net/a1094174619/article/details/83068307)：curl后总结写了个web
-
-[openwrt下实现校园网的web认证 ccpd_1 2021-08-09](https://blog.csdn.net/qq_30763587/article/details/119523231)：如何从 firefox F12 获取 curl 参数
-
-[ruijanlee/h3cc](https://github.com/ruijanlee/h3cc)：H3c connect - 强力插入你的校园网
-
-[使用OpenWrt +mentohust打造锐捷校园网无线路由 weixin_33872660 2011-04-08](https://blog.csdn.net/weixin_33872660/article/details/93273582)
-> 要用openwrt上校园网，只要把libpcap和mentohust装上路由就好
 
 ## Padavan
 

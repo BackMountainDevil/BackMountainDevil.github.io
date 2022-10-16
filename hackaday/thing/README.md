@@ -7,4 +7,4 @@
 - [iphone4 A1394 esim](/hackaday/thing/iphoneA1349.md)
 - [变声器与声音模仿“造假”](/hackaday/thing/voiceChange.md)
 - [小型内部网络 软路由](/hackaday/thing/network.md)
-- [小米路由器Pro R3p 刷机 Breed Padavan](/hackaday/thing/xmr3pOpenwrt.md)
+- [小米路由器Pro R3p 刷机 Breed Padavan OpenWrt](/hackaday/thing/xmr3pOpenwrt.md)
