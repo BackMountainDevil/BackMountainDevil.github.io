@@ -1,3 +1,4 @@
+- [arduino linux 安装配置](/hackaday/arduino/arduinoLinux.md)
 - [Arduino 菜单字体调整](/hackaday/arduino/arduinoFontSize.md)
 - [Arduino 开发板管理器报错 Error downloading https://downloads.arduino.cc/packages/package_index.json](/hackaday/arduino/downloadError403.md)
 - [](/hackaday//.md)
