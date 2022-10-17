@@ -1,6 +1,6 @@
 # OpenWrt 路由器系统
 - date: 2022-10-16
-- lastmod: 2022-10-16
+- lastmod: 2022-10-17
 
 第一次使用 openwrt 是在 [小米路由器Pro R3p 刷机 Breed Padavan OpenWrt](https://backmountaindevil.github.io/#/hackaday/thing/xmr3pOpenwrt) 中，一个给路由器制定的 linux 系统。
 
@@ -63,6 +63,54 @@ mtd9: 0f580000 00020000 "ubi"
 
 # 进阶玩法
 ## ftp
+
+1. 安装软件包：vsftpd 或者 vsftp-tls
+2. 开机启动：系统-启动项-vsftpd 启用
+
+ftp 也有一个缺点，就是不能直接播放服务端的视频，打开编辑服务端的文件。
+
+## Q&A
+
+1. 便捷管理用户密码、可浏览目录、读写权限
+
+    luci-app-vsftpd 或者 luci-app-tn-vsftpd. 这两个包长期无人维护被官方剔除了，需要自己到第三方插件库安装。
+
+2. 只允许特定用户登陆
+
+    2.1 创建 ftp 用户
+
+    [create_a_non-privileged_user_in_openwrt](https://openwrt.org/docs/guide-user/security/secure.access)：不给 ssh 权限、不给 sudo 权限、不给 sheel 权限
+
+        opkg install shadow-useradd
+        useradd ftpuser
+        passwd ftpuser
+        mkdir /home/ftpuser -p
+        vi /etc/passwd
+
+    [Vsftpd usb3 f2fs setup 2019 richjoh](https://forum.openwrt.org/t/vsftpd-usb3-f2fs-setup/40369/4):  In /etc/passwd you will find something like
+
+        ftpuser:x:1000:1000:GROUP:/mnt/usb:/bin/false
+
+    2.2 编辑 /etc/vsftpd.conf， 开启仅白名单可登录
+
+        userlist_deny=NO
+        userlist_enable=YES
+        userlist_file=/etc/vsftpd/vsftpd.users
+
+    2.3 编辑 /etc/vsftpd/vsftpd.users，一行一个用户名，只有这里面的用户可以登录 ftp
+    
+
+### 相关阅读
+
+- [FTP servers openwrt](https://openwrt.org/docs/guide-user/services/nas/ftp.overview)
+
+- [OpenWrt路由开启FTP服务访问文件 秋之颂 2021-02-23](https://blog.csdn.net/weixin_42708321/article/details/113995786)： luci-app-vsftpd 在 21.02、19.07、18.06 都没有，换个插件源试试；ext3 不是很理解，现在我的硬盘都是 ext4； ntfs的驱动选择 kmod-fs-ntfs 还是 ntfs-3g
+
+- [vsftpd Ubuntu doc](https://help.ubuntu.com/community/vsftpd)：To allow just some users to login
+
+- [vsftp.conf 、user_list、ftpusers 配置文件 往前的娘娘 2017-08-07](https://blog.csdn.net/m0_37355951/article/details/76851098)
+
+- [vsftpd Arch wiki](https://wiki.archlinux.org/title/Very_Secure_FTP_Daemon)： vsftpd 3.0.3-7 在 2021-10-03 被标记为过期
 
 ## bt
 
