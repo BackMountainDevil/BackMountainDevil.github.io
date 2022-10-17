@@ -4,6 +4,8 @@
 
 第一次使用 openwrt 是在 [小米路由器Pro R3p 刷机 Breed Padavan OpenWrt](https://backmountaindevil.github.io/#/hackaday/thing/xmr3pOpenwrt) 中，一个给路由器制定的 linux 系统。
 
+纯官方原安装的 openwrt 是比较简洁的，ftp 管理、tr 做种都需要增加安装配置，比较繁琐，懒人还是建议使用别人配置好的 openwrt、padavan
+
 # 设备支持与安装
 
 OpenWrt所支持的设备可以到 [我的路由器是否受OpenWrt支持？](https://openwrt.org/zh/toh/start) 中进行搜索，通常设备页面会有安装办法。管理页面默认是 http://192.168.1.1/ ，默认用户名 root，，默认没有设置密码，可以直接留空登录
@@ -125,7 +127,7 @@ opkg install block-mount    # 在 luci web 界面的 系统 栏目添加 “挂�
 
 6. 重载设置
 
-    [Editing-Configuration-Files.md](https://github.com/transmission/transmission/blob/main/docs/Editing-Configuration-Files.md)：恩山里的漏了 -HUP
+    [Editing-Configuration-Files.md](https://github.com/transmission/transmission/blob/main/docs/Editing-Configuration-Files.md)：恩山里漏了 -HUP
 
         You can make the daemon reload the settings file by sending it the SIGHUP signal. Or simply run either of the following commands:
 
@@ -134,6 +136,8 @@ opkg install block-mount    # 在 luci web 界面的 系统 栏目添加 “挂�
         Or:
 
         $ pkill -HUP transmission-daemon
+
+7. tr web GUI 添加账号密码：开启 PRC 授权认证，设置用户名密码
 
 # Q&A
 
