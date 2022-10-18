@@ -1,6 +1,6 @@
-# 局域网传输文件与文件同步 ftp rsync
+# 局域网传输文件与文件同步 ftp rsync rslsync
 - date: 2022-10-13
-- lastmod: 2022-10-13
+- lastmod: 2022-10-18
 
 手机、电脑之间，几个小文件完全可以用微信传输助手，再大一点（4GB）的电影文件我就会采用局域网传输文件了，比如 Landrop,但是他不能传输文件夹。当我想传几十个文件的时候，这个时候微信、Landrod、就会显的力不从心。这个时候就想起了 FTP、Samba、HTTP。
 
@@ -47,6 +47,28 @@ total size is 33,179,015,022  speedup is 1.91
 
 steam 拷贝测试中，该进程的 cpu 占有不到 1%。2,931,387.15 bytes/sec = 2862 Kbps = 2Mbps。这个速度不对劲吧
 
+## rslsync - Resilio Sync
+
+1. 下载安装（手机端略）: yay rslsync
+2. 生成配置: 
+
+    ```bash
+    mkdir ~/.config/rslsync/ -p
+    touch ~/.config/rslsync/rslsync.conf
+    rslsync --dump-sample-config > ~/.config/rslsync/rslsync.conf
+    ```
+
+3. 启动服务: systemctl start rslsync --user
+4. 设置开机自动启动（非必需）: systemctl enable rslsync --user
+5. 管理界面、设置用户名、密码: http://localhost:8888。
+6. 设置同步文件夹，手机上扫码同步，另一个 pc 端输入密钥同步
+
+同一局域网内，电脑（linux rslsync 2.7.3-1）和手机（ios Sync 2.6.12(451)）上同步速度平均 15M，内部网络p2p传输，速度瓶颈在于硬盘速度而不是网速。就是密钥有点长，手机扫码好说，另一台 pc 就难搞了。
+
+- [Resilio_Sync - Arch wiki](https://wiki.archlinux.org/title/Resilio_Sync):AUR 是从官方下载，有墙。archlinuxCN有。前边千万不要直接 sudo start/enable，不然有权限问题
+- [Resilio Sync | 全平台多设备文件同步/传输终极产品 2022-01-19 LAN DU](https://zhuanlan.zhihu.com/p/459403503):linux 源码和 aur 中校验一致，其它不晓得
+    > 搬运了常见系统（win/mac/linux/Android）的官方安装包 更新时间2022-10-15
+
 # 相关阅读
 
 - [Q: best method for copying large # of files](https://forum.endeavouros.com/t/q-best-method-for-copying-large-of-files/32727):rsync
@@ -54,5 +76,3 @@ steam 拷贝测试中，该进程的 cpu 占有不到 1%。2,931,387.15 bytes/se
 - [rsync 用法教程 阮一峰 2020年8月26日](https://www.ruanyifeng.com/blog/2020/08/rsync.html)
 
 - [Linux rsync命令用法详解 站长严长生](http://c.biancheng.net/view/6121.html)
-
-- [Resilio Sync | 全平台多设备文件同步/传输终极产品 2022-01-19 LAN DU](https://zhuanlan.zhihu.com/p/459403503)
