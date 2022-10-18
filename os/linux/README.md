@@ -21,6 +21,7 @@
 ## KDE
 
 - [修复 KDE Plasma 下 Meta/win 键无法打开菜单/程序启动器的问题](/os/kde/meta.md)
+- [KDE Plasma Desktop freeze](/os/kde/freeze.md)
 
 ## Arch
 
