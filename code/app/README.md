@@ -25,7 +25,7 @@
 - [HTG Locker && locker.bat 分析 与 80 G的数据恢复记录](/code/app/htglocker.md)
 - [App](/code/app/app.md)
 - [CentOS 6.8 下 phpvod 搭建记录（ php52 的编译安装）](/code/app/phpvod.md)
-
+- [联想小新风扇控制](/code/app/lenovoFan.md)
 
 # Git
 
