@@ -1,6 +1,6 @@
 # ffmpeg 基本命令
 - date: 2022-07-02
-- lastmod: 2022-10-02
+- lastmod: 2022-10-18
 
 ## 常用命令
 
@@ -271,7 +271,24 @@ gdigrab ：ffmpeg中的一个组件。
 ffmpeg -re i rec.mp4 按照网站要求编码 -f flv "你的rtmp地址/你的直播码"
 ```
 
-## 参考
+# 视频参数
+## 帧率
+
+## 分辨率
+
+- 扫描：P逐行扫描 I隔行扫描。如 1080p 与 1080i
+
+## 码率
+
+看了下手头的视频，1920x1080p 的码率有 12.4、6.01、4.41、1.17 Mbit/s。太低就会糊，太高文件体积大，如何找到合适的码率进行存储是一个问题。
+
+# 参考
 - [【FFmpeg 分P教学】转码、压制、录屏、裁切、合并、提取 … 统统不是问题。](https://www.bilibili.com/video/av40146374)
 - [ffprobe输入与输出信息详解 HugoforAndroid 于 2020-06-04](https://blog.csdn.net/lipengshiwo/article/details/106552579)
 - [ffmpeg：码率控制模式、编码方式. ETalien_ 于 2020-03-08](https://blog.csdn.net/ETalien_/article/details/102931065)
+
+- [完全解析：编码与封装 2016-03-1 影视飓风](https://www.bilibili.com/video/av4101573)
+
+- [【硬核科普】奇妙的帧率增加了！2020-03-21 影视飓风](https://www.bilibili.com/video/BV1kE411c7yZ)
+
+- [视频编码完全指南 K.R. Vijayanagar LiveVideoStack 2021-10-09](https://mp.weixin.qq.com/s?__biz=MzU1NTEzOTM5Mw==&mid=2247515283&idx=1&sn=1f6ac100ad020fb8e8238aefa5e89d19&chksm=fbda14bdccad9dabe8dfe7e90401acb04d906c56805c76f72fab242b763efd6aca70b4884e07&scene=21#wechat_redirect)
