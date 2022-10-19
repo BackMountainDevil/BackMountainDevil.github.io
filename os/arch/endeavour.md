@@ -38,8 +38,8 @@ xset b off 试验过重启后失效
 [PC speaker Arch Wiki](https://wiki.archlinux.org/title/PC_speaker#Globally):这个办法测试可行
 
     sudo rmmod pcspkr
-    /etc/modprobe.d/nobeep.conf
-
+    sudo  nano /etc/modprobe.d/nobeep.conf
+    加入下面这一行
     blacklist pcspkr
 
 [Manjaro XFCE disable system beep](https://forum.manjaro.org/t/manjaro-xfce-disable-system-beep/102538)
