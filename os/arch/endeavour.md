@@ -1,6 +1,6 @@
 # EndeavourOS 初体验
 - date: 2022-09-23
-- lastmod: 2022-10-13
+- lastmod: 2022-10-19
 
 ## 设置
 ### grub
@@ -97,7 +97,11 @@ https://github.com/endeavouros-team/EndeavourOS-packages-lists/blob/master/plasm
 
 kwrite 和 kate 合并在一个包了，捆绑安装让我厌烦，找了一个简单的文本编辑器 mousepad
 
-# tty font
+# tty
+
+我在笔记本和台式机上都装了 endevaourOS，软件上的不同在于一个 DE 是 Kde Plasma，另外一个是 XFCE。起初这也没啥，直到我在台式机上不小心进入了 tty2 再返回 tty1 的时候发现 xfce 桌面不见了，top 也没有发现僵尸进程，而在笔记本上这完全没有问题，笔记本玩的花进入 tty2 急救的情况比较多，回到 tty1 也很正常。后面在社区发帖 [A weird XFCE desktop disappear when return from tty2   2022-10-18](https://forum.endeavouros.com/t/a-weird-xfce-crash-when-return-from-tty2/32951)，得知 xfce 下 DE 是 tty7，而我熟知的 tty1=DE 在 kde 下有效。同时还有坛友建议使用 REISUB 替代强制关机。
+
+## tty font
 
 从 ctrl+alt+f2 切换到虚拟终端，发现中文无法正常显示，但是在桌面环境下的终端显示中文也都是正常的，是不是哪里配置错了呢？不过搜索了一番后发现 tty 本身不支持显示中文，需要借助别的东西比如说 Fbterm。不过实际使用中很少会用 tty,急救系统的话可以将环境变量设置为英文
 
