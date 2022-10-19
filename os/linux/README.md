@@ -35,7 +35,7 @@
 - [Arch Pacman & Yay 介绍+基本使用 & 更新中无法满足依赖关系的解决办法](/os/arch/pacman.md)
 - [Soundeffort](/os/arch/soundeffors.md)
 - [触摸板 bug （跟踪停止）](/os/arch/touchpad.md)
-- [EndeavourOS 初体验](/os/arch/endeavour.md)
+- [EndeavourOS 初体验 REISUB](/os/arch/endeavour.md)
 - [fcitx5 在 coidum 中输入中文会飘字母的问题](/os/arch/fcitx5Gtk.md)
 
 ## Manjaro

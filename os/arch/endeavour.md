@@ -1,4 +1,4 @@
-# EndeavourOS 初体验
+# EndeavourOS 初体验 REISUB
 - date: 2022-09-23
 - lastmod: 2022-10-19
 
@@ -116,3 +116,21 @@ kwrite 和 kate 合并在一个包了，捆绑安装让我厌烦，找了一个�
 [To change font in Virtual Console .May 2010](https://www.linuxquestions.org/questions/linux-newbie-8/to-change-font-in-virtual-console-819721/)
 
     Read "setfont --help" output... You can just boot the SystemRescueCD and write the font it uses to HDD, and then use it from file.
+
+# REISUB
+
+当电脑变得没有反应时，可以优雅的重新启动，而不必按下硬件复位键或断电，这样做有破坏系统和丢失数据的可能。启用这个玩意也有安全风险，在 wiki 中说是“可以被用来转储CPU寄存器的内容，这在理论上可能会暴露敏感信息。”，这个风险对于一个不涉及保密任务的电脑还是可以接受的
+
+```bash
+# enable
+echo 'kernel.sysrq=1' | sudo tee /etc/sysctl.d/99-reisub.conf 
+
+# disable
+sudo rm /etc/sysctl.d/99-reisub.conf
+```
+
+使用方法：当电脑卡死，tty2还有效，救急失败之后，考虑此办法重启。按住 Alt+PrtSc 保持住不动，随后逐个按下 R E I S U B。 
+
+- [[Tip] Enable Magic SysRq Key (REISUB) ](https://forum.endeavouros.com/t/tip-enable-magic-sysrq-key-reisub/7576)： enable、diasble 方法简单明了
+
+- [Kernel_(SysRq) Arch wiki](https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq))
