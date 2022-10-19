@@ -21,3 +21,4 @@
 - [智商税与?骗](/wuyu/artical/zhishangshui.md)
 - [鼻托眼镜的安全问题](/wuyu/artical/glasseshurt.md)
 - [权利与义务 维权](/wuyu/artical/weiquan.md)
+- [性学观止](/wuyu/artical/sex.md)
