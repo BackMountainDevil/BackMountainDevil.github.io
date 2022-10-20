@@ -1,6 +1,6 @@
 # 局域网传输文件与文件同步 ftp rsync rslsync
 - date: 2022-10-13
-- lastmod: 2022-10-18
+- lastmod: 2022-10-20
 
 手机、电脑之间，几个小文件完全可以用微信传输助手，再大一点（4GB）的电影文件我就会采用局域网传输文件了，比如 Landrop,但是他不能传输文件夹。当我想传几十个文件的时候，这个时候微信、Landrod、就会显的力不从心。这个时候就想起了 FTP、Samba、HTTP。
 
@@ -65,9 +65,14 @@ steam 拷贝测试中，该进程的 cpu 占有不到 1%。2,931,387.15 bytes/se
 
 同一局域网内，电脑（linux rslsync 2.7.3-1）和手机（ios Sync 2.6.12(451)）上同步速度平均 15M，内部网络p2p传输，速度瓶颈在于硬盘速度而不是网速。就是密钥有点长，手机扫码好说，另一台 pc 就难搞了。
 
+实际测试在 xjtu 的校园网内同步良好，手机、笔记本、台式机同步一致，但是发现在使用 wps linux 版的时候发现它会同步打开文档时的临时文件，文件名通常是 ~.fileName.docx （后缀与源文件一致）。想起 git 可以忽略某些文件，搜索发现它也可以，编辑同步目录下的隐藏文件(.sync/IgnoreList)即可
+
 - [Resilio_Sync - Arch wiki](https://wiki.archlinux.org/title/Resilio_Sync):AUR 是从官方下载，有墙。archlinuxCN有。前边千万不要直接 sudo start/enable，不然有权限问题
 - [Resilio Sync | 全平台多设备文件同步/传输终极产品 2022-01-19 LAN DU](https://zhuanlan.zhihu.com/p/459403503):linux 源码和 aur 中校验一致，其它不晓得
     > 搬运了常见系统（win/mac/linux/Android）的官方安装包 更新时间2022-10-15
+- [Resilio Sync 新手常见问题汇总 Tony 2019-04-21](https://www.tonyhead.com/book/export/html/4776)
+    > 我不想下载某个目录，但我不是收费版用户，怎么办？  
+    不用什么正版key，编辑.sync目录下的IgnoreList，加上你不想同步的文件夹名称就行了。
 
 # 相关阅读
 
