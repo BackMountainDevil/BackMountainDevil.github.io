@@ -73,6 +73,7 @@ steam 拷贝测试中，该进程的 cpu 占有不到 1%。2,931,387.15 bytes/se
 - [Resilio Sync 新手常见问题汇总 Tony 2019-04-21](https://www.tonyhead.com/book/export/html/4776)
     > 我不想下载某个目录，但我不是收费版用户，怎么办？  
     不用什么正版key，编辑.sync目录下的IgnoreList，加上你不想同步的文件夹名称就行了。
+- [新奇士 – SyncKeys.com](https://www.synckeys.com/)：提供的安装包文件和 LAN DU 提供的校验一致。该网站还用 rslsync 来分享影片资源，属实没想到过
 
 # 相关阅读
 
