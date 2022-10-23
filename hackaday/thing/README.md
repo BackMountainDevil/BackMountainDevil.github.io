@@ -10,3 +10,4 @@
 - [小米路由器Pro R3p 刷机 Breed Padavan OpenWrt](/hackaday/thing/xmr3pOpenwrt.md)
 - [OpenWrt 路由器系统](/hackaday/thing/openwrt.md)
 - [机械硬盘和固态硬盘 检测](/hackaday/thing/harddisk.md)
+- [显示器屏幕](/hackaday/thing/screen.md)
