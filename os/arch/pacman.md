@@ -1,6 +1,6 @@
-# Arch Pacman & Yay 介绍+基本使用 & 更新中无法满足依赖关系的解决办法
+# Arch Pacman & Yay pamac 介绍+基本使用 & 更新中无法满足依赖关系的解决办法
 - date: 2021-04-30
-- lastmod: 2022-10-14
+- lastmod: 2022-10-22
 
 # pacman
 
@@ -42,6 +42,12 @@ $ cp mirrorlist mirrorlist.backup
 # 在国区里选 6 个速度最快的镜像源，此办法与 Wiki 中略有不同
 $ sudo reflector -c China -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 ```
+
+# pamac
+
+这是在 manjaro 下使用的图形化软件管家，比 discover 好很多，搜索更准确，可以查看依赖关系、大小、文件等信息，支持 AUR。arch 用户可通过 yay 安装。
+
+构建目录修改：一般设置文件都在主目录下的 config，找到 `~/.config/pamac/config` 后发现没有啥设置目录的，于是在 bing 搜索 pamac config 找到了github仓库下的 pamac.conf，里面有个 `BuildDirectory = /tmp`，不过该仓库已经 archived 了，于是到现仓库 [pamac](https://gitlab.manjaro.org/applications/pamac) 中搜索 config,找到一个信息 `/etc/pamac.conf`，这下子在这个文件发现了 `BuildDirectory = /var/tmp`，这个目录并不是 tmpfs 文件系统，我修改为 `/tmp`，不改为 `/tmp/pamac`，是因为在 `/var/tmp` 中发现其会自己建立 pamac 文件夹。
 
 # AUR helper
 
