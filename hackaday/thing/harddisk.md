@@ -35,8 +35,36 @@
 # 案例 ST4000VX015
 
 [硬盘检测实际结果 Kearney 2022-10-24](https://blog.csdn.net/weixin_43031092/article/details/127503708)
+<details>
+<summary>检测图</summary>
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/5acfc34476c443f49804d234e1cd4741.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/3afe0c7ecce3403783a228b4d25d69d0.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/cff5247b387843bd9098897f2f2a2b7f.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/c75d908c27b24dd58a9fbd3ed974ec94.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/276b6c6ccea442cfaa7863fabeb72314.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/796b68a80b4440879c77f0a58fa72157.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/52d71064f56541b1b6c1a739a9f0d82b.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/c5f438fd116242e98b51143c7e8a65ed.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/1fc50e8fd5614ace8c5891857445346c.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/c927418eda17429c934d27ba62a992bc.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/8c3ef1b5b5214b82b0fc17f1b5647682.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/9f6c60b2032c47fea55e5e98d97d258d.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2f8b4dd8e4334ea69565cc3b2c8bde45.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/49f5edb79b3443c998b1eaa6fd3eda19.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/86b1f1ccfa934da9b527620611b8cc9d.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/e740c08d765c47c283ea3da8a6b262c2.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/717d73f81bbb49438703cecfb39c7943.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/839be3d0f53e49e5a55a5311d83bf317.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/0bb7949922d249d0b8df523d5694f9f3.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/b2a1cf35733748b386ebc89661b1c9cb.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/8e777d90ab8c4ba4bf4a4142597fb9ba.jpeg#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/67228ea8354b4f818fa53b8612fe6a89.jpeg#pic_center)
+</details>
 
 测速读信息都好说，出结果时间短，扫坏道扫了七个小时，全绿，海康客服凭借SN查询质保三年。刚开始我决定速度正常、无坏道，但是 victoria  的又红又黄的看的令人慌张， HDTunePro 里读取的也没有啥，就一个磁头飞行小时数数值爆表，结果问了客服才发现我看的是原始值，实际应该看当前值。和其它几个帖子对比了一下数据，安全下车
+
+同时测了一块一年左右的 东芝 P300 HDWD120 2TB 7200rpm cmr 的盘，通电 181 次、通电时间 425 h、在保。而我笔记本的 512G SSD 写入 13T 读取 24T，bt 先锋。
 
 # 相关阅读
 
