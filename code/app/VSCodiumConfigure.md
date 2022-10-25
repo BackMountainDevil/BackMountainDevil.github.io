@@ -1,6 +1,6 @@
 # VS Codium 配置
 - date: 2020-11-15
-- lastmod: 2022-09-25
+- lastmod: 2022-10-25
 
 # Intro
 VS Codium 是VS Code的开源版本，没有微软的图标和用户Track功能。但是谁想被Tracked呢？？下面记录Deepin 20系统下VS Codium配置不同编程语言的的过程。由于采用的是VSCodium，插件市场会滤掉那些不是free的插件，配置起来会有点找不到资料。
@@ -38,7 +38,7 @@ VS Code在终端中敲code即可启动，VS Codium则是敲codium
 - "stopOnEntry": false	： 设置一次F5即可运行py，而不是两次
 - "cwd": "${fileDirname}"	： 设置在运行文件时进入对应的路径下，不然在使用相对路径的代码中就会出现路径问题，相同的问题也会出现在coderunner插件中
 
-然后新建.vscode/setting.json 并在其中写入以下内容，设置好之后对选中的代码按下快捷键Alt+Shift+F即可自动格式化代码，我设置了却无效？？在快捷键里面查看了“格式”的相关快捷键，发现是Ctrl+K、Ctrl+F
+然后新建.vscode/settings.json 并在其中写入以下内容，设置好之后对选中的代码按下快捷键Alt+Shift+F即可自动格式化代码，我设置了却无效？？在快捷键里面查看了“格式”的相关快捷键，发现是Ctrl+K、Ctrl+F
 
 ```bash
 { 
