@@ -1,11 +1,11 @@
 # KDE Plasma Desktop freeze
 - date: 2022-10-18
-- lastmod: 2022-10-18
+- lastmod: 2022-10-24
 
 我在[endeavouros论坛的发帖提问](https://forum.endeavouros.com/t/kde-plasma-desktop-freeze/32921)
 
+# 10.18 桌面卡住
 ## problem
-
 My latop freeze when I am setup webdav on openwrt via ssh. I just copy from firefox web and it suddenly freeze. Last time DE freeze because qbitottent freeze. This time I kill it by kill -9 pid. not work. Then I kill the program I use(firefox, vscodium-bin, Typora, konsole/ssh) . Still freeze
 
 Beside my lattop. There is one more pc. So I can let it stay freeze and tty2. Until figure out what happen
@@ -195,6 +195,57 @@ Info:
   v: 5.1.16 running-in: tty 2 inxi: 3.3.22
 ```
 
+# 10.24 无法唤醒登录
+
+早上开机挂pt就离开了，晚上回来发现卡死了，只显示锁屏界面但没有密码框输入密码进行登录，鼠标在中间但无法移动，蓝牙键鼠失效，触摸板失效，笔记本键盘可以进入 tty2, 进入 tty2 后蓝牙键盘恢复工作，再切回桌面蓝牙就断掉了。top 查看没有僵尸进程。
+
+10.18 号那次是强制重启，论坛说了不好，论坛给出了 REISUB 方法，但是在测试最终办法之前想试验之前查到但是没有试验的办法，通过`systemctl status display-manager` 发现最底部一行有一个 stop 
+
+```bash
+$ systemctl status display-manager
+● sddm.service - Simple Desktop Display Manager
+     Loaded: loaded (/usr/lib/systemd/system/sddm.service; enabled; preset: disabled)
+     Active: active (running) since Mon 2022-10-24 23:52:12 CST; 24min ago
+       Docs: man:sddm(1)
+             man:sddm.conf(5)
+   Main PID: 9402 (sddm)
+      Tasks: 17 (limit: 16582)
+     Memory: 67.1M
+        CPU: 1min 9.254s
+     CGroup: /system.slice/sddm.service
+             ├─9402 /usr/bin/sddm
+             └─9405 /usr/lib/Xorg -nolisten tcp -background none -seat seat0 vt1 -auth /var/run/sddm/{d4568f49-f5b6->
+
+10月 24 23:52:19 82dm sddm-helper[9469]: pam_systemd_home(sddm:auth): systemd-homed is not available: Unit dbus-org.>
+10月 24 23:52:19 82dm sddm-helper[9469]: [PAM] Preparing to converse...
+10月 24 23:52:19 82dm sddm-helper[9469]: [PAM] Conversation with 1 messages
+10月 24 23:52:19 82dm sddm-helper[9469]: [PAM] returning.
+10月 24 23:52:19 82dm sddm[9402]: Authenticated successfully
+10月 24 23:52:19 82dm sddm-helper[9469]: pam_unix(sddm:session): session opened for user kearney(uid=1000) by (uid=0)
+10月 24 23:52:19 82dm sddm-helper[9469]: Starting: "/usr/share/sddm/scripts/Xsession \"/usr/bin/startplasma-x11\""
+10月 24 23:52:19 82dm sddm[9402]: Session started
+10月 24 23:52:20 82dm sddm[9402]: Auth: sddm-helper exited successfully
+10月 24 23:52:20 82dm sddm[9402]: Greeter stopped.
+```
+
+但是其颜色并不是红色，不过 stop 也不是什么好词，怀疑这个 display-manager 服务出了问题，起初是通过 `ps aux | grep display-manager` 发现没有这个进程，还会测试了 systemctl 发现了这个服务。
+
+在 tty2 查看蓝牙服务状态时发现两行红色，更加确认了蓝牙确实在桌面停止了工作，restart 并没有使得它在卡死的桌面恢复工作。
+
+```bash
+10月 24 23:52:27 82dm bluetoothd[511]: src/profile.c:record_cb() Unable to get Hands-Free Voice gateway SDP record: Host is down
+10月 24 23:52:32 82dm bluetoothd[511]: src/profile.c:record_cb() Unable to get Hands-Free Voice gateway SDP record: Host is down
+```
+
+`kquitapp5 plasmashell` 在 tty2 我也试验了，返回方块字，猜测是未找到命令。最后通过 `systemctl restart display-manager` 使得桌面恢复正常，可以登录了，但似乎我的 qb 被退出了，恢复正常后的桌面没看到 qb，但是手段挂载的盘没有被取消挂载。
+
+恢复正常时候我在 codium 的终端里面试验了 `kquitapp5 plasmashell` 是可以的，桌面变黑色，但是 firefox、codium 还在运行，`kstart5 plasmashell` 则会显示一堆提示信息，然后桌面恢复了。
+
+这次还有个收获就是 tty2 输错了密码锁三分钟，错三次锁九分钟，离谱的是我也不知道咋错了的，输入的都是同一串。
+
+## log 分析
+
+`sudo journalctl -b -1 >log.txt` 1.7万行，L1682~L16660 都是 rslsync ，时间上从 10.23 23:02:26 - 10.24 00:00:48 ，大概就是很多 thread 工作后因为网络原因同步失败。一般来说设备都直接处于校园网下是没什么同步问题的，但是如果我加了一个路由器，就会极大影响 rslsync 的同步工作。 
 
 # 参考
 
@@ -209,9 +260,12 @@ Info:
 [KDE Plasma 卡住  2022-01-07  cralor](https://www.cnblogs.com/cralor/p/15773876.html) 重启图形终端界面后黑屏，只有鼠标能动，切换几次后好了
 > sudo systemctl restart display-manager
 
-[重启崩溃的 KDE 2020-08-15 飞舞的冰龙 ](https://www.cnblogs.com/flyingicedragon/p/13508283.html):还未来得及尝试
+[重启崩溃的 KDE 2020-08-15 飞舞的冰龙 ](https://www.cnblogs.com/flyingicedragon/p/13508283.html):比下面的参考多一个5
+> kstart5 plasmashell    # 重新启动 plasma 桌面会话
 
 [kde 崩溃，如何重启 kde plasma 5 桌面 哈哈餐馆 2017-09-01](https://blog.csdn.net/aaazz47/article/details/77775572)
+> kquitapp5 plasmashell    # 退出kde桌面 或 killall plasmashell    # 杀死 ked plasma 的进程
+  kstart plasmashell
 
 ## not helpful
 
