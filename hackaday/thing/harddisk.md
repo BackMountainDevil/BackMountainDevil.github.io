@@ -1,6 +1,6 @@
 # 机械硬盘和固态硬盘 检测
 - date: 2022-10-22
-- lastmod: 2022-10-22
+- lastmod: 2022-10-24
 
 # 前言
 
@@ -28,8 +28,15 @@
 
 - [HD Tune pro](http://www.hdtune.com/download.html)： 错误扫描（扫坏道） 基准(磁盘性能)测试 磁盘健康诊断 文件基准测试 随机存取测试
 
-http://hdd.by/victoria/
+- [Victoria](http://hdd.by/victoria/)
+
 - AS SSD Benchmark（固态硬盘基准测试）
+
+# 案例 ST4000VX015
+
+[硬盘检测实际结果 Kearney 2022-10-24](https://blog.csdn.net/weixin_43031092/article/details/127503708)
+
+测速读信息都好说，出结果时间短，扫坏道扫了七个小时，全绿，海康客服凭借SN查询质保三年。刚开始我决定速度正常、无坏道，但是 victoria  的又红又黄的看的令人慌张， HDTunePro 里读取的也没有啥，就一个磁头飞行小时数数值爆表，结果问了客服才发现我看的是原始值，实际应该看当前值。和其它几个帖子对比了一下数据，安全下车
 
 # 相关阅读
 
@@ -53,3 +60,9 @@ http://hdd.by/victoria/
     > 硬盘使用时需要系统开启AHCI模式（https://baike.baidu.com/item/AHCI），以及硬盘分区4K对齐（https://baike.baidu.com/item/4K%E5%AF%B9%E9%BD%90）。使用AS SSDBenchmark可以检验AHCI和4K对齐情况  
     SMART清零   
     目前VIctoria软件可以对IBM、Hitachi、HGST硬盘初始化SMART，这就是为什么本次的HGST硬盘通电数据不太合理的原因。数据恢复和硬盘修复软件PC3000可以对大部分机械硬盘初始化SMART。还有其他一些操作可以对硬盘SMART进行初始化。所以购买机械硬盘请认准正规商家。
+
+- [[多多]海康&希捷ST4000VX015（4T机械硬盘）dung一下  2022-09-05](https://www.bilibili.com/video/BV1Td4y1V757)
+
+- [监控盘 购买指南 分享一些自己买盘时学习到的经验（VX000/VX015/40PURX/42HKVS）zmxyz 2022-09-18 ](https://post.smzdm.com/p/ammk580k/)
+
+- [单碟2TB时代：希捷新款酷鹰测试 2022-02-15 海门牌梭鱼罐头](https://www.bilibili.com/read/cv15276451):ST4000VX015
