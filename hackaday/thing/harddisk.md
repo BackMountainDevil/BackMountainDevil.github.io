@@ -32,6 +32,10 @@
 
 - AS SSD Benchmark（固态硬盘基准测试）
 
+## linux
+
+linux 上可以通过 GSmartControl/smartctl 查看 smart 信息，badblocks 查找坏道，KDiskMart 进行测试。Hard Disk Sentinel 在包管理没找到，smartctl 的包名是 smartmontools
+
 # 案例 ST4000VX015
 
 [硬盘检测实际结果 Kearney 2022-10-24](https://blog.csdn.net/weixin_43031092/article/details/127503708)
