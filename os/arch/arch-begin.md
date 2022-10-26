@@ -1,6 +1,6 @@
 # Arch 新手的基本知识
 - date: 2021-05-28
-- lastmod: 2022-10-14
+- lastmod: 2022-10-26
 
 # 安装系统
 ## 镜像+网络安装
@@ -71,6 +71,21 @@ AutoEnable=true
 
 see [Arch Pacman & Yay & 更新中无法满足依赖关系的解决办法](https://backmountaindevil.github.io/#/os/arch/pacman) 中关于 yay 的安装和使用部分
 
+# 系统维护
+## 清理缓存
+### 软件包缓存
+
+参考[Arch Pacman & Yay 介绍+基本使用 & 更新中无法满足依赖关系的解决办法](/os/arch/pacman.md)
+
+### 日志缓存
+
+[systemd/Journal](https://wiki.archlinux.org/title/Systemd/Journal#Journal_size_limit)
+
+查看服务状态： systemctl status systemd-journald
+查看日志大小：journalctl --disk-usage
+查看日志大小上限：journalctl -b -u systemd-journald
+删除两周之前的日志：jsudo ournalctl --vacuum-time=2weeks
+
 # 参考
 
 [Arch Linux多系统安装安装记录和蓝牙、fcitx5输入法-win\deepin\arch Kearney form An idea 2021-02-21](https://blog.csdn.net/weixin_43031092/article/details/113881097)
@@ -82,6 +97,5 @@ see [Arch Pacman & Yay & 更新中无法满足依赖关系的解决办法](https
 [Turn on bluetooth on login screen 2015](https://unix.stackexchange.com/questions/197212/turn-on-bluetooth-on-login-screen)
 
 [Bluetooth - Auto power-on after boot Arch Wiki](https://wiki.archlinux.org/title/Bluetooth)
-
 
 # End
