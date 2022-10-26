@@ -1,6 +1,6 @@
 # 机械硬盘和固态硬盘 检测
 - date: 2022-10-22
-- lastmod: 2022-10-24
+- lastmod: 2022-10-26
 
 # 前言
 
@@ -24,7 +24,7 @@
 
 - [CrystalDiskInfo](https://crystalmark.info/en/download/#CrystalDiskInfo)：读取 SMART 获取通电次数、通电时间等信息。
 
-- [CrystalDiskMark](https://crystalmark.info/en/software/crystaldiskmark/)：  随机读写速度测试
+- [CrystalDiskMark](https://crystalmark.info/en/software/crystaldiskmark/)：随机读写速度测试，得先格盘分区才能测
 
 - [HD Tune pro](http://www.hdtune.com/download.html)： 错误扫描（扫坏道） 基准(磁盘性能)测试 磁盘健康诊断 文件基准测试 随机存取测试
 
@@ -69,6 +69,23 @@ linux 上可以通过 GSmartControl/smartctl 查看 smart 信息，badblocks 查
 测速读信息都好说，出结果时间短，扫坏道扫了七个小时，全绿，海康客服凭借SN查询质保三年。刚开始我决定速度正常、无坏道，但是 victoria  的又红又黄的看的令人慌张， HDTunePro 里读取的也没有啥，就一个磁头飞行小时数数值爆表，结果问了客服才发现我看的是原始值，实际应该看当前值。和其它几个帖子对比了一下数据，安全下车
 
 同时测了一块一年左右的 东芝 P300 HDWD120 2TB 7200rpm cmr 的盘，通电 181 次、通电时间 425 h、在保。而我笔记本的 512G SSD 写入 13T 读取 24T，bt 先锋。
+
+[ST4000VX015 看看是否翻车](https://tieba.baidu.com/p/8101734998)
+> 清0盘。得mhdd慢扫看。
+> 而且需要提前随机数填充。
+
+# 硬盘盒
+
+- [硬盘盒、硬盘阵列柜选购指南 钱韦德 2022-02-11](https://www.bilibili.com/video/BV1MS4y1C781)：电源电流要够、波纹要稳、散热要足、盘要稳妥固定，参考wd的平放式硬盘盒
+> 一只漏网的小鱼: 1.硬盘盒尽量买转头那种的，横放式，别买竖插式。  
+> 2.如果只是消费级，12v2a的电源线也够用了，企业级需要3a的电源线，可以去明纬买。  
+> 3.硬盘盒没特殊需求，买单硬盘的就行，多硬盘的多少容易出点问题。
+
+我是之前在网购平台买的 sata转usb3.0 带了个电源，用了一阵子感觉不太靠谱，速度不行、电源不说了，后面收了个绿联双盘位的竖放硬盘扩展坞。有人说是硬盘升天盒，因为电源供电不稳、硬盘大头朝下没有固定。这个立式的电源12V3A对单盘是足够的，双盘感觉就不太行，波纹我不懂，固定确实不稳固，钱韦德说塞入泡沫加固。
+
+ST4000VX015 手册显示电源 Startup current (typical) 12V 1.8A，toshiba PC P300 手册写得简短稀巴烂，压根没有说启动电流
+
+群友推荐的有 qpnp 的 tr-004、星际蜗牛4盘D款，考虑了价格我不推荐。
 
 # 相关阅读
 
