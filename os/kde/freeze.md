@@ -1,6 +1,6 @@
 # KDE Plasma Desktop freeze
 - date: 2022-10-18
-- lastmod: 2022-10-24
+- lastmod: 2022-10-26
 
 我在[endeavouros论坛的发帖提问](https://forum.endeavouros.com/t/kde-plasma-desktop-freeze/32921)
 
@@ -246,6 +246,14 @@ $ systemctl status display-manager
 ## log 分析
 
 `sudo journalctl -b -1 >log.txt` 1.7万行，L1682~L16660 都是 rslsync ，时间上从 10.23 23:02:26 - 10.24 00:00:48 ，大概就是很多 thread 工作后因为网络原因同步失败。一般来说设备都直接处于校园网下是没什么同步问题的，但是如果我加了一个路由器，就会极大影响 rslsync 的同步工作。 
+
+# 10.26 无法唤醒登陆
+
+系统状态和10.24 一样，display-manager、sddm、bluetooth 都一样的问题，程序（firefox、qb）还在运行，最后是 `systemctl restart sddm` 部分解决问题的，但是这样就是导致 firefox、qb 都被关闭了，在 tty2 尝试 sddm-greeter 命令，没啥帮助
+
+日志导出有 17M，但是时间上是 10.24 08:45 ~ 10.25 08:36，最后一条是 Journal stopped。 但是崩溃发生在26号中午我去吃午饭的时候。。。去吃午饭前，qb在做种、firefox 挂着网页没动、konsole里ffmpeg在转码，rslsync 已经被我关了。也就是说上次存在的原因这次提前被我剔除了、然后日志显示日志系统停止工作了，我是昨晚回来才开机的，晚上睡觉的时候没关机，硬盘扩展坞在拷贝数据。早上起来没啥问题。
+
+wiki 中 [SDDM](https://wiki.archlinux.org/title/SDDM) 也有一条关于  no greeter shows，我的硬盘空间还够,重启 ssdm 我试验过有缺点，`loginctl` 可以查看 sessionID（推测是最左侧一列），`loginctl unlock-session session_id` 下次再试验吧。
 
 # 参考
 
