@@ -1,6 +1,6 @@
 # ffmpeg 基本命令
 - date: 2022-07-02
-- lastmod: 2022-10-18
+- lastmod: 2022-10-27
 
 ## 常用命令
 
@@ -97,6 +97,8 @@ ffmpeg -i video.mp4 -s 1920x1080 -pix_fmt yuv420p -vcodec libx264 -preset medium
 ffmpeg -i videoIn.mp4 -vcodec libx265 -r 30 videoOut.mp4
 ```
 
+-vcodec 可以缩写为 -c:v
+
 **说明:**
 
 * -s 1920x1080：缩放视频新尺寸(size)
@@ -162,11 +164,17 @@ ffmpeg -i input.mp4 -vcodec libx265 -b:v 4000k  -maxrate 4500k -bufsize 4000k  -
 ffmpeg -i video.mp4 -vcodec copy -an video_silent.mp4
 ```
 
+-an 表示剔除音频流
+
 (2)单独提取音频（不含视频流）
 
 ```shell
 ffmpeg -i video.mp4 -vn -acodec copy video_novideo.m4a
 ```
+
+-vn 表示剔除视频流
+
+-acodec 可以缩写为 -c:a
 
 具备多个音频流的，如
 
