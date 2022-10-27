@@ -192,7 +192,7 @@ ffmpeg -i video_novideo.m4a -i video_silent.mp4 -c copy video_merge.mp4
 
 ### 截取，连接音视频
 
-(1)截取
+1. 截取视频长度
 
 ```shell
 ffmpeg -i music.mp3 -ss 00:00:30 -to 00:02:00 -acodec copy -copyts music_cutout.mp3
@@ -211,7 +211,6 @@ ffmpeg -i music.mp3 -ss 00:00:30 -to 00:02:00 -acodec copy -copyts music_cutout.
 ffmpeg -i music.mp3 -ss 00:00:30 -t 60 -acodec copy music_cutout60s.mp3
 ```
 
-
 -sseof : 从媒体末尾开始截取
 
 ```shell
@@ -222,7 +221,15 @@ ffmpeg -ss 00:01:00 -i in.mp4 -to 00:01:10 -c copy -copyts out.mp4
 
 把-ss放到-i之前，启用了关键帧技术，加速操作。但截取的时间段不一定准确。可用最后一条指令，保留时间戳，保证时间准确。
 
-(2)连接音视频
+2. 裁剪视频画面(修改画布大小)
+
+`-vf crop=w:h:x:y` 四个参数分别代表输出宽度、输出高度、方框左上角距离左侧边缘的距离、方框左上角距离上边缘的距离
+
+比如一个 900x720 的视频，只想要竖排三等分中间的那份
+
+`ffmpeg -i in.mp4 -vf crop=300:720:300:0 out.mp4`
+
+3. 连接音视频
 
 ```shell
 ffmpeg -i "concat:01.mp4|02.mp4|03.mp4" -c copy out.mp4
