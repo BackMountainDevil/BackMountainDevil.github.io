@@ -1,6 +1,6 @@
 # OpenWrt 路由器系统
 - date: 2022-10-16
-- lastmod: 2022-10-17
+- lastmod: 2022-10-27
 
 第一次使用 openwrt 是在 [小米路由器Pro R3p 刷机 Breed Padavan OpenWrt](https://backmountaindevil.github.io/#/hackaday/thing/xmr3pOpenwrt) 中，一个给路由器制定的 linux 系统。
 
@@ -208,6 +208,12 @@ opkg install block-mount    # 在 luci web 界面的 系统 栏目添加 “挂�
     # 更新全部可更新软件包，包含OpenWRT内核等
     opkg list-upgradable | cut -f 1 -d ' ' | xargs opkg upgrade
     ```
+
+2. 相关论坛有哪些？
+
+- [OpenWrt Forum](https://forum.openwrt.org)
+- [koolcenter (原koolshare)](https://www.koolcenter.com/)
+- [恩山无线论坛](https://www.right.com.cn/FORUM/forum.php)
 
 # 相关阅读
 
