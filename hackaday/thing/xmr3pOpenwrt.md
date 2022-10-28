@@ -1,6 +1,6 @@
 # 小米路由器Pro R3p 刷机 Breed Padavan OpenWrt
 - date: 2022-10-08
-- lastmod: 2022-10-16
+- lastmod: 2022-10-28
 
 一般过程：
 
@@ -816,7 +816,7 @@ admin
 查了下 padavan 以及梅林的 faq 中也没有类似的问题，暂时找不到解决办法
 
 # 刷回官方
-
+## padavan
 看了不少阅读材料之后发现原厂的 kernel0 带了一个功能就是从 u 盘恢复，于是在 breed 刷了 padavan 后开ssh，想把之间备份的 kernel0 刷回去，刷着返回 `Could not open MTD device: kernel0` 才发现刷了 padavan 之后 mtd 分区表和原厂的不一样了。kernel0 的 erasesize 和 原厂kernel0 一样，但是 size 不一样，这下我就不敢继续刷了
 
 ```bash
@@ -869,6 +869,8 @@ Writing from 'ALL.bin' to MTD 'ALL' ...  [ok]
 ```
 
 u 盘断电reset重启熟悉的官方回来了，MAC、SN 和标签上都是一样的
+
+## openwrt
 
 # Q&A
 1. 刷引导时在刷哪一个分区
