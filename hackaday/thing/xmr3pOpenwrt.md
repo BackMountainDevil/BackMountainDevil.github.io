@@ -1,6 +1,6 @@
-# 小米路由器Pro R3p 刷机 Breed Padavan OpenWrt
+# 小米路由器Pro R3p 刷机 Breed Padavan OpenWrt UART/TTL 救援
 - date: 2022-10-08
-- lastmod: 2022-10-28
+- lastmod: 2022-10-29
 
 一般过程：
 
@@ -934,6 +934,11 @@ Bootloader。无论是刷 breed 还是 pb-boot，刷的都是 Bootloader 分区
     setenv flag_try_sys2_failed 1
     saveenv
 	
+5. TTL 救砖过程？
+
+    在捣鼓ipv6的时候，路由器有公网v6,内网的v6无法联网公网，取消 ULA 前缀 还是不行，卸载 odhcp-v6only 安装 odhcp 也不行，修改了一些接口配置也不行，最后看到某个帖子说的关掉 lan 的 dhcp，然后我试了一下，发现凉了，wifi 还在，但是电脑一连接就会断开，手机的连接上但是并不会在顶部显示 wifi 图标，自动分配的 ipv4 网段十分奇怪，无法从 192.168.1.1 进入后台，用分配 ip 网段的开头、结尾、DNS 服务器的 ip 也没法进入后台，arp-scan 也扫不出来任何结果。官方固件u盘重置也无效，无论是在黄灯快闪、黄灯慢闪时松开reset都不行，最后要么是红色闪烁安全模式、要么是蓝色正常运行，u盘换过，两种固件都试验过了也都无效，最后蓝色下 wifi 也不见，只能靠 ttl,还好之前装好就开启了uart。
+
+    拆开（不太好拆，就不能设计一些无损拆解的嘛），焊接四根排针，用 usb2ttl 接上，重启没有反义，按住重启也没有反应。万用表检查焊接，完美导通。换arduino测试转接板，正常工作。安装 putty 选择 /dev/ttyUSB0 ，也是没有反应。根据上次测试 2.4g 接收器的经历，扫描 /dev 目录，发现插上时新增的设备压根不是 /dev/ttyUSBx，而是十分奇怪的 /dev/serial/by-path/pci-000-usb-0-port0. 用 `screen /dev/serial/by-path/pci-000-usb-0-port0 115200` 连接上了，感动小宇宙啊，不过发现终端不能上下滚动查看上边输出了啥。无所谓，看下菜单项，都没看完就滚了一大堆，最后不滚了也没有啥提示，这时候一个漫不经心的回车就进入了系统。。。这下子从备份恢复都省了，直接从 openwrt 开启三行代码刷回官方之路。
 
 # 相关阅读
 
@@ -1044,3 +1049,5 @@ Bootloader。无论是刷 breed 还是 pb-boot，刷的都是 Bootloader 分区
     完成后执行U盘刷机  
     下载官方固件，放在u盘根目录，命名为miwifi.bin
     路由器断电，插入U盘，插电，按住reset，等待指示橙色慢闪后松开
+
+[[UBOOT-TTL]小米路由器救砖或刷机指南（R3P为例) 不l明l白 2020.07.02](https://www.jianshu.com/p/646c98a0a1b4)
