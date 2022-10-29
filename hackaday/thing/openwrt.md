@@ -1,6 +1,6 @@
 # OpenWrt 路由器系统
 - date: 2022-10-16
-- lastmod: 2022-10-27
+- lastmod: 2022-10-29
 
 第一次使用 openwrt 是在 [小米路由器Pro R3p 刷机 Breed Padavan OpenWrt](https://backmountaindevil.github.io/#/hackaday/thing/xmr3pOpenwrt) 中，一个给路由器制定的 linux 系统。
 
@@ -215,6 +215,13 @@ opkg install block-mount    # 在 luci web 界面的 系统 栏目添加 “挂�
 - [koolcenter (原koolshare)](https://www.koolcenter.com/)
 - [恩山无线论坛](https://www.right.com.cn/FORUM/forum.php)
 
+3. OpenWRt 如何开启  UART/TTL？以防万一用来救砖
+
+    ```bash
+    fw_setenv boot_wait on
+    fw_setenv uart_en 1
+    ```
+
 # 相关阅读
 
 [OpenWrt有哪些实用的插件？](https://www.zhihu.com/question/29637794):上网行为管理、广告净化、下载
@@ -233,6 +240,7 @@ opkg install block-mount    # 在 luci web 界面的 系统 栏目添加 “挂�
 
 - [Transmission出现403的解决办法 2020-03-12 发布在 软路由](https://3mile.github.io/archives/2020/0312182618/):option rpc_host_whitelist 改网段。测试不行，我的网段也确认过了在1
 
+- [OpenWrt 路由器如何让 lan 口主机获得 ipv6 网络访问？](https://www.zhihu.com/question/29667477/answer/47149165):修改/etc/config/dhcp ,测试无效
 ## 校园网认证
 
 总的来说，如果是要每次都输入账号密码就写脚本开机启动，如果是认证一次之后就靠 MAC 认证，改路由器 MAC 就行 
