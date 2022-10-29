@@ -1,6 +1,6 @@
 # 小型内部网络 软路由
 - date: 2022-10-09
-- lastmod: 2022-10-13
+- lastmod: 2022-10-29
 
 # 路由器
 
@@ -21,9 +21,9 @@ k2p k3 newifi 3 都有些年头了，还得检查有没有漏油然后更换，�
 
 	小米路由器1代硬盘版（R1D）100￥
 	全新小米路由器硬盘版（R2D）100￥
-	小米路由器mini（R1CM）40￥ usb2.0
+	小米路由器mini（R1CM）40￥ usb2.0 百兆网口，MT7620, 16MB SPI Flash, 128MB DDR2 RAM, 300+867Mbps。v1 可刷
 	小米路由器3（R3）
-	小米路由器3G（R3G）80￥	 MT7621A, 128M Flash(ROM), 256MB 内存(RAM), 300+867Mbps
+	小米路由器3G（R3G）80￥	 MT7621A, 128M Flash(ROM), 256MB 内存(RAM), 300+867Mbps, 买v1，v2缩水的
 	小米路由器Pro（R3P）120￥	MT7621A, 256M Flash, 512MB 内存, 800+1733Mbps
 	小米路由器HD（R3D）400￥
 
@@ -54,6 +54,18 @@ k2p k3 newifi 3 都有些年头了，还得检查有没有漏油然后更换，�
 > 联想新路由2 D1 MT7621A 32M Flash, 256MB 内存 usb3.0+usb2.0 50￥ 新3D2就一个usb3.0 120￥
 
 [小米路由器 Pro HD 官方参数](https://www.mi.com/miwifihd/specs)
+
+[这可能是2020年性价比最高的一款WIFI5路由器了——瑞斯达康MSG1500 2020-09-06](https://post.smzdm.com/p/aoozem39/):版本号X.00 黑色可刷，白色不可
+> USB2.0, MTK7621, 128ROM+256RAM,300+866Mbps
+
+[中兴E8820S路由器拆机及OpenWrt固件(含源代码) yumeimm 2021-8-2 ](https://www.right.com.cn/forum/thread-5203754-1-1.html):千兆网口+USB2.0 MT7621A 128MB Flash+256MB DDR3 RAM 2.4G MT7603E 5G MT7612E
+
+[50元的有线千兆无线AC路由器 中兴E8820s个人向测评 2021-09-14 值得买数码频道](https://www.163.com/dy/article/GJSIKCRF0550VSCB.html)
+> 2.4G没有外置放大，且2.4G和5G共用天线，所以一共只有2根天线  
+> 板载的固件存储器是NAND的。NAND经过多次读写已经坏了，需要换掉。
+
+[ [网络] 中兴E8822拆机，应该是全网第一个拆机 不二不三不四 2019-7-14](https://www.mydigit.cn/thread-55922-1-1.html):8820缩水版。千兆网口+USB2.0, MT7621A, 300+867Mbps
+> MT7621A+MT7603+MT7612E,双核，闪存16M，DRAM DDR2 64M,我自己换成32M+128M了
 </details>
 
 ## 固件/系统
