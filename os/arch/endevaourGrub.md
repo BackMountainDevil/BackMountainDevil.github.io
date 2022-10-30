@@ -188,6 +188,3 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg # 从新生成配置
 - [Chroot](https://wiki.archlinux.org/title/Chroot)
 
 - [[Succeed]rEFind安装之在Deepin上的一番折腾~怀疑联想~Could not prepare Boot variable: No space left on device. Kearney. 2021-02-19](https://blog.csdn.net/weixin_43031092/article/details/113855135)
-
-
-
