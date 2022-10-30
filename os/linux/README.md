@@ -36,6 +36,7 @@
 - [Soundeffort](/os/arch/soundeffors.md)
 - [触摸板 bug （跟踪停止）](/os/arch/touchpad.md)
 - [EndeavourOS 初体验 REISUB](/os/arch/endeavour.md)
+- [windwos11 更新 BIOS 覆盖了 endevaourOS linux 的启动引导 grub 重建修复](/os/arch/endevaourGrub.md)
 - [fcitx5 在 coidum 中输入中文会飘字母的问题](/os/arch/fcitx5Gtk.md)
 
 ## Manjaro
