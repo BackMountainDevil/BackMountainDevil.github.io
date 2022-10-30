@@ -172,7 +172,26 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg # 从新生成配置
 修改开机 logo： [Customize Lenovo PC boot logo (screen) without installing "Lenovo PC Manager".](https://github.com/Coxxs/LogoDiy/)，不需要装管家，tnnd 管家卸载了背景就重置了
 
 # Q&A
-1. 怎么确定分区的 uuid 和 efibootmgr 中一致？
+1. 怎么确定分区的 uuid 和 fstab 中一致？
+
+    /etc/fstab 中 uuid 与 lsblk 一致，不知道为什么在 liveCD 里获取的不一致
+
+    ```bash
+    $ lsblk -fs
+    NAME      FSTYPE FSVER LABEL      UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+    nvme0n1p1 vfat   FAT32 SYSTEM_DRV 92C4-DD2F                             152.5M    40% /boot/efi
+    └─nvme0n1                                                                             
+    nvme0n1p2 ext4   1.0              ff0d5e61-82bc-425b-b4dd-2fed5ad072bc   19.1G    46% /
+    └─nvme0n1                                                                             
+    nvme0n1p3 ext4   1.0   a          3409b138-e5fc-412d-b1d5-bfb236f93257   40.8G    77% /run/media/kearney/a
+    └─nvme0n1                                                                             
+    nvme0n1p4 ext4   1.0              a3a2ba69-8213-4723-ba8d-b4b8470dd7eb   41.4G    42% /home
+    └─nvme0n1                                                                             
+    nvme0n1p5 ntfs         C          0AB232A4B2329463                                    
+    └─nvme0n1                                                                             
+    nvme0n1p6 ntfs         D          127AE7467AE72567                                    
+    └─nvme0n1
+    ```
 
 2. 删除 efi 下的旧配置是否安全？
 
@@ -192,5 +211,9 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg # 从新生成配置
 # 参考
 
 - [Chroot](https://wiki.archlinux.org/title/Chroot)
+
+- [Arch-chroot for EFI/UEFI systems by </joekamprad> Edited by Bryanpwo 24 March 2021](https://discovery.endeavouros.com/system-rescue/arch-chroot-for-efi-uefi-systems/2021/03/)
+
+- [Repair a non-booting GRUB by adminMarch 24, 2021](https://discovery.endeavouros.com/system-rescue/repair-a-non-booting-grub/2021/03/)
 
 - [[Succeed]rEFind安装之在Deepin上的一番折腾~怀疑联想~Could not prepare Boot variable: No space left on device. Kearney. 2021-02-19](https://blog.csdn.net/weixin_43031092/article/details/113855135)
