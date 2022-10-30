@@ -183,6 +183,12 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg # 从新生成配置
     Boot  endeavouros  EnOS  Lenovo  Manjaro  Microsoft
     ```
 
+    [What to do with grub old config?](https://forum.endeavouros.com/t/what-to-do-with-grub-old-config/33317/2) 无用可删
+    ```bash
+    $ sudo rm /boot/efi/EFI/Manjaro/ -r
+    $ sudo rm /boot/efi/EFI/endeavouros/ -r
+    ```
+
 # 参考
 
 - [Chroot](https://wiki.archlinux.org/title/Chroot)
