@@ -12,3 +12,4 @@
 - [机械硬盘和固态硬盘 检测](/hackaday/thing/harddisk.md)
 - [显示器屏幕](/hackaday/thing/screen.md)
 - [2.4g 和 蓝牙BLE 的键鼠延迟探究](/hackaday/thing/2.4gBLE.md)
+- [UMA Frame Buffer Size 核显显存与CSGO帧率](/hackaday/thing/umaBufferSize.md)
