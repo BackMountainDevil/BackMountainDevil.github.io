@@ -1,6 +1,6 @@
 # docker 的入门笔记
 - date: 2022-04-13
-- lastmod: 2022-09-19
+- lastmod: 2022-11-08
 
 # 前言
 
@@ -16,7 +16,7 @@
 
 3. 数据存放在哪里？
 
-镜像默认存放在 /var/lib/docker，但是查看文件就知道不是按照镜像作为文件夹存放的，才是是因为 docker 采取文件分层存储。
+镜像默认存放在 /var/lib/docker，但是查看文件就知道不是按照镜像作为文件夹存放的，猜测是因为 docker 采取文件分层存储。
 
 4. 删除镜像还是删除容器？
 
@@ -60,8 +60,9 @@ docker run -d -p 9000:9000 -v "/var/run/docker.sock:/var/run/docker.sock" --rest
  docker container stop  <容器名称>                     | 终止一个运行中的容器
  docker container rm  <容器名称>                       | 删除容器
  docker container ls -a                               | 查看所有已经创建的包括终止状态的容器
+ docker ps -a                               | 查看所有已经创建的包括终止状态的容器
  docker container prune                               | 清理所有处于终止状态的容器     
-
+ docker inspect <容器名称>                             | 查看容器详细信息
 ## run 参数
 
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
@@ -75,6 +76,10 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 --rm 指定容器停止后自动删除容器(不支持以docker run -d启动的容器)
 
 --restart=always 设置在docker启动时，自动启动该容器，比如宕机重启docker,让容器也自动启动
+
+--name 给新容器取名
+
+-p 3307:3306 将容器的 3306 端口映射到主机的3307端口
 
 # 示例
 
