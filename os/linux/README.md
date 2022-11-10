@@ -38,6 +38,7 @@
 - [EndeavourOS 初体验 REISUB](/os/arch/endeavour.md)
 - [windwos11 更新 BIOS 覆盖了 endevaourOS linux 的启动引导 grub 重建修复](/os/arch/endevaourGrub.md)
 - [fcitx5 在 coidum 中输入中文会飘字母的问题](/os/arch/fcitx5Gtk.md)
+- [Dbeaver 启动提示 Java 版本过低，和 arduino 的 java 依赖发生冲突，java 版本管理](/os/arch/dbArduinoJavaConflict.md)
 
 ## Manjaro
 
