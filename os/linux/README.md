@@ -23,6 +23,8 @@
 - [修复 KDE Plasma 下 Meta/win 键无法打开菜单/程序启动器的问题](/os/kde/meta.md)
 - [KDE Plasma Desktop freeze](/os/kde/freeze.md)
 
+- [lightdm .service: Start request repeated too quickly. grub正常，不显示登录和桌面 Endeavour](/os/de/lightdmRepeat.md)
+
 ## Arch
 
 - [Arch 新手的基本知识](/os/arch/arch-begin.md)
@@ -39,6 +41,7 @@
 - [windwos11 更新 BIOS 覆盖了 endevaourOS linux 的启动引导 grub 重建修复](/os/arch/endevaourGrub.md)
 - [fcitx5 在 coidum 中输入中文会飘字母的问题](/os/arch/fcitx5Gtk.md)
 - [Dbeaver 启动提示 Java 版本过低，和 arduino 的 java 依赖发生冲突，java 版本管理](/os/arch/dbArduinoJavaConflict.md)
+
 
 ## Manjaro
 
