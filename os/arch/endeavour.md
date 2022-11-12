@@ -1,6 +1,6 @@
 # EndeavourOS 初体验 REISUB
 - date: 2022-09-23
-- lastmod: 2022-10-19
+- lastmod: 2022-11-12
 
 ## 设置
 ### grub
@@ -100,6 +100,8 @@ kwrite 和 kate 合并在一个包了，捆绑安装让我厌烦，找了一个�
 # tty
 
 我在笔记本和台式机上都装了 endevaourOS，软件上的不同在于一个 DE 是 Kde Plasma，另外一个是 XFCE。起初这也没啥，直到我在台式机上不小心进入了 tty2 再返回 tty1 的时候发现 xfce 桌面不见了，top 也没有发现僵尸进程，而在笔记本上这完全没有问题，笔记本玩的花进入 tty2 急救的情况比较多，回到 tty1 也很正常。后面在社区发帖 [A weird XFCE desktop disappear when return from tty2   2022-10-18](https://forum.endeavouros.com/t/a-weird-xfce-crash-when-return-from-tty2/32951)，得知 xfce 下 DE 是 tty7，而我熟知的 tty1=DE 在 kde 下有效。同时还有坛友建议使用 REISUB 替代强制关机。
+
+注：不是DE决定了 tty 几对于桌面，我在 xfce 下安装 sddm 后 tty1 就是 桌面了，因此是 sddm、lightdm （Plasma、Xfce 分别默认使用）决定了桌面在哪一个 tty
 
 ## tty font
 
