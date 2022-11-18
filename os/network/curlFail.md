@@ -45,9 +45,179 @@ curl: (28) Failed to connect to 204.79.197.200 port 80 after 129391 ms: Couldn't
 
 wireshark 抓包显示，ping 期间的ICMP是通的，TCP则是红色重传错误，firefox通过bing搜索引擎得到的也是红色的 TCP Retransmission
 
+网关可 ping
+
+```bash
+# 查找网关，第一个 ip 即为网关地址
+$ ip route
+default via 10.180.0.1 dev wlan0 proto dhcp src 10.180.80.151 metric 20600 
+10.180.0.0/16 dev wlan0 proto kernel scope link src 10.180.80.151 metric 600
+$ ip route show
+default via 10.180.0.1 dev wlan0 proto dhcp src 10.180.80.151 metric 20600 
+10.180.0.0/16 dev wlan0 proto kernel scope link src 10.180.80.151 metric 600
+
+$ ping 10.180.0.1
+已发送 26 个包， 已接收 26 个包, 0% packet loss, time 25039ms
+rtt min/avg/max/mdev = 4.842/17.159/103.995/21.685 ms
+```
+
+主机地址解析正常，curl 超时
+
+```
+$ getent hosts cn.bing.com
+202.89.233.101  china.bing123.com
+202.89.233.100  china.bing123.com
+
+$ curl cn.bing.com
+curl: (28) Failed to connect to cn.bing.com port 80 after 215538 ms: Couldn't connect to server
+
+$ host address
+Host address not found: 3(NXDOMAIN)
+
+$ host cn.bing.com
+cn.bing.com is an alias for cn-bing-com.cn.a-0001.a-msedge.net.
+cn-bing-com.cn.a-0001.a-msedge.net is an alias for china.bing123.com.
+china.bing123.com has address 202.89.233.100
+china.bing123.com has address 202.89.233.101
+```
+
+traceroute 分析，百度、bilibili 有获取到中继路由，cn.bing 则一直停留在内网
+
+```bash
+$ traceroute www.bilibili.com
+traceroute to www.bilibili.com (124.239.244.18), 30 hops max, 60 byte packets
+ 1  _gateway (10.180.0.1)  11.295 ms  11.208 ms *
+ 2  10.6.33.12 (10.6.33.12)  11.158 ms  11.114 ms  11.093 ms
+ 3  * * *
+ 4  10.6.32.98 (10.6.32.98)  14.282 ms  14.263 ms  14.243 ms
+ 5  * * *
+ 6  10.6.32.62 (10.6.32.62)  14.155 ms  18.589 ms  18.484 ms
+ 7  61.185.212.193 (61.185.212.193)  18.737 ms  18.744 ms  14.998 ms
+ 8  10.224.169.21 (10.224.169.21)  59.156 ms 10.224.169.17 (10.224.169.17)  59.054 ms 10.224.169.13 (10.224.169.13)  59.027 ms
+ 9  * 1.85.253.33 (1.85.253.33)  58.948 ms 117.36.240.185 (117.36.240.185)  58.911 ms
+10  10.255.51.13 (10.255.51.13)  58.873 ms 202.97.105.105 (202.97.105.105)  58.838 ms 10.255.51.13 (10.255.51.13)  58.800 ms
+11  124.239.224.234 (124.239.224.234)  59.125 ms 202.97.68.85 (202.97.68.85)  59.091 ms 124.239.224.242 (124.239.224.242)  27.204 ms
+12  * 124.239.224.246 (124.239.224.246)  27.097 ms *
+13  * 124.239.224.86 (124.239.224.86)  225.178 ms *
+14  * * *
+15  * * *
+16  124.239.244.18 (124.239.244.18)  224.582 ms  224.556 ms *
+
+$ traceroute www.baidu.com
+traceroute to www.baidu.com (14.215.177.39), 30 hops max, 60 byte packets
+ 1  _gateway (10.180.0.1)  334.051 ms * *
+ 2  10.6.33.12 (10.6.33.12)  333.190 ms  333.168 ms  333.133 ms
+ 3  * * *
+ 4  10.6.32.98 (10.6.32.98)  333.038 ms  333.357 ms  332.982 ms
+ 5  * * *
+ 6  10.6.32.62 (10.6.32.62)  332.899 ms  254.634 ms  254.533 ms
+ 7  61.185.212.193 (61.185.212.193)  254.488 ms  254.451 ms  254.332 ms
+ 8  10.224.169.1 (10.224.169.1)  254.187 ms 10.224.169.9 (10.224.169.9)  254.053 ms *
+ 9  * 117.36.240.177 (117.36.240.177)  193.225 ms *
+10  10.255.51.13 (10.255.51.13)  193.090 ms 202.97.13.253 (202.97.13.253)  193.072 ms *
+11  113.96.4.126 (113.96.4.126)  193.029 ms 202.97.98.218 (202.97.98.218)  193.004 ms *
+12  113.96.5.58 (113.96.5.58)  101.177 ms 121.14.14.162 (121.14.14.162)  101.076 ms 113.96.4.98 (113.96.4.98)  101.050 ms
+13  14.29.121.206 (14.29.121.206)  101.023 ms 106.96.135.219.broad.fs.gd.dynamic.163data.com.cn (219.135.96.106)  100.982 ms  306.784 ms
+14  14.215.32.94 (14.215.32.94)  306.678 ms * *
+15  * * *
+16  * * *
+17  * * *
+18  * * *
+19  * * *
+20  * * *
+21  * * *
+22  * * *
+23  * * *
+24  * * *
+25  * * *
+26  * * *
+27  * * *
+28  * * *
+29  * * *
+30  * * *
+
+$ traceroute cn.bing.com
+traceroute to cn.bing.com (202.89.233.101), 30 hops max, 60 byte packets
+ 1  * * *
+ 2  10.6.33.12 (10.6.33.12)  15.328 ms  15.278 ms  15.247 ms
+ 3  * * *
+ 4  10.6.32.98 (10.6.32.98)  18.623 ms  18.540 ms  29.961 ms
+ 5  * * *
+ 6  10.6.32.62 (10.6.32.62)  29.853 ms  22.052 ms  21.945 ms
+ 7  * * *
+ 8  * * *
+ 9  * * *
+10  * * *
+11  * * *
+12  * * *
+13  * * *
+14  * * *
+15  * * *
+16  * * *
+17  * * *
+18  * * *
+19  * * *
+20  * * *
+21  * * *
+22  * * *
+23  * * *
+24  * * *
+25  * * *
+26  * * *
+27  * * *
+28  * * *
+29  * * *
+30  * * *
+$ dig cn.bing.com +short
+cn-bing-com.cn.a-0001.a-msedge.net.
+china.bing123.com.
+202.89.233.100
+202.89.233.101
+
+$ ping 202.89.233.100
+PING 202.89.233.100 (202.89.233.100) 56(84) 字节的数据。64 字节，来自 202.89.233.100: icmp_seq=1 ttl=111 时间=710 毫秒64 字节，来自 202.89.233.100: icmp_seq=2 ttl=111 时间=43.8 毫秒64 字节，来自 202.89.233.100: icmp_seq=3 ttl=111 时间=127 毫秒^C
+--- 202.89.233.100 ping 统计 ---
+已发送 3 个包， 已接收 3 个包, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 43.797/293.508/709.930/296.397 ms
+
+$ traceroute 202.89.233.100
+traceroute to 202.89.233.100 (202.89.233.100), 30 hops max, 60 byte packets
+ 1  _gateway (10.180.0.1)  8.873 ms * *
+ 2  10.6.33.12 (10.6.33.12)  8.684 ms  8.640 ms  8.616 ms
+ 3  * * *
+ 4  10.6.32.98 (10.6.32.98)  12.454 ms  12.428 ms  12.404 ms
+ 5  * * *
+ 6  10.6.32.62 (10.6.32.62)  12.310 ms  9.003 ms  8.899 ms
+ 7  * * *
+ 8  * * *
+ 9  * * *
+10  * * *
+11  * * *
+12  * * *
+13  * * *
+14  * * *
+15  * * *
+16  * * *
+17  * * *
+18  * * *
+19  * * *
+20  * * *
+21  * * *
+22  * * *
+23  * * *
+24  * * *
+25  * * *
+26  * * *
+27  * * *
+28  * * *
+29  * * *
+30  * * *
+```
 # 相关阅读
 
 [ 如何在Linux上刷新DNS缓存 2020-09-01 A5互联](https://www.cnblogs.com/a5idc/p/13594833.html)
+
+[3 useful commands to Check Gateway in Linux. 2022-04-16. David Cao](https://sslhow.com/3-ways-to-check-gateway-in-linux):ip route, route -n, netstat -rn
 
 [I can ping a website, but I cannot access the website using the IP number or the actual web address, help?  2013](https://answers.microsoft.com/en-us/ie/forum/all/i-can-ping-a-website-but-i-cannot-access-the/1f3475cc-9815-453b-9714-2657a891292e)：无后续，工程师6种方法：关闭代理、关闭防火墙、重置路由器、重置IE设置、重置TCP/IP、检查计算机病毒
 
