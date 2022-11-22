@@ -136,9 +136,37 @@ $ groups $USER
 wheel lp sys network power docker kearney
 ```
 
+2. Error response from daemon: conflict: unable to delete 5f58fddaff43 (must be forced) - image is referenced in multiple repositories
+
+ `docker rm` -> `docker rmi` 或者 增加 -f 参数进行强制删除
+```bash
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+$ docker image ls
+REPOSITORY                                                    TAG       IMAGE ID       CREATED         SIZE
+kicbase/stable                                                v0.0.34   5f58fddaff43   2 months ago    1.14GB
+registry.cn-hangzhou.aliyuncs.com/google_containers/kicbase   v0.0.34   5f58fddaff43   2 months ago    1.14GB
+mariadb                                                       latest    e2278f24ac88   12 months ago   410MB
+$ docker image rm kicbase/stable
+Error: No such image: kicbase/stable
+$ docker image rm 5f58fddaff43
+Error response from daemon: conflict: unable to delete 5f58fddaff43 (must be forced) - image is referenced in multiple repositories
+$ docker image rmi kicbase/stable
+Error: No such image: kicbase/stable
+$ docker image rmi kicbase/stable:v0.0.34
+Untagged: kicbase/stable:v0.0.34
+Untagged: kicbase/stable@sha256:f2a1e577e43fd6769f35cdb938f6d21c3dacfd763062d119cade738fa244720c
+$ docker image ls
+REPOSITORY                                                    TAG       IMAGE ID       CREATED         SIZE
+registry.cn-hangzhou.aliyuncs.com/google_containers/kicbase   v0.0.34   5f58fddaff43   2 months ago    1.14GB
+mariadb                                                       latest    e2278f24ac88   12 months ago   410MB
+$ docker image rmi registry.cn-hangzhou.aliyuncs.com/google_containers/kicbase:v0.0.34
+```
+
 # 参考
 
 - [docker](https://www.docker.com/)
 - [Docker -- 从入门到实践](https://yeasy.gitbook.io/docker_practice/)
 - [Docker - Arch Wiki](https://wiki.archlinux.org/title/Docker)
 - [docker run 参数详解. 雪东~. 2019-08-16](https://blog.csdn.net/weixin_39998006/article/details/99680522)
+- [docker删除报错 Error response from daemon: conflict: unable to delete (cannot be forced) 涛子丶白了你一眼 2021-01-18](https://blog.csdn.net/lctlinger/article/details/112764705)
