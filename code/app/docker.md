@@ -1,6 +1,6 @@
 # docker 的入门笔记
 - date: 2022-04-13
-- lastmod: 2022-11-08
+- lastmod: 2022-11-22
 
 # 前言
 
@@ -63,6 +63,10 @@ docker run -d -p 9000:9000 -v "/var/run/docker.sock:/var/run/docker.sock" --rest
  docker ps -a                               | 查看所有已经创建的包括终止状态的容器
  docker container prune                               | 清理所有处于终止状态的容器     
  docker inspect <容器名称>                             | 查看容器详细信息
+ docker exec -it <容器ID> bash                      | 根据容器ID连接到容器中的bash
+ docker cp <本地文件>  <容器ID>:<容器文件路径>       | 复制本地文件到容器中
+ docker cp <容器ID>:<容器文件路径>  <本地文件>       | 复制容器中的文件到本地
+
 ## run 参数
 
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
