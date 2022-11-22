@@ -1,6 +1,6 @@
 # App
 - date: 2021-08-26
-- lastmod: 2021-08-26
+- lastmod: 2022-11-22
 
 # 文档
 ## 接口 API
@@ -100,3 +100,13 @@ https://github.com/facebook/infer
 关键信息密码泄漏监控
 根据关键字与 hosts 生成的关键词，利用 github 提供的 api，监控 git 泄漏。 
 https://github.com/Macr0phag3/GithubMonitor
+
+# web 网页
+
+[testssl.sh](https://github.com/drwetter/testssl.sh):测试 TLS/SSL 加密的工具。它可以用来检查 Web 服务是否支持 TLS/SSL 加密和协议，以及存在的缺陷。
+
+[min](https://github.com/minbrowser/min):一款最小化的浏览器。它是仅包含搜索、书签、密码管理、广告屏蔽器等最基础功能的极简浏览器，适用于 Windows、Linux、macOS 操作系统
+
+[HackBrowserData](https://github.com/moonD4rk/HackBrowserData): 一款可全平台运行的浏览器数据导出解密工具
+
+[m3u8-downloader](https://github.com/Momo707577045/m3u8-downloader):m3u8 视频在线提取工具 
