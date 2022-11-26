@@ -307,3 +307,5 @@ ffmpeg -re i rec.mp4 按照网站要求编码 -f flv "你的rtmp地址/你的直
 - [【硬核科普】奇妙的帧率增加了！2020-03-21 影视飓风](https://www.bilibili.com/video/BV1kE411c7yZ)
 
 - [视频编码完全指南 K.R. Vijayanagar LiveVideoStack 2021-10-09](https://mp.weixin.qq.com/s?__biz=MzU1NTEzOTM5Mw==&mid=2247515283&idx=1&sn=1f6ac100ad020fb8e8238aefa5e89d19&chksm=fbda14bdccad9dabe8dfe7e90401acb04d906c56805c76f72fab242b763efd6aca70b4884e07&scene=21#wechat_redirect)
+
+- [ffmpeg-libav-tutorial](https://github.com/leandromoreira/ffmpeg-libav-tutorial)
