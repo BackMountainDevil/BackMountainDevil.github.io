@@ -7,7 +7,7 @@
 - [GNULinux](/os/linux/GNULinux.md)
 - [在 Linux 上使用人脸识别来登陆和认证](/os/linux/linuxhello.md)
 - [Linux 设置多指触控手势，以 Manjaro 为例](/os/linux/gesture.md)
-- [Phone](/os/linux/os+phone.md)
+- [diy 手机与操作系统](/os/linux/os+phone.md)
 - [rEFInd - 一款优美的多系统引导软件](/os/linux/rEFInd.md)
 - [UefiMake - Ventory](/os/linux/UefiMakemd.md)
 - [从 windows 开始拥抱 linux](/os/linux/winToLinux.md)

@@ -1,13 +1,7 @@
----
-title: "Phone"
-date: 2021-08-19T15:04:48+08:00
-lastmod: 2021-08-19T15:04:48+08:00
-keywords: []
-description: ""
-tags: []
-categories: [Blog]
-author: "筱氚"
----
+# diy 手机与操作系统
+- date: 2021-08-19
+- lastmod: 2022-11-29
+
 # phone
 
 - [zerophone - Hackday  12/30/2018](https://hackaday.io/project/19035-zerophone-a-raspberry-pi-smartphone)：基于树莓派 zero
@@ -17,10 +11,6 @@ author: "筱氚"
 - [Purism - Librem 5](https://puri.sm/):现代化手机，$900
 - [Kite - Hackday 01/26/2018](https://hackaday.io/project/42944-kite-open-hardware-android-smartphone)
 - [CutiePi - a CM3 based open source tablet. Wed Jul 31, 2019 5:36 am ](https://www.raspberrypi.org/forums/viewtopic.php?t=247380)
-- []()
-- []()
-- []()
-- []()
 
 # pc os
 
@@ -44,7 +34,7 @@ Windows
 - [haiku](https://www.haiku-os.org/)：2000 年诞生，为延续 BeOS 的生命而出现的
 - [freedos](http://www.freedos.org/)：dos
 - [menuet](http://menuetos.net/)：2000 年诞生，完全用汇编写的，支持 64、32 位，有图形化界面，不支持 POSIX 标准，硬件适配一言难尽。
-- []()
+- [SerenityOS/serenity](https://github.com/SerenityOS/serenity):x86  Unix-like 图形化操作系统
 
 https://distrowatch.com/index.php
 https://manjaro.org.cn/
@@ -52,6 +42,7 @@ https://linux.zone/category/linux_look/linux_font_rendering
 
 # learn make os
 https://wiki.osdev.org/Main_Page
+
 ## rCore
 
 rCore-Tutorial-Book 第三版 2021-03-15 最后一次更新。这本教程旨在一步一步展示如何 从零开始 用 Rust 语言写一个基于 RISC-V 架构的 类 Unix 内核 。值得注意的是，本项目不仅支持模拟器环境（如 Qemu/terminus 等），还支持在真实硬件平台 Kendryte K210 上运行。教程完备
@@ -95,7 +86,6 @@ https://github.com/nieklinnenbank/FreeNOS
 
 ## else
 
-
 How to Make a Computer Operating System in C++，2015
 The goal is to build a very simple UNIX-based operating system in C++, not just a "proof-of-concept". The OS should be able to boot, start a userland shell, and be extensible.  
 https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System
@@ -124,6 +114,3 @@ Source codes for the "Write your own Operating System" video-series on YouTube h
 
 - [Linux 与 BSD 有什么不同? 译者： LCTT Mike Tang | 2014-06-12 ](https://linux.cn/article-3186-1.html)
 - [FreeBSD 和 Linux 有什么不同？作者： anismaj 译者： LCTT wwy | 2015-07-31](https://linux.cn/article-5927-1.html)
-- []()
-- []()
-- []()
