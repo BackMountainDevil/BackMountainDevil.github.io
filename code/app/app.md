@@ -101,7 +101,15 @@ https://github.com/facebook/infer
 根据关键字与 hosts 生成的关键词，利用 github 提供的 api，监控 git 泄漏。 
 https://github.com/Macr0phag3/GithubMonitor
 
+# 数据库
+
+[db_tutorial](https://github.com/cstack/db_tutorial):用 c 写一个 sqlite 数据库
+
+[sqlmap](https://github.com/sqlmapproject/sqlmap):自动SQL注入和数据库接管工具
+
 # web 网页
+
+[locust](https://github.com/locustio/locust):性能测试
 
 [testssl.sh](https://github.com/drwetter/testssl.sh):测试 TLS/SSL 加密的工具。它可以用来检查 Web 服务是否支持 TLS/SSL 加密和协议，以及存在的缺陷。
 
