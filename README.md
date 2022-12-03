@@ -20,3 +20,5 @@
 **鸣谢**
 
 Powered by [Github](https://github.com/BackMountainDevil/BackMountainDevil.github.io), [docsify](https://github.com/docsifyjs/docsify), [hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even) and [VSCodium](https://vscodium.com)
+
+<a href="https://www.tjupt.org/promotionlink.php?key=55d6d9462c2e33cc1fc6be6449e05250"><img src="https://www.tjupt.org/pic/prolink.png" alt="北洋园PT" title="北洋园PT"></a>
