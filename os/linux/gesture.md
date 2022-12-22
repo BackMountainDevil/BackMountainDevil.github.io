@@ -1,6 +1,6 @@
 # Linux 设置多指触控手势，以 Manjaro 为例
 - date: 2020-09-5
-- lastmod: 2021-09-29
+- lastmod: 2022-12-22
 
 在 Plasma(KDE) 上借助 gestures、xdotool 设置多手指触控手势，如双指缩放，三指换任务、桌面等。
 
@@ -12,22 +12,18 @@ Plasma 桌面中有虚拟桌面和活动两者神奇的玩意（可在 “设置
 
 # 怎么做
 
-- Linux xx 5.13.12-1-MANJARO
-- gestures 0.2.5-1
-- libinput-gestures 2.67-1
-- xdotool 3.20210804.2-1
+- Linux 5.15.84-1-lts
+- libinput-gestures 2.73-1
+- xdotool 3.20211022.1-1
 
-我使用的是 Manjaro，可以方便的在 pamac 中安装 xdotool, gestures。Arch 系列需要从 AUR 中获取。不得不说，这一点上 manjaro 已经将 gestures 并入主仓库，而且将 libinput-gestures 作为依赖。总的来说， libinput-gestures 是一个很好的软件，可以自定义手势，而 gestures 呢就是给它套上一层包装，让不会命令行的人也能用（目前来说还需要搜索能力）。
+## 方法一：libinput-gestures
 
-安装完成之后需要将自己加入 input 用户组 - `sudo gpasswd -a $USER input`
+1. 安装 libinput-gestures, xdotool: `sudo pacman -S libinput-gestures xdotool`
+2. 把自己加入 input 用户组 - `sudo gpasswd -a $USER input`
+3. 设置自定义手势: `nano ~/.config/libinput-gestures.conf`
+4. 启动&设置开机自启动: `libinput-gestures-setup start && libinput-gestures-setup autostart`
 
-之后就是启动 Gesture 来添加自定义触摸手势了。点击左上角的加号来添加新手势，类型（Type）可以选择 Swipe（滑动、刷） 或者 Pinch（捏），之后根据类型选择方向，最后选择指数（234，滑动模式仅支持34，不然会和系统冲突）。
-
-选择好参数之后，在底部的输入框输出对于的快捷键指令，然后点击 Confirm 确定。比如你想给 F5 添加手势，对应的指令就是 `xdotool key F5`，想给遍历窗口加手势对于的指令是 `xdotool key Alt+Tab`，很好理解，最后加键位，多个按键用加号连接。
-
-设置完之后想要修改就点击左上角加号旁边的铅笔，这时候就可以对已有的设置进行修改或删除。
-
-# 自定义触控手势
+## 自定义触控手势
 
 libinput-gestures-setup start|stop|restart|autostart|autostop|status
 
@@ -42,6 +38,17 @@ gesture swipe right 3 xdotool key Ctrl+F1
 gesture pinch in 2 xdotool key ctrl+minus
 gesture pinch out 2 xdotool key ctrl+plus
 ```
+## 方法二：gestures
+
+我使用的是 Manjaro，可以方便的在 pamac 中安装 xdotool, gestures。Arch 系列需要从 AUR 中获取。不得不说，这一点上 manjaro 已经将 gestures 并入主仓库，而且将 libinput-gestures 作为依赖。总的来说， libinput-gestures 是一个很好的软件，可以自定义手势，而 gestures 呢就是给它套上一层包装，让不会命令行的人也能用（目前来说还需要搜索能力）。
+
+安装完成之后需要将自己加入 input 用户组 - `sudo gpasswd -a $USER input`
+
+之后就是启动 Gesture 来添加自定义触摸手势了。点击左上角的加号来添加新手势，类型（Type）可以选择 Swipe（滑动、刷） 或者 Pinch（捏），之后根据类型选择方向，最后选择指数（234，滑动模式仅支持34，不然会和系统冲突）。
+
+选择好参数之后，在底部的输入框输出对于的快捷键指令，然后点击 Confirm 确定。比如你想给 F5 添加手势，对应的指令就是 `xdotool key F5`，想给遍历窗口加手势对于的指令是 `xdotool key Alt+Tab`，很好理解，最后加键位，多个按键用加号连接。
+
+设置完之后想要修改就点击左上角加号旁边的铅笔，这时候就可以对已有的设置进行修改或删除。
 
 # 参考
 
@@ -59,6 +66,4 @@ gesture pinch out 2 xdotool key ctrl+plus
 - [kde5与archlinux环境下配置libinput-gestures多手势操作。陆道峰。发布于 2017-09-23 ](https://segmentfault.com/a/1190000011327776)：对标 Mac 的设置
   > 查询资料后发现touchegg和libinput-gestures都可以满足需求，但是在实际配置过程中，touchegg存在很多问题一直都没能解决，而libinput-gestures基本没有太大的问题。所以本文主要介绍如何配置libinput-gestures
 - [系统设置/快捷键和手势](https://userbase.kde.org/System_Settings/Shortcuts_and_Gestures/zh-cn)
-- []()
-- []()
-- []()
+
