@@ -15,3 +15,4 @@
 - [UMA Frame Buffer Size 核显显存与CSGO帧率](/hackaday/thing/umaBufferSize.md)
 - [商品购买不完全指南](/hackaday/thing/buy.md)
 - [键盘工作原理与制作](/hackaday/thing/keyboard.md)
+- [DVB-T 电视棒 820T2 RTL2832 SDR 收音机](/hackaday/thing/sdr820t2.md)
