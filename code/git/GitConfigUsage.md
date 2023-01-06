@@ -1,6 +1,6 @@
 # Git 的初始化配置
 - date: 2020-11-16
-- lastmod: 2022-12-29
+- lastmod: 2023-1-6
 
 # 安装
 
@@ -126,6 +126,10 @@ xxx Permission denied (publickey).`
 > chmod 600 ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
 
 # References
+
+[Commit message 和 Change log 编写指南  阮一峰 2016年1月 6日](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)：如何写备注也很重要
+
+[pre-commit](https://pre-commit.com/)：提交之前check一下的工具
 
 - [git](https://git-scm.com/)
 - [清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/)
