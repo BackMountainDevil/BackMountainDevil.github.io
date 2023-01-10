@@ -1,6 +1,6 @@
-# miniconda3 安装 jupyter-lab
+# miniconda3 安装 Jupyter jupyter-lab
 - date: 2021-09-14
-- lastmod: 2021-09-14
+- lastmod: 2023-1-10
 
 jupyter 是个啥？很久之前接触 python 机器学习的时候最早接触的是 jupyter notebook，编写 python 的代码不再是写完全部再运行调试，notebook 可以将程序分为一小块一小块（cell）的运行，和在 python 交互式终端中类似，但比后者更加方便修改运行。2021 年 jupyter-lab 不仅拥有 notebook 的功能，还有就是 notebook 一个文件会打开一个浏览器标签页，而 lab 就像在一个浏览器标签页内整了一个轻量化的 IDE。
 
@@ -50,6 +50,14 @@ TermSocket.open: Opened 1
 不知道是我安装哪里出现了问题，按照官方的要求下载的。。。依赖问题没有解决好，手动安装 nodejs 会使它成为一个孤包，依赖关系没有在系统中得到记录。而我的系统中暂时不装 pip,仅通过虚拟环境中使用 pip，主要是担心用户 pip 安装的东西和系统安装的混搭在一起。于是剩下了从发行版的仓库中安装，先把刚才通过 conda 安装的 jupyterlab 给卸载了（conda也会卸载其依赖）
 
 `sudo conda uninstall -c conda-forge jupyterlab`
+
+### Jupyter
+
+我使用的是 vscode 中的 Jupyter 插件，miniconda3 创建了一个python版本为3.8的虚拟环境叫做 38，为了能在 vsc 中正常使用 jupyter，则需要在对应虚拟环境中安装 ipykernel
+
+```bash
+conda install -n 38 ipykernel --update-deps --force-reinstall
+```
 
 ## pacman
 
