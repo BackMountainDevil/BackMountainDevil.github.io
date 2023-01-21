@@ -1,6 +1,6 @@
 # ffmpeg 基本命令
 - date: 2022-07-02
-- lastmod: 2022-10-27
+- lastmod: 2023-1-21
 
 ## 常用命令
 
@@ -198,7 +198,7 @@ ffmpeg -i video_novideo.m4a -i video_silent.mp4 -c copy video_merge.mp4
 ffmpeg -i music.mp3 -ss 00:00:30 -to 00:02:00 -acodec copy -copyts music_cutout.mp3
 ```
 
--c copy 用原来的编码并复制到新文件中
+-c copy 用原来的编码并复制到新文件中，测试表明只有截取时间段参数时码率会被压缩，因此最好是加上复制原编码
 -ss	开始时间
 -t	持续时间     -t xx           // 单位：秒    -t xx:xx:xx  // 时:分:秒
 -to 到达某个时间 xx:xx:xx
@@ -299,7 +299,9 @@ ffmpeg -re i rec.mp4 按照网站要求编码 -f flv "你的rtmp地址/你的直
 
 # 参考
 - [【FFmpeg 分P教学】转码、压制、录屏、裁切、合并、提取 … 统统不是问题。](https://www.bilibili.com/video/av40146374)
+
 - [ffprobe输入与输出信息详解 HugoforAndroid 于 2020-06-04](https://blog.csdn.net/lipengshiwo/article/details/106552579)
+
 - [ffmpeg：码率控制模式、编码方式. ETalien_ 于 2020-03-08](https://blog.csdn.net/ETalien_/article/details/102931065)
 
 - [完全解析：编码与封装 2016-03-1 影视飓风](https://www.bilibili.com/video/av4101573)
@@ -309,3 +311,5 @@ ffmpeg -re i rec.mp4 按照网站要求编码 -f flv "你的rtmp地址/你的直
 - [视频编码完全指南 K.R. Vijayanagar LiveVideoStack 2021-10-09](https://mp.weixin.qq.com/s?__biz=MzU1NTEzOTM5Mw==&mid=2247515283&idx=1&sn=1f6ac100ad020fb8e8238aefa5e89d19&chksm=fbda14bdccad9dabe8dfe7e90401acb04d906c56805c76f72fab242b763efd6aca70b4884e07&scene=21#wechat_redirect)
 
 - [ffmpeg-libav-tutorial](https://github.com/leandromoreira/ffmpeg-libav-tutorial)
+
+- [VapourSynth（VS） 视频处理压制入门教程 2021-07-01 EddyStorm](https://www.bilibili.com/read/cv11955002/)
