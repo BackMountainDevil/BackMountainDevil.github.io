@@ -35,13 +35,13 @@
 - [Arch Pacman & Yay 介绍+基本使用 & 更新中无法满足依赖关系的解决办法](/os/arch/pacman.md)
 - [Soundeffort](/os/arch/soundeffors.md)
 - [触摸板 bug （跟踪停止）](/os/arch/touchpad.md)
-- [EndeavourOS 初体验 REISUB](/os/arch/endeavour.md)
 - [windwos11 更新 BIOS 覆盖了 endevaourOS linux 的启动引导 grub 重建修复](/os/arch/endevaourGrub.md)
 - [fcitx5 在 coidum 中输入中文会飘字母的问题](/os/arch/fcitx5Gtk.md)
 - [Dbeaver 启动提示 Java 版本过低，和 arduino 的 java 依赖发生冲突，java 版本管理](/os/arch/dbArduinoJavaConflict.md)
 
 ## Endeavouros
 
+- [EndeavourOS 初体验 REISUB](/os/arch/endeavour.md)
 - [lightdm .service: Start request repeated too quickly. grub正常，不显示登录和桌面 Endeavour](/os/de/lightdmRepeat.md)
 - [蓝牙不正常因为 unmet condition check](/os/de/blncc.md)
 
