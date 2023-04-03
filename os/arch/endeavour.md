@@ -1,6 +1,6 @@
 # EndeavourOS 初体验 REISUB
 - date: 2022-09-23
-- lastmod: 2022-11-12
+- lastmod: 2023-4-3
 
 ## 设置
 ### grub
@@ -136,3 +136,20 @@ sudo rm /etc/sysctl.d/99-reisub.conf
 - [[Tip] Enable Magic SysRq Key (REISUB) ](https://forum.endeavouros.com/t/tip-enable-magic-sysrq-key-reisub/7576)： enable、diasble 方法简单明了
 
 - [Kernel_(SysRq) Arch wiki](https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq))
+
+# 内存与显存
+
+free 查看内存的默认单位是字节，参数 `-m` 把单位切换为兆字节，下面显示内存总的11.8kM字节，也就是12G，通过 `glxinfo -B` 可以看到有 4G 显存，符合我把 16 G 内存中的 4G 通过 UMA 分给了核显。
+
+```bash
+[kearney@82dm ~]$ free -m
+               total        used        free      shared  buff/cache   available
+内存：      11815        2263        7932          64        1619        9225
+交换：          0           0           0
+
+[kearney@82dm ~]$ glxinfo -B
+Memory info (GL_NVX_gpu_memory_info):
+    Dedicated video memory: 4096 MB
+    Total available memory: 10003 MB
+    Currently available dedicated video memory: 3236 MB
+```
