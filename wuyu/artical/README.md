@@ -26,3 +26,4 @@
 - [坚果云分析之后 不用](/wuyu/artical/jianguoyun.md)
 - [telemetry 匿名信息反馈/遥测 与 收集用户信息](/wuyu/artical/telemetry.md)
 - [电信网络诈骗](/wuyu/artical/fraud.md)
+- [木屋烧烤的一些问题，信息化和细节](/wuyu/artical/muwubbq.md)
