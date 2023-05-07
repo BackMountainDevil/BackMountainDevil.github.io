@@ -28,3 +28,4 @@
 - [电信网络诈骗](/wuyu/artical/fraud.md)
 - [木屋烧烤的一些问题，信息化和细节](/wuyu/artical/muwubbq.md)
 - [餐饮店的餐位费、纸巾费、餐具费](/wuyu/artical/restaurant.md)
+- [航行 航海 帆船](/wuyu/artical/sailing.md)
