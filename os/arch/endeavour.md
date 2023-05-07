@@ -1,6 +1,6 @@
 # EndeavourOS 初体验 REISUB
 - date: 2022-09-23
-- lastmod: 2023-4-3
+- lastmod: 2023-5-7
 
 ## 设置
 ### grub
@@ -153,3 +153,13 @@ Memory info (GL_NVX_gpu_memory_info):
     Total available memory: 10003 MB
     Currently available dedicated video memory: 3236 MB
 ```
+
+# 最近文件
+
+在 KDE 设置中，工作区-工作区行为-最近文件，保存历史记录只可以选择记录几个月或永久，无法关闭这个历史记录，可以手动清除历史记录，测试表面，手动清除历史记录功能不会删除 `~/.local/share/RecentDocuments/` 中的内容。在这个设置页面点击帮助后显示没有找到应用“kcontrol/kcm_recentFiles”对应的用户手册
+
+针对系统级别的记录，不同桌面的方式不太一样，如 [Disabling GNOME’s recently-used file list, the better way. Alex. 2020](https://alexcabal.com/disabling-gnomes-recently-used-file-list-the-better-way)
+
+应用级别的记录，只能在应用设置内关闭，如VLC。
+
+暂未发现Ark如何关闭历史记录
