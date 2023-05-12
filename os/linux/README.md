@@ -33,7 +33,7 @@
 - [用 debtap 将 deb 转换成 arch 的软件包格式，以 Raspberry Pi Imager 为例](/os/arch/debtap.md)
 - [把系统中的 296 款字体删除到只剩下 17 款](/os/arch/Font.md)
 - [Arch Pacman & Yay 介绍+基本使用 & 更新中无法满足依赖关系的解决办法](/os/arch/pacman.md)
-- [Soundeffort](/os/arch/soundeffors.md)
+- [Soundeffort 多设备音频输出 音效](/os/arch/soundeffors.md)
 - [触摸板 bug （跟踪停止）](/os/arch/touchpad.md)
 - [windwos11 更新 BIOS 覆盖了 endevaourOS linux 的启动引导 grub 重建修复](/os/arch/endevaourGrub.md)
 - [fcitx5 在 coidum 中输入中文会飘字母的问题](/os/arch/fcitx5Gtk.md)
