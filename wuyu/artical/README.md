@@ -2,6 +2,7 @@
 - [读记 -《活出生命的意义》、《上帝掷骰子吗》](/wuyu/artical/rn1.md)
 - [读记 -《习近平的七年知情岁月》、《爱的艺术》、《娱乐致死》、《人生》](/wuyu/artical/rn2.md)
 - [读记 -《最好的告别》](/wuyu/artical/rn3.md)
+- [读记 -《霍乱时期的爱情》](/wuyu/artical/loveInCholera.md)
 - [尼康胶片机Nikon F60：胶卷无法上片和引片器](/wuyu/artical/NikonF60.md)
 - [MakeGithubPageSafeViaHttps](/wuyu/artical/MakeGithubPageSafeViaHttps.md)
 - [使用hugo生成静态网站并部署到Gitee Page](/wuyu/artical/HugoGitee.md)
