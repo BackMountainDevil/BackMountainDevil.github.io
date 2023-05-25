@@ -1,6 +1,6 @@
 # EndeavourOS 初体验 REISUB
 - date: 2022-09-23
-- lastmod: 2023-5-7
+- lastmod: 2023-5-25
 
 ## 设置
 ### grub
@@ -65,6 +65,10 @@ xset b off 试验过重启后失效
     journalctl --vacuum-time=4weeks
     清除安装包缓存 /var/cache/pacman/pkg
     paccache -r
+
+## xflock4 锁屏失效
+
+更新系统之后无法锁屏，无论是菜单栏锁屏还是快捷键都无效，[wiki](https://wiki.archlinux.org/title/Xfce)显示可以设置锁屏的指令，我的包历史记录显示我之前用的是 xfce4-screensaver，然后我尝试安装并设置 light-locker，还是无法锁屏。说一下锁屏流程，快捷键调用的是 xflock4 这个脚本，这个脚本又会去调用对应的会话管理器（这个就有很多），后者才是真正的锁屏一把手。我敲 xfce4-screensaver-command -l 的时候得到的输出告诉我 xfce4-screensaver 没有在运行，让我先运行它，可是我尝试用 systemctl 启动这个服务却被告知二米有这个服务，于是我输入 xfce4-screensaver 并回车并没有得到什么东西，就在那里不动弹。后来我打开了另外一个终端，我发现锁屏又可以正常工作了，然后当我把前边那个不动弹的关掉之后，锁屏功能又不工作了，因此结论是前面那个不动弹的就是在运行中的守护进程，也就是系统开机的时候并没有启动这个守护进程，于是在 设置管理器-会话和启动-应用程序自启动 中，勾选“屏幕保护”，我是很久之前就取消了这个自启动，因为我不用屏保，咱这也不是显像管显示器时代了，没想到这个屏幕保护程序还兼职“锁定程序”
 
 # 从 xfce 切换到 Plasma KDE
 
