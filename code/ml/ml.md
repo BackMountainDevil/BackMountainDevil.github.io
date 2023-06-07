@@ -85,7 +85,23 @@ ROC 曲线 越靠近左上角越好
 AUC 曲线 右下方面积越大越好
 EER 曲线 等错误率
 
+# AI 应用
+
+自然语言处理 (NLP)：语音识别、语言翻译、语音助手、机器人客服
+
+计算机视觉：照片标记、医疗成像、自动驾驶汽车
+
+[mlc-llm 陈天奇团队](https://github.com/mlc-ai/mlc-llm):在本地跑语言模型，无需服务器支持，并通过手机和笔记本电脑上的本地GPU进行加速。手机，笔记本均可
+
+[TigerBot 陈烨团队](https://github.com/TigerResearch/TigerBot):语言任务大模型，支持插件联网
+
+多模态
+
 # 参考
+
+[微软人工智能教育与学习共建社区](https://microsoft.github.io/ai-edu/index.html)
+
+[IBM 云计算知识学习 什么是机器学习？](https://www.ibm.com/cn-zh/cloud/learn/machine-learning)
 
 [easyAI](https://easyai.tech/)
 
