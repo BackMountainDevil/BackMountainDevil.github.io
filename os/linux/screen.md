@@ -1,6 +1,6 @@
-# GNU 的神器 screen（程序后台运行 vs nohup）附带串口通信功能
+# GNU 的神器 screen（程序后台运行 vs nohup vs tmux）附带串口通信功能
 date: 2021-04-27  
-lastmod: 2021-09-19
+lastmod: 2023-06-30
 
 # 介绍
 通过阿里云连接云服务器ECS部署cms网站的时候，发现关闭ssh连接之后网站就不能访问了，重新连接开启服务才能访问，于是推断是断开ssh连接的时候程序被中止了。
@@ -108,6 +108,16 @@ No Sockets found in /run/screens/S-kearney.
 
 screen 除了能将程序“隔离运行“，还能使用 USB-UART 进行串口通信，如树莓派 3B 的 Serial Port（需要额外开启）。假设要连接的串口是 /dev/ttyUSB0，那么就这样连接到串口 screen /dev/ttyUSB0 115200。默认的波特率是 9600,因此其它数值需要指定，前面的案例指定为 115200。
 
+# tmux
+
+```bash
+tmux new -s {name} # 新建会话
+tmux ls # 查看会话
+tmux detach # 脱离会话(后台运行)，快捷键 按 Ctrl+b 后松开，再按 d
+tmux switch -t {id/name}  # 切换会话
+tmux attach -t {id/name} # 重新接入会话
+tmux kill-session -t {id/name} # 杀死会话
+```
 
 # 相关参考
 
@@ -116,3 +126,4 @@ screen 除了能将程序“隔离运行“，还能使用 USB-UART 进行串口
 - [Centos解决退出连接又不退出程序的问题 screen || nohup.Kearney form An idea 2020-04-16](https://blog.csdn.net/weixin_43031092/article/details/105564949)
 - [How to install and use screen, a remote session management tool for CentOS 7 system?Time：2021-3-1](https://developpaper.com/how-to-install-and-use-screen-a-remote-session-management-tool-for-centos-7-system/)
 - [A Basic Understanding Of screen On Centos  CentOS Help / Resources / Scripts & Tools / A Basic Understanding Of screen On Centos](https://centoshelp.org/resources/scripts-tools/a-basic-understanding-of-screen-on-centos/)
+- [Tmux 使用教程 阮一峰 2019年10月21日](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
