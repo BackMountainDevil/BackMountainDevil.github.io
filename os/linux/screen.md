@@ -1,6 +1,6 @@
 # GNU 的神器 screen（程序后台运行 vs nohup vs tmux）附带串口通信功能
 date: 2021-04-27  
-lastmod: 2023-06-30
+lastmod: 2023-07-06
 
 # 介绍
 通过阿里云连接云服务器ECS部署cms网站的时候，发现关闭ssh连接之后网站就不能访问了，重新连接开启服务才能访问，于是推断是断开ssh连接的时候程序被中止了。
@@ -118,6 +118,10 @@ tmux switch -t {id/name}  # 切换会话
 tmux attach -t {id/name} # 重新接入会话
 tmux kill-session -t {id/name} # 杀死会话
 ```
+
+关于滚动，默认状态无法鼠标滚动，方法一是可以先按下 Ctrl+b 再松开，然后PageUp/PageDown进行翻页，最后需要按 q 退出滚动模式。方法二是先按下 Ctrl+b, 然后输入 `：set -g mouse on`
+
+以上方法都没有进入复制模式，就是说上面两个方法使用鼠标选中内容后光标立马滚到最下边导致内容还没有复制到，解决这个问题的办法是在鼠标选中的同时按住shift,这样可以避免滚动
 
 # 相关参考
 
