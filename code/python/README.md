@@ -12,3 +12,4 @@
 - [kivy（2.0.0） Camera 摄像头案例运行异常的解决办法](/code/python/kivy-camera.md)
 - [借助 ffmpeg 从视频中批量提取音频后做字幕](/code/python/mp4emp3.md)
 - [文本编码另存为 utf-8（字幕编码格式转换](/code/python/2utf8.md)
+- [自定义模块/包无法识别路径 PYTHONPATH sys.path](/code/python/path.md)
