@@ -21,7 +21,15 @@
 
 对于头一次拆 surface 的用户来说，拆成这样可以算的上优秀，100分算98分。给自己鼓掌
 
+# 诊断
+
+拆开散热和所有屏蔽罩后，目测无明显元器件炸裂。万用表测电池电压为零，把硬盘拆下来装到好机器上测试是可以正常启动的。
+
 # 相关阅读
 
 [Surface Pro 4自行维修记 藏安安 2021.3.9](https://zhuanlan.zhihu.com/p/354700246):这篇文章提到了ifixit都没有提到的FPC天线，我是拆完才读到这篇文章的，幸运的是我没有整坏这个摄像头附近的FPC天线。从ifixit的论坛里确定文章里说的确实是wifi天线
 > 把FPC天线给划烂了 -> 某宝上的贴片天线
+
+[Surface not turning on - burned diodes. Musti. 2018.4.21](https://zh.ifixit.com/Answers/View/478186/Surface+not+turning+on+-+burned+diodes):我拆开手上这台没发现二极管烧坏模样
+
+[Surface Pro4详细拆机经验记录与分享 步子大了吧 2020-07-24](https://blog.csdn.net/wangpeng246300/article/details/107526132):换电池和固态
