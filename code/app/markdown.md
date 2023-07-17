@@ -134,3 +134,9 @@ Markdown将文本转换为 HTML。
 | centered 文本居中 | right-aligned 文本居右 |
 
 [mermaid-js.github.io](https://mermaid-js.github.io/mermaid/#/flowchart?id=flowcharts-basic-syntax)
+
+# 公式
+
+[在线 LaTex 公式编辑器 北京千涧技术](https://www.latexlive.com)
+
+OCR 识别公式：mathpix每月免费10次，教育版用户每月20次
