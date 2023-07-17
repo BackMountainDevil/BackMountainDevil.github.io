@@ -1,6 +1,6 @@
 # Arch 新手的基本知识
 - date: 2021-05-28
-- lastmod: 2022-10-26
+- lastmod: 2023-07-17
 
 # 安装系统
 ## 镜像+网络安装
@@ -85,6 +85,9 @@ see [Arch Pacman & Yay & 更新中无法满足依赖关系的解决办法](https
 查看日志大小：journalctl --disk-usage
 查看日志大小上限：journalctl -b -u systemd-journald
 删除两周之前的日志：jsudo ournalctl --vacuum-time=2weeks
+## 安全
+
+[wiki 中列出了许多有关于安全的软件](https://wiki.archlinux.org/title/List_of_applications/Security#Security)，比如 lynis，可参考[如何阅读 Lynis 报告提高 Linux 安全性 2020-10-08](https://linux.cn/article-12697-1.html)
 
 # 参考
 
