@@ -1,6 +1,6 @@
 # Soundeffort 多设备音频输出 音效
 - date: 2021-07-08
-- lastmod: 2023-06-30
+- lastmod: 2023-07-19
 
 之前使用的是 pulseaudio，后面尝试切换为 pipewire。使用效果自己能接受就行
 
@@ -8,7 +8,9 @@
 
 是因为考虑到两个人一块看视频且不方便外放的时候，搜索了一下发现有说用 paprefs 的，折腾了一下不太行，最后发现原因是 paprefs 是用来配置 pulseaudio 的，怪不得报错呢。然后`一刀斩の小窝`的博客提到了 helvum，在 wiki 中确认了是 pipewire 的图形化配置软件，我根据自己的桌面环境选择了 qpwgraph，启动软件把音源连线到想要输出的设备上即可
 
-helvum(0.34-1) 暂时不支持设置持久化，切歌切视频就要重新设置，代码仓库有人很久前就提了这个需求了。qpwgraph(0.4.2) 有保存功能，但是持久化设置大概率会因为切歌失效。catia(cadence 0.9.2-2) 是在 qpwgraph 的README中看到的，简单使用了一下没明白怎么设置双音频输出，就把这个排除了。而系统混音器（pavucontrol）目前只支持单个设备输出。可以肯定的是 pipewire(0.3.71-2) 支持设置多个音频输出
+qpwgraph(0.5.1) 有保存功能并且可以持久化设置，在vlc、mpv上测试良好，感谢作者的不断更新。
+
+helvum(0.34-1) 暂时不支持设置持久化，切歌切视频就要重新设置，代码仓库有人很久前就提了这个需求了。catia(cadence 0.9.2-2) 是在 qpwgraph 的README中看到的，简单使用了一下没明白怎么设置双音频输出，就把这个排除了。而系统混音器（pavucontrol）目前只支持单个设备输出。可以肯定的是 pipewire(0.3.71-2) 支持设置多个音频输出
 
 > https://wiki.debian.org/PipeWire
 >
@@ -54,8 +56,6 @@ pw-link "VLC media player (LibVLC 3.0.18):output_FR" "alsa_output.pci-0000_00_1f
 [PulseAudio实用手册 李花开 2022-12-06](https://zhuanlan.zhihu.com/p/589527476)
 
 [pw-link. ManPage](https://docs.pipewire.org/page_man_pw_link_1.html)
-
-[[Question] How to persist settings](https://gitlab.freedesktop.org/rncbc/qpwgraph/-/issues/75)
 
 [How to achieve (automated) simultaneous outputs with Pipewire? 2021.12.5](https://askubuntu.com/questions/1379376)
 > https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Migrate-PulseAudio#etcpulsedefaultpa
