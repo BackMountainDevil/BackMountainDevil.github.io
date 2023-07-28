@@ -1,6 +1,6 @@
 # Arch Pacman & Yay pamac 介绍+基本使用 & 更新中无法满足依赖关系的解决办法
 - date: 2021-04-30
-- lastmod: 2022-10-22
+- lastmod: 2023-07-28
 
 # pacman
 
@@ -96,7 +96,7 @@ Running installation script...
 /usr/lib/lantern/lantern-binary: 成功
 /home/kearney/.lantern/bin/lantern: error while loading shared libraries: libpcap.so.0.8: cannot open shared object file: No such file or directory
 $ cd /usr/lib
-$ sudo ln -s libpcap.so.1.10.1 libpcap.so.0.8
+$ sudo ln -s libpcap.so.1 libpcap.so.0.8
 
 # 那想卸载了怎么办
 $ sudo unlink /usr/lib/libpcap.so.0.8   # 删除软链接
@@ -174,6 +174,8 @@ Include = /etc/pacman.d/mirrorlist
 
 [[SOLVED] libcap (2.46) breaks dependency 'libcap=2.45' required by lib32-libcap 4 December 2020](https://forum.artixlinux.org/index.php/topic,2079.0.html)
 > i added lib32-libpcap to lib32-testing (multilib-testing) now.
+
+[lantern-beta  AUR](https://aur.archlinux.org/packages/lantern-beta)
 
 [[SOLVED] Pacman -Syu: installing libcap breaks dependency 2021-02-11](https://bbs.archlinux.org/viewtopic.php?id=263521)
 
