@@ -1,5 +1,6 @@
 # Surface Pro 4 黑屏不开机维修记
 - date: 2023-7-9
+- lastmod: 2023-07-31
 
 # 症状
 
@@ -25,6 +26,8 @@
 
 拆开散热和所有屏蔽罩后，目测无明显元器件炸裂。万用表测电池电压为零，把硬盘拆下来装到好机器上测试是可以正常启动的。
 
+参照 `No Power, No Schematics` 后我的结果是苏菲Battery、Spare的二极管正常，缺少Charger二极管；保险丝很多都是可以让蜂鸣器导通的；开机3.3V是有的。因此问题就是不知道哪个地方短路了。试着把Spare换到Charger上看一下效果。用300W热风枪或黄花907S型刀头电烙铁都没能把Spare肖特基二极管取下来，电烙铁调到450摄氏度也不行，刀头相对苏菲来说太大了而且刀头最尖端位置导热不行，同时spare下边有元件不能用加热板。于是某宝购入SOD123封装耐压60V 2A的肖特基。
+
 # 相关阅读
 
 [Surface Pro 4自行维修记 藏安安 2021.3.9](https://zhuanlan.zhihu.com/p/354700246):这篇文章提到了ifixit都没有提到的FPC天线，我是拆完才读到这篇文章的，幸运的是我没有整坏这个摄像头附近的FPC天线。从ifixit的论坛里确定文章里说的确实是wifi天线
@@ -33,3 +36,12 @@
 [Surface not turning on - burned diodes. Musti. 2018.4.21](https://zh.ifixit.com/Answers/View/478186/Surface+not+turning+on+-+burned+diodes):我拆开手上这台没发现二极管烧坏模样
 
 [Surface Pro4详细拆机经验记录与分享 步子大了吧 2020-07-24](https://blog.csdn.net/wangpeng246300/article/details/107526132):换电池和固态
+
+[Microsoft Surface Pro 4 – No Power, No Schematics, No Problem! March 18, 2020](https://www.aonemobiles.com.au/2020/03/microsoft-surface-pro-4-no-power-no-schematics-no-problem/):二极管、保险丝、3.3V。
+
+[surface pro4不开机维修方法 2022-05-16 东风笔记本维修](https://www.bilibili.com/video/BV1CZ4y187Wc/):待机3.3V有，供电3.3V、5V、1.8V、8.7V有。视频证明可以不装电池开机，视频里的苏菲有Charger二极管，上电流烤机用手查找发烫元件
+
+
+https://www.laptopschematic.com/microsoft-surface-pro-4-x911788-009-schematic-bios/：404
+
+[Microsoft Surface Pro 4 BoardView, Schematics](https://www.repairlap.com/threads/microsoft-surface-pro-4-boardview-schematics.13588/):登录下载
