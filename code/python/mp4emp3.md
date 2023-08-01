@@ -17,10 +17,8 @@ m4a 比 mp3 体积小很多，但是网易见外暂不支持 m4a 格式的音频
 
 ```python
 """ 
-作用：用 ffmpeg 从视频中批量提取音频，默认提取 mp3，若想提取 m4a，把两行 cmd 的注释对调即可
+作用：用 ffmpeg 从 mp4视频 中批量提取 mp3音频，若想提取 m4a，就把mp3换m4a
 运行：安装 ffmpeg ，把代码放在视频目录中，用 python3 运行即可
-ffmpeg -i test.mp4 -f mp3 -vn test.mp3      https://blog.csdn.net/fanyun_01/article/details/109408501
-ffmpeg -i "%%~sa" -y -vn -codec copy -q:v 1 "%%~na.m4a"     https://blog.csdn.net/mj412828668/article/details/120914158
 """
 import os
 
@@ -28,11 +26,9 @@ for dirpath, dirnames, filenames in os.walk(os.getcwd()): # os.getcwd() 为当�
     for filename in filenames:  # 遍历所有文件，包括子文件夹
         try:
             if filename[-3:] == "mp4": # 后缀鉴别是否是 mp4 文件
-                cmd = "ffmpeg -i \"{}\" -f mp3 -vn \"{}.mp3\"".format(filename, filename[:-4])  # 提取 mp3
-                # cmd = "ffmpeg -i  \"{}\" -vn -codec copy -q:v 1 \"{}.m4a\"".format(filename, filename[:-4]) # 提取 m4a
+                cmd = "ffmpeg -i  \"{}\" -vn \"{}.mp3\"".format(filename, filename[:-4]) # 提取 mp3
                 os.system (cmd)
         except Exception as e:
-            pass
             print("Exception: ",e,". Filename: ", filename)
 ```
 
@@ -283,3 +279,11 @@ if __name__ == "__main__":
 在源代码的基础上添加了异常处理、序号偏移、添加参数时间单位。将上述代码保存为 main.py。运行 `python main.py -h` 可以看到参数提示
 
 </details>
+
+# 参考
+
+[ffmpeg批量提取mp4视频文件中的音频 mj412828668 2021-10-22 ](https://blog.csdn.net/mj412828668/article/details/120914158):-y：表示在处理过程中跳过确认提示（如是否覆盖）。-codec copy：表示直接复制输入文件的编码方式，不进行任何转换。-q:v 1：表示设置视频质量为 1，其中 1 表示最高质量
+> ffmpeg -i "%%~sa" -y -vn -codec copy -q:v 1 "%%~na.m4a"
+
+[FFmpeg从视频中提取音频保存为mp3文件 Geek.Fan 2020-10](https://blog.csdn.net/fanyun_01/article/details/109408501):-vn 表示剔除视频流。-f mp3 指定输出文件的格式为 MP3 音频
+> ffmpeg -i test.mp4 -f mp3 -vn test.mp3
