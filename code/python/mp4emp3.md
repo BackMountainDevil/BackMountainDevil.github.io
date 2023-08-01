@@ -1,6 +1,6 @@
-# 借助 ffmpeg 从视频中批量提取音频后做字幕
+# 借助 ffmpeg 从视频中批量提取音频后做字幕 whisper
 - date: 2022-04-27
-- lastmod: 2022-05-06
+- lastmod: 2023-08-01
 
 ## 前言
 
@@ -38,7 +38,37 @@ for dirpath, dirnames, filenames in os.walk(os.getcwd()): # os.getcwd() 为当�
 
 ## AI 字幕
 
-目前使用的是每日免费提取两小时的[网易见外](https://jianwai.youdao.com)，当然也可以用互联网公司的字幕提取相关 API。
+可以使用每日免费提取两小时的[网易见外](https://jianwai.youdao.com)，当然也可以用互联网公司的字幕提取相关 API。
+
+### whisper
+
+现在更推荐使用开源的 whisper，支持输入视频，可以本地部署来跑，远程跑的话建议先剥离音频减小网络传输时间，也不会限制音频时长。whisper 运行的时候会自动下载模型，默认生成所有格式的数据，默认导出位置为当前目录。`--verbose False` 将会取消转译的调试输出，只显示进度。`--language` 指定语言，zh和Chinese。最大的模型large-v2要占用显存 11677MiB，同时跑n个就要n倍，默认在0卡上跑，指定在1卡跑的参数为 `--device cude:1`。
+
+`whisper --model large-v2 -output_dir audio/srt --output_format srt --verbose False --language zh audio/audio.m4a`
+
+openai-whisper(20230314) 指定中文可能输出简体/繁体，可参考[Simplified Chinese rather than traditional](https://github.com/openai/whisper/discussions/277)中加入参数 `--initial_prompt "以下是普通话的句子"`
+
+### whisper.cpp
+
+没有显卡可以试试 [whisper.cpp](https://github.com/ggerganov/whisper.cpp)，用 cpu 跑，内存占用更低。这里的 large 模型指的是 openai的 large-v2（自己转换了一遍对比shasum才发现的）。
+
+下面使用 medium vs large 中，large 输出一个长句子，而 medium 输出了两段，并且 large 的时间轴精度为一秒，medium 要更加精细
+
+```bash
+$ shasum large-v2.pt 
+d7a2f7bcc4655a8723162b5810a6f7665794feeb  large-v2.pt
+$ shasum ggml-large-v2.bin 
+0f4c8e34f21cf1a914c59d8b3ce882345ad349d6  ggml-large-v2.bin
+$ shasum ggml-medium.bin 
+fd9727b6e1217c2f614f9b698455c4ffd82463b4  ggml-medium.bin
+
+$ ./main -m models/ggml-large-v2.bin  -f samples/jfk.wav
+[00:00:00.000 --> 00:00:11.000]   And so my fellow Americans, ask not what your country can do for you, ask what you can do for your country.
+
+$ ./main -m models/ggml-medium.bin  -f samples/jfk.wav
+[00:00:00.000 --> 00:00:08.940]   And so, my fellow Americans, ask not what your country can do for you, ask what you
+[00:00:08.940 --> 00:00:10.440]   can do for your country.
+```
 
 # 后记
 
