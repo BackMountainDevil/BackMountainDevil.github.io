@@ -40,7 +40,7 @@ for dirpath, dirnames, filenames in os.walk(os.getcwd()): # os.getcwd() 为当�
 
 现在更推荐使用开源的 whisper，支持输入视频，可以本地部署来跑，远程跑的话建议先剥离音频减小网络传输时间，也不会限制音频时长。whisper 运行的时候会自动下载模型，默认生成所有格式的数据，默认导出位置为当前目录。`--verbose False` 将会取消转译的调试输出，只显示进度。`--language` 指定语言，zh和Chinese。最大的模型large-v2要占用显存 11677MiB，同时跑n个就要n倍，默认在0卡上跑，指定在1卡跑的参数为 `--device cude:1`。
 
-`whisper --model large-v2 -output_dir audio/srt --output_format srt --verbose False --language zh audio/audio.m4a`
+`whisper --model large-v2 --output_dir audio/srt --output_format srt --verbose False --language zh audio/audio.m4a`
 
 openai-whisper(20230314) 指定中文可能输出简体/繁体，可参考[Simplified Chinese rather than traditional](https://github.com/openai/whisper/discussions/277)中加入参数 `--initial_prompt "以下是普通话的句子"`
 
