@@ -30,3 +30,7 @@
 - [木屋烧烤的一些问题，信息化和细节](/wuyu/artical/muwubbq.md)
 - [餐饮店的餐位费、纸巾费、餐具费](/wuyu/artical/restaurant.md)
 - [航行 航海 帆船](/wuyu/artical/sailing.md)
+
+# 健康
+
+[第三次心肺复苏培训 CPR+AED](/wuyu/artical/cpr3.md)
