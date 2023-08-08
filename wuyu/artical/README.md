@@ -34,3 +34,7 @@
 # 健康
 
 [第三次心肺复苏培训 CPR+AED](/wuyu/artical/cpr3.md)
+
+# 运动
+
+[单车 山地车](/wuyu/artical/bike.md)
