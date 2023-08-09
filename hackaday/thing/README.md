@@ -19,3 +19,4 @@
 - [DVB-T 电视棒 820T2 RTL2832 SDR 收音机](/hackaday/thing/sdr820t2.md)
 - [触摸板当作数字小键盘的方法](/hackaday/thing/touchNumPad.md)
 - [Surface Pro 4 黑屏不开机维修记](/hackaday/thing/surfacePro4.md)
+- [模拟对讲机 UV-K5 改 固件](/hackaday/thing/UV-K5.md)
