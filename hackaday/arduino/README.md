@@ -4,3 +4,4 @@
 - [PN532 红板子与 Uno 初体验 nfc-list mfoc](/hackaday/arduino/pn532.md)
 - [usb转ttl UART 串口转换通信](/hackaday/arduino/usb2ttl.md)
 - [diy 逻辑分析仪](/hackaday/arduino/logicAnalyse.md)
+- [用 Uno 当烧录器给 atmega328 烧录 bootloader](/hackaday/arduino/isp.md)
