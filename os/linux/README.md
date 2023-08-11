@@ -4,6 +4,7 @@
 - [设置环境变量PATH 之 which is not on PATH.  Consider adding this directory to PATH](/os/linux/environment_variable.md)
 - [wine 基础知识：让 windows 软件在 linux 上跑起来](/os/linux/wine.md)
 - [linux下的流量监控之应用程序防火墙](/os/linux/firewall.md)
+- [在连接 WiFi 的同时开热点](/os/linux/wifiAp.md)
 - [GNULinux](/os/linux/GNULinux.md)
 - [在 Linux 上使用人脸识别来登陆和认证](/os/linux/linuxhello.md)
 - [Linux 设置多指触控手势，以 Manjaro 为例](/os/linux/gesture.md)
