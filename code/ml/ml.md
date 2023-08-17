@@ -99,25 +99,6 @@ EER 曲线 等错误率
 
 多模态
 
-[吴恩达大模型系列课程中文版 - datawhalechina](https://github.com/datawhalechina/prompt-engineering-for-developers)
-
-
-文转图 Stable Diffusion
-https://zhuanlan.zhihu.com/p/563073449
-
-文转视频
-
-https://videocomposer.github.io
-
-文转音乐
-
-https://about.fb.com/news/2023/08/audiocraft-generative-ai-for-music-and-audio/
-
-Multi-Modal Chat https://github.com/silverriver/MMChat
-
-https://github.com/FreedomIntelligence/LLMZoo
-
-
 # 参考
 
 [微软人工智能教育与学习共建社区](https://microsoft.github.io/ai-edu/index.html)
