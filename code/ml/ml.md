@@ -91,11 +91,32 @@ EER 曲线 等错误率
 
 计算机视觉：照片标记、医疗成像、自动驾驶汽车
 
+文本生成/对话
+
 [mlc-llm 陈天奇团队](https://github.com/mlc-ai/mlc-llm):在本地跑语言模型，无需服务器支持，并通过手机和笔记本电脑上的本地GPU进行加速。手机，笔记本均可
 
 [TigerBot 陈烨团队](https://github.com/TigerResearch/TigerBot):语言任务大模型，支持插件联网
 
 多模态
+
+[吴恩达大模型系列课程中文版 - datawhalechina](https://github.com/datawhalechina/prompt-engineering-for-developers)
+
+
+文转图 Stable Diffusion
+https://zhuanlan.zhihu.com/p/563073449
+
+文转视频
+
+https://videocomposer.github.io
+
+文转音乐
+
+https://about.fb.com/news/2023/08/audiocraft-generative-ai-for-music-and-audio/
+
+Multi-Modal Chat https://github.com/silverriver/MMChat
+
+https://github.com/FreedomIntelligence/LLMZoo
+
 
 # 参考
 
