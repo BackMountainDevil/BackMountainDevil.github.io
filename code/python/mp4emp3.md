@@ -1,6 +1,6 @@
 # 借助 ffmpeg 从视频中批量提取音频后做字幕 whisper
 - date: 2022-04-27
-- lastmod: 2023-08-01
+- lastmod: 2023-08-17
 
 ## 前言
 
@@ -10,6 +10,7 @@
 
 1. AI 实时字幕。参考 Youtube、Bilibili 的 CC 字幕，据说华为也有，但是我没有华为设备，版权问题也不可能上传的。
 2. 先从视频中提取音频，再用 AI 对音频做语音识别，自动打点翻译生成字幕文件。不直接用视频是因为音频体积更小，节约识别时间，这里采取这个办法
+3. 语气词/背景音删除（如爆炸、枪声、打字声音），校对（词汇、幻听）
 
 ## 代码
 
@@ -50,6 +51,8 @@ openai-whisper(20230314) 指定中文可能输出简体/繁体，可参考[Simpl
 
 下面使用 medium vs large 中，large 输出一个长句子，而 medium 输出了两段，并且 large 的时间轴精度为一秒，medium 要更加精细
 
+whisper.cpp 目前只支持 wav 音频，其它格式可以用该指令 `ffmpeg -i input.mp4 -f wav -ar 16000 output.wav` 将其它格式转换为 wav 格式
+
 ```bash
 $ shasum large-v2.pt 
 d7a2f7bcc4655a8723162b5810a6f7665794feeb  large-v2.pt
@@ -67,6 +70,8 @@ $ ./main -m models/ggml-medium.bin  -f samples/jfk.wav
 ```
 
 # 后记
+
+whisper 和 whisper.cpp 没有将外文翻译为中文的功能（whisper支持把其它语言翻译为英文），支持的输入时间长度我还没有测试上限
 
 把某系列视频的音频都提取出来后，用见外提取音频里的文字并自动翻译打轴生成 srt 字幕文件，目前是每日免费两小时，对于临时使用完全足够。
 
@@ -287,3 +292,16 @@ if __name__ == "__main__":
 
 [FFmpeg从视频中提取音频保存为mp3文件 Geek.Fan 2020-10](https://blog.csdn.net/fanyun_01/article/details/109408501):-vn 表示剔除视频流。-f mp3 指定输出文件的格式为 MP3 音频
 > ffmpeg -i test.mp4 -f mp3 -vn test.mp3
+
+[Nikse - SubtitleEdit Online](https://www.nikse.dk/subtitleedit/online)：是将字幕构造成网页，然后用各家的网页翻译来翻译
+
+[ 为电脑音频添加实时字幕 (for Windows/Linux) Zerol 2021-10-15 ](https://zerol.me/2021/10/15/Subtitle-for-Audio-Output/)
+
+[Argos Translate](https://github.com/argosopentech/argos-translate):基于OpenNMT的应用，测试表明中文翻译很垃圾。Argos Translate说其支持Chinese，基于其构建的 LibreTranslate 的中文翻译结果只能说不及格。
+
+    https://community.libretranslate.com/t/improving-chinese-translations/364
+
+[Opus-MT](https://github.com/Helsinki-NLP/Opus-MT)
+
+[机器翻译哪家强？对六家中译英产品的比较（谷歌、腾讯、搜狗、有道、百度、必应）Yiqin Fu](https://zhuanlan.zhihu.com/p/35819991)
+> 测试原文选择的是博鳌开幕式讲话。选择它是因为 1）机器如果有任何突破，一定是从语句较完整、与以往文件重复率较高的官方文件开始；2）讲话有官方提供的英文翻译，方便比较。
