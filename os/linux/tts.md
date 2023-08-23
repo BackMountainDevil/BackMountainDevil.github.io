@@ -1,5 +1,6 @@
 # TTS 文本转语音
 - date: 2023-8-11
+- lastmod: 2023-8-23
 
 最近在使用 firefox 的时候，最上面会提示我没有安装 Speech Dispatcher，打开其提示链接才知道其是一个视障帮助工具，可以用来朗读网页，同时页面上可以看到不同 linux 发行版的安装方式了。这个朗读网页的工具在 edge 浏览器是默认安装的，linux 主打一个需要再装。语音转文本的话可以看看 whisper
 
@@ -87,3 +88,9 @@ ekho -v Cantonese "解放全人类"
 [eGuideDog 黄冠能](http://www.eguidedog.net/cn/index.php)：ekho 是其中一个子项目
 
 [Accessibility](https://wiki.archlinux.org/title/List_of_applications/Other#Accessibility)：无障碍应用，如语音识别、朗读、鼠标自动点击
+
+[如何使用火狐浏览器朗读网页文本 2020年5月5日 逸云蓝天](https://www.eskysky.com/1701.html):“切换阅读器视图”的快捷键是 ctrl+alt+r
+> 打开一个新闻网页。可以看到，地址栏上有一个“切换阅读器视图”的按钮
+> 如果你的火狐浏览器没有这个“切换阅读器视图”的按钮也不用着急，我们可以通过在网址前加上“about:reader?url=”的方式强制打开阅读模式
+
+[PaddleSpeech](https://gitee.com/paddlepaddle/PaddleSpeech)
