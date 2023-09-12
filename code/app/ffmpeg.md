@@ -1,6 +1,6 @@
 # ffmpeg 基本命令
 - date: 2022-07-02
-- lastmod: 2023-1-21
+- lastmod: 2023-9-12
 
 ## 常用命令
 
@@ -313,3 +313,7 @@ ffmpeg -re i rec.mp4 按照网站要求编码 -f flv "你的rtmp地址/你的直
 - [ffmpeg-libav-tutorial](https://github.com/leandromoreira/ffmpeg-libav-tutorial)
 
 - [VapourSynth（VS） 视频处理压制入门教程 2021-07-01 EddyStorm](https://www.bilibili.com/read/cv11955002/)
+
+- [最强 AI 人声伴奏分离工具 UVR5，更新5.5版本 2023年02月23日 略懂的大龙猫](https://www.bilibili.com/read/cv21997904/)
+
+- [如何屏蔽每次调用ffmpeg都要显示的一大段文件信息？](https://www.zhihu.com/question/604564230):`-loglevel quiet` 可以省略绝大多数信息，是否覆盖会显示询问，缺点是不会显示进度
