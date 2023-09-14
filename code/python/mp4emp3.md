@@ -1,6 +1,6 @@
 # 借助 ffmpeg 从视频中批量提取音频后做字幕 whisper
 - date: 2022-04-27
-- lastmod: 2023-08-17
+- lastmod: 2023-09-14
 
 ## 前言
 
@@ -64,7 +64,8 @@ fd9727b6e1217c2f614f9b698455c4ffd82463b4  ggml-medium.bin
 $ ./main -m models/ggml-large-v2.bin  -f samples/jfk.wav
 [00:00:00.000 --> 00:00:11.000]   And so my fellow Americans, ask not what your country can do for you, ask what you can do for your country.
 
-$ ./main -m models/ggml-medium.bin  -f samples/jfk.wav
+# 切换中等模型，设置4核8线程，结果保存为6种格式，存在输入文件的路径中
+$ ./main -m models/ggml-medium.bin  -f samples/jfk.wav -t 8 -p 4 -otxt -ovtt -osrt -olrc -ocsv -oj
 [00:00:00.000 --> 00:00:08.940]   And so, my fellow Americans, ask not what your country can do for you, ask what you
 [00:00:08.940 --> 00:00:10.440]   can do for your country.
 ```
