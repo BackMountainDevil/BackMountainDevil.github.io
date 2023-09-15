@@ -21,3 +21,4 @@
 - [Surface Pro 4 黑屏不开机维修记](/hackaday/thing/surfacePro4.md)
 - [模拟对讲机 UV-K5 改 固件](/hackaday/thing/UV-K5.md)
 - [横拉窗帘（非罗马杆）加上自动化](/hackaday/thing/curtainAuto.md)
+- [联想小新13 pro 2020 ARE 版本键盘单个按键拆装](/hackaday/thing/xx13pKb.md)
