@@ -1,6 +1,6 @@
 # adb 安卓调试工具
 - date: 2022-08-29
-- lastmod: 2022-08-29
+- lastmod: 2023-09-27
 
 卸载无法在手机上卸载的软件、冻结软件、强制安装旧版应用
 
@@ -10,6 +10,9 @@
 > 要在 Android 设备上执行 adb 指令，在此之前我们还需要在手机的系统设置中启用「USB 调试」功能。USB 调试功能位于「开发者选项」当中，在搭载 Android 4.2 及更高版本的设备上，开发者选项默认隐藏，要将其显示出来，我们需要在「设置 > 关于手机」中找到并连续点击七次版本号。
 
 然后进入开发者选项打开USB调试功能，用数据线把手机和电脑连接起来，若手机有弹窗则选择调试/测试模式
+
+手机上可选USB模式为充电、传输文件（MTP）、传输照片（PTP），需要注意选择 MTP,不然下面使用 adb 查看设备时可能会出现 no permisson
+
 ## 在PC上安装ADB
 
 - [SDK Platform Tools 版本说明](https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn):adb+fastboot 下载
