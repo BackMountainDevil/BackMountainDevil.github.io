@@ -1,6 +1,6 @@
 # adb 安卓调试工具
 - date: 2022-08-29
-- lastmod: 2023-09-27
+- lastmod: 2023-09-28
 
 卸载无法在手机上卸载的软件、冻结软件、强制安装旧版应用
 
@@ -34,3 +34,5 @@
 - [我的内存去哪了？安卓为何一定要大内存，而苹果不用，教你优化大招！2020-11-11 epcdiy](https://www.bilibili.com/video/BV19T4y1F7EN):pm disable-user pkgname
 - [用了此方法，2G内存安卓手机也能快得起飞 2020-11-19 epcdiy](https://www.bilibili.com/video/BV115411V7v1):到googlePlay下载旧版app
 - [[Windows] 【搞机助手】可能是最好用的安卓手机助手！（更新至4.25版本）2019-7-24 helaer](https://www.52pojie.cn/thread-996129-1-1.html)
+
+- [gnirehtet](https://github.com/Genymobile/gnirehtet):计算机通过 adb 向手机提供网络连接。安装好之后运行 `gnirehtet run` 就会自动在手机上安装软件，然后共享网络，如果报错 `Permission Denial: starting Intent requires android.permission.WRITE_SECURE_SETTINGS`，一种解决办法打开在开发者选项中的“禁止权限监控（disable permission monitoring）”，小米6开发板没找到这个选项。在 Coolpad A8-32 安卓 5.1.1 上测试成功
