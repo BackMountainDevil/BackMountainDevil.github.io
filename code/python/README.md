@@ -13,3 +13,4 @@
 - [借助 ffmpeg 从视频中批量提取音频后做字幕 whisper](/code/python/mp4emp3.md)
 - [文本编码另存为 utf-8（字幕编码格式转换](/code/python/2utf8.md)
 - [自定义模块/包无法识别路径 PYTHONPATH sys.path](/code/python/path.md)
+- [gym->gymnasium atari](/code/python/gym.md)
