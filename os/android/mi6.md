@@ -1,5 +1,6 @@
 # 小米6刷lineageos root
 - date: 2023-10-13
+- lastmod: 2023-10-16
 
 # lineageos20 感受
 
@@ -31,9 +32,11 @@ nfc：com.yuanwofei.cardemulator（需要root才能模拟
 
 电信卡，插上不能打电话，开启 VoLTE 高清才可以打电话，关了 VoLTE 打电话就显示无法连接到移动网络，但实际上开了移动网络（流量）就可以上网，这一点在原装 MIUI 上一样。我在 ios12.4 没见过 volte
 
-nfc 需要自己主动唤醒，就是解锁后才能模拟，没解锁息屏怼刷卡机开不了门的，记得MIUI是被动唤醒
+nfc 需要自己主动唤醒，就是亮屏后才能模拟，没解锁息屏怼刷卡机开不了门的，记得MIUI是被动唤醒
 
 夜间拍照效果和 se 一样拍不清楚，不影响我扫码
+
+使用lineageos自带的系统更新更新后，gapp、magisk大概率会失效，目前失效一回，影响了需要 root 功能的 nfc，也影响了 google camera，需要重装 Magisk、gapp。
 
 # 刷机
 ## 第一轮刷机的个人捣鼓过程
@@ -271,7 +274,7 @@ PS D:\Downloads\mi6> adb sideload D:\Downloads\mi6\NikGapps-core-arm64-13-202303
 Total xfer: 2.45x
 ```
 
-## root
+
 
 ## google camera
 
