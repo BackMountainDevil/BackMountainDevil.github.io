@@ -1,6 +1,6 @@
 # 多系统下的蓝牙设备共用配对问题之 LTK、EDIV、ERAND.以 Manjaro、Debian、Windows10 为例
 - date: 2020-09-6
-- lastmod: 2022-10-05
+- lastmod: 2023-10-16
 
 # 简介
 
@@ -237,7 +237,7 @@ $ sudo nano /var/lib/bluetooth/28:CD:C4:BA:BB:2C/D1:17:FF:20:00:48/info
 $ sudo mv /var/lib/bluetooth/28:CD:C4:BA:BB:2C/D1:17:FF:20:00:48/ /var/lib/bluetooth/28:CD:C4:BA:BB:2C/D1:18:FF:20:00:48
 
 # 重启蓝牙服务，使设置生效
-$ sudo systemctl restart bluetooth 
+$ sudo systemctl restart bluetooth
 
 # 将 Manjaro 的蓝牙配置复制到 Debian 中，多 Linux 系统下可以这样操作，亲测有效。（双系统可以跳过）
 # Debian 的路径与你挂载的路径和名称有关 - /run/media/kearney/Debian/
