@@ -1,6 +1,6 @@
 # 小米6刷lineageos root
 - date: 2023-10-13
-- lastmod: 2023-10-16
+- lastmod: 2023-10-21
 
 # lineageos20 感受
 
@@ -294,3 +294,11 @@ Total xfer: 2.45x
 [备份手机 QCN 防范 IMEI 丢失无信号](https://miuiver.com/backup-phone-qcn)
 
 [小米6 ROM仓库](https://mylovezcy.gitee.io/mylovezcy1/devices/sagit.html)
+
+[小米6 官方参数](https://www.mi.com/mi6/specs):后置摄像头是 Sony IMX386 + Samsung s5k3m3，前置摄像头是 Sony IMX268
+> 玻璃版重量：168 g
+> 陶瓷尊享版重量：182 g
+
+[刷了 Magisk 之后装什么？我推荐这 20+ 个模块 Mirtle 2021 年 08 月 30 日](https://sspai.com/post/68531)
+
+[Mahmud0808/Iconify](https://github.com/Mahmud0808/Iconify):修改 UI 布局的软件，我用来调整快速通知图块的行与列数量
