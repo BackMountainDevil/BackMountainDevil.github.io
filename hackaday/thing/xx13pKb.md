@@ -1,5 +1,6 @@
 # 联想小新13 pro 2020 ARE 版本键盘单个按键拆装
 - date: 2023-09-16
+- lastmod: 2023-11-11
 
 失效按键：w
 
@@ -14,3 +15,42 @@
 装回去就反着来，倾斜着将键帽由转轴侧向下方推入，将下方平移锁止机构推进去，整个放到位之后稍微使劲垂直键盘平面往下摁，使上方两卡扣扣上即可。
 
 第一回w按键失效，我尝试风扇冷却，似乎无效，退出cs之后，好了，因此推测是过热；第二次失效游戏里改键位了，不管w，然后就第一回我把w按键拆下，还没清理，它就又好了。
+
+# 失效原因
+
+起初似乎是游戏过热，冷却就好；然后就是莫名其妙失效，拆开装回去就好；最后就是拆下按也不行，尝试过多按几次、摁着揉，也没法恢复。蓝牙键盘接上去可以输入 w，排除是被限制输入w，换系统依旧失效，排除系统问题
+
+## 临时解决办法：改键位
+
+### windows
+
+1. [powertoys/keyboard-manager](https://learn.microsoft.com/zh-cn/windows/powertoys/keyboard-manager):轻松修改，无需重启，退出软件即可恢复，启动软件自动载入
+
+### Linux
+
+1. [Xmodmap](https://wiki.archlinux.org/title/Xmodmap)：备份原始配置，复制一份做修改，需要的时候应用修改和恢复原始配置。在一些DE中，`~/.Xmodmap` 会自动加载为用户默认配置，而无需开机后手动加载
+
+```bash
+xmodmap -pke > ~/.Xmodmap # 将当前的键盘映射配置存储到文件
+cp ~/.Xmodmap ~/.Xmodmap-backup # 备份
+nano .Xmodmap # 编辑 .Xmodmap，下面有个例子
+xmodmap ~/.Xmodmap # 使用该文件的配置作为新的键盘映射配置
+```
+
+- 文件名: .Xmodmap
+- 目地：前两行是交换按键（ w 和 右边的 alt），后四行是把 CapsLock 修改为左边的 Ctrl
+
+```
+keycode  25 = Alt_R Meta_R Alt_R Meta_R
+keycode 108 = w W w W
+
+remove lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L
+keysym Control_L = Caps_Lock
+```
+
+
+2. KDE 桌面可以在系统设置的键盘里面，高级里边有可以设置一些特殊键位，不过看了不支持对调 alt/w
+
+3. [Linux通用键位修改（中）-实际操作 2020年03月18日 JimMoen](https://www.bilibili.com/read/cv5156572/):root /etc/udev/hwdb.d
