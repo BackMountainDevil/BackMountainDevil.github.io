@@ -1,6 +1,6 @@
 # 安卓运行旧版微信
 - date: 2022-08-29
-- lastmod: 2022-09-01
+- lastmod: 2023-11-22
 
 安卓机越来越卡的真相是什么？有一个理论是中文简体互联网的软件不注重优化，都想着霸占后台，常驻内存。想在旧手机上流畅使用的一个办法是使用gp的app或者下载旧版的app
 
@@ -14,6 +14,8 @@ https://dldir1.qq.com/weixin/android/weixin7020android1780_arm64.apk
 9.1登录显示该微信号因使用了微信外挂、非官方客户端或模拟器，被限制登录...估计是旧版客户端或者是ios版本使用了切换账号功能，结果7020版本还不支持解除限制
 
 # 参考
+
+- [微信 官方各平台历史版本](https://weixin.qq.com/cgi-bin/readtemplate?lang=zh_CN&t=weixin_faq_list&head=true)：收录列表，不提供旧版下载
 
 - [ [Android 讨论] 微信官网各安卓老版本下载地址分享！！！  Jxndwz 2020-8-27](https://www.52pojie.cn/thread-1255139-1-1.html)
   <details>
