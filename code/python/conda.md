@@ -17,6 +17,9 @@ conda 4.10.3
 $ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 $ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
 $ conda config --set show_channel_urls yes
+# 添加 conda-forge
+$ conda config --add channels conda-forge
+$ conda config --set channel_priority strict
 ```
 
 # 常见使用办法
