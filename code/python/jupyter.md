@@ -1,6 +1,6 @@
 # miniconda3 安装 Jupyter jupyter-lab
 - date: 2021-09-14
-- lastmod: 2023-1-10
+- lastmod: 2023-11-29
 
 jupyter 是个啥？很久之前接触 python 机器学习的时候最早接触的是 jupyter notebook，编写 python 的代码不再是写完全部再运行调试，notebook 可以将程序分为一小块一小块（cell）的运行，和在 python 交互式终端中类似，但比后者更加方便修改运行。2021 年 jupyter-lab 不仅拥有 notebook 的功能，还有就是 notebook 一个文件会打开一个浏览器标签页，而 lab 就像在一个浏览器标签页内整了一个轻量化的 IDE。
 
@@ -9,6 +9,10 @@ jupyter 是个啥？很久之前接触 python 机器学习的时候最早接触�
 # 安装
 ## conda 方式
 conda 的安装参见前面的[文章](./conda.md)。
+
+### 失败尝试
+
+这是未激活虚拟环境就安装的操作，不推荐。
 
 ```bash
 $ conda install -c conda-forge jupyterlab
@@ -50,6 +54,23 @@ TermSocket.open: Opened 1
 不知道是我安装哪里出现了问题，按照官方的要求下载的。。。依赖问题没有解决好，手动安装 nodejs 会使它成为一个孤包，依赖关系没有在系统中得到记录。而我的系统中暂时不装 pip,仅通过虚拟环境中使用 pip，主要是担心用户 pip 安装的东西和系统安装的混搭在一起。于是剩下了从发行版的仓库中安装，先把刚才通过 conda 安装的 jupyterlab 给卸载了（conda也会卸载其依赖）
 
 `sudo conda uninstall -c conda-forge jupyterlab`
+
+### 成功尝试
+
+```bash
+# 已经添加 conda-forge
+[mifen@hp ~]$ conda activate 310    # 激活虚拟环境
+(310) [mifen@hp ~]$ conda install jupyterlab
+(310) [mifen@hp ~]$ jupyter lab # 启动 jupyterlab
+Traceback (most recent call last):                                                                  
+  File "/home/mifen/.conda/envs/310/lib/python3.10/site-packages/requests/compat.py", line 11, in <module>                                                                                              
+    import chardet                                                                                  
+ModuleNotFoundError: No module named 'chardet'
+......
+ImportError: cannot import name 'is_ascii' from 'charset_normalizer.utils' (/home/mifen/.conda/envs/310/lib/python3.10/site-packages/charset_normalizer/utils.py)
+(310) [mifen@hp ~]$ pip install chardet # fix 安装上面缺失的模块
+(310) [mifen@hp ~]$ jupyter lab # 启动 jupyterlab，浏览器有弹出对应页面
+```
 
 ### Jupyter
 
