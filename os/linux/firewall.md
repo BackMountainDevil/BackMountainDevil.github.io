@@ -1,6 +1,6 @@
 # linux下的流量监控之应用程序防火墙
 - date: 2022-10-03
-- lastmod: 2022-10-03
+- lastmod: 2023-12-01
 
 今天我发现使用 wps 打开 pdf 文件的时候，硬盘扩展坞会被激活并且硬盘发出的声音就好像被扫描了一边目录（使用文件管理器打开休眠的硬盘时也是这个声音），刚开始我不太确信，一番操作反复试验后得到结果就是会激活硬盘扩展坞，至于原理和过程不清楚。
 
@@ -79,7 +79,7 @@ $ sudo ufw app list
 AUR 评论中没有看到我这类网络问题，于是到 [github wiki](https://github.com/evilsocket/opensnitch/wiki/) 看了一下安装步骤，发现我只安装了 gui，没有安装 daemon。。。于是又去下载 daemon 的 deb 转码再安装
 
 ```bash
-$ yay opensnitc
+$ yay opensnitch
 ==> 正在开始 build()...
 go: github.com/golang/protobuf/protoc-gen-go@latest: module github.com/golang/protobuf/protoc-gen-go: Get "https://proxy.golang.org/github.com/golang/protobuf/protoc-gen-go/@v/list": dial tcp 172.217.163.49:443: i/o timeout
 ==> 错误： 在 build() 中发生一个错误。    正在放弃...
@@ -94,6 +94,8 @@ $ sudo pacman -U opensnitch-1.5.2-1-x86_64.pkg.tar.zst
 $ sudo systemctl enable --now opensnitch
 $ sudo systemctl start opensnitch
 ```
+
+现在该软件已经打包的 extra 仓库，可以直接安装了。安装完成后需要手动启动服务（sudo systemctl enable opensnitchd --now）
 
 # 相关阅读
 
