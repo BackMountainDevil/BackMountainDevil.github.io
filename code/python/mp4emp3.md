@@ -1,6 +1,6 @@
 # 借助 ffmpeg 从视频中批量提取音频后做字幕 whisper
 - date: 2022-04-27
-- lastmod: 2023-09-14
+- lastmod: 2023-12-09
 
 ## 前言
 
@@ -293,6 +293,8 @@ if __name__ == "__main__":
 
 [FFmpeg从视频中提取音频保存为mp3文件 Geek.Fan 2020-10](https://blog.csdn.net/fanyun_01/article/details/109408501):-vn 表示剔除视频流。-f mp3 指定输出文件的格式为 MP3 音频
 > ffmpeg -i test.mp4 -f mp3 -vn test.mp3
+
+[Vaibhavs10/insanely-fast-whisper](https://github.com/Vaibhavs10/insanely-fast-whisper):whisper加速，暂时还不支持 cpu
 
 [Nikse - SubtitleEdit Online](https://www.nikse.dk/subtitleedit/online)：是将字幕构造成网页，然后用各家的网页翻译来翻译
 
