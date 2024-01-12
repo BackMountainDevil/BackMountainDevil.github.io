@@ -1,6 +1,6 @@
 # 借助 ffmpeg 从视频中批量提取音频后做字幕 whisper
 - date: 2022-04-27
-- lastmod: 2023-12-09
+- lastmod: 2024-01-12
 
 ## 前言
 
@@ -68,6 +68,150 @@ $ ./main -m models/ggml-large-v2.bin  -f samples/jfk.wav
 $ ./main -m models/ggml-medium.bin  -f samples/jfk.wav -t 8 -p 4 -otxt -ovtt -osrt -olrc -ocsv -oj
 [00:00:00.000 --> 00:00:08.940]   And so, my fellow Americans, ask not what your country can do for you, ask what you
 [00:00:08.940 --> 00:00:10.440]   can do for your country.
+```
+
+拉满核心，加上prompt，处理一分钟的音频（`whisper.cpp -m ~/Documents/ggml-large-v2.bin -f 4.wav -t 12 -p 6 -otxt -ovtt -l zh --prompt "以下是普通话的句子"`），耗时将近35分钟，内存占有大概 7.5g，电脑可以感觉明显卡顿。而在服务器上测试结果却让我大吃一惊，耗时不到一分钟，后面看 top 推测是虽然我命名限制了核心数和线程数，但 top 显示是没有限制住，服务器的 cpu 拉满了。也考虑过笔记本的 whisper.cpp 是从 AUR 安装的，和服务器上自己编译安装的不一样，然后我都从源代码编译安装了再测试，结果还是一样的差异化明显。只能说核心多就是牛，虽然服务器内存也多，但是可以看到笔记本内存并未跑满( free -g)，r5 4600u 的时间在 encode decode batchd prompt 上都远差于 Platinum 8375C
+
+```bash
+# 笔记本
+$ whisper.cpp -m ~/Documents/ggml-large-v2.bin -f 4.wav -t 12 -p 6 -otxt -ovtt -l zh --prompt "以下是普通话的句子"
+whisper_init_from_file_with_params_no_state: loading model from '/home/kearney/Documents/ggml-large-v2.bin'
+whisper_model_load: loading model
+whisper_model_load: n_vocab       = 51865
+whisper_model_load: n_audio_ctx   = 1500
+whisper_model_load: n_audio_state = 1280
+whisper_model_load: n_audio_head  = 20
+whisper_model_load: n_audio_layer = 32
+whisper_model_load: n_text_ctx    = 448
+whisper_model_load: n_text_state  = 1280
+whisper_model_load: n_text_head   = 20
+whisper_model_load: n_text_layer  = 32
+whisper_model_load: n_mels        = 80
+whisper_model_load: ftype         = 1
+whisper_model_load: qntvr         = 0
+whisper_model_load: type          = 5 (large)
+whisper_model_load: adding 1608 extra tokens
+whisper_model_load: n_langs       = 99
+whisper_model_load:      CPU buffer size =  3117.50 MB
+whisper_model_load: model size    = 3117.02 MB
+whisper_init_state: kv self size  =  220.20 MB
+whisper_init_state: kv cross size =  245.76 MB
+whisper_init_state: compute buffer (conv)   =   30.92 MB
+whisper_init_state: compute buffer (encode) =  212.36 MB
+whisper_init_state: compute buffer (cross)  =    9.32 MB
+whisper_init_state: compute buffer (decode) =   99.17 MB
+
+system_info: n_threads = 72 / 12 | AVX = 1 | AVX2 = 1 | AVX512 = 0 | FMA = 1 | NEON = 0 | ARM_FMA = 0 | METAL = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 0 | SSE3 = 1 | SSSE3 = 1 | VSX = 0 | CUDA = 0 | COREML = 0 | OPENVINO = 0 | 
+
+main: processing '4.wav' (960000 samples, 60.0 sec), 12 threads, 6 processors, 5 beams + best of 5, lang = zh, task = transcribe, timestamps = 1 ...
+......
+whisper_full_parallel: the audio has been split into 6 chunks at the following times:
+whisper_full_parallel: split 1 - 00:00:10.000
+whisper_full_parallel: split 2 - 00:00:20.000
+whisper_full_parallel: split 3 - 00:00:30.000
+whisper_full_parallel: split 4 - 00:00:40.000
+whisper_full_parallel: split 5 - 00:00:50.000
+whisper_full_parallel: the transcription quality may be degraded near these boundaries
+
+output_txt: saving output to '4.wav.txt'
+output_vtt: saving output to '4.wav.vtt'
+
+whisper_print_timings:     load time =  2042.00 ms
+whisper_print_timings:     fallbacks =   0 p /   0 h
+whisper_print_timings:      mel time =    85.72 ms
+whisper_print_timings:   sample time =  2149.53 ms /  2232 runs (    0.96 ms per run)
+whisper_print_timings:   encode time = 229178.86 ms /     9 runs (25464.32 ms per run)
+whisper_print_timings:   decode time = 17946.71 ms /     8 runs ( 2243.34 ms per run)
+whisper_print_timings:   batchd time = 10827131.00 ms /  2268 runs ( 4773.87 ms per run)
+whisper_print_timings:   prompt time = 55469.14 ms /    47 runs ( 1180.19 ms per run)
+whisper_print_timings:    total time = 2111007.00 ms
+
+# 服务器
+$ ./main -m models/ggml-large-v2.bin -f 1min.wav  -t 12 -p 6 -otxt -ovtt -l zh --prompt "以下是普通话的句子" -ng true
+whisper_init_from_file_with_params_no_state: loading model from 'models/ggml-large-v2.bin'
+whisper_model_load: loading model                                                                                                                                     
+whisper_model_load: n_vocab       = 51865                                                                                                                             
+whisper_model_load: n_audio_ctx   = 1500                                                                                                                              
+whisper_model_load: n_audio_state = 1280                                                                                                                              
+whisper_model_load: n_audio_head  = 20                                                                                                                                
+whisper_model_load: n_audio_layer = 32                                                                                                                                
+whisper_model_load: n_text_ctx    = 448                                                                                                                               
+whisper_model_load: n_text_state  = 1280                                                                                                                              
+whisper_model_load: n_text_head   = 20                                                                                                                                
+whisper_model_load: n_text_layer  = 32                                                                                                                                
+whisper_model_load: n_mels        = 80                                                                                                                                
+whisper_model_load: ftype         = 1                                                                                                                                 
+whisper_model_load: qntvr         = 0                                                                                                                                 
+whisper_model_load: type          = 5 (large)                                                                                                                         
+whisper_model_load: adding 1608 extra tokens                                                                                                                          
+whisper_model_load: n_langs       = 99                                                                                                                                
+whisper_model_load:      CPU buffer size =  3094.51 MB                                                                                                                
+whisper_model_load: model size    = 3093.99 MB
+whisper_init_state: kv self size  =  220.20 MB
+whisper_init_state: kv cross size =  245.76 MB
+whisper_init_state: compute buffer (conv)   =   31.05 MB
+whisper_init_state: compute buffer (encode) =  212.49 MB
+whisper_init_state: compute buffer (cross)  =    9.45 MB
+whisper_init_state: compute buffer (decode) =   99.30 MB
+
+system_info: n_threads = 72 / 64 | AVX = 1 | AVX2 = 1 | AVX512 = 0 | FMA = 1 | NEON = 0 | ARM_FMA = 0 | METAL = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 0
+| SSE3 = 1 | SSSE3 = 1 | VSX = 0 | CUDA = 0 | COREML = 0 | OPENVINO = 0 |
+
+main: processing '1min.wav' (960512 samples, 60.0 sec), 12 threads, 6 processors, 5 beams + best of 5, lang = zh, task = transcribe, timestamps = 1 ...
+
+whisper_init_state: kv self size  =  220.20 MB
+whisper_init_state: kv cross size =  245.76 MB
+whisper_init_state: compute buffer (conv)   =   31.05 MB
+whisper_init_state: compute buffer (encode) =  212.49 MB
+whisper_init_state: compute buffer (cross)  =    9.45 MB
+whisper_init_state: compute buffer (decode) =   99.30 MB
+whisper_init_state: kv self size  =  220.20 MB
+whisper_init_state: kv cross size =  245.76 MB
+whisper_init_state: compute buffer (conv)   =   31.05 MB
+whisper_init_state: compute buffer (encode) =  212.49 MB
+whisper_init_state: compute buffer (cross)  =    9.45 MB
+whisper_init_state: compute buffer (decode) =   99.30 MB
+whisper_init_state: kv self size  =  220.20 MB
+whisper_init_state: kv cross size =  245.76 MB
+whisper_init_state: compute buffer (conv)   =   31.05 MB
+whisper_init_state: compute buffer (encode) =  212.49 MB
+whisper_init_state: compute buffer (cross)  =    9.45 MB
+whisper_init_state: compute buffer (decode) =   99.30 MB
+whisper_init_state: kv self size  =  220.20 MB
+whisper_init_state: kv cross size =  245.76 MB
+whisper_init_state: compute buffer (conv)   =   31.05 MB
+whisper_init_state: compute buffer (encode) =  212.49 MB
+whisper_init_state: compute buffer (cross)  =    9.45 MB
+whisper_init_state: compute buffer (decode) =   99.30 MB
+whisper_init_state: kv self size  =  220.20 MB
+whisper_init_state: kv cross size =  245.76 MB
+whisper_init_state: compute buffer (conv)   =   31.05 MB
+whisper_init_state: compute buffer (encode) =  212.49 MB
+whisper_init_state: compute buffer (cross)  =    9.45 MB
+whisper_init_state: compute buffer (decode) =   99.30 MB
+
+whisper_full_parallel: the audio has been split into 6 chunks at the following times:
+whisper_full_parallel: split 1 - 00:00:10.000
+whisper_full_parallel: split 2 - 00:00:20.010
+whisper_full_parallel: split 3 - 00:00:30.010
+whisper_full_parallel: split 4 - 00:00:40.020
+whisper_full_parallel: split 5 - 00:00:50.020
+whisper_full_parallel: the transcription quality may be degraded near these boundaries
+
+output_txt: saving output to '1min.wav.txt'
+output_vtt: saving output to '1min.wav.vtt'
+error: failed to open 'true' as WAV file
+error: failed to read WAV file 'true'
+
+whisper_print_timings:     load time =  2083.44 ms         
+whisper_print_timings:     fallbacks =   0 p /   0 h    
+whisper_print_timings:      mel time =    29.96 ms      
+whisper_print_timings:   sample time =   324.89 ms /  2005 runs (    0.16 ms per run)
+whisper_print_timings:   encode time = 27716.37 ms /     9 runs ( 3079.60 ms per run)
+whisper_print_timings:   decode time =   181.54 ms /    28 runs (    6.48 ms per run)
+whisper_print_timings:   batchd time = 67733.28 ms /  2014 runs (   33.63 ms per run)                                                                                
+whisper_print_timings:   prompt time =   477.41 ms /    52 runs (    9.18 ms per run)
+whisper_print_timings:    total time = 49382.18 ms 
 ```
 
 # 后记
@@ -293,8 +437,6 @@ if __name__ == "__main__":
 
 [FFmpeg从视频中提取音频保存为mp3文件 Geek.Fan 2020-10](https://blog.csdn.net/fanyun_01/article/details/109408501):-vn 表示剔除视频流。-f mp3 指定输出文件的格式为 MP3 音频
 > ffmpeg -i test.mp4 -f mp3 -vn test.mp3
-
-[Vaibhavs10/insanely-fast-whisper](https://github.com/Vaibhavs10/insanely-fast-whisper):whisper加速，暂时还不支持 cpu
 
 [Nikse - SubtitleEdit Online](https://www.nikse.dk/subtitleedit/online)：是将字幕构造成网页，然后用各家的网页翻译来翻译
 
