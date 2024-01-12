@@ -1,6 +1,6 @@
 # 局域网传输文件与文件同步 ftp rsync rslsync
 - date: 2022-10-13
-- lastmod: 2023-01-04
+- lastmod: 2024-01-12
 
 手机、电脑之间，几个小文件完全可以用微信传输助手，再大一点（4GB）的电影文件我就会采用局域网传输文件了，比如 Landrop,但是他不能传输文件夹。当我想传几十个文件的时候，这个时候微信、Landrod、就会显的力不从心。这个时候就想起了 FTP、Samba、HTTP。
 
@@ -88,3 +88,5 @@ steam 拷贝测试中，该进程的 cpu 占有不到 1%。2,931,387.15 bytes/se
 - [Linux rsync命令用法详解 站长严长生](http://c.biancheng.net/view/6121.html)
 
 - [Backup/Restore best practices? ](https://forum.endeavouros.com/t/backup-restore-best-practices/33540):rsync, KDE/kup, Grsync , Borg. 四类数据：无价之宝、项目、罕见资源、容易获取的资源
+
+- [magic-wormhole](https://magic-wormhole.readthedocs.io/en/latest/welcome.html#example):PC 安全传输文件，有默认的中继服务器
