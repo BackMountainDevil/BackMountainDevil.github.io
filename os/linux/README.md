@@ -75,3 +75,4 @@
 - [解决windows终端里运行python或python3会自动弹出MicrosoftStore的两种办法](/os/windwos/pythonStore.md)
 - [流氓软件与流氓系统的清理故事](/os/windwos/liumang.md)
 - [BIOS 更新导致蓝屏且无响应 SYSTEM_SERVICE_EXCEPTION TdkLib64.sys](/os/windwos/biosUpdate.md)
+- [USB-C 2 HDMI 系统对比](/os/windwos/typec2hdmi.md)
