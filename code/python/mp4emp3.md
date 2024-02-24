@@ -1,6 +1,6 @@
 # 借助 ffmpeg 从视频中批量提取音频后做字幕 whisper
 - date: 2022-04-27
-- lastmod: 2024-01-12
+- lastmod: 2024-02-24
 
 ## 前言
 
@@ -71,6 +71,8 @@ $ ./main -m models/ggml-medium.bin  -f samples/jfk.wav -t 8 -p 4 -otxt -ovtt -os
 ```
 
 拉满核心，加上prompt，处理一分钟的音频（`whisper.cpp -m ~/Documents/ggml-large-v2.bin -f 4.wav -t 12 -p 6 -otxt -ovtt -l zh --prompt "以下是普通话的句子"`），耗时将近35分钟，内存占有大概 7.5g，电脑可以感觉明显卡顿。而在服务器上测试结果却让我大吃一惊，耗时不到一分钟，后面看 top 推测是虽然我命名限制了核心数和线程数，但 top 显示是没有限制住，服务器的 cpu 拉满了。也考虑过笔记本的 whisper.cpp 是从 AUR 安装的，和服务器上自己编译安装的不一样，然后我都从源代码编译安装了再测试，结果还是一样的差异化明显。只能说核心多就是牛，虽然服务器内存也多，但是可以看到笔记本内存并未跑满( free -g)，r5 4600u 的时间在 encode decode batchd prompt 上都远差于 Platinum 8375C
+
+后来 lyoneel 在[评论区](https://aur.archlinux.org/packages/whisper.cpp#comment-957450)留言说 openblas 可以再加速，于是我尝试了一下，还是用我笔记本转录一分钟的音频，最终耗时12分钟，比之前30多分钟的结果好多了
 
 ```bash
 # 笔记本
