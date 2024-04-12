@@ -161,3 +161,5 @@ tmux kill-session -t {id/name} # 杀死会话
   >
   > `Ctrl+b q`：显示窗格编号
   >
+- [在tmux缓冲区中搜索 lvusyy 2020-01-05](https://www.cnblogs.com/lovesKey/p/12151317.html)
+  >     请按 Ctrl-b [ 进入copy mode。如果您正在使用emacs键绑定（默认设置），请按Ctrl-s然后输入要搜索的字符串，然后按Enter。按n再次搜索相同的字符串。按Shift-n进行反向搜索。按Escape两次退出copy mode
