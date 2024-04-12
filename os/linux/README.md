@@ -20,6 +20,10 @@
 - [efibootmgr 管理启动项](/os/linux/efibootmgr.md)
 - [TTS 文本转语音](/os/linux/tts.md)
 
+## wayland
+
+- [wayland xmodmap 键盘按键映射失效，转 evremap。wps fcitx5 输入法失效](/os/wayland/inputRemap.md)
+
 ## KDE
 
 - [修复 KDE Plasma 下 Meta/win 键无法打开菜单/程序启动器的问题](/os/kde/meta.md)
