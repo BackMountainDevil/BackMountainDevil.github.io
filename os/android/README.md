@@ -1,3 +1,4 @@
 - [安卓运行旧版微信](/os/android/wechat.md)
 - [adb 安卓调试工具](/os/android/adb.md)
 - [小米6刷lineageos root](/os/android/mi6.md)
+- [小米6 lineageos 20 升级到 21](/os/android/lineageos20_21.md)
