@@ -9,6 +9,7 @@
 
 - [Jarvis's Blog](https://www.jarvis73.com/)
 - [覆沉](https://blog.ryey.icu/)
-- [点墨阁](https://blog.zzy-ac.top/)
+- [果果的博客](https://gwyxjtu.github.io/)
+- [Kezhi's Blog](https://kezhi.tech)
 - [孟诗远 - 程序员，爱好计算机、文学、心理学](https://blog.mxslly.com/)
 - [姚泽源 代号647](https://www.yaozeyuan.online/)
