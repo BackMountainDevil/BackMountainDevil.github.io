@@ -22,6 +22,7 @@
 
 ## wayland
 
+- [判断使用的是 x11 还是 wayland](/os/wayland/waylandOrX11.md)
 - [wayland xmodmap 键盘按键映射失效，转 evremap。wps fcitx5 输入法失效](/os/wayland/inputRemap.md)
 - [x11 转 wayland 后 qBittorrent 启动闪退](/os/wayland/qBittorrentCrash.md)
 
