@@ -53,6 +53,7 @@
 - [EndeavourOS 初体验 REISUB](/os/arch/endeavour.md)
 - [lightdm .service: Start request repeated too quickly. grub正常，不显示登录和桌面 Endeavour](/os/de/lightdmRepeat.md)
 - [蓝牙不正常因为 unmet condition check](/os/de/blncc.md)
+- [定时任务 crontab systemd](/os/de/timeJobScheduler.md)
 
 ## Manjaro
 
