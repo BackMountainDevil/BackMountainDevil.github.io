@@ -1,6 +1,6 @@
 # ssh shell 远程终端 公钥密钥
 - date: 2022-12-29
-- lastmod: 2022-12-29
+- lastmod: 2024-06-12
 
 ssh 是一种加密网络协议。应用上可以理解为远程终端。它具体实现有几个应用，常用的是 openssh，通常在 linux 系统上会默认安装。
 
@@ -20,9 +20,11 @@ sudo systemctl enable sshd --now    # 启动并开机自启
 
 ### 密/公钥生成
 
-`ssh-keygen -t ed25519 -C "$(whoami)@$(uname -n)-$(date -I)"`
+`ssh-keygen -t ed25519 -N '' -C "$(whoami)@$(uname -n)-$(date -I)"`
 
 `-t ed25519`: 要创建的密钥类型为 ed25519 格式，当然也可以使用4096位的RSA算法替代 `-t rsa -b 4096`
+
+`-N ''`： 表示不使用密码短语（passphrase），加入密码短语时使用密钥登录则需要再次输入密码，相当于多一重密码
 
 `-C "$(whoami)@$(uname -n)-$(date -I)"`: 公钥文件末尾注释，通常用邮件地址用作注释，这里用生成密钥的主机名和用户名加上日期作为备注
 
@@ -91,6 +93,35 @@ Host hw
 ```
 
 这样就可以直接 ssh hp 或者 ssh hw 登录对应的服务端了，不再需要输入一长串的内容
+
+# FAQ
+
+1. WARNING:UNPROTECTED PRIVATE KEY FILE! Permission denied
+
+```bash
+[edifier@hp .ssh]$ $ ssh server
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for '/home/edifier/.ssh/server' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "/home/edifier/.ssh/server": bad permissions
+edifier@10.11.12.13: Permission denied (publickey).
+
+[edifier@hp .ssh]$ ls -l
+总计 48
+-rw-r--r-- 1 edifier edifier  419  6月 3日 21:56 server
+-rw------- 1 edifier edifier 3381 2023年11月 1日 5090_edifier
+-rw-r--r-- 1 edifier edifier  313 2023年10月19日 authorized_keys
+-rw-r--r-- 1 edifier edifier  828  6月 3日 21:59 config
+-rw------- 1 edifier edifier  411 2023年 7月29日 id_ed25519
+-rw------- 1 edifier edifier 2888  6月 3日 21:58 known_hosts
+```
+
+原因是密钥的文件权限过于宽松，可以看到上面 server 密钥的权限是 644，改成 600 就好了
+
+    chmod 600 server
 
 # 参考
 
