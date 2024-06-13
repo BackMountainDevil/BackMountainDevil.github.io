@@ -20,6 +20,7 @@
 - [efibootmgr 管理启动项](/os/linux/efibootmgr.md)
 - [TTS 文本转语音](/os/linux/tts.md)
 - [查看磁盘使用空间和文件大小](/os/linux/filesize.md)
+- [ Linux tar 打包 gz bz xz zip 压缩](/os/linux/tar.md)
 
 ## wayland
 
