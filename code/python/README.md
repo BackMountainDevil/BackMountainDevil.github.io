@@ -1,7 +1,7 @@
 - [python 安装到入门（解决 pip 缺失、python 弹出 MicrosoftStore）](/code/python/install.md)
 - [pip 设置国内镜像提高下载速度](/code/python/pip.md)
 - [Python 的版本与虚拟环境管理，以 pyenv、pipenv、venv 为例](/code/python/pyvenv.md)
-- [miniconda3 的安装和使用 'zsh: command not found: conda'](/code/python/conda.md)
+- [miniconda3 miniforge 的安装和使用 'zsh: command not found: conda'](/code/python/conda.md)
 - [miniconda3 安装 Jupyter jupyter-lab](/code/python/jupyter.md)
 - [python 使用 xgettext 与 locale 做国家化与本土化的示例](/code/python/i18n.md)
 - [Python用configparser对配置文件进行读写与大小写问题](/code/python/configparser.md)

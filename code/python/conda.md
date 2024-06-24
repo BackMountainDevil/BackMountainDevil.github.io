@@ -1,10 +1,21 @@
-# miniconda3 的安装和使用 'zsh: command not found: conda'
+# miniconda3 miniforge 的安装和使用 'zsh: command not found: conda'
 - date: 2021-09-11
-- lastmod: 2022-08-06
+- lastmod: 2024-06-24
 
 python 中管理虚拟环境可以使用其自带的 venv,而管理不同版本的 python 环境的时候就可以使用 conda。conda 又有 anaconda 和 miniconda 两种，后者相对请量化一点。
 
 # 安装
+
+miniforge 是社区驱动的替代品，用来替代 Anaconda 的产品，直接下载比较慢，从 [TUNA Mirror](https://mirrors.tuna.tsinghua.edu.cn/github-release/conda-forge/miniforge/) 下载比较快
+
+```bash
+wget https://mirrors.tuna.tsinghua.edu.cn/github-release/conda-forge/miniforge/Release%2024.3.0-0/Miniforge3-24.3.0-0-Linux-x86_64.sh
+chmod +x Miniforge3-24.3.0-0-Linux-x86_64.sh
+./Miniforge3-24.3.0-0-Linux-x86_64.sh
+mamba activate /home/yicairun/opt/miniforge3
+```
+
+之后的使用和 conda 一样
 
 ```bash
 # Arch 系列可以从 AUR 中下载 miniconda3 软件包 
