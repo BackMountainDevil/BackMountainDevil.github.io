@@ -1,5 +1,6 @@
 # 查看磁盘使用空间和文件大小
 - date: 2024-5-22
+- lastmod: 2024-09-26
 
 SpaceSniffer 则适用于 windows 查看某路径下的文件大小，用矩形面积大小来表示文件大小占用，并且还可以一次显示多个文件层级的大小。
 
@@ -8,6 +9,12 @@ SpaceSniffer 则适用于 windows 查看某路径下的文件大小，用矩形�
 在 linux 上查看硬盘的使用情况： `df -h` . 参数 -h 表示空间大小的单位就近转换，而不是一律显示字节数，du 中的 -h 参数也是这个含义
 
 在 linux 上查看所有文件(含文件夹)的大小，并以降序显示： `du -sh * | sort -hr` . 参数 -s 表示只显示最上层文件的总计大小，不显示子文件的大小。参数 * 表示当前目录下的所有非隐藏文件。如果要同时查看以 `.` 开头的隐藏文件大小，则可以使用这个指令 `du -sh .[!.]* * | sort -hr` , 如果没有隐藏文件时，该指令会提示 `No such file or directory`，但不影响其统计非隐藏文件大小 。如果要查看大小的总和，可以在 du 中加入参数 -c，如 `du -sch *`。
+
+## SpaceSniffer
+
+github 上的不是官方渠道，repo也说了是第三方。[这个朴素的](http://www.uderzo.it/main_products/space_sniffer/download.html)才是，[sourceforge](https://sourceforge.net/projects/spacesniffer/files/)上指向的也是这个朴素的网页。免费下载。
+
+spacesniffer_1_3_0_2 体积只有 2.2 M，需要用管理员权限运行才能更准测查看文件大小。
 
 # 参考
 
