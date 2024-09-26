@@ -1,6 +1,6 @@
 # P2P 技术/下载 与 qBitTorrent Transmission
 - date: 2022-09-18
-- lastmod: 2023-09-27
+- lastmod: 2024-09-27
 
 P2P 技术可以用来高速分享文件。优点是可以提高下载速度、节省服务器带宽、避免单点故障。BitTorrent 则是建立在该技术上的应用软件，称之为 BitTorrent 客户端。客户端有很多，具有图形界面的有 Transmission、qBittorrent、没有图形化界面只有控制台界面的有 aria2、Transmission CLI（更多请查阅[BitTorrent_clients](https://wiki.archlinux.org/title/List_of_applications/Internet#BitTorrent_clients)）
 
@@ -34,3 +34,21 @@ bt 软件该有的基本功能都有。下载种子或磁力链接、做种、�
 bt 软件该有的基本功能都有。下载种子或磁力链接、做种、黑名单、web 端管理。常用在 openwrt 中的轻量化 bt 客户端，功能相对简洁。支持一次添加多个种子。不支持一次添加多个磁链、不支持部分下载。
 
 使用该软件的时候需要注意将配置保存到硬盘上，因为默认是保存在内容中，重启之后都会丢失，比如说做种列表重启就没了，需要重新添加种子然后校验。
+
+# PeerBanHelper
+
+反吸血的必要性：避免因 PCDN 吸血被运营商封号
+
+qBittorrent-Enhanced-Edition 针对 qB 做了防迅雷吸血功能，分叉出来一个新的版本，不是所有 pt 都支持。而 [PeerBanHelper](https://github.com/PBH-BTN/PeerBanHelper) 的防止吸血功能更加强大，且是独立程序，兼任好几个 bt 客户端。
+
+# 参考
+
+[PeerBanHelper(PBH)+qbittorrent小白初启动教程 2024年07月14](https://www.bilibili.com/read/cv36091420/)
+
+[关于 BitTorrent 和 PT 你需要知道的一切。 02/14/2020 by Ein Verne ](https://einverne.github.io/post/2020/02/everything-related-about-bittorrent-and-pt.html)
+
+[PeerBanHelper：自动封禁吸血BT客户端 2024-04-12 vce1](https://blogs.vicsdf.com/article/109250)
+
+[关于最近BT吸血事件的防范方法图文教程 2024年05月14日](https://www.bilibili.com/read/cv34508727/)
+
+[简单记录一个近期恶意吸血BT客户端 2024年03月17日](https://www.bilibili.com/read/cv33250605/)
