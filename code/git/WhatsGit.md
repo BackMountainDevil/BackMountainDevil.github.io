@@ -1,6 +1,6 @@
 # WhatsGit
 - date: 2020-08-27
-- lastmod: 2020-08-27
+- lastmod: 2024-11-06
 
 # Git是什么
 [Git Book](https://git-scm.com/book/zh/v2)
@@ -99,6 +99,14 @@ git reflog
 ## 从远程仓库克隆
 
 git clong git@github.com:"name/repo"
+
+例如： git clone https://github.com/python/cpython.git
+
+上面的例子中，仓库地址用的 https，一般针对公开仓库使用，私有仓库用 https 的话还要输入密码，不方便，因此私有仓库大多配置 ssh。
+
+指定分支的话，在仓库地址前用参数 `-b` (等同于 `--branch`)指定就好了，比如 git clone -b 3.12 https://github.com/python/cpython.git
+
+如果仓库太大，全部克隆会很花时间，那么可以在仓库地址前用参数 `--depth` 指定克隆深度，数字越小则克隆的越少，如 git clone --depth 1 https://github.com/python/cpython.git
 
 ## 查看远程仓库
 
