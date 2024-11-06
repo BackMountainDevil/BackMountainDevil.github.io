@@ -15,3 +15,5 @@
 - [姚泽源 代号647](https://www.yaozeyuan.online/)
 - [SurprisedCat](https://surprisedcat.github.io/)：数学、计算机编程和通信
 - [Jay Alammar](https://jalammar.github.io/)：机器学习可视化
+- [科学空间 苏剑林](https://kexue.fm/)
+- [廖雪峰](https://liaoxuefeng.com/blogs/all/)
