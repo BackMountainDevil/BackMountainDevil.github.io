@@ -1,6 +1,6 @@
 # docker 的入门笔记
 - date: 2022-04-13
-- lastmod: 2022-11-22
+- lastmod: 2024-07-18
 
 # 前言
 
@@ -31,6 +31,12 @@ systemctl enable docker # 设置开启自启动 docker 服务，禁止就 enable
 ```
 
 如果不想开启启动 docker 服务，比如我一般不这么设置，需要时再用下面这句 `systemctl start docker` 启动 docker 服务
+
+## windows
+
+docker 可以从 [tuna mirror](https://mirrors.tuna.tsinghua.edu.cn/docker-ce/win/static/stable/x86_64/) 下载压缩包，解压后添加路径到系统环境变量 PATH 中，内含 docker、dockerd、docker-proxy。
+
+除了手动安装上面三者之外，也可以用 wsl2 配合 [docker-desktop](https://www.docker.com/products/docker-desktop/)
 
 ## web 管理 portainer
 
@@ -161,6 +167,42 @@ REPOSITORY                                                    TAG       IMAGE ID
 registry.cn-hangzhou.aliyuncs.com/google_containers/kicbase   v0.0.34   5f58fddaff43   2 months ago    1.14GB
 mariadb                                                       latest    e2278f24ac88   12 months ago   410MB
 $ docker image rmi registry.cn-hangzhou.aliyuncs.com/google_containers/kicbase:v0.0.34
+```
+
+3. `Access is denied` on windows
+
+```
+PS C:\Users\kearney> docker ps
+error during connect: in the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect: Get "http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.46/containers/json": open //./pipe/docker_engine: Access is denied.
+```
+
+上面报错说明权限不足，我将终端换成带管理员权限的就好了。正常结果如下所示
+
+```
+PS C:\Users\kearney> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+```
+
+4. `The system cannot find the file specified` on windows
+
+```
+PS C:\Users\kearney> docker ps
+error during connect: this error may indicate that the docker daemon is not running: Get "http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.46/containers/json": open //./pipe/docker_engine: The system cannot find the file specified.
+```
+
+上面错误的原因是没有启动对应的服务，解决办法是打开另一个有管理员权限的终端启动服务： dockerd
+
+```
+PS C:\Users\kearney> dockerd
+time="18:39:14.9839809" level=info msg="Starting up"
+time="18:39:14.9905481" level=info msg="Windows default isolation mode: hyperv"
+time="18:39:15.0075200" level=info msg="[graphdriver] trying configured driver: windowsfilter"
+time="18:39:15.0208934" level=info msg="Loading containers: start."
+time="18:39:15.0276142" level=info msg="Restoring existing overlay networks from HNS into docker"
+time="18:39:15.0561958" level=info msg="Loading containers: done."
+time="18:39:15.0567388" level=info msg="Docker daemon" commit=662f78c containerd-snapshotter=false storage-driver=windowsfilter version=27.0.3
+time="18:39:15.0573447" level=info msg="Daemon has completed initialization"
+time="18:39:15.1005585" level=info msg="API listen on //./pipe/docker_engine"
 ```
 
 # 参考
