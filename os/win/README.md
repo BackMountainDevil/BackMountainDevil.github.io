@@ -10,3 +10,4 @@
 - [BIOS 更新导致蓝屏且无响应 SYSTEM_SERVICE_EXCEPTION TdkLib64.sys](/os/win/biosUpdate.md)
 - [USB-C 2 HDMI 系统对比](/os/win/typec2hdmi.md)
 - [小新pro13 ARE2020 windows 11 21H2 手动升级到 23H2 BIOS升级绿屏与内存完整性](/os/win/win11Update.md)
+- [windows 11 pro 22H2 手动升级到 24H2](/os/win/win1122h2_update_24h2.md)
