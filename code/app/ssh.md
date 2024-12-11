@@ -1,6 +1,6 @@
 # ssh shell 远程终端 公钥密钥
 - date: 2022-12-29
-- lastmod: 2024-06-12
+- lastmod: 2024-12-11
 
 ssh 是一种加密网络协议。应用上可以理解为远程终端。它具体实现有几个应用，常用的是 openssh，通常在 linux 系统上会默认安装。
 
@@ -94,6 +94,25 @@ Host hw
 
 这样就可以直接 ssh hp 或者 ssh hw 登录对应的服务端了，不再需要输入一长串的内容
 
+# 端口转发
+
+```bash
+$ python -m http.server --bind :: 8000 # “8000” 是指端口号，参数 “--bind ::” 是指同时监听 ipv6 地址的访问
+
+$ curl localhost:8000 # 正常会返回 html 内容
+
+# TODO test
+ssh -L 9999:localhost:80 user@remote-server
+当你访问本地计算机的9999端口时，实际上是在访问远程服务器的80端口
+
+将远程服务器的8888端口转发到本地计算机的80端口：
+ssh -R 8888:localhost:80 user@remote-server
+
+创建一个监听在本地1080端口的SOCKS代理：
+ssh -D 1080 user@remote-server
+```
+https://wty-yy.xyz/posts/44423/
+
 # FAQ
 
 1. WARNING:UNPROTECTED PRIVATE KEY FILE! Permission denied
@@ -123,8 +142,22 @@ edifier@10.11.12.13: Permission denied (publickey).
 
     chmod 600 server
 
+2. 新发的密钥无法连接
+
+如果新用户在之前有用过旧账户连接过该服务器，有可能会因为新密钥和旧认证方式不同导致无法登录，此时考虑是 known_hosts 冲突，考虑删除对应的数据行。
+
+[Linux 中的known_hosts 文件是什么](https://cn.linux-console.net/?p=19739):config 的 Host 缩写不太管用，Hostname 测试可以
+> 如果您知道系统的主机名或 IP 地址，则可以从 known_hosts 获取相关条目：
+> ssh-keygen -l -F <server-IP-or-hostname>
+>
+> 如果您想从known_hosts 文件中删除特定条目，并且您知道远程系统的主机名或IP，则可以执行此操作。
+>
+> ssh-keygen -R server-hostname-or-IP
+
 # 参考
 
 [OpenSSH - Arch wiki](https://wiki.archlinux.org/title/OpenSSH)
 
 [创建和管理 Azure 中的 Linux VM 用于身份验证的 SSH 密钥 2022/12/06 - 微软](https://learn.microsoft.com/zh-cn/azure/virtual-machines/linux/create-ssh-keys-detailed)
+
+[通过ssh动态端口转发共享校园资源（附带干货）By 苏剑林 | 2016-03-07](https://kexue.fm/archives/3651)
