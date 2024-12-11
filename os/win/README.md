@@ -5,6 +5,7 @@
 - [解决windows终端里运行python或python3会自动弹出MicrosoftStore的两种办法](/os/win/pythonStore.md)
 - [WSL2 在 windows 中使用 linux](/os/win/wsl2.md)
 - [Visual Studio Code 更新后远程插件失效 GLIBC_2.28 not found](/os/win/vsc_remote_fail.md)
+- [Windows Sandbox 初探](/os/win/sandbox.md)
 
 - [流氓软件与流氓系统的清理故事](/os/win/liumang.md)
 - [BIOS 更新导致蓝屏且无响应 SYSTEM_SERVICE_EXCEPTION TdkLib64.sys](/os/win/biosUpdate.md)
