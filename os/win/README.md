@@ -7,6 +7,7 @@
 - [Visual Studio Code 更新后远程插件失效 GLIBC_2.28 not found](/os/win/vsc_remote_fail.md)
 - [Windows Sandbox 初探](/os/win/sandbox.md)
 - [Sandboxie-Plus 沙盒初体验](/os/win/sandboxie_plus.md)
+- [Windows Hyper-V 初探](/os/win/hyperv.md)
 
 - [流氓软件与流氓系统的清理故事](/os/win/liumang.md)
 - [BIOS 更新导致蓝屏且无响应 SYSTEM_SERVICE_EXCEPTION TdkLib64.sys](/os/win/biosUpdate.md)
