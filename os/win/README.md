@@ -8,6 +8,7 @@
 - [Windows Sandbox 初探](/os/win/sandbox.md)
 - [Sandboxie-Plus 沙盒初体验](/os/win/sandboxie_plus.md)
 - [Windows Hyper-V 初探](/os/win/hyperv.md)
+- [有线耳机没声 前后面板插孔无法设置 驱动问题](/os/win/earphone_no_sound.md)
 
 - [流氓软件与流氓系统的清理故事](/os/win/liumang.md)
 - [BIOS 更新导致蓝屏且无响应 SYSTEM_SERVICE_EXCEPTION TdkLib64.sys](/os/win/biosUpdate.md)
