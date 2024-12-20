@@ -21,6 +21,7 @@
 - [TTS 文本转语音](/os/linux/tts.md)
 - [查看磁盘使用空间和文件大小](/os/linux/filesize.md)
 - [ Linux tar 打包 gz bz xz zip 压缩](/os/linux/tar.md)
+- [文件名称和内容乱码 unzip -O CP936](/os/linux/messy_code.md)
 
 ## wayland
 
