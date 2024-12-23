@@ -1,6 +1,6 @@
 # Python 的版本与虚拟环境管理
 - date: 2021-08-17
-- lastmod: 2021-08-24
+- lastmod: 2024-12-23
 
 # 虚拟环境 - virtual environment
 
@@ -136,6 +136,8 @@ deactivate
 # 删除虚拟环境，谨慎使用这条命令！！！在文件管理器中删除也是一样的
 rm -r env
 ```
+
+windows 激活环境的命令为 .env\Scripts\activate
 
 如何快速重建这个环境呢？获取别人的依赖文件，建立一个虚拟环境（不建也行）并激活，然后一行搞定
 
