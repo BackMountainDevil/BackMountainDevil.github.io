@@ -73,6 +73,7 @@
 - [关闭/禁止 snap](/os/ubuntu/snap.md)
 - [UninstallUbuntuOnWin](/os/ubuntu/UninstallUbuntuOnWin.md)
 - [Xiaoxin13ProWinUbuOS](/os/ubuntu/Xiaoxin13ProWinUbuOS.md)
+- [ufw 让防火墙变得方便使用](/os/ubuntu/ufw.md)
 
 ## Deepin
 
