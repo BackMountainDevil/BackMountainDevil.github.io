@@ -1,6 +1,6 @@
 # docker 的入门笔记
 - date: 2022-04-13
-- lastmod: 2024-07-18
+- lastmod: 2025-01-13
 
 # 前言
 
@@ -28,6 +28,7 @@
 sudo pacman install docker  # 
 sudo usermod -a -G docker $USER # 将当前用户加入 docker 用户组，此操作的风险 wiki 中已经明确标红指示出来了。然后注销重新登录，但是我测试得重启才行
 systemctl enable docker # 设置开启自启动 docker 服务，禁止就 enable 换成 disable
+systemctl stop docker.socket    # 关闭服务，去掉 socket 的话关闭不完全，会自启
 ```
 
 如果不想开启启动 docker 服务，比如我一般不这么设置，需要时再用下面这句 `systemctl start docker` 启动 docker 服务
