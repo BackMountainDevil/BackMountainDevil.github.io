@@ -3,3 +3,4 @@
 - [小米6刷lineageos root](/os/android/mi6.md)
 - [小米6 lineageos 20 升级到 21](/os/android/lineageos20_21.md)
 - [oneplus ace 3v root](/os/android/oneplus_ace3v.md)
+- [面具 magisk](/os/android/magisk.md)
