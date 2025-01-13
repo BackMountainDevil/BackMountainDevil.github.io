@@ -30,6 +30,7 @@
 - [联想小新风扇控制](/code/app/lenovoFan.md)
 - [视频剪辑软件 linux 平台](/code/app/videoEdit.md)
 - [OCR:tesseract, paddleocr](/code/app/ocr.md)
+- [微信聊天记录导出](/code/app/wx_msg.md)
 
 # Git
 
